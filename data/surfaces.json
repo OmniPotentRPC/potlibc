@@ -88,7 +88,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/ALC/chc5m0.f",
@@ -142,7 +146,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/ALC/chc6m0.f",
@@ -196,7 +204,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/ALC/chc7m0.f",
@@ -250,7 +262,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/ALC/chc7m1.f",
@@ -304,7 +320,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/ALC/chc7m10.f",
@@ -358,7 +378,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/ALC/chc7m4.f",
@@ -412,7 +436,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/ALC/chc7m5.f",
@@ -466,7 +494,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/ALC/chc7m7.f",
@@ -520,7 +552,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/ALC/chc7p2.f",
@@ -574,7 +610,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/ALC/chc7p3.f",
@@ -628,7 +668,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/ALC/chc7p5.f",
@@ -682,7 +726,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/AlmHn/vbo-beta1.f",
@@ -740,7 +788,11 @@
       "surface_evidence": [
         "molecular-mechanics interface header",
         "PotLib surface header and active implementation"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/AlmHn/vbo2-beta1.f",
@@ -798,7 +850,11 @@
       "surface_evidence": [
         "molecular-mechanics interface header",
         "PotLib surface header and active implementation"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/BetH.f",
@@ -854,7 +910,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/CleR.f",
@@ -910,7 +970,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/CoxJM.f",
@@ -966,7 +1030,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/ER.f",
@@ -1022,7 +1090,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/ER2.f",
@@ -1078,7 +1150,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/ER2AT.f",
@@ -1155,7 +1231,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/ER2BA.f",
@@ -1211,7 +1291,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/ER2CN.f",
@@ -1267,7 +1351,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/ER2CoxJM.f",
@@ -1323,7 +1411,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/ER2EACN.f",
@@ -1379,7 +1471,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/ER2EAT.f",
@@ -1456,7 +1552,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/ER2EBA.f",
@@ -1512,7 +1612,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/ER2ECN.f",
@@ -1568,7 +1672,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/ER2ES.f",
@@ -1624,7 +1732,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/ER2ESCNa.f",
@@ -1680,7 +1792,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/ER2ESCNm.f",
@@ -1736,7 +1852,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/ER2GEA.f",
@@ -1792,7 +1912,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/ER2MeiD.f",
@@ -1848,7 +1972,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/ER2MisFMP.f",
@@ -1904,7 +2032,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/ER2S.f",
@@ -1960,7 +2092,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/ER2SCNa.f",
@@ -2016,7 +2152,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/ER2SCNm.f",
@@ -2072,7 +2212,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/ErkIV.f",
@@ -2128,7 +2272,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/ErkV.f",
@@ -2184,7 +2332,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/ErkVIII.f",
@@ -2259,7 +2411,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/Gol.f",
@@ -2315,7 +2471,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/HalP.f",
@@ -2371,7 +2531,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/Jac.f",
@@ -2427,7 +2591,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/MeiD.f",
@@ -2483,7 +2651,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/MisFMP.f",
@@ -2539,7 +2711,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/NP-A.f",
@@ -2595,7 +2771,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/NP-Ad.f",
@@ -2657,7 +2837,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/NP-B.f",
@@ -2713,7 +2897,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/NP-Bd.f",
@@ -2775,7 +2963,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/NP-C.f",
@@ -2831,7 +3023,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/NP-D.f",
@@ -2887,7 +3083,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/NP-E.f",
@@ -2943,7 +3143,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/PapCEP.f",
@@ -2999,7 +3203,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/PapKEP.f",
@@ -3055,7 +3263,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/PeaTHT.f",
@@ -3132,7 +3344,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/PetW.f",
@@ -3188,7 +3404,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/StrM.f",
@@ -3244,7 +3464,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/SutC.f",
@@ -3300,7 +3524,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/deSPH-LJAT.f",
@@ -3377,7 +3605,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/deSPH-M.f",
@@ -3433,7 +3665,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/reCoxJM.f",
@@ -3489,7 +3725,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/reErkIV.f",
@@ -3545,7 +3785,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/reErkVIII.f",
@@ -3620,7 +3864,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/reGEA.f",
@@ -3676,7 +3924,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/reGol.f",
@@ -3732,7 +3984,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/reHalP.f",
@@ -3788,7 +4044,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/reJac.f",
@@ -3844,7 +4104,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/reLJAT.f",
@@ -3921,7 +4185,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/reMeiD.f",
@@ -3977,7 +4245,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/reMisFMP.f",
@@ -4033,7 +4305,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/rePetW.f",
@@ -4089,7 +4365,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/reStrM.f",
@@ -4145,7 +4425,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/reSutC.f",
@@ -4201,7 +4485,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/Aln/redeSPH-M.f",
@@ -4257,7 +4545,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "molecular-mechanics interface header"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/BrH2/brh2dim3c.f",
@@ -4399,7 +4691,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "BR",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          35,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/BrH2/brh2dim3c2001.f",
@@ -4547,7 +4853,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "BR",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          35,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/BrH2/brh2leps.f",
@@ -4601,7 +4921,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/BrH2/brh2leps2001.f",
@@ -4659,7 +4983,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/BrH2/brh2sec.f",
@@ -4748,7 +5076,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "BR",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          35,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/BrH2/brh2sec2001.f",
@@ -4841,7 +5183,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "BR",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          35,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/BrH2/brh2secd.f",
@@ -4957,7 +5313,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "BR",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          35,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/BrH2/brh2so.f",
@@ -5054,7 +5424,21 @@
       ],
       "surface_evidence": [
         "PotLib surface header and active implementation"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "BR",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          35,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/BrH2/brh2so2001.f",
@@ -5160,7 +5544,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "BR",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          35,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/BrHCl/brhcleleps2-2001.f",
@@ -5218,7 +5616,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/BrHCl/brhcleleps2.f",
@@ -5272,7 +5674,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/BrHCl/brhcleleps3-2001.f",
@@ -5330,7 +5736,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/BrHCl/brhcleleps3.f",
@@ -5384,7 +5794,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/BrHCl/brhcllepsk.f",
@@ -5438,7 +5852,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/BrHCl/brhcllepsk2001.f",
@@ -5496,7 +5914,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/BrHCl/clhbrblm.f",
@@ -5550,7 +5972,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/BrHCl/clhbreleps.f",
@@ -5604,7 +6030,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/BrHCl/clhbrlepsk.f",
@@ -5658,7 +6088,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/C2H6Cl/C2H6Cl-rev2019.f",
@@ -5859,7 +6293,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/C2H6F/C2H6F-rev2019.f",
@@ -6068,7 +6506,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/C2H6H/C2H6H-rev2019.f",
@@ -6269,7 +6711,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/C2H6O/c2h6o-v2020.f",
@@ -6470,7 +6916,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/C2H6OH/c2h6oh-v2020.f",
@@ -6673,7 +7123,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/C2H7/c2h7.f",
@@ -7190,7 +7644,33 @@
       ],
       "surface_evidence": [
         "PotLib surface header and active implementation"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          6,
+          6,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/C2H7/c2h7pot5.f",
@@ -7734,7 +8214,11 @@
       ],
       "surface_evidence": [
         "custom module/package PES implementation"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/C3H7NO/Full-PES/pes_shell.f90",
@@ -7851,7 +8335,11 @@
       "common_blocks": [],
       "surface_evidence": [
         "custom module/package PES implementation"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/C6H5SH/phsh_aprp.f90",
@@ -8529,7 +9017,41 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "S",
+          "H"
+        ],
+        "numbers": [
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          1,
+          1,
+          1,
+          1,
+          1,
+          16,
+          1
+        ]
+      }
     },
     {
       "path": "src/C6H6O/phoh_aprp.f",
@@ -9038,7 +9560,41 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "O"
+        ],
+        "numbers": [
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          8
+        ]
+      }
     },
     {
       "path": "src/C7H8S/phsch3_II.f90",
@@ -9731,7 +10287,47 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "S"
+        ],
+        "numbers": [
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          16
+        ]
+      }
     },
     {
       "path": "src/C7H8S/phsch3_III.f90",
@@ -10424,7 +11020,47 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "S"
+        ],
+        "numbers": [
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          16
+        ]
+      }
     },
     {
       "path": "src/C7H8S/phsch3_Ia.f90",
@@ -11117,7 +11753,47 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "S"
+        ],
+        "numbers": [
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          16
+        ]
+      }
     },
     {
       "path": "src/C7H8S/phsch3_S-1.8.f90",
@@ -11810,7 +12486,47 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "S"
+        ],
+        "numbers": [
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          16
+        ]
+      }
     },
     {
       "path": "src/C7H8S/phsch3_S-2.0.f90",
@@ -12503,7 +13219,47 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "S"
+        ],
+        "numbers": [
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          16
+        ]
+      }
     },
     {
       "path": "src/C7H8S/phsch3_S-2.2.f90",
@@ -13196,7 +13952,47 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "S"
+        ],
+        "numbers": [
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          16
+        ]
+      }
     },
     {
       "path": "src/C7H8S/phsch3_S-2.5.f90",
@@ -13889,7 +14685,47 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "S"
+        ],
+        "numbers": [
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          16
+        ]
+      }
     },
     {
       "path": "src/C7H8S/phsch3_aprp.f90",
@@ -14582,7 +15418,47 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H",
+          "S"
+        ],
+        "numbers": [
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          16
+        ]
+      }
     },
     {
       "path": "src/CH3NH2/CH3NH2.f",
@@ -15126,7 +16002,29 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "N",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          7,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/CH4/ch4T8.F",
@@ -15197,7 +16095,25 @@
       "common_blocks": [],
       "surface_evidence": [
         "PotLib surface header and active implementation"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/CH4Br/ch4br.f",
@@ -15355,7 +16271,27 @@
       ],
       "surface_evidence": [
         "active Section-2 SURF entry"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "BR"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          35
+        ]
+      }
     },
     {
       "path": "src/CH4CN/ch4cn-2016.f",
@@ -15491,7 +16427,29 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "C",
+          "N"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          6,
+          7
+        ]
+      }
     },
     {
       "path": "src/CH4Cl/ch4cl.f",
@@ -15626,7 +16584,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "CL"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          17
+        ]
+      }
     },
     {
       "path": "src/CH4Cl/ch4cl2001.f",
@@ -15761,7 +16739,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "CL"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          17
+        ]
+      }
     },
     {
       "path": "src/CH4Cl/ch4cl2005.f",
@@ -15896,7 +16894,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "CL"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          17
+        ]
+      }
     },
     {
       "path": "src/CH4F/ch4f-noso.f",
@@ -16042,7 +17060,27 @@
       "common_blocks": [],
       "surface_evidence": [
         "active Section-2 SURF entry"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "F"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          9
+        ]
+      }
     },
     {
       "path": "src/CH4F/ch4f-so.f",
@@ -16188,7 +17226,27 @@
       "common_blocks": [],
       "surface_evidence": [
         "active Section-2 SURF entry"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "F"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          9
+        ]
+      }
     },
     {
       "path": "src/CH4F/ch4f2006.f",
@@ -16323,7 +17381,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "F"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          9
+        ]
+      }
     },
     {
       "path": "src/CH4O/ch4o-2014.f",
@@ -16465,7 +17543,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "O"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          8
+        ]
+      }
     },
     {
       "path": "src/CH4O/ch4o00.f",
@@ -16600,7 +17698,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "O"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          8
+        ]
+      }
     },
     {
       "path": "src/CH4O/ch4o01-2001.f",
@@ -16735,7 +17853,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "O"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          8
+        ]
+      }
     },
     {
       "path": "src/CH4O/ch4o95-2001.f",
@@ -16870,7 +18008,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/CH4O/ch4o98-2001.f",
@@ -17005,7 +18147,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/CH4O/ch4o98.f",
@@ -17140,7 +18286,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "O"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          8
+        ]
+      }
     },
     {
       "path": "src/CH4OH/ch4oh.f",
@@ -17276,7 +18442,29 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "O",
+          "H"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          8,
+          1
+        ]
+      }
     },
     {
       "path": "src/CH4OH/ch4oh2001.f",
@@ -17412,7 +18600,29 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "O",
+          "H"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          8,
+          1
+        ]
+      }
     },
     {
       "path": "src/CH4OH/ch4oh2014.f",
@@ -17548,7 +18758,29 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "O",
+          "H"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          8,
+          1
+        ]
+      }
     },
     {
       "path": "src/CH5/ch52008.f",
@@ -17683,7 +18915,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/CH5/ch5j1.f",
@@ -17868,7 +19120,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/CH5/ch5j2.f",
@@ -18053,7 +19325,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/CH5/ch5jg2.f",
@@ -18241,7 +19533,27 @@
       ],
       "surface_evidence": [
         "active Section-2 SURF entry"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/CH5/ch5jg2001.f",
@@ -18405,7 +19717,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/CH5/ch5jg2001X.f",
@@ -18540,7 +19872,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/CH5/ch5jg2008.f",
@@ -18714,7 +20066,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/CH5/ch5jg2008X.f",
@@ -18859,7 +20231,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/CH5/ch5jg2X.f",
@@ -19018,7 +20410,27 @@
       ],
       "surface_evidence": [
         "active Section-2 SURF entry"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/CH5/ch5jgX.f",
@@ -19153,7 +20565,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/CH5/ch5jj.f",
@@ -19288,7 +20720,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/CH5/ch5jj2.f",
@@ -19447,7 +20899,27 @@
       ],
       "surface_evidence": [
         "active Section-2 SURF entry"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/CH5/ch5jj2001.f",
@@ -19582,7 +21054,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "C",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/Cl2H/clhclbcmr.f",
@@ -19635,7 +21127,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/Cl2H/clhclbcmr2001.f",
@@ -19693,7 +21189,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/Cl2H/clhclpk2-2001.f",
@@ -19752,7 +21252,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "CL",
+          "H",
+          "CL"
+        ],
+        "numbers": [
+          17,
+          1,
+          17
+        ]
+      }
     },
     {
       "path": "src/Cl2H/clhclpk2.f",
@@ -19805,7 +21319,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "CL",
+          "H",
+          "CL"
+        ],
+        "numbers": [
+          17,
+          1,
+          17
+        ]
+      }
     },
     {
       "path": "src/Cl2H/clhclpk3-2001.f",
@@ -19864,7 +21392,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "CL",
+          "H",
+          "CL"
+        ],
+        "numbers": [
+          17,
+          1,
+          17
+        ]
+      }
     },
     {
       "path": "src/Cl2H/clhclpk3.f",
@@ -19917,7 +21459,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "CL",
+          "H",
+          "CL"
+        ],
+        "numbers": [
+          17,
+          1,
+          17
+        ]
+      }
     },
     {
       "path": "src/Cl2H/hcl2lep.f",
@@ -19971,7 +21527,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/Cl2H/hcl2lep2001.f",
@@ -20029,7 +21589,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/ClH2/clh2alab.f",
@@ -20090,7 +21654,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "CL",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          17,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/ClH2/clh2dim3c.f",
@@ -20232,7 +21810,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "CL",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          17,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/ClH2/clh2dima.f",
@@ -20392,7 +21984,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "CL",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          17,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/ClH2/clh2dims.f",
@@ -20522,7 +22128,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "CL",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          17,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/ClH2/clh2g1.f",
@@ -20576,7 +22196,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/ClH2/clh2g3.f",
@@ -20627,7 +22251,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "CL",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          17,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/ClH2/clh2g3v.f",
@@ -20684,7 +22322,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "CL",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          17,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/ClH2/clh2gq.f",
@@ -20738,7 +22390,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "CL",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          17,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/ClH2/clh2gqq.f",
@@ -20792,7 +22458,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "CL",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          17,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/ClH2/clh2gsi.f",
@@ -20846,7 +22526,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/ClH2/clh2gsii.f",
@@ -20900,7 +22584,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/ClH2/clh2s1.f",
@@ -20954,7 +22642,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/ClH2/clh2s2.f",
@@ -21008,7 +22700,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/ClH2/clh2s3.f",
@@ -21062,7 +22758,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/ClH2/clh2spkgsw.f",
@@ -21116,7 +22816,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/ClNH3/clnh3-2012.f",
@@ -21257,7 +22961,25 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "CL",
+          "N",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          17,
+          7,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/F2H/hf2eleps.f",
@@ -21311,7 +23033,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/F2H/hf2eleps2001.f",
@@ -21369,7 +23095,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/F2H/hf2jotii.f",
@@ -21420,7 +23150,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "F",
+          "H"
+        ],
+        "numbers": [
+          9,
+          9,
+          1
+        ]
+      }
     },
     {
       "path": "src/F2H/hf2jotii2001.f",
@@ -21477,7 +23221,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "F",
+          "H"
+        ],
+        "numbers": [
+          9,
+          9,
+          1
+        ]
+      }
     },
     {
       "path": "src/F2H2/bjkkl.f",
@@ -21558,7 +23316,11 @@
       ],
       "surface_evidence": [
         "known custom package PES entry"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/F2H2/f2h2s2-2001.f",
@@ -21629,7 +23391,23 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/F2H2/f2h2s2.f",
@@ -21739,7 +23517,23 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/F2H2/f2h2sqsbde.f",
@@ -21849,7 +23643,23 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/F2H2/f2h2sqsbde2001.f",
@@ -21920,7 +23730,23 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25av.f",
@@ -21979,7 +23805,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25sec.f",
@@ -22103,7 +23943,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25sec2001.f",
@@ -22231,7 +24085,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25seccog1-2001.f",
@@ -22352,7 +24220,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25seccog1.f",
@@ -22469,7 +24351,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25seccog2-2001.f",
@@ -22590,7 +24486,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25seccog2.f",
@@ -22707,7 +24617,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25seccog3-2001.f",
@@ -22828,7 +24752,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25seccog3.f",
@@ -22945,7 +24883,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25secgm1-2001.f",
@@ -23066,7 +25018,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25secgm1.f",
@@ -23183,7 +25149,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25secgm2-2001.f",
@@ -23304,7 +25284,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25secgm2.f",
@@ -23421,7 +25415,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25secgm3-2001.f",
@@ -23542,7 +25550,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25secgm3.f",
@@ -23659,7 +25681,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25secgm4.f",
@@ -23779,7 +25815,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25secs1-2001.f",
@@ -23900,7 +25950,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25secs1.f",
@@ -24017,7 +26081,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25secs2-2001.f",
@@ -24138,7 +26216,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25secs2.f",
@@ -24255,7 +26347,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25secs3-2001.f",
@@ -24376,7 +26482,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25secs3.f",
@@ -24493,7 +26613,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25secw.f",
@@ -24617,7 +26751,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh25secw2001.f",
@@ -24745,7 +26893,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh26sec.f",
@@ -24866,7 +27028,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh26sec2001.f",
@@ -24991,7 +27167,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh2m5-2001.f",
@@ -25049,7 +27239,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/FH2/fh2m5.f",
@@ -25103,7 +27297,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/FH2/fh2m5sk.f",
@@ -25157,7 +27355,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/FH2/fh2m5sk2001.f",
@@ -25215,7 +27417,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/FH2/fh2n1-2001.f",
@@ -25273,7 +27479,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/FH2/fh2n1.f",
@@ -25327,7 +27537,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/FH2/fh2n2-2001.f",
@@ -25403,7 +27617,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh2n2.f",
@@ -25474,7 +27702,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh2n2a.f",
@@ -25545,7 +27787,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh2n2a2001.f",
@@ -25621,7 +27877,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh2n3-2001.f",
@@ -25697,7 +27967,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh2n3.f",
@@ -25769,7 +28053,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh2n4-2001.f",
@@ -25827,7 +28125,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh2n4.f",
@@ -25880,7 +28192,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh2n5-2001.f",
@@ -25938,7 +28264,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh2n5.f",
@@ -25991,7 +28331,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh2n5a.f",
@@ -26044,7 +28398,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh2n5a2001.f",
@@ -26103,7 +28471,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh2n5b.f",
@@ -26156,7 +28538,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh2n5b2001.f",
@@ -26215,7 +28611,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh2n5z.f",
@@ -26268,7 +28678,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh2n5z2001.f",
@@ -26326,7 +28750,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "F",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          9,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/FH2/fh2sk.f",
@@ -26380,7 +28818,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/FH2/fh2sk2001.f",
@@ -26438,7 +28880,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/GeH4OH/geh4oh-2014.f",
@@ -26574,7 +29020,29 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "GE",
+          "H",
+          "H",
+          "H",
+          "H",
+          "O",
+          "H"
+        ],
+        "numbers": [
+          32,
+          1,
+          1,
+          1,
+          1,
+          8,
+          1
+        ]
+      }
     },
     {
       "path": "src/GeH5/geh5-2001.f",
@@ -26716,7 +29184,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "GE",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          32,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/GeH5/geh5.f",
@@ -26858,7 +29346,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "GE",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          32,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/H2O2/h2o2.f",
@@ -27014,7 +29522,11 @@
       "surface_evidence": [
         "active POT/ENTRY POT",
         "active Section-2 SURF entry"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/H3/a2.f",
@@ -27123,7 +29635,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/H3/a3.f",
@@ -27230,7 +29756,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/H3/a4.f",
@@ -27337,7 +29877,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/H3/cci.f",
@@ -27452,7 +30006,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/H3/h3_bh.f",
@@ -27655,7 +30223,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/H3/h3bkmp.f",
@@ -27826,7 +30408,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/H3/h3bkmp3.f",
@@ -28017,7 +30613,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/H3/h3dmbe.f",
@@ -28197,7 +30807,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/H3/h3dmbe2001.f",
@@ -28375,7 +30999,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/H3/h3dmbev.f",
@@ -28428,7 +31066,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/H3/h3lsth.f",
@@ -28523,7 +31175,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/H3/h3pk2-2001.f",
@@ -28580,7 +31246,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/H3/h3pk2.f",
@@ -28633,7 +31313,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/H3/h3tk.f",
@@ -28704,7 +31398,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/H3/h3tk2001.f",
@@ -28774,7 +31482,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/H3Cl/H3Cl-package-mass-independent/pes-H3Cl.f",
@@ -29201,7 +31923,11 @@
       ],
       "surface_evidence": [
         "custom module/package PES implementation"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/H3plus/h3plusKBNN.f",
@@ -29260,7 +31986,11 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/H3plus/h3plusKBNNd.f",
@@ -29319,7 +32049,11 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/H3plus/h3plusUNO.f",
@@ -29378,7 +32112,11 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/H3plus/h3plusUNOd.f",
@@ -29437,7 +32175,11 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/I2H/hi2kka.f",
@@ -29488,7 +32230,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "H",
+          "I",
+          "I"
+        ],
+        "numbers": [
+          1,
+          53,
+          53
+        ]
+      }
     },
     {
       "path": "src/I2H/hi2kka2001.f",
@@ -29545,7 +32301,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "H",
+          "I",
+          "I"
+        ],
+        "numbers": [
+          1,
+          53,
+          53
+        ]
+      }
     },
     {
       "path": "src/I2H/ihielepsa.f",
@@ -29599,7 +32369,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/I2H/ihielepsa2001.f",
@@ -29657,7 +32431,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/I2H/ihielepsb.f",
@@ -29711,7 +32489,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/I2H/ihielepsb2001.f",
@@ -29769,7 +32551,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/IH2/ih2eleps.f",
@@ -29823,7 +32609,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/IH2/ih2eleps2001.f",
@@ -29881,7 +32671,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/IH2/ih2elepsa.f",
@@ -29935,7 +32729,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/IH2/ih2elepsa2001.f",
@@ -29993,7 +32791,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/IH2/ih2raff.f",
@@ -30046,7 +32848,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "I",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          53,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/IH2/ih2raff2001.f",
@@ -30103,7 +32919,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "I",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          53,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/IH2/ih2rmc1d.f",
@@ -30157,7 +32987,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "I",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          53,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/IH2/ih2rmc1d2001.f",
@@ -30216,7 +33060,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "I",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          53,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/IH2/ih2rmc3d.f",
@@ -30290,7 +33148,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "I",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          53,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/IH2/ih2rmc3d2001.f",
@@ -30363,7 +33235,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "I",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          53,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/LiFH/LiFHJ.f",
@@ -30492,7 +33378,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "LI",
+          "F",
+          "H"
+        ],
+        "numbers": [
+          3,
+          9,
+          1
+        ]
+      }
     },
     {
       "path": "src/LiFH/LiFHJS.f",
@@ -30606,7 +33506,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "LI",
+          "F",
+          "H"
+        ],
+        "numbers": [
+          3,
+          9,
+          1
+        ]
+      }
     },
     {
       "path": "src/LiFH/LiFHd.f",
@@ -30736,7 +33650,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "LI",
+          "F",
+          "H"
+        ],
+        "numbers": [
+          3,
+          9,
+          1
+        ]
+      }
     },
     {
       "path": "src/MCH/MCH_SB.f",
@@ -30866,7 +33794,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/MCH/MCH_SL.f",
@@ -30996,7 +33928,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/MCH/MCH_TL.f",
@@ -31126,7 +34062,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/MCH/MCH_WB.f",
@@ -31256,7 +34196,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/MCH/MCH_WL.f",
@@ -31386,7 +34330,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/MXH/MXH_SBd.f",
@@ -31517,7 +34465,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/MXH/MXH_SLd.f",
@@ -31648,7 +34600,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/MXH/MXH_WLd.f",
@@ -31779,7 +34735,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/N4/N4_1A_MB-PIP-MEG3.f90",
@@ -32099,7 +35059,23 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "N",
+          "N",
+          "N"
+        ],
+        "numbers": [
+          7,
+          7,
+          7,
+          7
+        ]
+      }
     },
     {
       "path": "src/N4/PES_N4_MB-PIP-NN.F",
@@ -32402,7 +35378,23 @@
       "common_blocks": [],
       "surface_evidence": [
         "PotLib surface header and active implementation"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "N",
+          "N",
+          "N"
+        ],
+        "numbers": [
+          7,
+          7,
+          7,
+          7
+        ]
+      }
     },
     {
       "path": "src/N4/PES_N4_MEG2.f90",
@@ -32722,7 +35714,23 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "N",
+          "N",
+          "N"
+        ],
+        "numbers": [
+          7,
+          7,
+          7,
+          7
+        ]
+      }
     },
     {
       "path": "src/N4/PES_N4_singlet_umn_v3.f90",
@@ -32997,7 +36005,23 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "N",
+          "N",
+          "N"
+        ],
+        "numbers": [
+          7,
+          7,
+          7,
+          7
+        ]
+      }
     },
     {
       "path": "src/N4/n4pes-gpip-meg.f",
@@ -33193,7 +36217,23 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "N",
+          "N",
+          "N"
+        ],
+        "numbers": [
+          7,
+          7,
+          7,
+          7
+        ]
+      }
     },
     {
       "path": "src/N4/n4pes-gpip-v2/n4pes-gpip-v2.f",
@@ -33389,7 +36429,23 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "N",
+          "N",
+          "N"
+        ],
+        "numbers": [
+          7,
+          7,
+          7,
+          7
+        ]
+      }
     },
     {
       "path": "src/N4/n4pes-gpip-v2.f",
@@ -33585,7 +36641,23 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "N",
+          "N",
+          "N"
+        ],
+        "numbers": [
+          7,
+          7,
+          7,
+          7
+        ]
+      }
     },
     {
       "path": "src/N4/n4pes_130624/n4pes.f",
@@ -33781,7 +36853,23 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "N",
+          "N",
+          "N"
+        ],
+        "numbers": [
+          7,
+          7,
+          7,
+          7
+        ]
+      }
     },
     {
       "path": "src/N4/n4pes_L-IMLS-G2_v1.f",
@@ -34175,7 +37263,23 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "N",
+          "N",
+          "N"
+        ],
+        "numbers": [
+          7,
+          7,
+          7,
+          7
+        ]
+      }
     },
     {
       "path": "src/NH3/nh3code1.f",
@@ -34530,7 +37634,23 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          7,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/NH3/nh3code2.f",
@@ -34917,7 +38037,23 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          7,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/NH3CN/nh3cn.f",
@@ -35058,7 +38194,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "H",
+          "H",
+          "H",
+          "C",
+          "N"
+        ],
+        "numbers": [
+          7,
+          1,
+          1,
+          1,
+          6,
+          7
+        ]
+      }
     },
     {
       "path": "src/NH3OH/nh3oh-2013.f",
@@ -35199,7 +38355,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "H",
+          "H",
+          "H",
+          "O",
+          "H"
+        ],
+        "numbers": [
+          7,
+          1,
+          1,
+          1,
+          8,
+          1
+        ]
+      }
     },
     {
       "path": "src/NH4/nh4.f",
@@ -35340,7 +38516,25 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "H",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          7,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/NH4/nh42001.f",
@@ -35481,7 +38675,25 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "H",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          7,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/NH4/nh42009.f",
@@ -35622,7 +38834,25 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "H",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          7,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/NaFH/nafh1v.f",
@@ -35737,7 +38967,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "NA",
+          "F",
+          "H"
+        ],
+        "numbers": [
+          11,
+          9,
+          1
+        ]
+      }
     },
     {
       "path": "src/NaFH/nafh1v2001.f",
@@ -35832,7 +39076,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "NA",
+          "F",
+          "H"
+        ],
+        "numbers": [
+          11,
+          9,
+          1
+        ]
+      }
     },
     {
       "path": "src/NaFH/nafh2d.f",
@@ -35987,7 +39245,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "NA",
+          "F",
+          "H"
+        ],
+        "numbers": [
+          11,
+          9,
+          1
+        ]
+      }
     },
     {
       "path": "src/NaFH/nafh2v.f",
@@ -36114,7 +39386,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "NA",
+          "F",
+          "H"
+        ],
+        "numbers": [
+          11,
+          9,
+          1
+        ]
+      }
     },
     {
       "path": "src/NaH2/nah25f.f",
@@ -36219,7 +39505,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "NA",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          11,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/NaH2/nah25f2001.f",
@@ -36315,7 +39615,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "NA",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          11,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/NaH2/nah25g.f",
@@ -36420,7 +39734,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "NA",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          11,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/NaH2/nah25g2001.f",
@@ -36516,7 +39844,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "NA",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          11,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/NaH2/nah26_der.f",
@@ -36646,7 +39988,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "NA",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          11,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/NaH2/nah2_7l.f",
@@ -36753,7 +40109,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "NA",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          11,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/NaH2/nah2_7l2001.f",
@@ -36849,7 +40219,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "NA",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          11,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/NaH2/nah2_7ld.f",
@@ -36979,7 +40363,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "NA",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          11,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/NaH2/nah2_7s.f",
@@ -37086,7 +40484,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "NA",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          11,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/NaH2/nah2_7s2001.f",
@@ -37182,7 +40594,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "NA",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          11,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/NaH2/nah2_7sd.f",
@@ -37312,7 +40738,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "NA",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          11,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/NinR/nich4.f",
@@ -37799,6 +41239,10 @@
       "surface_evidence": [
         "implementation source in vendor package archive"
       ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      },
       "archive_source": {
         "path": "src/NinR/nich4.tar",
         "member": "METHANE/methane.f",
@@ -38080,6 +41524,10 @@
       "surface_evidence": [
         "implementation source in vendor package archive"
       ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      },
       "archive_source": {
         "path": "src/NinR/niheam5.tar",
         "member": "EAM5/hni5.f",
@@ -38370,6 +41818,10 @@
       "surface_evidence": [
         "implementation source in vendor package archive"
       ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      },
       "archive_source": {
         "path": "src/NinR/niheam6.tar",
         "member": "EAM6/hni6.f",
@@ -38660,6 +42112,10 @@
       "surface_evidence": [
         "implementation source in vendor package archive"
       ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      },
       "archive_source": {
         "path": "src/NinR/niheam7.tar",
         "member": "EAM7/hni7.f",
@@ -38717,7 +42173,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "H",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          1,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/O2H/ho2mb2001.f",
@@ -38775,7 +42245,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "H",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          1,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/OH2/oh2dim.f",
@@ -38863,7 +42347,21 @@
       ],
       "surface_evidence": [
         "custom module/package PES implementation"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          8,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/OH2/oh2dim2001.f",
@@ -38947,7 +42445,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          8,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/OH2/oh2jw.f",
@@ -39001,7 +42513,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/OH2/oh2jw2001.f",
@@ -39059,7 +42575,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/OH2/oh2jws.f",
@@ -39112,7 +42632,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          8,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/OH2/oh2jws2001.f",
@@ -39170,7 +42704,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          8,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/OH2/oh2m2adp.f",
@@ -39263,7 +42811,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          8,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/OH2/oh2m2adp2001.f",
@@ -39348,7 +42910,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/OH2/oh2m2ap.f",
@@ -39441,7 +43007,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          8,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/OH2/oh2m2ap2001.f",
@@ -39526,7 +43106,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/OH2/oh2m3a.f",
@@ -39638,7 +43222,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          8,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/OH2/oh2m3a2001.f",
@@ -39743,7 +43341,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/OH2/oh2m3n.f",
@@ -39855,7 +43457,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          8,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/OH2/oh2m3n2001.f",
@@ -39960,7 +43576,11 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/OH2/oh2pol.f",
@@ -40051,7 +43671,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          8,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/OH2/oh2pol2001.f",
@@ -40136,7 +43770,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          8,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/OH2/oh2sl.f",
@@ -40190,7 +43838,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          8,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/OH2/oh2sl2001.f",
@@ -40249,7 +43911,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          8,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/OH3/oh3.f",
@@ -40325,7 +44001,23 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          8,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/SiH4Cl/sih4cl.f",
@@ -40460,7 +44152,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "SI",
+          "H",
+          "H",
+          "H",
+          "H",
+          "CL"
+        ],
+        "numbers": [
+          14,
+          1,
+          1,
+          1,
+          1,
+          17
+        ]
+      }
     },
     {
       "path": "src/SiH5/sih5-1-2001.f",
@@ -40595,7 +44307,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "SI",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          14,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/SiH5/sih5-2-2001.f",
@@ -40730,7 +44462,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "SI",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          14,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/SiH5/sih5-2.f",
@@ -40865,7 +44617,27 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "SI",
+          "H",
+          "H",
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          14,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
     },
     {
       "path": "src/SiOH/SiOH.f",
@@ -40932,7 +44704,11 @@
       "common_blocks": [],
       "surface_evidence": [
         "custom module/package PES implementation"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "variable-size system has no unambiguous elemental species"
+      }
     },
     {
       "path": "src/YRH/yrh_der.f",
@@ -41060,7 +44836,11 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "formula contains symbols outside periodic table map"
+      }
     },
     {
       "path": "src/done/FH2O/fh2o-pipnn.f",
@@ -41281,7 +45061,11 @@
       "common_blocks": [],
       "surface_evidence": [
         "custom module/package PES implementation"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/done/FH2O/soc-fh2o-nn.f",
@@ -41448,7 +45232,11 @@
       "common_blocks": [],
       "surface_evidence": [
         "known custom package PES entry"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/done/HO3/ho3_pes/ho3_pes.f",
@@ -41713,7 +45501,11 @@
       "common_blocks": [],
       "surface_evidence": [
         "custom module/package PES implementation"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/done/N2O/N2O_3Ap_MB-PIP-MEG2.f90",
@@ -42096,7 +45888,11 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/done/N2O/N2O_3App_MB-PIP-MEG2.f90",
@@ -42479,7 +46275,11 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/done/N2O/PES_N2O_3Ap_umn_v1.f90",
@@ -42811,7 +46611,23 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "N",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          7,
+          7,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/N2O/PES_N2O_3App_umn_v1.f90",
@@ -43143,7 +46959,23 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "N",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          7,
+          7,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/N2O/n2o-3Ap-gpip.f",
@@ -43348,7 +47180,23 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "N",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          7,
+          7,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/N2O/n2o-3App-gpip.f",
@@ -43553,7 +47401,23 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "N",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          7,
+          7,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/N2O2/N2O2_3A_MB-PIP-MEG2.f90",
@@ -43894,7 +47758,23 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "N",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          7,
+          7,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/N2O2/PES_N2O2_triplet_umn_v1.f90",
@@ -44191,7 +48071,23 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "N",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          7,
+          7,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/N3/N3_4App_MB-PIP-MEG.f90",
@@ -44534,7 +48430,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "N",
+          "N"
+        ],
+        "numbers": [
+          7,
+          7,
+          7
+        ]
+      }
     },
     {
       "path": "src/done/N3/n3pes.f90",
@@ -44605,7 +48515,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "PotLib surface header and active implementation"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "N",
+          "N"
+        ],
+        "numbers": [
+          7,
+          7,
+          7
+        ]
+      }
     },
     {
       "path": "src/done/NO2/NO2_2Ap_MB-PIP-MEG.f90",
@@ -44953,7 +48877,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          7,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/NO2/NO2_2Ap_PIP-NN/no2-pipnn.f",
@@ -45279,7 +49217,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "PotLib surface header and active implementation"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          7,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/NO2/NO2_4Ap_MB-PIP-MEG.f90",
@@ -45627,7 +49579,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          7,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/NO2/NO2_4Ap_PIP-NN/no2-pipnn.f",
@@ -45935,7 +49901,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "PotLib surface header and active implementation"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          7,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/NO2/NO2_6Ap_MB-PIP-MEG.f90",
@@ -46283,7 +50263,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          7,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/NO2/NO2_6Ap_PIP-NN/no2-pipnn.f",
@@ -46591,7 +50585,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "PotLib surface header and active implementation"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "N",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          7,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O2H3/pip-nn-pes-OH+H2O/h3o2-pipnn.f",
@@ -46776,7 +50784,11 @@
       "common_blocks": [],
       "surface_evidence": [
         "custom module/package PES implementation"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "unknown",
+        "reason": "system formula does not resolve a unique fixed atom list"
+      }
     },
     {
       "path": "src/done/O3/O3_14_3Ap_2022.f90",
@@ -47088,7 +51100,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "custom module/package PES implementation"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O3/O3_14_3Ap_2023.f90",
@@ -47442,7 +51468,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "custom module/package PES implementation"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O3/O3_1_1Ap.f",
@@ -47676,7 +51716,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O3/O3_1_1App.f",
@@ -47910,7 +51964,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O3/O3_1_3Ap.f",
@@ -48144,7 +52212,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O3/O3_1_3App.f",
@@ -48378,7 +52460,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O3/O3_1_5Ap.f",
@@ -48612,7 +52708,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O3/O3_1_5App.f",
@@ -48846,7 +52956,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O3/O3_2_1Ap.f",
@@ -49080,7 +53204,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O3/O3_2_3Ap.f",
@@ -49314,7 +53452,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O3/O3_2_5Ap.f",
@@ -49548,7 +53700,21 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O3/O3_6_5Ap_2023.f90",
@@ -49902,7 +54068,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "custom module/package PES implementation"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O3/PES_O3_1_1Ap_umn_v1.f90",
@@ -50222,7 +54402,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O3/PES_O3_1_1App_umn_v1.f90",
@@ -50542,7 +54736,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O3/PES_O3_1_3Ap_umn_v1.f90",
@@ -50862,7 +55070,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O3/PES_O3_1_3App_umn_v1.f90",
@@ -51182,7 +55404,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O3/PES_O3_1_5Ap_umn_v1.f90",
@@ -51502,7 +55738,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O3/PES_O3_1_5App_umn_v1.f90",
@@ -51822,7 +56072,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O3/PES_O3_2_1Ap_umn_v1.f90",
@@ -52142,7 +56406,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O3/PES_O3_2_3Ap_umn_v1.f90",
@@ -52462,7 +56740,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O3/PES_O3_2_5Ap_umn_v1.f90",
@@ -52782,7 +57074,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O3/o3pes.f90",
@@ -52853,7 +57159,21 @@
       "common_blocks": [],
       "surface_evidence": [
         "PotLib surface header and active implementation"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O4/O4_quintet.f",
@@ -53087,7 +57407,23 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O4/O4_singlet.f",
@@ -53321,7 +57657,23 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O4/O4_triplet.f",
@@ -53555,7 +57907,23 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O4/O4_triplet_v2.f",
@@ -53789,7 +58157,23 @@
       ],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O4/PES_O4_quintet_umn_v1.f90",
@@ -54109,7 +58493,23 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O4/PES_O4_singlet_umn_v1.f90",
@@ -54429,7 +58829,23 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O4/PES_O4_triplet_umn_v2.f90",
@@ -54749,7 +59165,23 @@
       "common_blocks": [],
       "surface_evidence": [
         "active POT/ENTRY POT"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8,
+          8
+        ]
+      }
     },
     {
       "path": "src/done/O4/o4pes.f90",
@@ -54828,7 +59260,23 @@
       "common_blocks": [],
       "surface_evidence": [
         "PotLib surface header and active implementation"
-      ]
+      ],
+      "atomic_metadata": {
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "O",
+          "O",
+          "O",
+          "O"
+        ],
+        "numbers": [
+          8,
+          8,
+          8,
+          8
+        ]
+      }
     }
   ],
   "non_surfaces": [

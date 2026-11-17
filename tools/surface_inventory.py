@@ -56,6 +56,22 @@ ARCHIVED_SURFACES = {
     "NinR/niheam7.f": ("NinR/niheam7.tar", "EAM7/hni7.f"),
 }
 
+ATOMIC_NUMBERS = {
+    "H": 1, "HE": 2, "LI": 3, "BE": 4, "B": 5, "C": 6, "N": 7, "O": 8,
+    "F": 9, "NE": 10, "NA": 11, "MG": 12, "AL": 13, "SI": 14, "P": 15,
+    "S": 16, "CL": 17, "AR": 18, "K": 19, "CA": 20, "SC": 21, "TI": 22,
+    "V": 23, "CR": 24, "MN": 25, "FE": 26, "CO": 27, "NI": 28, "CU": 29,
+    "ZN": 30, "GA": 31, "GE": 32, "AS": 33, "SE": 34, "BR": 35, "KR": 36,
+    "RB": 37, "SR": 38, "Y": 39, "ZR": 40, "NB": 41, "MO": 42, "TC": 43,
+    "RU": 44, "RH": 45, "PD": 46, "AG": 47, "CD": 48, "IN": 49, "SN": 50,
+    "SB": 51, "TE": 52, "I": 53, "XE": 54, "CS": 55, "BA": 56, "LA": 57,
+    "CE": 58, "PR": 59, "ND": 60, "PM": 61, "SM": 62, "EU": 63, "GD": 64,
+    "TB": 65, "DY": 66, "HO": 67, "ER": 68, "TM": 69, "YB": 70, "LU": 71,
+    "HF": 72, "TA": 73, "W": 74, "RE": 75, "OS": 76, "IR": 77, "PT": 78,
+    "AU": 79, "HG": 80, "TL": 81, "PB": 82, "BI": 83, "PO": 84, "AT": 85,
+    "RN": 86,
+}
+
 
 def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -439,6 +455,62 @@ def formula_atom_count(system: str) -> int | None:
     return total or None
 
 
+def formula_symbols(system: str) -> list[str] | None:
+    compact = re.sub(r"[^A-Za-z0-9+]", "", system)
+    if not compact or len(compact) > 32:
+        return None
+    symbols: list[str] = []
+    for part in compact.split("+"):
+        position = 0
+        for match in re.finditer(r"([A-Z][a-z]?)(\d*)", part):
+            if match.start() != position:
+                return None
+            symbol = match.group(1).upper()
+            count = int(match.group(2) or "1")
+            symbols.extend([symbol] * count)
+            position = match.end()
+        if position != len(part):
+            return None
+    return symbols or None
+
+
+def atomic_metadata(
+    system: str, count: dict[str, Any]
+) -> dict[str, Any]:
+    symbols = formula_symbols(system)
+    if count["kind"] == "fixed":
+        expected = int(count["value"])
+        if symbols is not None and len(symbols) == expected:
+            if all(symbol in ATOMIC_NUMBERS for symbol in symbols):
+                return {
+                    "kind": "fixed",
+                    "source": "system_formula",
+                    "symbols": symbols,
+                    "numbers": [ATOMIC_NUMBERS[symbol] for symbol in symbols],
+                }
+            return {
+                "kind": "unknown",
+                "reason": "formula contains symbols outside periodic table map",
+            }
+        return {
+            "kind": "unknown",
+            "reason": "system formula does not resolve a unique fixed atom list",
+        }
+    if count["kind"] == "variable":
+        if symbols is not None and len(set(symbols)) == 1 and symbols[0] in ATOMIC_NUMBERS:
+            return {
+                "kind": "homonuclear-variable",
+                "source": "system_formula",
+                "symbol": symbols[0],
+                "number": ATOMIC_NUMBERS[symbols[0]],
+            }
+        return {
+            "kind": "unknown",
+            "reason": "variable-size system has no unambiguous elemental species",
+        }
+    return {"kind": "unknown", "reason": "atom count is unknown"}
+
+
 def external_data_references(
     text: str, fields: dict[str, str], source: Path, vendor: Path
 ) -> tuple[list[dict[str, Any]], list[int]]:
@@ -710,6 +782,9 @@ def inventory(vendor: Path) -> dict[str, Any]:
                     "common_blocks": sorted(name.lower() for name in commons),
                     "surface_evidence": evidence,
                 }
+            )
+            record["atomic_metadata"] = atomic_metadata(
+                record["system"], record["atom_count"]
             )
             if archive_record is not None:
                 record["archive_source"] = archive_record

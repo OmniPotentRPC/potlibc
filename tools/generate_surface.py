@@ -1541,7 +1541,28 @@ def _adapter(plan: SurfacePlan) -> str:
         if plan.variable_atoms
         else f"  if (natoms.ne.{fixed_atoms}) then"
     )
-    if plan.record["id"] in {"vbo-beta1", "vbo2-beta1"}:
+    metadata = plan.record.get("atomic_metadata", {"kind": "unknown"})
+    fixed_numbers = (
+        metadata.get("numbers")
+        if metadata.get("kind") == "fixed" and isinstance(metadata.get("numbers"), list)
+        else None
+    )
+    variable_number = (
+        int(metadata["number"])
+        if metadata.get("kind") == "homonuclear-variable" and "number" in metadata
+        else None
+    )
+    if fixed_numbers is not None and len(fixed_numbers) == fixed_atoms and fixed_atoms > 0:
+        atom_metadata = "\n".join(
+            f"  atomic_numbers({index})={number}"
+            for index, number in enumerate(fixed_numbers, 1)
+        )
+    elif variable_number is not None:
+        atom_metadata = f"""\
+  do index=1,natoms
+    atomic_numbers(index)={variable_number}
+  end do"""
+    elif plan.record["id"] in {"vbo-beta1", "vbo2-beta1"}:
         atom_metadata = """\
   do index=1,natoms
     atomic_numbers(index)=13
