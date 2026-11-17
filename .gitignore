@@ -1,0 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Rohit Goswami
+# SPDX-License-Identifier: BSD-3-Clause
+/build/
+__pycache__/
+*.mod
+*.o
