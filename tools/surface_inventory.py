@@ -20,6 +20,9 @@ sys.dont_write_bytecode = True
 FORTRAN_SUFFIXES = {".f", ".F", ".f90", ".F90"}
 EXPECTED_FILE_COUNT = 403
 HEADER = re.compile(r"(?im)^[c*!][ \t]*([^:\n]+?)[ \t]*:[ \t]*(.*?)[ \t]*$")
+DOI = re.compile(
+    r"(?i)\b10\.\d{4,9}/[-._;()/:A-Z0-9]+"
+)
 ROUTINE = re.compile(
     r"(?i)^\s*(?:[a-z][\w*() ]+\s+)?"
     r"(subroutine|function|program|module)\s+([a-z_]\w*)\s*(?:\((.*)\))?\s*$"
@@ -71,6 +74,54 @@ def header_fields(text: str) -> dict[str, str]:
         if value:
             fields[key] = value
     return fields
+
+
+def header_block(text: str, names: tuple[str, ...]) -> str:
+    """Return a normalized, possibly multiline field from a PotLib header."""
+    wanted = {name.lower() for name in names}
+    values: list[str] = []
+    active = False
+    for raw in text[:16000].splitlines():
+        if not raw or raw[0] not in "cC*!":
+            if active and raw.strip():
+                break
+            continue
+        body = raw[1:]
+        line = body.strip()
+        match = re.match(r"([^:]+?)\s*:\s*(.*)$", line)
+        if match and len(body) - len(body.lstrip()) <= 4:
+            key = " ".join(match.group(1).lower().split())
+            active = key in wanted
+            if active and match.group(2).strip():
+                values.append(match.group(2).strip())
+            continue
+        if active:
+            if not line:
+                active = False
+            else:
+                values.append(line)
+    return " ".join(" ".join(values).split())
+
+
+def surface_documentation(text: str, fields: dict[str, str]) -> dict[str, Any]:
+    """Extract the deposited descriptive metadata without interpreting it."""
+    reference_parts = [
+        header_block(text, ("reference",)),
+        header_block(text, ("cross reference",)),
+    ]
+    reference = "; ".join(part for part in reference_parts if part)
+    dois = sorted(
+        {
+            match.group(0).rstrip(".,;)")
+            for match in DOI.finditer(text[:16000])
+        }
+    )
+    return {
+        "formula": fields.get("system", ""),
+        "coordinates": header_block(text, ("coordinates",)),
+        "reference": reference,
+        "dois": dois,
+    }
 
 
 def active_lines(text: str, fixed_form: bool) -> list[str]:
@@ -639,6 +690,7 @@ def inventory(vendor: Path) -> dict[str, Any]:
                     "id": identifier,
                     "system": fields.get("system", ""),
                     "name": fields.get("common name", path.stem),
+                    "documentation": surface_documentation(text, fields),
                     "atom_count": atom_count(fields, entry, family, relative),
                     "interface_family": family,
                     "interface_evidence": family_evidence,
@@ -794,7 +846,7 @@ def inventory(vendor: Path) -> dict[str, Any]:
         ),
     }
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "vendor_root": "upstream/potlib2023",
         "counts": counts,
         "validation": validation,

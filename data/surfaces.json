@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "vendor_root": "upstream/potlib2023",
   "counts": {
     "fortran_files": 403,
@@ -45,6 +45,12 @@
       "id": "chc",
       "system": "ALC",
       "name": "CHC",
+      "documentation": {
+        "formula": "ALC",
+        "coordinates": "Internal, Definition: R(1) = R(A-L) R(2) = R(L-C) R(3) = R(A-C)",
+        "reference": "unpublished; M. M. Kreevoy, D. Ostovic, D. G. Truhlar, and B. C. Garrett J. Phys. Chem. 90, 3766-3774 (1986)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -93,6 +99,12 @@
       "id": "chc5m0",
       "system": "ALC",
       "name": "CHC5M0",
+      "documentation": {
+        "formula": "ALC",
+        "coordinates": "Internal, Definition: R(1) = R(Al-L) R(2) = R(L-C) R(3) = R(Al-C)",
+        "reference": "unpublished; M. M. Kreevoy, D. Ostovic, D. G. Truhlar, and B. C. Garrett J. Phys. Chem. 90, 3766-3774 (1986)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -141,6 +153,12 @@
       "id": "chc6m0",
       "system": "ALC",
       "name": "CHC6M0",
+      "documentation": {
+        "formula": "ALC",
+        "coordinates": "Internal, Definition: R(1) = R(Al-L) R(2) = R(L-C) R(3) = R(Al-C)",
+        "reference": "unpublished; M. M. Kreevoy, D. Ostovic, D. G. Truhlar, and B. C. Garrett J. Phys. Chem. 90, 3766-3774 (1986)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -189,6 +207,12 @@
       "id": "chc7m0",
       "system": "ALC",
       "name": "CHC7",
+      "documentation": {
+        "formula": "ALC",
+        "coordinates": "Internal, Definition: R(1) = R(Al-L) R(2) = R(L-C) R(3) = R(Al-C)",
+        "reference": "M. M. Kreevoy, D. Ostovic, D. G. Truhlar, and B. C. Garrett J. Phys. Chem. 90, 3766-3774 (1986)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -237,6 +261,12 @@
       "id": "chc7m1",
       "system": "ALC",
       "name": "CHC7M1",
+      "documentation": {
+        "formula": "ALC",
+        "coordinates": "Internal, Definition: R(1) = R(Al-L) R(2) = R(L-C) R(3) = R(Al-C)",
+        "reference": "M. M. Kreevoy, D. Ostovic, D. G. Truhlar, and B. C. Garrett J. Phys. Chem. 90, 3766-3774 (1986)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -285,6 +315,12 @@
       "id": "chc7m10",
       "system": "ALC",
       "name": "CHC7M10",
+      "documentation": {
+        "formula": "ALC",
+        "coordinates": "Internal, Definition: R(1) = R(Al-L) R(2) = R(L-C) R(3) = R(Al-C)",
+        "reference": "unpublished; M. M. Kreevoy, D. Ostovic, D. G. Truhlar, and B. C. Garrett J. Phys. Chem. 90, 3766-3774 (1986)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -333,6 +369,12 @@
       "id": "chc7m4",
       "system": "ALC",
       "name": "CHC7M4",
+      "documentation": {
+        "formula": "ALC",
+        "coordinates": "Internal, Definition: R(1) = R(Al-L) R(2) = R(L-C) R(3) = R(Al-C)",
+        "reference": "M. M. Kreevoy, D. Ostovic, D. G. Truhlar, and B. C. Garrett J. Phys. Chem. 90, 3766-3774 (1986)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -381,6 +423,12 @@
       "id": "chc7m5",
       "system": "ALC",
       "name": "CHC7M5",
+      "documentation": {
+        "formula": "ALC",
+        "coordinates": "Internal, Definition: R(1) = R(Al-L) R(2) = R(L-C) R(3) = R(Al-C)",
+        "reference": "M. M. Kreevoy, D. Ostovic, D. G. Truhlar, and B. C. Garrett J. Phys. Chem. 90, 3766-3774 (1986)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -429,6 +477,12 @@
       "id": "chc7m7",
       "system": "ALC",
       "name": "CHC7M7",
+      "documentation": {
+        "formula": "ALC",
+        "coordinates": "Internal, Definition: R(1) = R(Al-L) R(2) = R(L-C) R(3) = R(Al-C)",
+        "reference": "M. M. Kreevoy, D. Ostovic, D. G. Truhlar, and B. C. Garrett J. Phys. Chem. 90, 3766-3774 (1986)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -477,6 +531,12 @@
       "id": "chc7p2",
       "system": "ALC",
       "name": "CHC7P2",
+      "documentation": {
+        "formula": "ALC",
+        "coordinates": "Internal, Definition: R(1) = R(Al-L) R(2) = R(L-C) R(3) = R(Al-C)",
+        "reference": "M. M. Kreevoy, D. Ostovic, D. G. Truhlar, and B. C. Garrett J. Phys. Chem. 90, 3766-3774 (1986)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -525,6 +585,12 @@
       "id": "chc7p3",
       "system": "ALC",
       "name": "CHC7P3",
+      "documentation": {
+        "formula": "ALC",
+        "coordinates": "Internal, Definition: R(1) = R(Al-L) R(2) = R(L-C) R(3) = R(Al-C)",
+        "reference": "M. M. Kreevoy, D. Ostovic, D. G. Truhlar, and B. C. Garrett J. Phys. Chem. 90, 3766-3774 (1986)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -573,6 +639,12 @@
       "id": "chc7p5",
       "system": "ALC",
       "name": "CHC7P5",
+      "documentation": {
+        "formula": "ALC",
+        "coordinates": "Internal, Definition: R(1) = R(Al-L) R(2) = R(L-C) R(3) = R(Al-C)",
+        "reference": "M. M. Kreevoy, D. Ostovic, D. G. Truhlar, and B. C. Garrett J. Phys. Chem. 90, 3766-3774 (1986)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -621,6 +693,12 @@
       "id": "vbo-beta1",
       "system": "Al, H, Al-H",
       "name": "VBO.beta1",
+      "documentation": {
+        "formula": "Al, H, Al-H",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -673,6 +751,12 @@
       "id": "vbo2-beta1",
       "system": "AlmHn",
       "name": "VBO2.beta1",
+      "documentation": {
+        "formula": "AlmHn",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -725,6 +809,12 @@
       "id": "beth",
       "system": "Aln",
       "name": "BetH",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -775,6 +865,12 @@
       "id": "cler",
       "system": "Aln",
       "name": "CleR",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -825,6 +921,12 @@
       "id": "coxjm",
       "system": "Aln",
       "name": "CoxJM",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -875,6 +977,12 @@
       "id": "er",
       "system": "Aln",
       "name": "ER",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -925,6 +1033,12 @@
       "id": "er2",
       "system": "Aln",
       "name": "ER2",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -975,6 +1089,12 @@
       "id": "er2at",
       "system": "Aln",
       "name": "ER2+AT",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -1046,6 +1166,12 @@
       "id": "er2ba",
       "system": "Aln",
       "name": "ER2+BA",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -1096,6 +1222,12 @@
       "id": "er2cn",
       "system": "Aln",
       "name": "ER2+CN",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -1146,6 +1278,12 @@
       "id": "er2coxjm",
       "system": "Aln",
       "name": "ER2+CoxJM",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -1196,6 +1334,12 @@
       "id": "er2eacn",
       "system": "Aln",
       "name": "ER2+EACN",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -1246,6 +1390,12 @@
       "id": "er2eat",
       "system": "Aln",
       "name": "ER2+EAT",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -1317,6 +1467,12 @@
       "id": "er2eba",
       "system": "Aln",
       "name": "ER2+EBA",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -1367,6 +1523,12 @@
       "id": "er2ecn",
       "system": "Aln",
       "name": "ER2+ECN",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -1417,6 +1579,12 @@
       "id": "er2es",
       "system": "Aln",
       "name": "ER2+ES",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -1467,6 +1635,12 @@
       "id": "er2escna",
       "system": "Aln",
       "name": "ER2+ESCNa",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -1517,6 +1691,12 @@
       "id": "er2escnm",
       "system": "Aln",
       "name": "ER2+ESCNm",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -1567,6 +1747,12 @@
       "id": "er2gea",
       "system": "Aln",
       "name": "ER2+GEA",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -1617,6 +1803,12 @@
       "id": "er2meid",
       "system": "Aln",
       "name": "ER2+MeiD",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -1667,6 +1859,12 @@
       "id": "er2misfmp",
       "system": "Aln",
       "name": "ER2+MisFMP",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -1717,6 +1915,12 @@
       "id": "er2s",
       "system": "Aln",
       "name": "ER2+S",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -1767,6 +1971,12 @@
       "id": "er2scna",
       "system": "Aln",
       "name": "ER2+SCNa",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -1817,6 +2027,12 @@
       "id": "er2scnm",
       "system": "Aln",
       "name": "ER2+SCNm",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -1867,6 +2083,12 @@
       "id": "erkiv",
       "system": "Aln",
       "name": "ErkIV",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -1917,6 +2139,12 @@
       "id": "erkv",
       "system": "Aln",
       "name": "ErkV",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -1967,6 +2195,12 @@
       "id": "erkviii",
       "system": "Aln",
       "name": "ErkVIII",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -2036,6 +2270,12 @@
       "id": "gol",
       "system": "Aln",
       "name": "Gol",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -2086,6 +2326,12 @@
       "id": "halp",
       "system": "Aln",
       "name": "HalP",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -2136,6 +2382,12 @@
       "id": "jac",
       "system": "Aln",
       "name": "Jac",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -2186,6 +2438,12 @@
       "id": "meid",
       "system": "Aln",
       "name": "MeiD",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -2236,6 +2494,12 @@
       "id": "misfmp",
       "system": "Aln",
       "name": "MisFMP",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -2286,6 +2550,12 @@
       "id": "np-a",
       "system": "Aln",
       "name": "NP-A",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -2336,6 +2606,12 @@
       "id": "np-ad",
       "system": "Aln",
       "name": "NP-A",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -2392,6 +2668,12 @@
       "id": "np-b",
       "system": "Aln",
       "name": "NP-B",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -2442,6 +2724,12 @@
       "id": "np-bd",
       "system": "Aln",
       "name": "NP-B",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -2498,6 +2786,12 @@
       "id": "np-c",
       "system": "Aln",
       "name": "NP-C",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -2548,6 +2842,12 @@
       "id": "np-d",
       "system": "Aln",
       "name": "NP-D",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -2598,6 +2898,12 @@
       "id": "np-e",
       "system": "Aln",
       "name": "NP-E",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -2648,6 +2954,12 @@
       "id": "papcep",
       "system": "Aln",
       "name": "PapCEP",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -2698,6 +3010,12 @@
       "id": "papkep",
       "system": "Aln",
       "name": "PapKEP",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -2748,6 +3066,12 @@
       "id": "peatht",
       "system": "Aln",
       "name": "PeaTHT",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -2819,6 +3143,12 @@
       "id": "petw",
       "system": "Aln",
       "name": "PetW",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -2869,6 +3199,12 @@
       "id": "strm",
       "system": "Aln",
       "name": "StrM",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -2919,6 +3255,12 @@
       "id": "sutc",
       "system": "Aln",
       "name": "SutC",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -2969,6 +3311,12 @@
       "id": "desph-ljat",
       "system": "Aln",
       "name": "deSPH/LJAT",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -3040,6 +3388,12 @@
       "id": "desph-m",
       "system": "Aln",
       "name": "deSPH/M",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -3090,6 +3444,12 @@
       "id": "recoxjm",
       "system": "Aln",
       "name": "reCoxJM",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -3140,6 +3500,12 @@
       "id": "reerkiv",
       "system": "Aln",
       "name": "reErkIV",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -3190,6 +3556,12 @@
       "id": "reerkviii",
       "system": "Aln",
       "name": "reErkVIII",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -3259,6 +3631,12 @@
       "id": "regea",
       "system": "Aln",
       "name": "reGEA",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -3309,6 +3687,12 @@
       "id": "regol",
       "system": "Aln",
       "name": "reGol",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -3359,6 +3743,12 @@
       "id": "rehalp",
       "system": "Aln",
       "name": "reHalP",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -3409,6 +3799,12 @@
       "id": "rejac",
       "system": "Aln",
       "name": "reJac",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -3459,6 +3855,12 @@
       "id": "reljat",
       "system": "Aln",
       "name": "reLJAT",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -3530,6 +3932,12 @@
       "id": "remeid",
       "system": "Aln",
       "name": "reMeiD",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -3580,6 +3988,12 @@
       "id": "remisfmp",
       "system": "Aln",
       "name": "reMisFMP",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -3630,6 +4044,12 @@
       "id": "repetw",
       "system": "Aln",
       "name": "rePetW",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -3680,6 +4100,12 @@
       "id": "restrm",
       "system": "Aln",
       "name": "reStrM",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -3730,6 +4156,12 @@
       "id": "resutc",
       "system": "Aln",
       "name": "reSutC",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -3780,6 +4212,12 @@
       "id": "redesph-m",
       "system": "Aln",
       "name": "redeSPH/M",
+      "documentation": {
+        "formula": "Aln",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -3837,6 +4275,12 @@
       "id": "brh2dim3c",
       "system": "BrH2",
       "name": "BrH2 DIM-3C",
+      "documentation": {
+        "formula": "BrH2",
+        "coordinates": "Internal, Definition: R(1) = R(Br-H) R(2) = R(H-H) R(3) = R(Br-H)",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -3973,6 +4417,12 @@
       "id": "brh2dim3c2001",
       "system": "BrH2",
       "name": "BrH2 DIM-3C",
+      "documentation": {
+        "formula": "BrH2",
+        "coordinates": "Internal, Definition: R(1) = R(Br-H) R(2) = R(H-H) R(3) = R(Br-H) Internal, Definition: R(1) = R(Br-H) R(2) = R(H-H) R(3) = R(Br-H)",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -4108,6 +4558,12 @@
       "id": "brh2leps",
       "system": "ABC",
       "name": "brh2leps",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "Internal, Definition: R(1) = R(Br-H) R(2) = R(H-H) R(3) = R(Br-H)",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -4156,6 +4612,12 @@
       "id": "brh2leps2001",
       "system": "ABC",
       "name": "brh2leps2001",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "Internal, Definition: R(1) = R(Br-H) R(2) = R(H-H) R(3) = R(Br-H)",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -4215,6 +4677,12 @@
       "id": "brh2sec",
       "system": "BrH2",
       "name": "BrH2SEC",
+      "documentation": {
+        "formula": "BrH2",
+        "coordinates": "Internal, Definition: R(1) = R(Br-H) R(2) = R(H-H) R(3) = R(Br-H)",
+        "reference": "G. C. Lynch, D. G. Truhlar, F. B. Brown, and J.-g. Zhao J. Phys. Chem. 99, 207 (1995)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -4298,6 +4766,12 @@
       "id": "brh2sec2001",
       "system": "BrH2",
       "name": "BrH2SEC",
+      "documentation": {
+        "formula": "BrH2",
+        "coordinates": "Internal, Definition: R(1) = R(Br-H) R(2) = R(H-H) R(3) = R(Br-H) Internal, Definition: R(1) = R(Br-H) R(2) = R(H-H) R(3) = R(Br-H)",
+        "reference": "G. C. Lynch, D. G. Truhlar, F. B. Brown, and J.-g. Zhao J. Phys. Chem. 99, 207 (1995)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -4385,6 +4859,12 @@
       "id": "brh2secd",
       "system": "BrH2",
       "name": "BrH2SECD",
+      "documentation": {
+        "formula": "BrH2",
+        "coordinates": "Internal, Definition: R(1) = R(Br-H) R(2) = R(H-H) R(3) = R(Br-H)",
+        "reference": "G. C. Lynch, D. G. Truhlar, F. B. Brown, and J.-g. Zhao J. Phys. Chem. 99, 207 (1995) G. C. Lynch, D. G. Truhlar, F. B. Brown, et. al. J. Phys. Chem. 99, 207-225 (1995) Analytic derivatives added, Yuri Volobuev, July-Aug 1998 Derivatives for pot11 are obtained using Adifor 2.1",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -4495,6 +4975,12 @@
       "id": "brh2so",
       "system": "BrH2",
       "name": "BrH2SEC",
+      "documentation": {
+        "formula": "BrH2",
+        "coordinates": "Internal, Definition: R(1) = R(Br-H) R(2) = R(H-H) R(3) = R(Br-H)",
+        "reference": "G. C. Lynch, D. G. Truhlar, F. B. Brown, and J.-g. Zhao J. Phys. Chem. 99, 207 (1995)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -4586,6 +5072,12 @@
       "id": "brh2so2001",
       "system": "BrH2",
       "name": "BrH2SEC",
+      "documentation": {
+        "formula": "BrH2",
+        "coordinates": "",
+        "reference": "G. C. Lynch, D. G. Truhlar, F. B. Brown, and J.-g. Zhao J. Phys. Chem. 99, 207 (1995) G. C. Lynch, D. G. Truhlar, F. B. Brown, et. al. to be published",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -4679,6 +5171,12 @@
       "id": "brhcleleps2-2001",
       "system": "ABC",
       "name": "brhcleleps2-2001",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -4731,6 +5229,12 @@
       "id": "brhcleleps2",
       "system": "ABC",
       "name": "brhcleleps2",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -4779,6 +5283,12 @@
       "id": "brhcleleps3-2001",
       "system": "ABC",
       "name": "brhcleleps3-2001",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -4831,6 +5341,12 @@
       "id": "brhcleleps3",
       "system": "ABC",
       "name": "brhcleleps3",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -4879,6 +5395,12 @@
       "id": "brhcllepsk",
       "system": "ABC",
       "name": "brhcllepsk",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "Internal, Definition: R(1) = R(Br-H) R(2) = R(H-Cl) R(3) = R(Cl-Br)",
+        "reference": "P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -4927,6 +5449,12 @@
       "id": "brhcllepsk2001",
       "system": "ABC",
       "name": "brhcllepsk2001",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "Internal, Definition: R(1) = R(Br-H) R(2) = R(H-Cl) R(3) = R(Cl-Br)",
+        "reference": "P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -4979,6 +5507,12 @@
       "id": "clhbrblm",
       "system": "ABC",
       "name": "BLM",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-Br) R(3) = R(Cl-Br)",
+        "reference": "P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -5027,6 +5561,12 @@
       "id": "clhbreleps",
       "system": "ABC",
       "name": "clhbreleps",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -5075,6 +5615,12 @@
       "id": "clhbrlepsk",
       "system": "ABC",
       "name": "clhbrlepsk",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -5123,6 +5669,12 @@
       "id": "c2h6cl-rev2019",
       "system": "C2H6 + X --> C2H5 + HX.",
       "name": "C2H6+Cl",
+      "documentation": {
+        "formula": "C2H6 + X --> C2H5 + HX.",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 9
@@ -5318,6 +5870,12 @@
       "id": "c2h6f-rev2019",
       "system": "C2H6 + F --> C2H5 + HF.",
       "name": "C2H6+F",
+      "documentation": {
+        "formula": "C2H6 + F --> C2H5 + HF.",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 9
@@ -5521,6 +6079,12 @@
       "id": "c2h6h-rev2019",
       "system": "C2H6 + H --> C2H5 + H2.",
       "name": "C2H6+H",
+      "documentation": {
+        "formula": "C2H6 + H --> C2H5 + H2.",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 9
@@ -5716,6 +6280,12 @@
       "id": "c2h6o-v2020",
       "system": "C2H6 + O --> C2H5 + HO.",
       "name": "C2H6+O",
+      "documentation": {
+        "formula": "C2H6 + O --> C2H5 + HO.",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 9
@@ -5911,6 +6481,12 @@
       "id": "c2h6oh-v2020",
       "system": "C2H6 + OH --> C2H5 + H2O.",
       "name": "C2H6+OH",
+      "documentation": {
+        "formula": "C2H6 + OH --> C2H5 + H2O.",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 10
@@ -6115,6 +6691,12 @@
       "id": "c2h7",
       "system": "C2H7",
       "name": "c2h7",
+      "documentation": {
+        "formula": "C2H7",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 9
@@ -6626,6 +7208,12 @@
       "id": "c2h7pot5",
       "system": "",
       "name": "c2h7pot5",
+      "documentation": {
+        "formula": "",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 9,
@@ -7184,6 +7772,12 @@
       "id": "pes-shell",
       "system": "",
       "name": "pes_shell",
+      "documentation": {
+        "formula": "",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 12,
@@ -7268,6 +7862,12 @@
       "id": "phsh-aprp",
       "system": "C6H5SH",
       "name": "phsh_aprp",
+      "documentation": {
+        "formula": "C6H5SH",
+        "coordinates": "",
+        "reference": "\"Full-dimensional three-state potential energy surfaces and state couplings for photodissociation of thiophenol\" by Linyao Zhang, Donald G. Truhlar and Shaozeng Sun, J. Chem. Phys., submitted July 2019.",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 13,
@@ -7940,6 +8540,12 @@
       "id": "phoh-aprp",
       "system": "C6H6O",
       "name": "PhOH(Coupled PESs)",
+      "documentation": {
+        "formula": "C6H6O",
+        "coordinates": "",
+        "reference": "Ke R. Yang, Xuefei Xu, Jingjing Zheng, and Donald G. Truhlar Chem. Sci. (to be published).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 13
@@ -8443,6 +9049,12 @@
       "id": "phsch3-ii",
       "system": "C7H8S",
       "name": "PhSCH3 II (Coupled PESs, Surface set II)",
+      "documentation": {
+        "formula": "C7H8S",
+        "coordinates": "",
+        "reference": "\"Full-dimensional ground- and excited-state potential energy surfaces and state couplings for photodissociation of thioanisole\" Shaohong L. Li and Donald G. Truhlar, J. Chem. Phys., 146, 064301 (2017).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 16
@@ -9130,6 +9742,12 @@
       "id": "phsch3-iii",
       "system": "C7H8S",
       "name": "PhSCH3 III (Coupled PESs, Surface set III)",
+      "documentation": {
+        "formula": "C7H8S",
+        "coordinates": "",
+        "reference": "\"Full-dimensional ground- and excited-state potential energy surfaces and state couplings for photodissociation of thioanisole\" Shaohong L. Li and Donald G. Truhlar, J. Chem. Phys., 146, 064301 (2017).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 16
@@ -9817,6 +10435,12 @@
       "id": "phsch3-ia",
       "system": "C7H8S",
       "name": "PhSCH3 Ia (Coupled PESs, Surface set Ia)",
+      "documentation": {
+        "formula": "C7H8S",
+        "coordinates": "",
+        "reference": "\"Full-dimensional ground- and excited-state potential energy surfaces and state couplings for photodissociation of thioanisole\" Shaohong L. Li and Donald G. Truhlar, J. Chem. Phys., 146, 064301 (2017).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 16
@@ -10504,6 +11128,12 @@
       "id": "phsch3-s-1-8",
       "system": "C7H8S",
       "name": "PhSCH3 S-1.8 (Coupled PESs, Surface set S-1.8)",
+      "documentation": {
+        "formula": "C7H8S",
+        "coordinates": "",
+        "reference": "\"Full-dimensional ground- and excited-state potential energy surfaces and state couplings for photodissociation of thioanisole\" Shaohong L. Li and Donald G. Truhlar, J. Chem. Phys., 146, 064301 (2017).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 16
@@ -11191,6 +11821,12 @@
       "id": "phsch3-s-2-0",
       "system": "C7H8S",
       "name": "PhSCH3 S-2.0 (Coupled PESs, Surface set S-2.0)",
+      "documentation": {
+        "formula": "C7H8S",
+        "coordinates": "",
+        "reference": "\"Full-dimensional ground- and excited-state potential energy surfaces and state couplings for photodissociation of thioanisole\" Shaohong L. Li and Donald G. Truhlar, J. Chem. Phys., 146, 064301 (2017).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 16
@@ -11878,6 +12514,12 @@
       "id": "phsch3-s-2-2",
       "system": "C7H8S",
       "name": "PhSCH3 S-2.2 (Coupled PESs, Surface set S-2.2)",
+      "documentation": {
+        "formula": "C7H8S",
+        "coordinates": "",
+        "reference": "\"Full-dimensional ground- and excited-state potential energy surfaces and state couplings for photodissociation of thioanisole\" Shaohong L. Li and Donald G. Truhlar, J. Chem. Phys., 146, 064301 (2017).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 16
@@ -12565,6 +13207,12 @@
       "id": "phsch3-s-2-5",
       "system": "C7H8S",
       "name": "PhSCH3 S-2.5 (Coupled PESs, Surface set S-2.5)",
+      "documentation": {
+        "formula": "C7H8S",
+        "coordinates": "",
+        "reference": "\"Full-dimensional ground- and excited-state potential energy surfaces and state couplings for photodissociation of thioanisole\" Shaohong L. Li and Donald G. Truhlar, J. Chem. Phys., 146, 064301 (2017).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 16
@@ -13252,6 +13900,12 @@
       "id": "phsch3-aprp",
       "system": "C7H8S",
       "name": "PhSCH3(Coupled PESs)",
+      "documentation": {
+        "formula": "C7H8S",
+        "coordinates": "",
+        "reference": "\"Full-dimensional ground- and excited-state potential energy surfaces and state couplings for photodissociation of thioanisole,\" Shaohong L. Li and Donald G. Truhlar, J. Chem. Phys. 2017, in press.",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 16
@@ -13939,6 +14593,12 @@
       "id": "ch3nh2",
       "system": "CH3NH2",
       "name": "Methylamine(Coupled PESs)",
+      "documentation": {
+        "formula": "CH3NH2",
+        "coordinates": "",
+        "reference": "Kelsey A. Parker,and Donald G. Truhlar J. Chem. Phys. 152, 244309 (2020).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 7
@@ -14499,6 +15159,12 @@
       "id": "ch4t8",
       "system": "CH4",
       "name": "Schwenke-Partridge T8",
+      "documentation": {
+        "formula": "CH4",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 5
@@ -14556,6 +15222,12 @@
       "id": "ch4br",
       "system": "CH4Br",
       "name": "ch4br",
+      "documentation": {
+        "formula": "CH4Br",
+        "coordinates": "",
+        "reference": "J. Espinosa-Garcia, J. Chem. Phys., Vol. 117, 2076 (2002).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -14694,6 +15366,12 @@
       "id": "ch4cn-2016",
       "system": "CH4CN",
       "name": "CH4CN",
+      "documentation": {
+        "formula": "CH4CN",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 7
@@ -14824,6 +15502,12 @@
       "id": "ch4cl",
       "system": "CH4Cl",
       "name": "CH4Cl",
+      "documentation": {
+        "formula": "CH4Cl",
+        "coordinates": "",
+        "reference": "Corchado, Truhlar and Espinosa JPC, 112, 9375, 2000",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -14953,6 +15637,12 @@
       "id": "ch4cl2001",
       "system": "CH4Cl",
       "name": "CH4Cl",
+      "documentation": {
+        "formula": "CH4Cl",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -15082,6 +15772,12 @@
       "id": "ch4cl2005",
       "system": "CH4Cl",
       "name": "CH4Cl",
+      "documentation": {
+        "formula": "CH4Cl",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -15231,6 +15927,12 @@
       "id": "ch4f-noso",
       "system": "CH4F",
       "name": "ch4f-noso",
+      "documentation": {
+        "formula": "CH4F",
+        "coordinates": "",
+        "reference": "Espinosa-Garcia, J.; Corchado, J.C. J. Phys. Chem., 100 (1996) 16561",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -15371,6 +16073,12 @@
       "id": "ch4f-so",
       "system": "CH4F",
       "name": "ch4f-so",
+      "documentation": {
+        "formula": "CH4F",
+        "coordinates": "",
+        "reference": "Espinosa-Garcia, J.; Corchado, J.C. J. Phys. Chem., 100 (1996) 16561",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -15491,6 +16199,12 @@
       "id": "ch4f2006",
       "system": "CH4F",
       "name": "ch4f2006",
+      "documentation": {
+        "formula": "CH4F",
+        "coordinates": "",
+        "reference": "J. Espinosa-Garcia, J.L. Bravo and C. Rangel J.Phys.Chem. A, 111, 2761 (2007).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -15620,6 +16334,12 @@
       "id": "ch4o-2014",
       "system": "CH4O",
       "name": "CH4O-2014",
+      "documentation": {
+        "formula": "CH4O",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -15756,6 +16476,12 @@
       "id": "ch4o00",
       "system": "CH4O",
       "name": "CH4O 2000",
+      "documentation": {
+        "formula": "CH4O",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -15885,6 +16611,12 @@
       "id": "ch4o01-2001",
       "system": "CH4O",
       "name": "ch4o01-2001",
+      "documentation": {
+        "formula": "CH4O",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -16014,6 +16746,12 @@
       "id": "ch4o95-2001",
       "system": "CH4+O based on functional forms by",
       "name": "ch4o95-2001",
+      "documentation": {
+        "formula": "CH4+O based on functional forms by",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -16143,6 +16881,12 @@
       "id": "ch4o98-2001",
       "system": "CH4+O based on the surface by",
       "name": "ch4o98-2001",
+      "documentation": {
+        "formula": "CH4+O based on the surface by",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -16272,6 +17016,12 @@
       "id": "ch4o98",
       "system": "CH4O",
       "name": "CH4O 1998",
+      "documentation": {
+        "formula": "CH4O",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -16401,6 +17151,12 @@
       "id": "ch4oh",
       "system": "CH4OH",
       "name": "CH4OH",
+      "documentation": {
+        "formula": "CH4OH",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 7
@@ -16531,6 +17287,12 @@
       "id": "ch4oh2001",
       "system": "CH4OH",
       "name": "CH4OH",
+      "documentation": {
+        "formula": "CH4OH",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 7
@@ -16661,6 +17423,12 @@
       "id": "ch4oh2014",
       "system": "CH4OH",
       "name": "CH4OH",
+      "documentation": {
+        "formula": "CH4OH",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 7
@@ -16791,6 +17559,12 @@
       "id": "ch52008",
       "system": "CH5",
       "name": "CH5",
+      "documentation": {
+        "formula": "CH5",
+        "coordinates": "",
+        "reference": "J.C. Corchado, J.L. Bravo and J. Espinosa-Garcia J.Chem.Phys.130,184314 (2009). Fitting to ab initio calculations at the CCSD(T)/cc-pVTZ level.",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -16927,6 +17701,12 @@
       "id": "ch5j1",
       "system": "CH5",
       "name": "J1",
+      "documentation": {
+        "formula": "CH5",
+        "coordinates": "",
+        "reference": "T. Joseph, R. Steckler, and D. G. Truhlar J. Chem. Phys. Vol. 87, p. 7036, 1987",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -17106,6 +17886,12 @@
       "id": "ch5j2",
       "system": "CH5",
       "name": "J2",
+      "documentation": {
+        "formula": "CH5",
+        "coordinates": "",
+        "reference": "T. Joseph, R. Steckler, and D. G. Truhlar J. Chem. Phys. Vol. 87, p. 7036, 1987",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -17278,6 +18064,12 @@
       "id": "ch5jg2",
       "system": "CH5",
       "name": "JG (2nd coding)",
+      "documentation": {
+        "formula": "CH5",
+        "coordinates": "",
+        "reference": "M. J. T. Jordan, R. G. Gilbert, J. Chem. Phys., Vol. 102, p. 5669, 1995.",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -17460,6 +18252,12 @@
       "id": "ch5jg2001",
       "system": "CH5",
       "name": "JG",
+      "documentation": {
+        "formula": "CH5",
+        "coordinates": "",
+        "reference": "M. J. T. Jordan, R. G. Gilbert, J. Chem. Phys., Vol. 102, p. 5669, 1995.",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -17618,6 +18416,12 @@
       "id": "ch5jg2001x",
       "system": "CH5",
       "name": "JG",
+      "documentation": {
+        "formula": "CH5",
+        "coordinates": "",
+        "reference": "M. J. T. Jordan, R. G. Gilbert, J. Chem. Phys., Vol. 102, p. 5669, 1995.",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -17757,6 +18561,12 @@
       "id": "ch5jg2008",
       "system": "CH5",
       "name": "JG",
+      "documentation": {
+        "formula": "CH5",
+        "coordinates": "",
+        "reference": "M. J. T. Jordan, R. G. Gilbert, J. Chem. Phys., Vol. 102, p. 5669, 1995.",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -17925,6 +18735,12 @@
       "id": "ch5jg2008x",
       "system": "CH5",
       "name": "JG",
+      "documentation": {
+        "formula": "CH5",
+        "coordinates": "",
+        "reference": "M. J. T. Jordan, R. G. Gilbert, J. Chem. Phys., Vol. 102, p. 5669, 1995.",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -18054,6 +18870,12 @@
       "id": "ch5jg2x",
       "system": "CH5",
       "name": "JG (2nd coding)",
+      "documentation": {
+        "formula": "CH5",
+        "coordinates": "",
+        "reference": "M. J. T. Jordan, R. G. Gilbert, J. Chem. Phys., Vol. 102, p. 5669, 1995.",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -18207,6 +19029,12 @@
       "id": "ch5jgx",
       "system": "CH5",
       "name": "JG",
+      "documentation": {
+        "formula": "CH5",
+        "coordinates": "",
+        "reference": "M. J. T. Jordan, R. G. Gilbert, J. Chem. Phys., Vol. 102, p. 5669, 1995.",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -18336,6 +19164,12 @@
       "id": "ch5jj",
       "system": "CH5",
       "name": "JJ",
+      "documentation": {
+        "formula": "CH5",
+        "coordinates": "",
+        "reference": "J. Espinosa-Garcia, J. Chem. Phys., Vol. 116, 10664.",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -18465,6 +19299,12 @@
       "id": "ch5jj2",
       "system": "CH5",
       "name": "JJ (2nd coding)",
+      "documentation": {
+        "formula": "CH5",
+        "coordinates": "",
+        "reference": "J. Espinosa-Garcia, J. Chem. Phys., Vol. 116, 10664.",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -18618,6 +19458,12 @@
       "id": "ch5jj2001",
       "system": "CH5",
       "name": "JJ",
+      "documentation": {
+        "formula": "CH5",
+        "coordinates": "",
+        "reference": "J. Espinosa-Garcia, J. Chem. Phys., Vol. 116, 10664.",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -18747,6 +19593,12 @@
       "id": "clhclbcmr",
       "system": "ABC",
       "name": "BCMR",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "Internal, Definition: R(1) = R(first Cl-H) R(2) = R(H-second Cl) R(3) = R(first Cl-second Cl)",
+        "reference": "D. K. Bondi, J. N. L. Connor, J. Manz, and J. Romelt J. Mol. Phys. 50, 467 (1983) S. Sato J. Chem. Phys. 592, 2465 (1955)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -18794,6 +19646,12 @@
       "id": "clhclbcmr2001",
       "system": "ABC",
       "name": "BCMR",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "Internal, Definition: R(1) = R(first Cl-H) R(2) = R(H-second Cl) R(3) = R(first Cl-second Cl) Internal, Definition: R(1) = R(first Cl-H) R(2) = R(H-second Cl) R(3) = R(first Cl-second Cl)",
+        "reference": "D. K. Bondi, J. N. L. Connor, J. Manz, and J. Romelt J. Mol. Phys. 50, 467 (1983) S. Sato J. Chem. Phys. 592, 2465 (1955)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -18846,6 +19704,12 @@
       "id": "clhclpk2-2001",
       "system": "ClHCl",
       "name": "PK2",
+      "documentation": {
+        "formula": "ClHCl",
+        "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-Cl) R(3) = R(Cl-Cl) Internal, Definition: R(1) = R(first Cl-H) R(2) = R(H-second Cl) R(3) = R(first Cl-second Cl)",
+        "reference": "A. Persky and H. Kornweitz J. Phys. Chem. 91, 5496 (1987) A. Persky and H. Kornweitz J. Phys. Chem. 91, 5496 (1987)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3,
@@ -18899,6 +19763,12 @@
       "id": "clhclpk2",
       "system": "ClHCl",
       "name": "PK2",
+      "documentation": {
+        "formula": "ClHCl",
+        "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-Cl) R(3) = R(Cl-Cl)",
+        "reference": "A. Persky and H. Kornweitz J. Phys. Chem. 91, 5496 (1987)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -18946,6 +19816,12 @@
       "id": "clhclpk3-2001",
       "system": "ClHCl",
       "name": "PK2",
+      "documentation": {
+        "formula": "ClHCl",
+        "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-Cl) R(3) = R(Cl-Cl) Internal, Definition: R(1) = R(first Cl-H) R(2) = R(H-second Cl) R(3) = R(first Cl-second Cl)",
+        "reference": "A. Persky and H. Kornweitz J. Phys. Chem. 91, 5496 (1987) A. Persky and H. Kornweitz J. Phys. Chem. 91, 5496 (1987)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3,
@@ -18999,6 +19875,12 @@
       "id": "clhclpk3",
       "system": "ClHCl",
       "name": "PK3",
+      "documentation": {
+        "formula": "ClHCl",
+        "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-Cl) R(3) = R(Cl-Cl)",
+        "reference": "A. Persky and H. Kornweitz J. Phys. Chem. 91, 5496 (1987)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -19046,6 +19928,12 @@
       "id": "hcl2lep",
       "system": "ABC",
       "name": "hcl2lep",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "P. J. Kuntz, E. M. Nemeth, J. C. Polanyi, S. D. Rosner, C. E. Young, J. Chem. Phys., Vol. 44, 1168 (1968). P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -19094,6 +19982,12 @@
       "id": "hcl2lep2001",
       "system": "ABC",
       "name": "hcl2lep2001",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966) P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -19146,6 +20040,12 @@
       "id": "clh2alab",
       "system": "ClH2",
       "name": "AL/AB",
+      "documentation": {
+        "formula": "ClH2",
+        "coordinates": "Internal, Definition: R(1) = R(Cl-first H) R(2) = R(first H-second H) R(3) = R(Cl-second H)",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -19201,6 +20101,12 @@
       "id": "clh2dim3c",
       "system": "ClH2",
       "name": "ClH2 DIM-3C",
+      "documentation": {
+        "formula": "ClH2",
+        "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-H) R(3) = R(Cl-H) Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-H) R(3) = R(Cl-H)",
+        "reference": "I. Last and M. Baer Chem. Phys. Lett. 73, 514 (1980) J. Chem. Phys. 75, 288 (1981)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3,
@@ -19344,6 +20250,12 @@
       "id": "clh2dima",
       "system": "ClH2",
       "name": "ClH2 DIMA",
+      "documentation": {
+        "formula": "ClH2",
+        "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-H) R(3) = R(Cl-H)",
+        "reference": "unpublished; S. C. Tucker, D. G. Truhlar, G. C. Garrett, and A. D. Isaacson J. Chem. Phys. 82, 4102 (1985)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -19511,6 +20423,12 @@
       "id": "clh2dims",
       "system": "ClH2",
       "name": "ClH2 DIMS",
+      "documentation": {
+        "formula": "ClH2",
+        "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-H) R(3) = R(Cl-H)",
+        "reference": "unpublished; S. C. Tucker, D. G. Truhlar, B. C. Garrett, and A. D. Isaacson J. Chem. Phys. 82, 4102 (1985)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -19615,6 +20533,12 @@
       "id": "clh2g1",
       "system": "ABC",
       "name": "G1",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "unpublished; P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -19663,6 +20587,12 @@
       "id": "clh2g3",
       "system": "ClH2",
       "name": "G3",
+      "documentation": {
+        "formula": "ClH2",
+        "coordinates": "",
+        "reference": "Allison, T. C.; Lynch, G. C.; Truhlar, D. G.; Gordon, M. S. J. Phys. Chem., to be submitted.",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -19708,6 +20638,12 @@
       "id": "clh2g3v",
       "system": "ClH2",
       "name": "G3",
+      "documentation": {
+        "formula": "ClH2",
+        "coordinates": "",
+        "reference": "Allison, T. C.; Lynch, G. C.; Truhlar, D. G.; Gordon, M. S., J. Phys. Chem., Vol. 100, 13575 (1996).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -19759,6 +20695,12 @@
       "id": "clh2gq",
       "system": "ClH2",
       "name": "GQ",
+      "documentation": {
+        "formula": "ClH2",
+        "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-H) R(3) = R(Cl-H)",
+        "reference": "D. W. Schwenke, S. C. Tucker, R. Steckler, F. B. Brown, G. C. Lynch, D. G. Truhlar, and B. C. Garrett J. Chem. Phys. 90, 3110-3120 (1989)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -19807,6 +20749,12 @@
       "id": "clh2gqq",
       "system": "ClH2",
       "name": "GQQ",
+      "documentation": {
+        "formula": "ClH2",
+        "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-H) R(3) = R(Cl-H)",
+        "reference": "D. W. Schwenke, S. C. Tucker, R. Steckler, F. B. Brown, G. C. Lynch, D. G. Truhlar, and B. C. Garrett J. Chem. Phys. 90, 3110-3120 (1989)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -19855,6 +20803,12 @@
       "id": "clh2gsi",
       "system": "ABC",
       "name": "GSI",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-H) R(3) = R(Cl-H)",
+        "reference": "A. Persky and F. S. Klein J. Chem. Phys. 44, 3617 (1966)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -19903,6 +20857,12 @@
       "id": "clh2gsii",
       "system": "ABC",
       "name": "GSII",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-H) R(3) = R(Cl-H)",
+        "reference": "A. Persky and F. S. Klein J. Chem. Phys. 44, 3617 (1966)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -19951,6 +20911,12 @@
       "id": "clh2s1",
       "system": "ABC",
       "name": "surface no. 1",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-H) R(3) = R(Cl-H)",
+        "reference": "B. C. Garrett, D. G. Truhlar, and A. W. Magnuson J. Chem. Phys. 74, 1029 (1981)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -19999,6 +20965,12 @@
       "id": "clh2s2",
       "system": "ABC",
       "name": "surface no. 2",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-H) R(3) = R(Cl-H)",
+        "reference": "B. C. Garrett, D. G. Truhlar, and A. W. Magnuson J. Chem. Phys. 74, 1029 (1981)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -20047,6 +21019,12 @@
       "id": "clh2s3",
       "system": "ABC",
       "name": "surface no. 3",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-H) R(3) = R(Cl-H)",
+        "reference": "B. C. Garrett, D. G. Truhlar, and A. W. Magnuson J. Chem. Phys. 74, 1029 (1981)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -20095,6 +21073,12 @@
       "id": "clh2spkgsw",
       "system": "ABC",
       "name": "SPK GSW",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-H) R(3) = R(Cl-H)",
+        "reference": "M. J. Stern, A. Persky, and F. S. Klein J. Chem. Phys. 58, 5697 (1973).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -20143,6 +21127,12 @@
       "id": "clnh3-2012",
       "system": "ClNH3",
       "name": "ClNH3",
+      "documentation": {
+        "formula": "ClNH3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 5
@@ -20278,6 +21268,12 @@
       "id": "hf2eleps",
       "system": "ABC",
       "name": "hf2eleps",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -20326,6 +21322,12 @@
       "id": "hf2eleps2001",
       "system": "ABC",
       "name": "hf2eleps2001",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -20378,6 +21380,12 @@
       "id": "hf2jotii",
       "system": "F2H",
       "name": "JOT-II",
+      "documentation": {
+        "formula": "F2H",
+        "coordinates": "",
+        "reference": "N. Jonathon, S. Okuda, and D. Timlin, Mol. Phys. 24, 1143 (1972).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -20423,6 +21431,12 @@
       "id": "hf2jotii2001",
       "system": "F2H",
       "name": "JOT-II",
+      "documentation": {
+        "formula": "F2H",
+        "coordinates": "",
+        "reference": "N. Jonathon, S. Okuda, and D. Timlin, Mol. Phys. 24, 1143 (1972).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -20487,6 +21501,12 @@
       "id": "bjkkl",
       "system": "",
       "name": "bjkkl",
+      "documentation": {
+        "formula": "",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4,
@@ -20549,6 +21569,12 @@
       "id": "f2h2s2-2001",
       "system": "F2H2",
       "name": "S2",
+      "documentation": {
+        "formula": "F2H2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -20634,6 +21660,12 @@
       "id": "f2h2s2",
       "system": "F2H2",
       "name": "S2",
+      "documentation": {
+        "formula": "F2H2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -20738,6 +21770,12 @@
       "id": "f2h2sqsbde",
       "system": "F2H2",
       "name": "SQSBDE",
+      "documentation": {
+        "formula": "F2H2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -20822,6 +21860,12 @@
       "id": "f2h2sqsbde2001",
       "system": "F2H2",
       "name": "SQSBDE",
+      "documentation": {
+        "formula": "F2H2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -20887,6 +21931,12 @@
       "id": "fh25av",
       "system": "FH2",
       "name": "No. 5A",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -20940,6 +21990,12 @@
       "id": "fh25sec",
       "system": "FH2",
       "name": "5SEC",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -21058,6 +22114,12 @@
       "id": "fh25sec2001",
       "system": "FH2",
       "name": "5SEC",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -21180,6 +22242,12 @@
       "id": "fh25seccog1-2001",
       "system": "FH2",
       "name": "5SEC-COG1",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
+        "reference": "unpublished; S. L. Mielke, G. C. Lynch, D. G. Truhlar, and D. W. Schwenke Chem. Phys. Lett. 213, 10-16 (1993)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -21295,6 +22363,12 @@
       "id": "fh25seccog1",
       "system": "FH2",
       "name": "5SEC-COG1",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
+        "reference": "unpublished; S. L. Mielke, G. C. Lynch, D. G. Truhlar, and D. W. Schwenke Chem. Phys. Lett. 213, 10-16 (1993)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -21406,6 +22480,12 @@
       "id": "fh25seccog2-2001",
       "system": "FH2",
       "name": "5SEC-C1",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
+        "reference": "unpublished; S. L. Mielke, G. C. Lynch, D. G. Truhlar, and D. W. Schwenke Chem. Phys. Lett. 213, 10-16 (1993)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -21521,6 +22601,12 @@
       "id": "fh25seccog2",
       "system": "FH2",
       "name": "5SEC-C1",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
+        "reference": "unpublished; S. L. Mielke, G. C. Lynch, D. G. Truhlar, and D. W. Schwenke Chem. Phys. Lett. 213, 10-16 (1993)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -21632,6 +22718,12 @@
       "id": "fh25seccog3-2001",
       "system": "FH2",
       "name": "5SEC-C2",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
+        "reference": "unpublished; S. L. Mielke, G. C. Lynch, D. G. Truhlar, and D. W. Schwenke Chem. Phys. Lett. 213, 10-16 (1993)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -21747,6 +22839,12 @@
       "id": "fh25seccog3",
       "system": "FH2",
       "name": "5SEC-C2",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
+        "reference": "unpublished; S. L. Mielke, G. C. Lynch, D. G. Truhlar, and D. W. Schwenke Chem. Phys. Lett. 213, 10-16 (1993)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -21858,6 +22956,12 @@
       "id": "fh25secgm1-2001",
       "system": "FH2",
       "name": "5SEC-G1",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
+        "reference": "unpublished; S. L. Mielke, G. C. Lynch, D. G. Truhlar, and D. W. Schwenke Chem. Phys. Lett. 213, 10-16 (1993) C",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -21973,6 +23077,12 @@
       "id": "fh25secgm1",
       "system": "FH2",
       "name": "5SEC-G1",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
+        "reference": "unpublished; S. L. Mielke, G. C. Lynch, D. G. Truhlar, and D. W. Schwenke Chem. Phys. Lett. 213, 10-16 (1993)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -22084,6 +23194,12 @@
       "id": "fh25secgm2-2001",
       "system": "FH2",
       "name": "5SEC-G2",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
+        "reference": "unpublished; S. L. Mielke, G. C. Lynch, D. G. Truhlar, and D. W. Schwenke Chem. Phys. Lett. 213, 10-16 (1993)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -22199,6 +23315,12 @@
       "id": "fh25secgm2",
       "system": "FH2",
       "name": "5SEC-G2",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
+        "reference": "unpublished; S. L. Mielke, G. C. Lynch, D. G. Truhlar, and D. W. Schwenke Chem. Phys. Lett. 213, 10-16 (1993)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -22310,6 +23432,12 @@
       "id": "fh25secgm3-2001",
       "system": "FH2",
       "name": "5SEC-GM3",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
+        "reference": "unpublished; S. L. Mielke, G. C. Lynch, D. G. Truhlar, and D. W. Schwenke Chem. Phys. Lett. 213, 10-16 (1993)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -22425,6 +23553,12 @@
       "id": "fh25secgm3",
       "system": "FH2",
       "name": "5SEC-GM3",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
+        "reference": "unpublished; S. L. Mielke, G. C. Lynch, D. G. Truhlar, and D. W. Schwenke Chem. Phys. Lett. 213, 10-16 (1993)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -22536,6 +23670,12 @@
       "id": "fh25secgm4",
       "system": "FH2",
       "name": "5SECGM4",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "",
+        "reference": "unpublished; S. L. Mielke, G. C. Lynch, D. G. Truhlar, and D. W. Schwenke Chem. Phys. Lett. 213, 10-16 (1993)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -22650,6 +23790,12 @@
       "id": "fh25secs1-2001",
       "system": "FH2",
       "name": "5SEC-S1",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
+        "reference": "unpublished; S. L. Mielke, G. C. Lynch, D. G. Truhlar, and D. W. Schwenke Chem. Phys. Lett. 213, 10-16 (1993)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -22765,6 +23911,12 @@
       "id": "fh25secs1",
       "system": "FH2",
       "name": "5SEC-S1",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
+        "reference": "unpublished; S. L. Mielke, G. C. Lynch, D. G. Truhlar, and D. W. Schwenke Chem. Phys. Lett. 213, 10-16 (1993)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -22876,6 +24028,12 @@
       "id": "fh25secs2-2001",
       "system": "FH2",
       "name": "5SEC-S2",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
+        "reference": "unpublished; S. L. Mielke, G. C. Lynch, D. G. Truhlar, and D. W. Schwenke Chem. Phys. Lett. 213, 10-16 (1993)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -22991,6 +24149,12 @@
       "id": "fh25secs2",
       "system": "FH2",
       "name": "5SEC-S2",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
+        "reference": "unpublished; S. L. Mielke, G. C. Lynch, D. G. Truhlar, and D. W. Schwenke Chem. Phys. Lett. 213, 10-16 (1993)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -23102,6 +24266,12 @@
       "id": "fh25secs3-2001",
       "system": "FH2",
       "name": "5SEC-S3",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
+        "reference": "unpublished; S. L. Mielke, G. C. Lynch, D. G. Truhlar, and D. W. Schwenke Chem. Phys. Lett. 213, 10-16 (1993)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -23217,6 +24387,12 @@
       "id": "fh25secs3",
       "system": "FH2",
       "name": "5SEC-S3",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
+        "reference": "unpublished; S. L. Mielke, G. C. Lynch, D. G. Truhlar, and D. W. Schwenke Chem. Phys. Lett. 213, 10-16 (1993)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -23328,6 +24504,12 @@
       "id": "fh25secw",
       "system": "FH2",
       "name": "5SEC-W",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -23446,6 +24628,12 @@
       "id": "fh25secw2001",
       "system": "FH2",
       "name": "5SEC-W",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -23568,6 +24756,12 @@
       "id": "fh26sec",
       "system": "FH2",
       "name": "6SEC",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "",
+        "reference": "S. L. Mielke, G. C. Lynch, D. G. Truhlar, and D. W. Schwenke Chem. Phys. Lett. 216, 441-446 (1993)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -23683,6 +24877,12 @@
       "id": "fh26sec2001",
       "system": "FH2",
       "name": "6SEC",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "",
+        "reference": "S. L. Mielke, G. C. Lynch, D. G. Truhlar, and D. W. Schwenke Chem. Phys. Lett. 216, 441-446 (1993) D. G. Truhlar, and D. W. Schwenke",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -23802,6 +25002,12 @@
       "id": "fh2m5-2001",
       "system": "ABC",
       "name": "M5",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "Internal, Definition: R(1) = R(F-first H) R(2) = R(first H-second H) R(3) = R(F-second H)",
+        "reference": "J. T. Muckerman Theor. Chem. Advan. Perspectives 6A, 1 (1981)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -23854,6 +25060,12 @@
       "id": "fh2m5",
       "system": "ABC",
       "name": "M5",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "Internal, Definition: R(1) = R(F-first H) R(2) = R(first H-second H) R(3) = R(F-second H)",
+        "reference": "J. T. Muckerman Theor. Chem. Advan. Perspectives 6A, 1 (1981)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -23902,6 +25114,12 @@
       "id": "fh2m5sk",
       "system": "ABC",
       "name": "M5SK",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -23950,6 +25168,12 @@
       "id": "fh2m5sk2001",
       "system": "ABC",
       "name": "M5SK",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -24002,6 +25226,12 @@
       "id": "fh2n1-2001",
       "system": "ABC",
       "name": "no. 1",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -24054,6 +25284,12 @@
       "id": "fh2n1",
       "system": "ABC",
       "name": "no. 1",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -24102,6 +25338,12 @@
       "id": "fh2n2-2001",
       "system": "FH2",
       "name": "no. 2",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "",
+        "reference": "D. G. Truhlar, B. C. Garrett, and N. C. Blais J. Chem. Phys. 80, 232 (1984).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -24172,6 +25414,12 @@
       "id": "fh2n2",
       "system": "FH2",
       "name": "no. 2",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "",
+        "reference": "D. G. Truhlar, B. C. Garrett, and N. C. Blais J. Chem. Phys. 80, 232 (1984).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -24237,6 +25485,12 @@
       "id": "fh2n2a",
       "system": "FH2",
       "name": "no. 2a",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "",
+        "reference": "unpublished; D. G. Truhlar, B. C. Garrett, and N. C. Blais J. Chem. Phys. 80, 232 (1984).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -24302,6 +25556,12 @@
       "id": "fh2n2a2001",
       "system": "FH2",
       "name": "no. 2a",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "",
+        "reference": "unpublished; D. G. Truhlar, B. C. Garrett, and N. C. Blais J. Chem. Phys. 80, 232 (1984).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -24372,6 +25632,12 @@
       "id": "fh2n3-2001",
       "system": "FH2",
       "name": "no. 3",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "",
+        "reference": "R. Steckler, D. G. Truhlar, B. C. Garrett, N. C. Blais, and R. B. Walker, J. Chem. Phys. 81, 5700 (1984).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -24442,6 +25708,12 @@
       "id": "fh2n3",
       "system": "FH2",
       "name": "no. 3",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "",
+        "reference": "R. Steckler, D. G. Truhlar, B. C. Garrett, N. C. Blais, and R. B. Walker, J. Chem. Phys. 81, 5700 (1984).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -24508,6 +25780,12 @@
       "id": "fh2n4-2001",
       "system": "FH2",
       "name": "no. 4",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "",
+        "reference": "F. B. Brown, R. Steckler, D. W. Schwenke, D. G. Truhlar, and B. C. Garrett, J. Chem. Phys. 82, 188-201 (1985).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -24560,6 +25838,12 @@
       "id": "fh2n4",
       "system": "FH2",
       "name": "no. 4",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "",
+        "reference": "F. B. Brown, R. Steckler, D. W. Schwenke, D. G. Truhlar, and B. C. Garrett, J. Chem. Phys. 82, 188-201 (1985).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -24607,6 +25891,12 @@
       "id": "fh2n5-2001",
       "system": "FH2",
       "name": "no. 5",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "",
+        "reference": "F. B. Brown, R. Steckler, D. W. Schwenke, D. G. Truhlar, and B. C. Garrett J. Chem. Phys. 82, 188-201 (1985).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -24659,6 +25949,12 @@
       "id": "fh2n5",
       "system": "FH2",
       "name": "no. 5",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "",
+        "reference": "F. B. Brown, R. Steckler, D. W. Schwenke, D. G. Truhlar, and B. C. Garrett J. Chem. Phys. 82, 188-201 (1985).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -24706,6 +26002,12 @@
       "id": "fh2n5a",
       "system": "FH2",
       "name": "no. 5A",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "",
+        "reference": "R. Steckler, D. G. Truhlar, and B. C. Garrett J. Chem. Phys. 82, 5499-5505 (1985).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -24753,6 +26055,12 @@
       "id": "fh2n5a2001",
       "system": "FH2",
       "name": "no. 5A",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "",
+        "reference": "R. Steckler, D. G. Truhlar, and B. C. Garrett J. Chem. Phys. 82, 5499-5505 (1985).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3,
@@ -24806,6 +26114,12 @@
       "id": "fh2n5b",
       "system": "FH2",
       "name": "no. 5B",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "",
+        "reference": "Unpublished, R. Steckler and D. G. Truhlar (1985).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -24853,6 +26167,12 @@
       "id": "fh2n5b2001",
       "system": "FH2",
       "name": "no. 5B",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "",
+        "reference": "unpublished (See Steckler's comp index)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3,
@@ -24906,6 +26226,12 @@
       "id": "fh2n5z",
       "system": "FH2",
       "name": "no. 5Z",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "",
+        "reference": "Unpublished, R. Steckler and D. G. Truhlar (1985).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -24953,6 +26279,12 @@
       "id": "fh2n5z2001",
       "system": "FH2",
       "name": "no. 5Z",
+      "documentation": {
+        "formula": "FH2",
+        "coordinates": "",
+        "reference": "unpublished (see Steckler's comp index)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -25005,6 +26337,12 @@
       "id": "fh2sk",
       "system": "ABC",
       "name": "SK",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "Internal, Definition: R(1) = R(F-first H) R(2) = R(first H-second H) R(3) = R(second H-F)",
+        "reference": "G. C. Schatz and A. Kuppermann J. Chem. Phys. 72, 2737 (1980).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -25053,6 +26391,12 @@
       "id": "fh2sk2001",
       "system": "ABC",
       "name": "SK",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "Internal, Definition: R(1) = R(F-first H) R(2) = R(first H-second H) R(3) = R(second H-F)",
+        "reference": "G. C. Schatz and A. Kuppermann J. Chem. Phys. 72, 2737 (1980).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -25105,6 +26449,12 @@
       "id": "geh4oh-2014",
       "system": "GeH4OH",
       "name": "GeH4OH",
+      "documentation": {
+        "formula": "GeH4OH",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 7
@@ -25242,6 +26592,12 @@
       "id": "geh5-2001",
       "system": "GeH5",
       "name": "GeH5",
+      "documentation": {
+        "formula": "GeH5",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -25378,6 +26734,12 @@
       "id": "geh5",
       "system": "GeH5",
       "name": "GeH5",
+      "documentation": {
+        "formula": "GeH5",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -25507,6 +26869,12 @@
       "id": "h2o2",
       "system": "H2O2, see Koput, J.; Carter, S.; Handy, N. C.;",
       "name": "Koput-Carter-Handy",
+      "documentation": {
+        "formula": "H2O2, see Koput, J.; Carter, S.; Handy, N. C.;",
+        "coordinates": "",
+        "reference": "Koput,Carter,&Handy, JPC A, 102, 6325 (1998).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -25657,6 +27025,12 @@
       "id": "a2",
       "system": "H3",
       "name": "a2",
+      "documentation": {
+        "formula": "H3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -25760,6 +27134,12 @@
       "id": "a3",
       "system": "H3",
       "name": "A3",
+      "documentation": {
+        "formula": "H3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -25861,6 +27241,12 @@
       "id": "a4",
       "system": "H3",
       "name": "A4",
+      "documentation": {
+        "formula": "H3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -25970,6 +27356,12 @@
       "id": "cci",
       "system": "H3",
       "name": "CCI",
+      "documentation": {
+        "formula": "H3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -26079,6 +27471,12 @@
       "id": "h3-bh",
       "system": "H3",
       "name": "Born-Huang",
+      "documentation": {
+        "formula": "H3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -26268,6 +27666,12 @@
       "id": "h3bkmp",
       "system": "H3",
       "name": "BKMP",
+      "documentation": {
+        "formula": "H3",
+        "coordinates": "",
+        "reference": "A. I. Boothroyd, W. J. Keogh, P. G. Martin, and M. R. Peterson J. Chem. Phys. 95, 4343 (1991).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -26433,6 +27837,12 @@
       "id": "h3bkmp3",
       "system": "H3",
       "name": "BKMP3",
+      "documentation": {
+        "formula": "H3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -26625,6 +28035,12 @@
       "id": "h3dmbe",
       "system": "H3",
       "name": "DMBE",
+      "documentation": {
+        "formula": "H3",
+        "coordinates": "Internal, Definition: R(1) = R(first H-second H) R(2) = R(second H-third H) R(3) = R(third H-first H)",
+        "reference": "A. J. C. Varandas, F. B. Brown, C. A. Mead, D. G. Truhlar, and N. C. Blais J. Chem. Phys. 86, 6258 (1987).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -26799,6 +28215,12 @@
       "id": "h3dmbe2001",
       "system": "H3",
       "name": "DMBE",
+      "documentation": {
+        "formula": "H3",
+        "coordinates": "Internal, Definition: R(1) = R( first H -- second H) R(2) = R(second H -- third H ) R(3) = R( third H -- first H )",
+        "reference": "A. J. C. Varandas, F. B. Brown, C. A. Mead, D. G. Truhlar, and N. C. Blais J. Chem. Phys. 86, 6258 (1987).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -26964,6 +28386,12 @@
       "id": "h3dmbev",
       "system": "H3",
       "name": "DMBE",
+      "documentation": {
+        "formula": "H3",
+        "coordinates": "Internal, Definition: R(1) = R(first H-second H) R(2) = R(second H-third H) R(3) = R(third H-first H)",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -27011,6 +28439,12 @@
       "id": "h3lsth",
       "system": "H3",
       "name": "LSTH",
+      "documentation": {
+        "formula": "H3",
+        "coordinates": "",
+        "reference": "B. Liu, J. Chem. Phys., Vol. 58, 1925 (1973); B. Liu and P. Sieghahn, J. Chem. Phys., Vol. 68, 2457 (1987); D. G. Truhlar and C. J. Horiwitz, J. Chem. Phys., Vol. 68 (1978), Vol. 71, 1514(E) (1979).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -27100,6 +28534,12 @@
       "id": "h3pk2-2001",
       "system": "H3",
       "name": "PK2",
+      "documentation": {
+        "formula": "H3",
+        "coordinates": "",
+        "reference": "R. N. Porter and M. Karplus J. Chem. Phys. 40, 1105 (1964).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -27151,6 +28591,12 @@
       "id": "h3pk2",
       "system": "H3",
       "name": "PK2",
+      "documentation": {
+        "formula": "H3",
+        "coordinates": "",
+        "reference": "R. N. Porter and M. Karplus J. Chem. Phys. 40, 1105 (1964).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -27205,6 +28651,12 @@
       "id": "h3tk",
       "system": "H3",
       "name": "TK",
+      "documentation": {
+        "formula": "H3",
+        "coordinates": "",
+        "reference": "D. G. Truhlar and A. Kuppermann J. Chem. Phys. 56, 2232 (1984).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -27263,6 +28715,12 @@
       "id": "h3tk2001",
       "system": "H3",
       "name": "TK",
+      "documentation": {
+        "formula": "H3",
+        "coordinates": "",
+        "reference": "D. G. Truhlar and A. Kuppermann J. Chem. Phys. 56, 2232 (1984).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -27436,6 +28894,12 @@
       "id": "pes-h3cl",
       "system": "",
       "name": "pes-H3Cl",
+      "documentation": {
+        "formula": "",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4,
@@ -27748,6 +29212,12 @@
       "id": "h3pluskbnn",
       "system": "H3plus",
       "name": "H3+ KBNN",
+      "documentation": {
+        "formula": "H3plus",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -27801,6 +29271,12 @@
       "id": "h3pluskbnnd",
       "system": "H3plus",
       "name": "H3+ KBNN with derivatives",
+      "documentation": {
+        "formula": "H3plus",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -27854,6 +29330,12 @@
       "id": "h3plusuno",
       "system": "H3plus",
       "name": "H3+ UNO",
+      "documentation": {
+        "formula": "H3plus",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -27907,6 +29389,12 @@
       "id": "h3plusunod",
       "system": "H3plus",
       "name": "H3+ UNO with derivatives",
+      "documentation": {
+        "formula": "H3plus",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -27960,6 +29448,12 @@
       "id": "hi2kka",
       "system": "HI2",
       "name": "KK",
+      "documentation": {
+        "formula": "HI2",
+        "coordinates": "",
+        "reference": "J. A. Kaye and A. Kuppermann, Chem. Phys. Lett. 77, 573 (1981).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -28005,6 +29499,12 @@
       "id": "hi2kka2001",
       "system": "HI2",
       "name": "KK",
+      "documentation": {
+        "formula": "HI2",
+        "coordinates": "",
+        "reference": "J. A. Kaye and A. Kuppermann, Chem. Phys. Lett. 77, 573 (1981).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -28056,6 +29556,12 @@
       "id": "ihielepsa",
       "system": "ABC",
       "name": "no. A",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "C. A. Parr and D. G. Truhlar, J. Phys. Chem., Vol. 75, 1844 (1971).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -28104,6 +29610,12 @@
       "id": "ihielepsa2001",
       "system": "ABC",
       "name": "no. A",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -28156,6 +29668,12 @@
       "id": "ihielepsb",
       "system": "ABC",
       "name": "no. B",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "C. A. Parr and D. G. Truhlar, J. Phys. Chem., Vol. 75, 1844 (1971).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -28204,6 +29722,12 @@
       "id": "ihielepsb2001",
       "system": "ABC",
       "name": "no. B",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -28256,6 +29780,12 @@
       "id": "ih2eleps",
       "system": "ABC",
       "name": "ih2eleps",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -28304,6 +29834,12 @@
       "id": "ih2eleps2001",
       "system": "ABC",
       "name": "ih2eleps2001",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -28356,6 +29892,12 @@
       "id": "ih2elepsa",
       "system": "ABC",
       "name": "ih2elepsa",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -28404,6 +29946,12 @@
       "id": "ih2elepsa2001",
       "system": "ABC",
       "name": "ih2elepsa2001",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -28456,6 +30004,12 @@
       "id": "ih2raff",
       "system": "IH2",
       "name": "ih2raff",
+      "documentation": {
+        "formula": "IH2",
+        "coordinates": "",
+        "reference": "L. Raff, L. Stivers, R. N. Porter, D. L. Thompson, L. B. Sims, J. Chem. Phys., Vol. 52, 3449 (1970).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -28503,6 +30057,12 @@
       "id": "ih2raff2001",
       "system": "IH2",
       "name": "ih2raff2001",
+      "documentation": {
+        "formula": "IH2",
+        "coordinates": "",
+        "reference": "L. Raff et al.",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -28554,6 +30114,12 @@
       "id": "ih2rmc1d",
       "system": "IH2",
       "name": "RMC",
+      "documentation": {
+        "formula": "IH2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -28602,6 +30168,12 @@
       "id": "ih2rmc1d2001",
       "system": "IH2",
       "name": "RMC",
+      "documentation": {
+        "formula": "IH2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -28662,6 +30234,12 @@
       "id": "ih2rmc3d",
       "system": "IH2",
       "name": "RMC",
+      "documentation": {
+        "formula": "IH2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -28723,6 +30301,12 @@
       "id": "ih2rmc3d2001",
       "system": "IH2",
       "name": "RMC",
+      "documentation": {
+        "formula": "IH2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -28797,6 +30381,12 @@
       "id": "lifhj",
       "system": "LiFH",
       "name": "LiFH surface fit J",
+      "documentation": {
+        "formula": "LiFH",
+        "coordinates": "Internal, Definition: R(1) = R(Li-H) R(2) = R(H-F) R(3) = R(Li-F)",
+        "reference": "A. W. Jasper, M. D. Hack, D. G. Truhlar, and P. Piecuch, J. Chem. Phys., prepared for publication.",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -28920,6 +30510,12 @@
       "id": "lifhjs",
       "system": "LiFH",
       "name": "LiFH surface fit JS",
+      "documentation": {
+        "formula": "LiFH",
+        "coordinates": "Internal, Definition: R(1) = R(Li-H) R(2) = R(H-F) R(3) = R(Li-F)",
+        "reference": "A. W. Jasper, M. D. Hack, D. G. Truhlar, and P. Piecuch, J. Chem. Phys., in preparation.",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -29021,6 +30617,12 @@
       "id": "lifhd",
       "system": "LiFH",
       "name": "LiFH surface fit H",
+      "documentation": {
+        "formula": "LiFH",
+        "coordinates": "Internal, Definition: R(1) = R(Li-H) R(2) = R(H-F) R(3) = R(Li-F)",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -29145,6 +30747,12 @@
       "id": "mch-sb",
       "system": "MCH",
       "name": "MCH-SB",
+      "documentation": {
+        "formula": "MCH",
+        "coordinates": "Internal, Definition: R(1) = R(M-H) R(2) = R(H-X) R(3) = R(M-X))",
+        "reference": "A. W. Jasper and D. G. Truhlar, J. Chem. Phys., submitted (2004).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -29269,6 +30877,12 @@
       "id": "mch-sl",
       "system": "MCH",
       "name": "MCH-SL",
+      "documentation": {
+        "formula": "MCH",
+        "coordinates": "Internal, Definition: R(1) = R(M-H) R(2) = R(H-X) R(3) = R(M-X))",
+        "reference": "A. W. Jasper and D. G. Truhlar, J. Chem. Phys., submitted (2004).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -29393,6 +31007,12 @@
       "id": "mch-tl",
       "system": "MCH",
       "name": "MCH-TL",
+      "documentation": {
+        "formula": "MCH",
+        "coordinates": "Internal, Definition: R(1) = R(M-H) R(2) = R(H-X) R(3) = R(M-X))",
+        "reference": "A. W. Jasper and D. G. Truhlar, J. Chem. Phys., submitted (2004).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -29517,6 +31137,12 @@
       "id": "mch-wb",
       "system": "MCH",
       "name": "MCH-WB",
+      "documentation": {
+        "formula": "MCH",
+        "coordinates": "Internal, Definition: R(1) = R(M-H) R(2) = R(H-X) R(3) = R(M-X))",
+        "reference": "A. W. Jasper and D. G. Truhlar, J. Chem. Phys., submitted (2004).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -29641,6 +31267,12 @@
       "id": "mch-wl",
       "system": "MCH",
       "name": "MCH-WL",
+      "documentation": {
+        "formula": "MCH",
+        "coordinates": "Internal, Definition: R(1) = R(M-H) R(2) = R(H-X) R(3) = R(M-X))",
+        "reference": "A. W. Jasper and D. G. Truhlar, J. Chem. Phys., submitted (2004).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -29765,6 +31397,12 @@
       "id": "mxh-sbd",
       "system": "MXH",
       "name": "MXH-SB",
+      "documentation": {
+        "formula": "MXH",
+        "coordinates": "Internal, Definition: R(1) = R(M-H) R(2) = R(H-X) R(3) = R(M-X))",
+        "reference": "Y. L. Volobuev, M. D. Hack, M. S. Topaler, and D. G. Truhlar, J. Chem. Phys. 112 9716 (2000).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -29890,6 +31528,12 @@
       "id": "mxh-sld",
       "system": "MXH",
       "name": "MXH-SL",
+      "documentation": {
+        "formula": "MXH",
+        "coordinates": "Internal, Definition: R(1) = R(M-H) R(2) = R(H-X) R(3) = R(M-X))",
+        "reference": "Y. L. Volobuev, M. D. Hack, M. S. Topaler, and D. G. Truhlar, J. Chem. Phys. 112 9716 (2000).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -30015,6 +31659,12 @@
       "id": "mxh-wld",
       "system": "MXH",
       "name": "MXH-WL",
+      "documentation": {
+        "formula": "MXH",
+        "coordinates": "Internal, Definition: R(1) = R(M-H) R(2) = R(H-X) R(3) = R(M-X))",
+        "reference": "Y. L. Volobuev, M. D. Hack, M. S. Topaler, and D. G. Truhlar, J. Chem. Phys. 112 9716 (2000).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -30140,6 +31790,12 @@
       "id": "n4-1a-mb-pip-meg3",
       "system": "N4",
       "name": "N4(adiabatic ground state)",
+      "documentation": {
+        "formula": "N4",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -30473,6 +32129,12 @@
       "id": "pes-n4-mb-pip-nn",
       "system": "N4",
       "name": "N4(adiabatic ground state)",
+      "documentation": {
+        "formula": "N4",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -30751,6 +32413,12 @@
       "id": "pes-n4-meg2",
       "system": "N4",
       "name": "N4(adiabatic ground state)",
+      "documentation": {
+        "formula": "N4",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -31065,6 +32733,12 @@
       "id": "pes-n4-singlet-umn-v3",
       "system": "N4",
       "name": "N4(adiabatic ground state)",
+      "documentation": {
+        "formula": "N4",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -31334,6 +33008,12 @@
       "id": "n4pes-gpip-meg",
       "system": "N4",
       "name": "N4(adiabatic ground state)",
+      "documentation": {
+        "formula": "N4",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -31524,6 +33204,12 @@
       "id": "n4pes-gpip-v2-package",
       "system": "N4",
       "name": "N4(adiabatic ground state)",
+      "documentation": {
+        "formula": "N4",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -31714,6 +33400,12 @@
       "id": "n4pes-gpip-v2",
       "system": "N4",
       "name": "N4(adiabatic ground state)",
+      "documentation": {
+        "formula": "N4",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -31904,6 +33596,12 @@
       "id": "n4pes",
       "system": "N4",
       "name": "N4(adiabatic ground state)",
+      "documentation": {
+        "formula": "N4",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -32094,6 +33792,12 @@
       "id": "n4pes-l-imls-g2-v1",
       "system": "N4",
       "name": "N4(adiabatic ground state)",
+      "documentation": {
+        "formula": "N4",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -32489,6 +34193,12 @@
       "id": "nh3code1",
       "system": "NH3",
       "name": "NH3 (code 1, not as optimized as code 2)",
+      "documentation": {
+        "formula": "NH3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -32838,6 +34548,12 @@
       "id": "nh3code2",
       "system": "NH3",
       "name": "NH3 (code 2, optimized)",
+      "documentation": {
+        "formula": "NH3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -33212,6 +34928,12 @@
       "id": "nh3cn",
       "system": "NH3CN",
       "name": "NH3CN",
+      "documentation": {
+        "formula": "NH3CN",
+        "coordinates": "",
+        "reference": "J. Espinosa-Garcia, C. Rangel, M. Garcia-Chamorro and J.C. Corchado, Molecules, 26, 994 (2021)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -33347,6 +35069,12 @@
       "id": "nh3oh-2013",
       "system": "NH3OH",
       "name": "NH3OH",
+      "documentation": {
+        "formula": "NH3OH",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -33482,6 +35210,12 @@
       "id": "nh4",
       "system": "NH4",
       "name": "NH4",
+      "documentation": {
+        "formula": "NH4",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 5
@@ -33617,6 +35351,12 @@
       "id": "nh42001",
       "system": "NH4",
       "name": "NH4",
+      "documentation": {
+        "formula": "NH4",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 5
@@ -33752,6 +35492,12 @@
       "id": "nh42009",
       "system": "NH4",
       "name": "NH4",
+      "documentation": {
+        "formula": "NH4",
+        "coordinates": "",
+        "reference": "J. Espinosa-Garcia and J.C. Corchado J.Phys.Chem. A, 114, 4455 (2010) Fitting to ab initio calculations at the CCSD(T)/cc-pVTZ level.",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 5
@@ -33894,6 +35640,12 @@
       "id": "nafh1v",
       "system": "NaFH",
       "name": "N3",
+      "documentation": {
+        "formula": "NaFH",
+        "coordinates": "Internal, Definition: R(1) = R(Na-H) R(2) = R(H-F) R(3) = R(Na-F)",
+        "reference": "Unpublished, M. S. Topaler and D. G. Truhlar",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -33996,6 +35748,12 @@
       "id": "nafh1v2001",
       "system": "NaFH",
       "name": "N3",
+      "documentation": {
+        "formula": "NaFH",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -34092,6 +35850,12 @@
       "id": "nafh2d",
       "system": "NaFH",
       "name": "NaFH surface fit B",
+      "documentation": {
+        "formula": "NaFH",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -34241,6 +36005,12 @@
       "id": "nafh2v",
       "system": "NaFH",
       "name": "NaFH surface fit A",
+      "documentation": {
+        "formula": "NaFH",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -34355,6 +36125,12 @@
       "id": "nah25f",
       "system": "NaH2",
       "name": "NaH2 surface set 5F",
+      "documentation": {
+        "formula": "NaH2",
+        "coordinates": "",
+        "reference": "P. Halvick and D. G. Truhlar, J. Chem. Phys. 96, 2895 (1992); E 100, 4718 (1994)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -34454,6 +36230,12 @@
       "id": "nah25f2001",
       "system": "NaH2",
       "name": "5F",
+      "documentation": {
+        "formula": "NaH2",
+        "coordinates": "",
+        "reference": "P. Halvick and D. G. Truhlar, J. Chem. Phys. 96, 2895 (1992); E 100, 4718 (1994)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3,
@@ -34544,6 +36326,12 @@
       "id": "nah25g",
       "system": "NaH2",
       "name": "NaH2 surface set 5G",
+      "documentation": {
+        "formula": "NaH2",
+        "coordinates": "",
+        "reference": "P. Halvick and D. G. Truhlar, J. Chem. Phys. 96, 2895 (1992); E 100, 4718 (1994)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -34643,6 +36431,12 @@
       "id": "nah25g2001",
       "system": "NaH2",
       "name": "5G",
+      "documentation": {
+        "formula": "NaH2",
+        "coordinates": "",
+        "reference": "P. Halvick and D. G. Truhlar, J. Chem. Phys. 96, 2895 (1992); E 100, 4718 (1994)",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3,
@@ -34733,6 +36527,12 @@
       "id": "nah26-der",
       "system": "NaH2",
       "name": "NaH2 surface set 6",
+      "documentation": {
+        "formula": "NaH2",
+        "coordinates": "Internal, Definition: R(1) = R(Na-H) R(2) = R(H-H') R(3) = R(Na-H') The final version of surface 6, completed on 9/24/98 This version contains derivatives, to be used with trajectory and other codes . . . It is based on version 5g of the NaH2 potential, in turn based on 5f.",
+        "reference": "P. Halvick and D. G. Truhlar, J. Chem. Phys. 96,2895 (1992). The \"zero\" of energy occurs when the Na atom is \"infinitely\" far from the H2 diatom and the H2 diatom is at its equilibrium geometry.",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -34857,6 +36657,12 @@
       "id": "nah2-7l",
       "system": "NaH2",
       "name": "NaH2 surface set 7l",
+      "documentation": {
+        "formula": "NaH2",
+        "coordinates": "Internal, Definition: R(1) = R(Na-H) R(2) = R(H-H') R(3) = R(Na-H') This is NaH2 potential matrix 7l, finalized on 5/17/99 This version contains long range forces. The potential is called by first issuing a call to PREPOT which initializes all surfaces. The potential is called by calling POT with the parameters r, e, nt, nsurf. r(nt,3) and ei(nt) are double precision arrays of dimension nt which is an integer representing the number of geometries input. The integer nsurf selects the desired surface. nsurf=1 is the lower diabatic surface, nsurf=2 is the coupling surface, nsurf=3 is the upper diabatic surface, nsurf = 4 selects the lower adiabatic surface, and nsurf = 5 selects the upper adiabatic surface",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -34958,6 +36764,12 @@
       "id": "nah2-7l2001",
       "system": "NaH2",
       "name": "7l",
+      "documentation": {
+        "formula": "NaH2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3,
@@ -35048,6 +36860,12 @@
       "id": "nah2-7ld",
       "system": "NaH2",
       "name": "NaH2 surface set 7ld",
+      "documentation": {
+        "formula": "NaH2",
+        "coordinates": "Internal, Definition: R(1) = R(Na-H) R(2) = R(H-H') R(3) = R(Na-H')",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -35172,6 +36990,12 @@
       "id": "nah2-7s",
       "system": "NaH2",
       "name": "NaH2 surface set 7s",
+      "documentation": {
+        "formula": "NaH2",
+        "coordinates": "Internal, Definition: R(1) = R(Na-H) R(2) = R(H-H') R(3) = R(Na-H')",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -35273,6 +37097,12 @@
       "id": "nah2-7s2001",
       "system": "NaH2",
       "name": "7s",
+      "documentation": {
+        "formula": "NaH2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3,
@@ -35363,6 +37193,12 @@
       "id": "nah2-7sd",
       "system": "NaH2",
       "name": "NaH2 surface set 7sd",
+      "documentation": {
+        "formula": "NaH2",
+        "coordinates": "Internal, Definition: R(1) = R(Na-H) R(2) = R(H-H') R(3) = R(Na-H')",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -35497,6 +37333,12 @@
       "id": "nich4",
       "system": "NinR",
       "name": "METHANE (Ni surface or cluster + CH3 or CH4)",
+      "documentation": {
+        "formula": "NinR",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -35983,6 +37825,12 @@
       "id": "niheam5",
       "system": "NinR",
       "name": "EAM5 (Ni surface or cluster + H)",
+      "documentation": {
+        "formula": "NinR",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -36258,6 +38106,12 @@
       "id": "niheam6",
       "system": "NinR",
       "name": "EAM6 (Ni surface or cluster + H)",
+      "documentation": {
+        "formula": "NinR",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -36542,6 +38396,12 @@
       "id": "niheam7",
       "system": "NinR",
       "name": "EAM7 (Ni surface or cluster + H)",
+      "documentation": {
+        "formula": "NinR",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -36816,6 +38676,12 @@
       "id": "ho2mb",
       "system": "HO2",
       "name": "ho2mb",
+      "documentation": {
+        "formula": "HO2",
+        "coordinates": "",
+        "reference": "C. F. Melius and R. J. Blint Chem. Phys. Lett. 64, 183 (1979).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -36862,6 +38728,12 @@
       "id": "ho2mb2001",
       "system": "HO2",
       "name": "ho2mb2001",
+      "documentation": {
+        "formula": "HO2",
+        "coordinates": "",
+        "reference": "C. F. Melius and R. J. Blint Chem. Phys. Lett. 64, 183 (1979).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -36928,6 +38800,12 @@
       "id": "oh2dim",
       "system": "OH2",
       "name": "OH2DIM",
+      "documentation": {
+        "formula": "OH2",
+        "coordinates": "",
+        "reference": "A. Whitlock, J. T. Muckerman, E. R. Fisher, \\\"Theoretical Invertigations of the Energetics and Dynamics of the Reaction of O(3P, 1D) + H2 and C(1D) + H2.\\\" Report from Research Institute for Engineering Sciences, Wayne State University, 1976; A. F. Wagner, G. C. Schatz, J. M. Bowman, J. Chem. Phys. 74, 4960 (1981); G. C. Schatz, A. F. Wagner, S. P. Walch, J. M. Bowman, J. Chem. Phys. 74, 4984 (1981); J. M. Bowman and K. T. Lee in \\\"Potential Energy Surfaces and Dynamics Calculations,\\\" D. G. Truhlar, ed. (Plenum, 1981), p. 359.",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3,
@@ -36996,6 +38874,12 @@
       "id": "oh2dim2001",
       "system": "OH2",
       "name": "OH2DIM",
+      "documentation": {
+        "formula": "OH2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -37074,6 +38958,12 @@
       "id": "oh2jw",
       "system": "ABC",
       "name": "JW",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "B. R. Johnson and N. W. Winter J. Chem. Phys. 66, 4116 (1977).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -37122,6 +39012,12 @@
       "id": "oh2jw2001",
       "system": "ABC",
       "name": "JW",
+      "documentation": {
+        "formula": "ABC",
+        "coordinates": "",
+        "reference": "B. R. Johnson and N. W. Winter J. Chem. Phys. 66, 4116 (1977).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -37174,6 +39070,12 @@
       "id": "oh2jws",
       "system": "OH2",
       "name": "JWS",
+      "documentation": {
+        "formula": "OH2",
+        "coordinates": "Internal, Definition: R(1) = R(O-first H) R(2) = R(first H-second H) R(3) = R(second H-O)",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -37221,6 +39123,12 @@
       "id": "oh2jws2001",
       "system": "OH2",
       "name": "JWS",
+      "documentation": {
+        "formula": "OH2",
+        "coordinates": "Internal, Definition: R(1) = R(O-first H) R(2) = R(first H-second H) R(3) = R(second H-O) Internal, Definition: R(1) = R(O-first H) R(2) = R(first H-second H) R(3) = R(second H-O)",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -37287,6 +39195,12 @@
       "id": "oh2m2adp",
       "system": "OH2",
       "name": "M2 (A'' surface)",
+      "documentation": {
+        "formula": "OH2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -37360,6 +39274,12 @@
       "id": "oh2m2adp2001",
       "system": "OH2 A'' surface",
       "name": "M2",
+      "documentation": {
+        "formula": "OH2 A'' surface",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -37453,6 +39373,12 @@
       "id": "oh2m2ap",
       "system": "OH2",
       "name": "M2 (A' surface)",
+      "documentation": {
+        "formula": "OH2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -37526,6 +39452,12 @@
       "id": "oh2m2ap2001",
       "system": "OH2 A' surface",
       "name": "M2",
+      "documentation": {
+        "formula": "OH2 A' surface",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -37626,6 +39558,12 @@
       "id": "oh2m3a",
       "system": "OH2",
       "name": "M3na, symmetrized M2 potential (A'' surface)",
+      "documentation": {
+        "formula": "OH2",
+        "coordinates": "",
+        "reference": "unpublished; T. Joseph, D. G. Truhlar, and B. C. Garrett J. Chem. Phys. 88, 6982-6990 (1988).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -37718,6 +39656,12 @@
       "id": "oh2m3a2001",
       "system": "OH2 A'' surface",
       "name": "M3na, symmetrized M2 potential",
+      "documentation": {
+        "formula": "OH2 A'' surface",
+        "coordinates": "",
+        "reference": "unpublished; T. Joseph, D. G. Truhlar, and B. C. Garrett J. Chem. Phys. 88, 6982-6990 (1988).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -37831,6 +39775,12 @@
       "id": "oh2m3n",
       "system": "OH2",
       "name": "M3n, symmetrized M2 potential (A'' surface)",
+      "documentation": {
+        "formula": "OH2",
+        "coordinates": "",
+        "reference": "unpublished; T. Joseph, D. G. Truhlar, and B. C. Garrett J. Chem. Phys. 88, 6982-6990 (1988).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -37923,6 +39873,12 @@
       "id": "oh2m3n2001",
       "system": "OH2 A'' surface",
       "name": "M3n, symmetrized M2 potential",
+      "documentation": {
+        "formula": "OH2 A'' surface",
+        "coordinates": "",
+        "reference": "unpublished; T. Joseph, D. G. Truhlar, and B. C. Garrett J. Chem. Phys. 88, 6982-6990 (1988).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -38029,6 +39985,12 @@
       "id": "oh2pol",
       "system": "OH2",
       "name": "POL",
+      "documentation": {
+        "formula": "OH2",
+        "coordinates": "",
+        "reference": "S. P. Walch, T. H. Dunning, Jr., F. W. Bobrowicz, R. Raffenetti, J. Chem. Phys. 72, 406 (1980); S. P. Walch, A. F. Wagner, G. C. Schatz, and T. H. Dunning, Jr., J. Chem. Phys. 72, 2894 (1980); A. F. Wagner, G. C. Schatz, J. M. Bowman, J. Chem. Phys. 74, 4960 (1981); G. C. Schatz, A. F. Wagner, S. P. Walch, J. M. Bowman, J. Chem. Phys. 74, 4984 (1981); J. M. Bowman and K. T. Lee in \\\"Potential Energy Surfaces and Dynamics Calculations,\\\" D. G. Truhlar, ed. (Plenum, 1981), p. 359.",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -38100,6 +40062,12 @@
       "id": "oh2pol2001",
       "system": "OH2",
       "name": "POL",
+      "documentation": {
+        "formula": "OH2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -38179,6 +40147,12 @@
       "id": "oh2sl",
       "system": "OH2",
       "name": "OH2SL",
+      "documentation": {
+        "formula": "OH2",
+        "coordinates": "",
+        "reference": "R. Schinke and W. A. Lester, Jr., J. Chem. Phys., Vol. 70, 4893 (1979).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -38227,6 +40201,12 @@
       "id": "oh2sl2001",
       "system": "OH2",
       "name": "OH2SL",
+      "documentation": {
+        "formula": "OH2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -38280,6 +40260,12 @@
       "id": "oh3",
       "system": "OH3",
       "name": "oh3",
+      "documentation": {
+        "formula": "OH3",
+        "coordinates": "",
+        "reference": "G. C. Schatz and H. Elgersma Chem. Phys. Lett. 73, 21 (1980).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -38350,6 +40336,12 @@
       "id": "sih4cl",
       "system": "SiH4Cl",
       "name": "SiH4Cl",
+      "documentation": {
+        "formula": "SiH4Cl",
+        "coordinates": "",
+        "reference": "J. Espinosa-Garcia and J.C. Corchado, PCCP, 23, 21065 (2021).",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -38479,6 +40471,12 @@
       "id": "sih5-1-2001",
       "system": "SiH5",
       "name": "SiH5-2",
+      "documentation": {
+        "formula": "SiH5",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -38608,6 +40606,12 @@
       "id": "sih5-2-2001",
       "system": "SiH5",
       "name": "SiH5-2",
+      "documentation": {
+        "formula": "SiH5",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -38737,6 +40741,12 @@
       "id": "sih5-2",
       "system": "SiH5",
       "name": "SiH5-2",
+      "documentation": {
+        "formula": "SiH5",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 6
@@ -38866,6 +40876,12 @@
       "id": "sioh",
       "system": "SiOH",
       "name": "SiOH",
+      "documentation": {
+        "formula": "SiOH",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "variable",
         "symbol": "NATOM"
@@ -38927,6 +40943,12 @@
       "id": "yrh-der",
       "system": "YRH",
       "name": "YRH",
+      "documentation": {
+        "formula": "YRH",
+        "coordinates": "Internal, Definition: R(1) = R(Y-R) R(2) = R(R-H) R(3) = R(H-Y)",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -39072,6 +41094,12 @@
       "id": "fh2o-pipnn",
       "system": "",
       "name": "fh2o-pipnn",
+      "documentation": {
+        "formula": "",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4,
@@ -39278,6 +41306,12 @@
       "id": "soc-fh2o-nn",
       "system": "",
       "name": "soc-fh2o-nn",
+      "documentation": {
+        "formula": "",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4,
@@ -39486,6 +41520,12 @@
       "id": "ho3-pes",
       "system": "",
       "name": "ho3_pes",
+      "documentation": {
+        "formula": "",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4,
@@ -39691,6 +41731,12 @@
       "id": "n2o-3ap-mb-pip-meg2",
       "system": "N2O (lowest 3A' state)",
       "name": "N2O-3Ap (adiabatic triplet ground state)",
+      "documentation": {
+        "formula": "N2O (lowest 3A' state)",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -40068,6 +42114,12 @@
       "id": "n2o-3app-mb-pip-meg2",
       "system": "N2O (lowest 3A\" state)",
       "name": "N2O-3App(adiabatic triplet ground state)",
+      "documentation": {
+        "formula": "N2O (lowest 3A\" state)",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -40438,6 +42490,12 @@
       "id": "pes-n2o-3ap-umn-v1",
       "system": "N2O2",
       "name": "N2O2(adiabatic triplet ground state)",
+      "documentation": {
+        "formula": "N2O2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -40764,6 +42822,12 @@
       "id": "pes-n2o-3app-umn-v1",
       "system": "N2O2",
       "name": "N2O2(adiabatic triplet ground state)",
+      "documentation": {
+        "formula": "N2O2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -41090,6 +43154,12 @@
       "id": "n2o-3ap-gpip",
       "system": "N2O2",
       "name": "N2O2(adiabatic triplet ground state)",
+      "documentation": {
+        "formula": "N2O2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -41289,6 +43359,12 @@
       "id": "n2o-3app-gpip",
       "system": "N2O2",
       "name": "N2O2(adiabatic triplet ground state)",
+      "documentation": {
+        "formula": "N2O2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -41495,6 +43571,14 @@
       "id": "n2o2-3a-mb-pip-meg2",
       "system": "N2O2",
       "name": "N2O2(adiabatic triplet ground state)",
+      "documentation": {
+        "formula": "N2O2",
+        "coordinates": "",
+        "reference": "",
+        "dois": [
+          "10.1063/1.4939008"
+        ]
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -41828,6 +43912,14 @@
       "id": "pes-n2o2-triplet-umn-v1",
       "system": "N2O2",
       "name": "N2O2(adiabatic triplet ground state)",
+      "documentation": {
+        "formula": "N2O2",
+        "coordinates": "",
+        "reference": "",
+        "dois": [
+          "10.1063/1.4939008"
+        ]
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -42117,6 +44209,12 @@
       "id": "n3-4app-mb-pip-meg",
       "system": "N3",
       "name": "N3 4App (quartet A\" state)",
+      "documentation": {
+        "formula": "N3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -42461,6 +44559,14 @@
       "id": "n3pes",
       "system": "N3",
       "name": "N3",
+      "documentation": {
+        "formula": "N3",
+        "coordinates": "",
+        "reference": "",
+        "dois": [
+          "10.1063/1.4983813"
+        ]
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -42510,6 +44616,12 @@
       "id": "no2-2ap-mb-pip-meg",
       "system": "NO2",
       "name": "NO2(adiabatic doublet ground state)",
+      "documentation": {
+        "formula": "NO2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -42890,6 +45002,12 @@
       "id": "no2-2ap-pip-nn",
       "system": "NO2",
       "name": "NO2(adiabatic doublet ground state)",
+      "documentation": {
+        "formula": "NO2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -43172,6 +45290,12 @@
       "id": "no2-4ap-mb-pip-meg",
       "system": "NO2",
       "name": "NO2(adiabatic quartet ground state)",
+      "documentation": {
+        "formula": "NO2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -43552,6 +45676,12 @@
       "id": "no2-4ap-pip-nn",
       "system": "NO2",
       "name": "NO2(adiabatic quartet ground state)",
+      "documentation": {
+        "formula": "NO2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -43816,6 +45946,12 @@
       "id": "no2-6ap-mb-pip-meg",
       "system": "NO2",
       "name": "NO2(adiabatic sextet ground state)",
+      "documentation": {
+        "formula": "NO2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -44196,6 +46332,12 @@
       "id": "no2-6ap-pip-nn",
       "system": "NO2",
       "name": "NO2(adiabatic sextet ground state)",
+      "documentation": {
+        "formula": "NO2",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -44483,6 +46625,12 @@
       "id": "h3o2-pipnn",
       "system": "",
       "name": "h3o2-pipnn",
+      "documentation": {
+        "formula": "",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 5,
@@ -44639,6 +46787,14 @@
       "id": "o3-14-3ap-2022",
       "system": "O3",
       "name": "O3_14_3Ap_2022 (14 quintet A' states)",
+      "documentation": {
+        "formula": "O3",
+        "coordinates": "",
+        "reference": "Z. Varga, Y. Shu, J. Ning, D. G. Truhlar, \"Diabatic potential energy surfaces and semiclassical multi-state dynamics for fourteen coupled 3A' states of O3\" Electron. Struct. 2022, 4, 047002. DOI 10.1088/2516-1075/ac94ac ***********************************************************************",
+        "dois": [
+          "10.1088/2516-1075/ac94ac"
+        ]
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -44950,6 +47106,12 @@
       "id": "o3-14-3ap-2023",
       "system": "O3",
       "name": "O3_14_3Ap_2023 (14 quintet A' states)",
+      "documentation": {
+        "formula": "O3",
+        "coordinates": "",
+        "reference": "F. Badichi Akher, Y. Shu, Z. Varga, S. Bhaumik, D. G. Truhlar, \"Activation function for constraining the behavior of a neural network potential with a lower-level potential\", in preparation ***********************************************************************",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -45291,6 +47453,12 @@
       "id": "o3-1-1ap",
       "system": "O3",
       "name": "O3 1 1Ap (1st adiab. singlet A' state)",
+      "documentation": {
+        "formula": "O3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -45519,6 +47687,12 @@
       "id": "o3-1-1app",
       "system": "O3",
       "name": "O3 1 1App (1st adiab. singlet A\" state)",
+      "documentation": {
+        "formula": "O3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -45747,6 +47921,12 @@
       "id": "o3-1-3ap",
       "system": "O3",
       "name": "O3 1 3Ap (1st adiab. triplet A' state)",
+      "documentation": {
+        "formula": "O3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -45975,6 +48155,12 @@
       "id": "o3-1-3app",
       "system": "O3",
       "name": "O3 1 3App (1st adiab. triplet A\" state)",
+      "documentation": {
+        "formula": "O3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -46203,6 +48389,12 @@
       "id": "o3-1-5ap",
       "system": "O3",
       "name": "O3 1 5Ap (1st adiab. quintet A' state)",
+      "documentation": {
+        "formula": "O3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -46431,6 +48623,12 @@
       "id": "o3-1-5app",
       "system": "O3",
       "name": "O3 1 5App (1st adiab. quintet A\" state)",
+      "documentation": {
+        "formula": "O3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -46659,6 +48857,12 @@
       "id": "o3-2-1ap",
       "system": "O3",
       "name": "O3 2 1Ap (2nd adiab. singlet A' state)",
+      "documentation": {
+        "formula": "O3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -46887,6 +49091,12 @@
       "id": "o3-2-3ap",
       "system": "O3",
       "name": "O3 2 3Ap (2nd adiab. triplet A' state)",
+      "documentation": {
+        "formula": "O3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -47115,6 +49325,12 @@
       "id": "o3-2-5ap",
       "system": "O3",
       "name": "O3 2 5Ap (2nd adiab. quintet A' state)",
+      "documentation": {
+        "formula": "O3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -47350,6 +49566,12 @@
       "id": "o3-6-5ap-2023",
       "system": "O3",
       "name": "O3_6_5Ap_2023 (6 quintet A' states)",
+      "documentation": {
+        "formula": "O3",
+        "coordinates": "",
+        "reference": "F. Badichi Akher, Y. Shu, Z. Varga, D. G. Truhlar, \"Semiclassical multi-state dynamics for six coupled 5A' states of O3\", in preparation ***********************************************************************",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -47691,6 +49913,12 @@
       "id": "pes-o3-1-1ap-umn-v1",
       "system": "O3",
       "name": "O3 1 1Ap (1st adiab. singlet A' state)",
+      "documentation": {
+        "formula": "O3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -48005,6 +50233,12 @@
       "id": "pes-o3-1-1app-umn-v1",
       "system": "O3",
       "name": "O3 1 1App (1st adiab. singlet A\" state)",
+      "documentation": {
+        "formula": "O3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -48319,6 +50553,12 @@
       "id": "pes-o3-1-3ap-umn-v1",
       "system": "O3",
       "name": "O3 1 3Ap (1st adiab. triplet A' state)",
+      "documentation": {
+        "formula": "O3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -48633,6 +50873,12 @@
       "id": "pes-o3-1-3app-umn-v1",
       "system": "O3",
       "name": "O3 1 3App (1st adiab. triplet A\" state)",
+      "documentation": {
+        "formula": "O3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -48947,6 +51193,12 @@
       "id": "pes-o3-1-5ap-umn-v1",
       "system": "O3",
       "name": "O3 1 5Ap (1st adiab. quintet A' state)",
+      "documentation": {
+        "formula": "O3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -49261,6 +51513,12 @@
       "id": "pes-o3-1-5app-umn-v1",
       "system": "O3",
       "name": "O3 1 5App (1st adiab. quintet A\" state)",
+      "documentation": {
+        "formula": "O3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -49575,6 +51833,12 @@
       "id": "pes-o3-2-1ap-umn-v1",
       "system": "O3",
       "name": "O3 2 1Ap (2nd adiab. singlet A' state)",
+      "documentation": {
+        "formula": "O3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -49889,6 +52153,12 @@
       "id": "pes-o3-2-3ap-umn-v1",
       "system": "O3",
       "name": "O3 2 3Ap (2nd adiab. triplet A' state)",
+      "documentation": {
+        "formula": "O3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -50203,6 +52473,12 @@
       "id": "pes-o3-2-5ap-umn-v1",
       "system": "O3",
       "name": "O3 2 5Ap (2nd adiab. quintet A' state)",
+      "documentation": {
+        "formula": "O3",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -50531,6 +52807,14 @@
       "id": "o3pes",
       "system": "O3",
       "name": "O3",
+      "documentation": {
+        "formula": "O3",
+        "coordinates": "",
+        "reference": "",
+        "dois": [
+          "10.1063/1.4983813"
+        ]
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 3
@@ -50580,6 +52864,12 @@
       "id": "o4-quintet",
       "system": "O4",
       "name": "O4 quintet (adiabatic ground state)",
+      "documentation": {
+        "formula": "O4",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -50808,6 +53098,12 @@
       "id": "o4-singlet",
       "system": "O4",
       "name": "O4 singlet (adiabatic ground state)",
+      "documentation": {
+        "formula": "O4",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -51036,6 +53332,12 @@
       "id": "o4-triplet",
       "system": "O4",
       "name": "O4 triplet(adiabatic ground state)",
+      "documentation": {
+        "formula": "O4",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -51264,6 +53566,12 @@
       "id": "o4-triplet-v2",
       "system": "O4",
       "name": "O4 triplet(adiabatic ground state)",
+      "documentation": {
+        "formula": "O4",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -51492,6 +53800,12 @@
       "id": "pes-o4-quintet-umn-v1",
       "system": "O4",
       "name": "O4 quintet (adiabatic ground state)",
+      "documentation": {
+        "formula": "O4",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -51806,6 +54120,12 @@
       "id": "pes-o4-singlet-umn-v1",
       "system": "O4",
       "name": "O4 singlet (adiabatic ground state)",
+      "documentation": {
+        "formula": "O4",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -52120,6 +54440,12 @@
       "id": "pes-o4-triplet-umn-v2",
       "system": "O4",
       "name": "O4 singlet (adiabatic ground state)",
+      "documentation": {
+        "formula": "O4",
+        "coordinates": "",
+        "reference": "",
+        "dois": []
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
@@ -52460,6 +54786,14 @@
       "id": "o4pes",
       "system": "O4",
       "name": "O4 singlet",
+      "documentation": {
+        "formula": "O4",
+        "coordinates": "",
+        "reference": "",
+        "dois": [
+          "10.1063/1.5008973"
+        ]
+      },
       "atom_count": {
         "kind": "fixed",
         "value": 4
