@@ -37,11 +37,11 @@ jobs:
         run: python -m pip install -r docs/requirements.txt
       - name: Build documentation with warnings as errors
         run: python docs/build.py
-      - name: Build runnable examples and their surface plugin
+      - name: Build and run documented regressions
         run: |
           meson setup build
-          meson compile -C build potlibc-ch52008 potlibc-energy potlibc-hvp
-          meson test -C build --print-errorlogs "example *"
+          meson compile -C build
+          meson test -C build --print-errorlogs
       - name: Upload documentation
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
