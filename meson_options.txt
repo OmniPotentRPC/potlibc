@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: 2026 Rohit Goswami
+# SPDX-License-Identifier: BSD-3-Clause
+
+option(
+  'examples',
+  type: 'boolean',
+  value: true,
+  description: 'Build and test the C examples',
+)
