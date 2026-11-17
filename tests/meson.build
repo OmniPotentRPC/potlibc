@@ -79,6 +79,12 @@ test(
   ],
 )
 
+test(
+  'triatomic internal coordinate ordering',
+  python,
+  args: [files('test_internal_coordinate_order.py')],
+)
+
 if cc.has_argument('-fsanitize=thread') and cc.has_link_argument('-fsanitize=thread')
   tsan_test = executable(
     'test-threads-tsan',

@@ -966,6 +966,75 @@ def _initialization_name(plan: SurfacePlan) -> str | None:
     return name
 
 
+def _normalize_label(raw: str) -> str:
+    label = raw.strip().lower()
+    label = label.replace("first", "1").replace("second", "2").replace(
+        "third", "3"
+    )
+    label = label.replace("'", "p")
+    label = re.sub(r"[^a-z0-9]+", "", label)
+    return label
+
+
+def _internal_distance_order(plan: SurfacePlan) -> tuple[tuple[int, int], ...] | None:
+    """Parse header R(1..3) definitions for triatomic internal coordinates."""
+    atom_count = plan.record.get("atom_count", {})
+    if atom_count.get("kind") != "fixed" or int(atom_count.get("value", 0)) != 3:
+        return None
+    text = _source_text(plan.source)
+    definitions: dict[int, tuple[str, str]] = {}
+    for match in re.finditer(
+        r"(?im)^[c*!]\s*.*?r\s*\(\s*([123])\s*\)\s*=\s*r\s*\(\s*([^)]+)\s*\)",
+        text[:14000],
+    ):
+        index = int(match.group(1))
+        if index in definitions:
+            continue
+        descriptor = match.group(2)
+        if "-" not in descriptor:
+            continue
+        left, right = (part.strip() for part in descriptor.split("-", 1))
+        definitions[index] = (_normalize_label(left), _normalize_label(right))
+    if len(definitions) != 3:
+        return None
+
+    by_index = [definitions[1], definitions[2], definitions[3]]
+    tokens = sorted({label for pair in by_index for label in pair if label})
+    if len(tokens) >= 3:
+        order = {token: index + 1 for index, token in enumerate(tokens[:3])}
+        pairs: list[tuple[int, int]] = []
+        for left, right in by_index:
+            if left not in order or right not in order or left == right:
+                return None
+            pair = tuple(sorted((order[left], order[right])))
+            if pair not in {(1, 2), (2, 3), (1, 3)}:
+                return None
+            pairs.append(pair)
+        if len(set(pairs)) == 3:
+            return tuple(pairs)
+        return None
+
+    if len(tokens) == 2:
+        repeated = next((pair for pair in by_index if pair[0] == pair[1]), None)
+        if repeated is None:
+            return None
+        mixed_indexes = [index for index, pair in enumerate(by_index) if pair[0] != pair[1]]
+        if len(mixed_indexes) != 2:
+            return None
+        mapping_by_position = {
+            mixed_indexes[0]: (1, 2),
+            mixed_indexes[1]: (1, 3),
+        }
+        pairs: list[tuple[int, int]] = []
+        for index, pair in enumerate(by_index):
+            if pair[0] == pair[1]:
+                pairs.append((2, 3))
+            else:
+                pairs.append(mapping_by_position[index])
+        return tuple(pairs)
+    return None
+
+
 def _energy_bridge(plan: SurfacePlan) -> str:
     entry = "z" + plan.entry_name
     if plan.strategy in {"triatomic-function", "distance-function"}:
@@ -1018,7 +1087,26 @@ def _energy_bridge(plan: SurfacePlan) -> str:
   value=pengygs"""
     elif plan.strategy in {"pair-common", "pot2-common"}:
         pair_count = int(plan.atoms) * (int(plan.atoms) - 1) // 2
-        body = f"""\
+        triatomic_order = _internal_distance_order(plan)
+        if pair_count == 3 and triatomic_order is not None:
+            pair_value = {
+                (1, 2): "distance3(coords(1,:),coords(2,:))",
+                (2, 3): "distance3(coords(2,:),coords(3,:))",
+                (1, 3): "distance3(coords(1,:),coords(3,:))",
+            }
+            assignments = "\n".join(
+                f"  r({index})={pair_value[pair]}"
+                for index, pair in enumerate(triatomic_order, 1)
+            )
+            body = f"""\
+  type(dual2) :: r({pair_count}),energy
+  type(dual2) :: dedr({pair_count})
+  common /z{common}/ r,energy,dedr
+{assignments}
+  call {entry}()
+  value=energy"""
+        else:
+            body = f"""\
   type(dual2) :: r({pair_count}),energy
   type(dual2) :: dedr({pair_count})
   integer :: left,right,k
