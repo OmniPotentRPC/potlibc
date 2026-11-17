@@ -1,0 +1,7 @@
+AuthUserFile /Library/WebServer/Documents/sds/secret/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Group members only"
+AuthType Basic
+options ExecCGI +Indexes
+
+

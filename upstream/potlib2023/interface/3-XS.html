@@ -1,0 +1,326 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Generator" content="Microsoft Word 97">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win98; I) [Netscape]">
+   <title>POTLIB Interface 3-XS</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EF" vlink="#51188E" alink="#FF0000">
+
+<center><h2>Interface 3-XS</h2></center>
+
+<hr>
+
+<h4>Summary:</h4>
+
+The interface 3-XS is the standard interface for a 3-body system, where
+common blocks are used to pass data between the calling routine and the
+potential energy routine. The potential energy (and possibly the derivatives) 
+are calculated for a single geometry for
+each call to POT.  The subroutine POT requires no arguments.
+The common block PT1CM is required by the POT subroutine; this common block 
+is used to pass the geometry of the triatomic system from the calling 
+program to the potential routine and to return the electronic state energy 
+and derivatives
+to the calling program.  There are several other optional common blocks that
+may be used to further refine calls to POT. This interface may be used with
+or without derivatives.<br>
+
+<h4>Format and selected details:</h4>
+
+<pre>
+SUBROUTINE POT
+
+    COMMON /PT1CM/ R, ENERGY, DEDR
+    DIMENSION R(3), DEDR(3)
+
+Note: The following common blocks are optional and are used to pass
+      control variables to the potential subroutine.
+    COMMON /PT2CM/ NSURF, NDER, NFLAG
+    COMMON /PT3CM/ LFLAG
+    COMMON /PT4CM/ IPTPRT, IDUM
+    COMMON /PT5CM/ EASYAB, EASYBC, EASYAC
+    DIMENSION NFLAG(21), LFLAG(20), IDUM(19)
+
+Note: The following common blocks are optional and are used to pass
+      excited-state energies and derivatives if available.
+    COMMON /PT6CM/ ENGY2, DE2DR
+    COMMON /PT7CM/ ENGY12, DE12DR
+    COMMON /PT8CM/ ENGY12
+    COMMON /PT9CM/ D2E1D, D2E2D, D2E12D
+    DIMENSION DE2DR(3), DE12DR(3), ENGY12(9), D2E1D(3,3), D2E2D(3,3), D2E12D(3,3)
+
+    ENERGY  = SOME FUNCTION OF R . . . 
+    DEDR(:) = . . . 
+
+RETURN
+
+END
+</pre>
+
+<h4>Description of the common blocks:</h4>
+
+The common block PT1CM is the only common block that is always required.<br>
+
+<blockquote><tt>
+COMMON /PT1CM/ R, ENERGY, DEDR<br>
+DIMENSION R(3), DEDR(3)
+</tt>
+
+<br>
+<br>
+
+<table>
+
+        <tr valign=top>
+                <td width=150><tt>R(3)</td>
+                <td width=200><tt>input, double precision</td>
+                <td><tt>An array of the three internuclear bond distances.
+                        Atomic units are used.<br><br>
+                </td>
+        </tr>
+
+        <tr valign=top>
+                <td width=150><tt>ENERGY</td>
+                <td width=200><tt>output, double precision</td>
+                <td><tt>The computed potential energy. Atomic units are used.
+                        <br><br>
+                </td>
+        </tr>
+
+        <tr valign=top>
+                <td width=150><tt>DEDR(3)</td>
+                <td width=200><tt>output, double precision</td>
+                <td><tt>The computed derivatives with respect to the 
+			three internuclear distances.  This field is included
+			even when derivatives are not available.  Atomic units
+			are used.<br><br>
+                </td>
+        </tr>
+
+</table>
+</blockquote>
+
+The common block PT2CM is optional.  It is used when there is more than one electronic
+state and/or derivatives are computed.<br>
+
+<blockquote><tt>
+COMMON /PT2CM/ NSURF, NDER, NFLAG<br>
+DIMENSION NFLAG(21)
+</tt>
+
+<br>
+<br>
+
+<table>
+
+        <tr valign=top>
+                <td width=150><tt>NSURF</td>
+                <td width=200><tt>input, integer</td>
+                <td><tt>For a single surface routine, NSURF is not used. 
+			For a multiple surface routine, NSURF controls which surface
+			is computed. When NSURF is equal to 0, the ground electronic 
+			state is used. When NSURF is equal to 1, the energy for the 
+			first excited electronic surface is computed. When both the 
+			ground and first excited surfaces are to be computed, NSURF is 2.
+			Not all potential routines support NSURF=1 or 2.<br><br>
+                </td>
+        </tr>
+
+        <tr valign=top>
+                <td width=150><tt>NDER</td>
+                <td width=200><tt>input, integer</td>
+                <td><tt> NDER controls the calculation of the derivatives of the energy 
+			with respect to the internuclear coordinates. If NDER is equal to 0, 
+			the derivatives are not calculated. If NDER is equal to 1, the 
+			energy and the first derivatives are calculated.  If NDER is equal to 2,
+			the energy and the first and second derivatives are calculated. 
+			Not all potential routines support NDER=1 or NDER=2.  
+			NDER controls the derivative calculations for whichever electronic 
+			surface or combination of surfaces is called for by NSURF. 
+			Therefore, if NSURF and NDER are both equal to 1, the energy and 
+			first derivatives for the first excited electronic state are computed. 
+			If NSURF is equal to 2 and NDER is equal to 1, the subprogram 
+			computes the energy and the derivatives for both the ground and the 
+			first excited electroinc states. 
+                </td>
+        </tr>
+
+        <tr valign=top>
+                <td width=150><tt>NFLAG(21)</td>
+                <td width=200><tt>input, integer</td>
+                <td><tt>This is included for compatibility with existing
+			codes.  These flags may be used to control various options
+			in the potential routine.<br><br>
+                </td>
+        </tr>
+
+</table>
+</blockquote>
+
+The common block PT3CM is optional.<br>
+
+<blockquote><tt>
+COMMON /PT3CM/ LFLAG<br>
+DIMENSION LFLAG(20)
+</tt>
+
+<br>
+<br>
+
+<table>
+
+        <tr valign=top>
+                <td width=150><tt>LFLAG(20)</td>
+                <td width=200><tt>input, logical</td>
+		<td><tt>This is included for compatibility with existing
+                        codes.  These flags may be used to control various options
+                        in the potential routine.<br><br>
+                </td>
+        </tr>
+</table>
+</blockquote>
+
+The common block PT4CM is optional and is used to control input/output.<br>
+
+<blockquote><tt>COMMON /PT4CM/ IPTPRT, IDUM<br>
+DIMENSION IDUM(19)</tt>
+
+<br>
+<br>
+
+<table>
+
+        <tr valign=top>
+                <td width=150><tt>IPTPRT</td>
+                <td width=200><tt>input, integer</td>
+		<td><tt>This potential routine will write data to the file
+			fort.IPTPRT.<br><br>
+                </td>
+        </tr>
+        <tr valign=top>
+                <td width=150><tt>IDUM(19)</td>
+                <td width=200><tt>input, integer</td>
+		<td><tt>This potential routine will read data from zero or more of 
+			the files fort.IDUM(1), fort.IDUM(2), etc...<br><br>
+                </td>
+        </tr>
+</table>
+</blockquote>
+
+The common block PT5CM is optional.<br>
+
+<blockquote><tt>COMMON /PT5CM/ EASYAB, EASYBC, EASYAC</tt>
+
+<br>
+<br>
+
+<table>
+
+        <tr valign=top>
+                <td width=150><tt>EASYAB, EASYBC, EASYAC</td>
+                <td width=200><tt>output, double precision</td>
+                <td><tt>The asymptotic energies at the minimum of the diatomic
+			potential well.<br><br>
+                </td>
+        </tr>
+</table>
+</blockquote>
+
+The common block PT6CM is optional and is used to return excited surface energies and their
+derivatives when they are available.<br>
+
+<blockquote><tt>COMMON /PT6CM/ ENGY2, DE2DR<br>
+DIMENSION DE2DR(3)</tt>
+
+<br>
+<br>
+
+<table>
+        <tr valign=top>
+                <td width=150><tt>ENGY2, DE2DR(3)</td>
+                <td width=200><tt>output, double precision</td>
+                <td><tt>The same as ENERGY and DEDR(3) (PT1CM) except for the
+			first excited state.  This common block is used with 
+			NSURF=1 or NSURF=2, where NSURF is set in PT2CM.<br><br>
+                </td>
+        </tr>
+</table>
+</blockquote>
+
+The common block PT7CM is optional and is used when a two-state system is represented 
+in the diabatic representation.<br>
+
+<blockquote><tt>COMMON /PT7CM/ ENGY12, DE12DR<br>
+DIMENSION DE12DR(3)</tt>
+
+<br>
+<br>
+
+<table>
+        <tr valign=top>
+                <td width=150><tt>ENGY12, DE12DR(3)</td>
+                <td width=200><tt>output, double precision</td>
+                <td><tt>The same as ENERGY and DEDR(3) (PT1CM) except for the
+			diabatic coupling surface.  This common block is used with 
+			NSURF=1 or NSURF=2, where NSURF is set in PT2CM.<br><br>
+                </td>
+        </tr>
+</table>
+</blockquote>
+
+The common block PT8CM is optional and is used when a two-state system is represented 
+in the adiabatic representation.<br>
+
+<blockquote><tt>COMMON /PT8CM/ ENGY12<br>
+DIMENSION ENGY12(8)</tt>
+
+<br>
+<br>
+
+<table>
+        <tr valign=top>
+                <td width=150><tt>ENGY12(9)</td>
+                <td width=200><tt>output, double precision</td>
+                <td><tt>The nine-dimension vector of the nonadiabatic coupling
+			between the two electronic states.<br><br>
+                </td>
+        </tr>
+</table>
+</blockquote>
+
+
+The common block PT9CM is optional and is used when the potential routine is used to compute
+analytic Hessians.<br>
+
+<blockquote><tt>COMMON /PT9CM/ D2E1D, D2E2D, D2E12D<br>
+DIMENSION D2E1D(3,3), D2E2D(3,3), D2E12D(3,3)</tt>
+
+<br>
+<br>
+
+<table>
+        <tr valign=top>
+                <td width=150><tt>D2E1D(3,3)</td>
+                <td width=200><tt>output, double precision</td>
+                <td><tt>The Hessian of the ground state.<br><br>
+                </td>
+        </tr>
+        <tr valign=top>
+                <td width=150><tt>D2E2D(3,3)</td>
+                <td width=200><tt>output, double precision</td>
+                <td><tt>The Hessian of the first-excited state.<br><br>
+                </td>
+        </tr>
+        <tr valign=top>
+                <td width=150><tt>D2E12D(3,3)</td>
+                <td width=200><tt>output, double precision</td>
+                <td><tt>The Hessian of the diabatic coupling surface.<br><br>
+                </td>
+        </tr>
+</table>
+</blockquote>
+
+</body>
+</html>

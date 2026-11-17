@@ -1,0 +1,17 @@
+This is a PES for N-methyl acetamide (trans and cis isomer and two TS), using permutationally invariant polynomial fitting basis.
+
+The polynomials are defined in basis.f90
+The derivatives of the polynomials with respect to Cartesian coordinates are computed in gradient.f90
+The function/subroutine to calculate the potential and gradients are defined in pes_shell.f90
+
+Compile with the Makefile provided (if you use the Intel ifort compiler, otherwise modify the Makefile)
+and run the executable as
+./test.x geom.xyz
+
+It will calculate the potential energy and the gradient of the configuration in geom.xyz.
+The first line of geom.xyz is the number of atoms; the second line is the ab initio potential energy;
+the following lines consist of the atomic symbol, followed by Cartesian coordinates, followed by the
+gradients.
+Note that the Cartesian coordinates are in unit Angstrom and the order of the atoms is
+H H H C N H O C C H H H, see Figure 1 of the paper for the labels and numbers.
+

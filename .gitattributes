@@ -1,0 +1,4 @@
+# SPDX-FileCopyrightText: 2026 Rohit Goswami
+# SPDX-License-Identifier: BSD-3-Clause
+
+upstream/** -diff -text

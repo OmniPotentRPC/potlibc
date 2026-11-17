@@ -1,0 +1,54 @@
+!********************************************************************** 
+!   System:                     C3H7NO
+!   Functional form:            permutationally invariant polynomials
+!   Common name:                N-methyl acetamide
+!   Number of derivatives:      1
+!   Number of bodies:           12
+!   Number of electronic surfaces: 1
+!   Interface: Section-2
+!**********************************************************************
+!
+!   References: A. Nandi, C. Qu, and J. M. Bowman "Full and fragmented
+!   permutationally invariant polynomial potential energy surfaces for
+!   trans and cis N-methyl acetamide and isomerization saddle points"
+!   J. Chem. Phys. 2019, 151, 084306.
+!
+!   Notes: See the notes below
+!
+!  H   xyz(1, 1) xyz(2, 1) xyz(3, 1)
+!  H   xyz(1, 2) xyz(2, 2) xyz(3, 2)
+!  H   xyz(1, 3) xyz(2, 3) xyz(3, 3)
+!  C   xyz(1, 4) xyz(2, 4) xyz(3, 4)
+!  N   xyz(1, 5) xyz(2, 5) xyz(3, 5)
+!  H   xyz(1, 6) xyz(2, 6) xyz(3, 6)
+!  O   xyz(1, 7) xyz(2, 7) xyz(3, 7)
+!  C   xyz(1, 8) xyz(2, 8) xyz(3, 8)
+!  C   xyz(1, 9) xyz(2, 9) xyz(3, 9)
+!  H   xyz(1,12) xyz(2,12) xyz(3,12)
+!  H   xyz(1,11) xyz(2,11) xyz(3,11)
+!  H   xyz(1,12) xyz(2,12) xyz(3,12)
+!
+!
+!   Input: xyz(3,12)                     in units of Angstrom
+!   Output: V                            in units of hartree
+!   Output: g(36)                        in units hartree/bohr
+!**********************************************************************
+
+
+This is a PES for N-methyl acetamide (trans and cis isomer and two TS), using permutationally invariant polynomial fitting basis.
+
+The polynomials are defined in basis.f90
+The derivatives of the polynomials with respect to Cartesian coordinates are computed in gradient.f90
+The function/subroutine to calculate the potential and gradients are defined in pes_shell.f90
+
+Compile with the Makefile provided (if you use the Intel ifort compiler, otherwise modify the Makefile)
+and run the executable as
+./test.x geom.xyz
+
+It will calculate the potential energy and the gradient of the configuration in geom.xyz.
+The first line of geom.xyz is the number of atoms; the second line is the ab initio potential energy;
+the following lines consist of the atomic symbol, followed by Cartesian coordinates, followed by the
+gradients.
+Note that the Cartesian coordinates are in unit Angstrom and the order of the atoms is
+H H H C N H O C C H H H, see Figure 2 of the paper for the labels and numbers.
+

@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0051)http://comp.chem.umn.edu/potlib/interface/4-XS.html -->
+<HTML><HEAD><TITLE>POTLIB Interface 4-XS</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content="MSHTML 6.00.2800.1170" name=GENERATOR>
+<META content="Mozilla/4.7 [en] (Win98; I) [Netscape]" name=GENERATOR></HEAD>
+<BODY text=#000000 vLink=#51188e aLink=#ff0000 link=#0000ef bgColor=#ffffff>
+<CENTER>
+<H2>Interface 4-XS</H2></CENTER>
+<HR>
+
+<H4>Summary:</H4>The interface 4-XS is a standard interface for a 4-body 
+system, where common blocks are used to pass data between the calling routine 
+and the potential energy routine. The 4-XS calling protocol is the most general
+4-body calling protocol in POTLIB-online.  
+The <a href="4-1S.html">4-1S interface</a> may be more convenient for systems that 
+are dimers of diatomic molecules. <br><br>
+The potential energy (and possibly the 
+derivatives) are calculated for a single geometry for each call to POT. The 
+subroutine POT requires no arguments. The common block PT1CM is required by the 
+POT subroutine; this common block is used to pass the geometry of the  
+system from the calling program to the potential routine and to return the 
+electronic state energy and derivatives to the calling program. There are 
+several other optional common blocks that may be used to further refine calls to 
+POT. This interface may be used with or without derivatives.<BR>
+<br>
+The 4-XS  calling interface protocol was added to POTLIB-online on May 7, 2003.<br>
+<H4>Format and selected details:</H4>
+
+The following common blocks are used to pass 
+control variables and data to and from the potential subroutine.<BR>
+
+<PRE>SUBROUTINE POT
+
+      COMMON /PT1CM/ R, ENGYGS, DEGSDR
+      DIMENSION R(N3ATOM), DEGSDR(N3ATOM)
+
+      COMMON /INFOCM/ CARTNU,INDEXES,IRCTNT,NATOMS,ICARTR,MDER,MSURF,REF
+      DIMENSION CARTNU(NATOM,3),INDEXES(NATOM)
+
+      COMMON /USRICM/ CART,ANUZERO,NULBL,NFLAG,NASURF,NDER
+      DIMENSION CART(NATOM,3),NULBL(NATOM),NFLAG(20),NASURF(ISURF+1,ISURF+1)
+
+      COMMON /USROCM/ PENGYGS,PENGYES,PENGYIJ,DGSCART,DESCART,DIJCART
+      DIMENSION PENGYES(ISURF),PENGYIJ(JSURF),DGSCART(NATOM,3),
+     +               DESCART(NATOM,3,ISURF),DIJCART(NATOM,3,JSURF)
+
+      COMMON /PT3CM/ EZERO(ISURF+1)
+      DIMENSION EZERO(ISURF+1)
+
+      COMMON /PT4CM/ ENGYES,DEESDR
+      DIMENSION ENGYES(ISURF),DEESDR(N3ATOM,ISURF)
+
+      COMMON /PT5CM/ ENGYIJ,DEIJDR
+      DIMENSION ENGYIJ(JSURF),DEIJDR(N3ATOM,JSURF)
+
+    ENGYGS  = ENERGY AS SOME FUNCTION OF R . . . 
+    DEGSDR(:) = . . . 
+
+RETURN
+
+END
+</PRE>
+<H4>A detailed description of the common blocks is provided in:</H4>
+<blockquote>R. J. Duchovic, Y. L. Volobuev, G. C. Lynch, D. G. Truhlar,
+T. C. Allison, A. F. Wagner, B. C. Garrett, and J. C. Corchado, "POTLIB:&nbsp;&nbsp;
+A Potential Energy Surface Library for Chemical Systems", Computer Physics
+Communications <b>144</b>, 169-187 (2002).</blockquote>
+
+The common block PT1CM is the only common block that is always required.<br>
+
+<blockquote><tt>
+      COMMON /PT1CM/ R, ENGYGS, DEGSDR<br>
+      DIMENSION R(N3ATOM), DEGSDR(N3ATOM)
+</tt>
+
+<br>
+<br>
+
+<table>
+
+        <tr valign=top>
+                <td width=150><tt>R(N3ATOM)</td>
+                <td width=200><tt>input, real*8</td>
+                <td><tt>An array of the N3ATOM internuclear bond distances.
+                        <br><br>
+                </td>
+        </tr>
+
+        <tr valign=top>
+                <td width=150><tt>ENGYGS</td>
+                <td width=200><tt>output, real*8</td>
+                <td><tt>The computed potential energy. 
+                        <br><br>
+                </td>
+        </tr>
+
+        <tr valign=top>
+                <td width=150><tt>DEGSDR(N3ATOM)</td>
+                <td width=200><tt>output, real*8</td>
+                <td><tt>The computed derivatives with respect to the 
+			N3ATOM internuclear distances.  This field is included
+			even when derivatives are not available.<br><br>
+                </td>
+        </tr>
+
+</table>
+</blockquote>
+
+
+</BODY></HTML>

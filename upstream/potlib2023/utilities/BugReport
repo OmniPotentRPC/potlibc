@@ -1,0 +1,27 @@
+########################################################################
+June 09, 2003
+
+      A bug has been discocvered in the utility.f code  The correction
+      is outlined below.
+
+   Version 1.0.1
+   Corrections by:      Jose Corchado
+   Date:                May 13, 2003
+   Summary of changes:  This new version of utility.f corrects two
+                        errors in the original version.  
+                        Corrected lines in are marked 'JC05132003' in 
+                        the margin.  
+                        The corrections are:
+                        1) In the part of the subroutine CARTTOR where
+                           the code handles ICARTR = 2, the counter 
+                           "I" was added.  Previously, not all of the 
+                           components of R(I) were getting the correct
+                           values.
+                        2) In the part of the subroutine RTOCART where
+                           the code handles ICARTR = 2, the DO loop
+                           was changed to run from 1 to NATOMS.  
+                           Previously, some of the derivatives with 
+                           resepect to the Cartesian coordinates were 
+                           incorrectly returned as zero.
+
+########################################################################

@@ -1,0 +1,2030 @@
+C   System:                     N4
+C   Functional form:            permutation-invariant polynomials
+C   Common name:                N4(adiabatic ground state)
+C   Number of derivatives:      1
+C   Number of bodies:           4
+C   Number of electronic surfaces: 1
+C   Interface: Section-2
+C
+C   References:: Yuliya, Paukku, Ke R. Yang, Zoltan Varga,
+C   and Donald G. Truhlar
+C      J. Chem. Phys., submitted 
+C
+C   Notes:    PES for N4 with a special emphasis on
+C             N2 + N2 --> N2 + N + N
+C
+C
+C     N1--N2
+C
+C     N3--N4
+C
+C
+C
+C   Input: X(4),Y(4),Z(4)               in unit of bohr
+C   Output: E                           in unit of hartree
+C   Output: dEdX(4),dEdY(4),dEdZ(4)     hartree/bohr
+C
+      subroutine pot(X,Y,Z,E,dEdX,dEdY,dEdZ)
+
+      implicit double precision (a-h,o-z)
+
+C
+C Convert factors
+C Cconv: bohr to Angstrom
+C Econv: kcal/mol to hartree
+C Gconv: kcal/(mol*Angstrom) to hartree/bohr
+C
+      double precision Cconv
+      double precision Econv
+      double precision Gconv
+      parameter(Cconv=0.5291772108d0)
+      parameter(Econv=0.159360145d-2)
+      parameter(Gconv=0.301147029d-2)
+C
+C Reference energy of infinite seperated N2 + N2 in hartree (taken from Yuliya in) 
+C
+      double precision Eref
+      parameter(Eref=-218.40801323d0)
+
+      integer i
+      double precision E,V
+      double precision X(4),Y(4),Z(4),dEdX(4),dEdY(4),dEdZ(4)
+      double precision Xcart(12),dVdX(12)
+
+C Convert to local variables 
+      do i=1,4
+        Xcart(3*i-2)=X(i)*Cconv
+        Xcart(3*i-1)=Y(i)*Cconv
+        Xcart(3*i)=Z(i)*Cconv
+      enddo
+
+      call n4pes(Xcart,v,dVdX,1)
+
+C Convet local output to the ones ANT wants
+
+      E = v*Econv + Eref
+      do i=1,4
+        dEdX(i)=dVdX(3*i-2)*Gconv
+        dEdY(i)=dVdX(3*i-1)*Gconv
+        dEdZ(i)=dVdX(3*i)*Gconv
+      enddo
+
+      end         
+C
+C Local variables used in the N4 PES subroutine
+C input coordinate matrix: X(12)in Ang
+C                          N1: X(1),X(2),X(3)
+C                          N2: X(4),X(5),X(6)
+C                          N3: X(7),X(8),X(9)
+C                          N4: X(10),X(11),X(12)
+C input flag: igrad     igrad=0 energy-only calculation
+C                       igrad=1 energy + gradient
+C output potential energy:      v    in kcal/mol 
+C output gradient:              dVdX in kcal/(mol*Ang) 
+C 
+      subroutine n4pes(X,v,dVdX,igrad)
+***********************************************************************
+* Subroutine to calculate the potential energy V and gradient dVdX
+* for given Cartesian coordinate X(12)  
+* R:		Interatomic bond distance (6)
+* V:		Calculated potential energy
+* dVdX:		The derivative of V w.r.t. X, dim(12)
+* dVdR:		The derivative of V w.r.t. R, dim(6) 
+* dPdR:		The derivative of basis functions w.r.t. R
+*		dim(6*306)
+* dMdR:		The derivative of monomials w.r.t. R
+*		dim(6*112)
+* dRdX:		The derivative of R w.r.t. X, dim(6*12)
+***********************************************************************
+      
+      implicit double precision (a-h,o-z) 
+
+      integer i,igrad,j,nob,k
+      double precision V
+      double precision dVdX(12),X(12) 
+
+C      common /coord/    R(6)
+C      common /epot/     rMs(6),rM(0:111),P(0:305),C(0:305)
+C      common /gradt/    dMsdR(6,6),dMdR(6,0:111),dPdR(6,0:305),dVdR(6),
+C     $                  dRdX(6,12)
+C      common /msprmt/   a,re
+
+C Read cartesian coordinate from input file
+      call coord_convt(X)
+
+      if (igrad .le. 1) then
+C Call subroutine EvV to evaluate potential energy V
+        call evv(V)
+
+        if (igrad .eq. 1) then
+C Call EvdVdX to evaluate the derivatives of V w.r.t. X
+          call evdvdx(X,dVdX)
+        endif
+      else
+        write (*,*) 'Only igrad = 0, 1 is allowed!'
+      endif
+
+      end 
+      subroutine coord_convt(X)
+***********************************************************************
+*  Program to calculate the six interatomic distance 
+*  by reading XYZ coordinate
+***********************************************************************
+      implicit double precision (a-h,o-z) 
+
+      integer i
+      double precision X(12)
+
+      common /coord/    R(6)
+      
+***********************************************************************
+*  Now, calculate the inter-atomic distance
+*  r1 = r(N1N2)    r2 = r(N1N3)
+*  r3 = r(N1N4)    r4 = r(N2N3)
+*  r5 = r(N2N4)    r6 = r(N3N4)       
+***********************************************************************
+
+      R(1)=Sqrt((X(4)-X(1))**2 + (X(5)-X(2))**2 + (X(6)-X(3))**2)
+      R(2)=Sqrt((X(7)-X(1))**2 + (X(8)-X(2))**2 + (X(9)-X(3))**2)
+      R(3)=Sqrt((X(10)-X(1))**2 + (X(11)-X(2))**2 + (X(12)-X(3))**2)
+      R(4)=Sqrt((X(4)-X(7))**2 + (X(5)-X(8))**2 + (X(6)-X(9))**2)
+      R(5)=Sqrt((X(4)-X(10))**2 + (X(5)-X(11))**2 + (X(6)-X(12))**2)
+      R(6)=Sqrt((X(7)-X(10))**2 + (X(8)-X(11))**2 + (X(9)-X(12))**2)
+ 
+      return
+
+      end
+      subroutine EvV(V)
+***********************************************************************
+* Subroutine to evaluate V for giving R 
+* V(R) = C*P
+* C:		Coefficients, stored in 'dim.inc' 
+* P:		Basis functions evaluated for giving R
+* rMs:		rMs(6), six Morse terms
+* a:		Nonlinear parameters in Morse terrms(Angstrom)
+* re:		Equilibrium bond length(Angstrom)
+* nop:		number of points
+* nom:  	number of monomials
+* nob:  	number of basis functions(polynomials)
+* rM(0:111):	Array to store monomials
+* P(0:305):	Array to store polynomials
+***********************************************************************
+      
+      implicit double precision (a-h,o-z)
+
+      integer i,j,k
+      double precision V
+
+      common /coord/    R(6)
+      common /epot/     rMs(6),rM(0:111),P(0:305),C(0:305)
+
+C Calculate the six Morse terms for each point
+      call evmorse
+
+C Calculate the monomials for each point by using six Morse terms
+      call evmono
+
+C Calculate the polynomials (basis functions) by using monomials
+      call evpoly 
+
+C Evaluate V by taken the product of C and 
+      v=0.0d0
+      do i=0,305
+        v=v + c(i)*p(i)
+      enddo
+
+C      Write(*,9999) V 
+C 9999 Format('The potential energy is ',F15.8,'kcal/mol')
+
+      return
+
+      end 
+      subroutine EvdVdX(X,dVdX)
+***********************************************************************
+* Subroutine to evaluate dRdX for giving R and X 
+* R:		R(6), 6 bond lengths
+* X:		X(12), 12 Cartesian coordinates
+* rM(0:111):    Array to store monomials
+* P(0:305):     Array to store polynomials
+* dVdX:		dVdX(12), derivatives of V w.r.t. Cartesian coordinates 
+* dVdR:		dVdR(6), derivatives of V w.r.t.6 bond length
+* dRdX:		dRdX(6,12), derivatives of R(6) w.r.t. 12  
+*		Cartesian coordinates
+***********************************************************************
+      
+      implicit double precision (a-h,o-z)
+
+      integer i,j
+      double precision dVdX(12),X(12)
+
+      common /coord/    R(6)
+      common /epot/     rMs(6),rM(0:111),P(0:305),C(0:305)
+      common /gradt/    dMsdR(6,6),dMdR(6,0:111),dPdR(6,0:305),dVdR(6),
+     $                  dRdX(6,12)
+
+C Initialize dVdX
+      do i=1,12
+        dVdX(i)=0.0d0
+      enddo
+
+C Call EvdVdR to evaluate dVdR(6)
+      Call evdvdr
+
+C Call EvdRdX to evaluate dRdX(6,12)
+      Call evdrdx(X)  
+
+C Calculate dVdX by using chain rule: dV/dXi=(dV/dRj)*(dRj/dXi), j=1 to 6
+      do i=1,12
+        do j=1,6
+          dVdX(i)=dVdX(i) + dVdR(j)*dRdX(j,i)
+        enddo
+      enddo
+
+C      write(*,*) 'The 12 dVdX are:'
+C      Write(*,9999) (dVdX(i),i=1,12) 
+C 9999 Format(1x,3F15.8)
+
+      return
+      end 
+      subroutine EvMorse
+      
+      implicit double precision (a-h,o-z)
+
+      integer i
+
+      common /coord/    R(6)
+      common /msprmt/   a,re
+      common /epot/     rMs(6),rM(0:111),P(0:305),C(0:305)
+      
+C Morse term ms = exp(-(r-re)/a)
+C re:	equlibrium bond length(1.098A)
+C a: 	nonlinear paramter optimized for diatomic molecules, unit Anstrom
+      do i=1,6
+         rms(i)=Exp(-(r(i)-re)/a)
+      enddo
+
+      end 
+      subroutine EvMono
+***********************************************************************
+*  The subroutine reads six Morse variables(X) and calculate the
+*  monomials(M) that do not have usable decomposition.
+*  For A4 with max. degree 9, the number of monomials is nom.
+***********************************************************************
+
+      implicit double precision (a-h,o-z)
+
+      common /epot/     rMs(6),rM(0:111),P(0:305),C(0:305)
+
+      rm(0) = 1.0d0
+      rm(1) = rms(6)
+      rm(2) = rms(5)
+      rm(3) = rms(4)
+      rm(4) = rms(3)
+      rm(5) = rms(2)
+      rm(6) = rms(1)
+      rm(7) = rm(3)*rm(4)
+      rm(8) = rm(2)*rm(5)
+      rm(9) = rm(1)*rm(6)
+      rm(10) = rm(1)*rm(2)
+      rm(11) = rm(1)*rm(3)
+      rm(12) = rm(2)*rm(3)
+      rm(13) = rm(1)*rm(4)
+      rm(14) = rm(2)*rm(4)
+      rm(15) = rm(1)*rm(5)
+      rm(16) = rm(3)*rm(5)
+      rm(17) = rm(4)*rm(5)
+      rm(18) = rm(2)*rm(6)
+      rm(19) = rm(3)*rm(6)
+      rm(20) = rm(4)*rm(6)
+      rm(21) = rm(5)*rm(6)
+      rm(22) = rm(1)*rm(7)
+      rm(23) = rm(2)*rm(7)
+      rm(24) = rm(1)*rm(8)
+      rm(25) = rm(2)*rm(16)
+      rm(26) = rm(2)*rm(17)
+      rm(27) = rm(3)*rm(17)
+      rm(28) = rm(1)*rm(18)
+      rm(29) = rm(1)*rm(19)
+      rm(30) = rm(1)*rm(20)
+      rm(31) = rm(3)*rm(20)
+      rm(32) = rm(1)*rm(21)
+      rm(33) = rm(2)*rm(21)
+      rm(34) = rm(1)*rm(12)
+      rm(35) = rm(1)*rm(17)
+      rm(36) = rm(2)*rm(20)
+      rm(37) = rm(3)*rm(21)
+      rm(38) = rm(1)*rm(14)
+      rm(39) = rm(1)*rm(16)
+      rm(40) = rm(2)*rm(19)
+      rm(41) = rm(4)*rm(21)
+      rm(42) = rm(2)*rm(27)
+      rm(43) = rm(1)*rm(31)
+      rm(44) = rm(1)*rm(33)
+      rm(45) = rm(1)*rm(23)
+      rm(46) = rm(1)*rm(25)
+      rm(47) = rm(1)*rm(26)
+      rm(48) = rm(1)*rm(27)
+      rm(49) = rm(1)*rm(40)
+      rm(50) = rm(1)*rm(36)
+      rm(51) = rm(2)*rm(31)
+      rm(52) = rm(1)*rm(37)
+      rm(53) = rm(2)*rm(37)
+      rm(54) = rm(1)*rm(41)
+      rm(55) = rm(2)*rm(41)
+      rm(56) = rm(3)*rm(41)
+      rm(57) = rm(1)*rm(42)
+      rm(58) = rm(1)*rm(51)
+      rm(59) = rm(1)*rm(53)
+      rm(60) = rm(1)*rm(55)
+      rm(61) = rm(1)*rm(56)
+      rm(62) = rm(2)*rm(56)
+      rm(63) = rm(1)*rm(62)
+      rm(64) = rm(2)*rm(57)
+      rm(65) = rm(3)*rm(57)
+      rm(66) = rm(4)*rm(57)
+      rm(67) = rm(5)*rm(57)
+      rm(68) = rm(1)*rm(58)
+      rm(69) = rm(3)*rm(58)
+      rm(70) = rm(4)*rm(58)
+      rm(71) = rm(1)*rm(59)
+      rm(72) = rm(2)*rm(59)
+      rm(73) = rm(1)*rm(60)
+      rm(74) = rm(2)*rm(60)
+      rm(75) = rm(1)*rm(61)
+      rm(76) = rm(2)*rm(62)
+      rm(77) = rm(3)*rm(61)
+      rm(78) = rm(3)*rm(62)
+      rm(79) = rm(4)*rm(61)
+      rm(80) = rm(4)*rm(62)
+      rm(81) = rm(5)*rm(59)
+      rm(82) = rm(5)*rm(60)
+      rm(83) = rm(5)*rm(62)
+      rm(84) = rm(6)*rm(58)
+      rm(85) = rm(6)*rm(59)
+      rm(86) = rm(6)*rm(60)
+      rm(87) = rm(6)*rm(61)
+      rm(88) = rm(2)*rm(64)
+      rm(89) = rm(3)*rm(65)
+      rm(90) = rm(4)*rm(66)
+      rm(91) = rm(5)*rm(67)
+      rm(92) = rm(1)*rm(68)
+      rm(93) = rm(3)*rm(69)
+      rm(94) = rm(4)*rm(70)
+      rm(95) = rm(1)*rm(71)
+      rm(96) = rm(2)*rm(72)
+      rm(97) = rm(1)*rm(73)
+      rm(98) = rm(2)*rm(74)
+      rm(99) = rm(1)*rm(75)
+      rm(100) = rm(2)*rm(76)
+      rm(101) = rm(3)*rm(77)
+      rm(102) = rm(3)*rm(78)
+      rm(103) = rm(4)*rm(79)
+      rm(104) = rm(4)*rm(80)
+      rm(105) = rm(5)*rm(81)
+      rm(106) = rm(5)*rm(82)
+      rm(107) = rm(5)*rm(83)
+      rm(108) = rm(6)*rm(84)
+      rm(109) = rm(6)*rm(85)
+      rm(110) = rm(6)*rm(86)
+      rm(111) = rm(6)*rm(87)
+
+
+      return
+
+      end subroutine EvMono
+      subroutine EvPoly
+***********************************************************************
+*  The subroutine reads monomials(m) and calculate the
+*  permutation invariant polynomials(p)
+*  For A4 with max. degree 9, the number of polynomials is nob.
+***********************************************************************
+
+      implicit double precision (a-h,o-z)
+
+      common /epot/     rMs(6),rM(0:111),P(0:305),C(0:305)
+
+      p(0) = rm(0)
+      p(1) = rm(1) + rm(2) + rm(3) + rm(4) + rm(5) + rm(6)
+      p(2) = rm(7) + rm(8) + rm(9)
+      p(3) = rm(10) + rm(11) + rm(12) + rm(13) + rm(14) + rm(15) +
+     $       rm(16) + rm(17) + rm(18) + rm(19) + rm(20) + rm(21)
+      p(4) = p(1)*p(1) - p(3) - p(2) - p(3) - p(2)
+      p(5) = rm(22) + rm(23) + rm(24) + rm(25) + rm(26) + rm(27) +
+     $       rm(28) + rm(29) + rm(30) + rm(31) + rm(32) + rm(33)
+      p(6) = rm(34) + rm(35) + rm(36) + rm(37)
+      p(7) = rm(38) + rm(39) + rm(40) + rm(41)
+      p(8) = p(1)*p(2) - p(5)
+      p(9) = p(1)*p(3) - p(6) - p(7) - p(5) - p(6)
+     $      - p(7) - p(5) - p(6) - p(7)
+      p(10) = p(1)*p(4) - p(9) - p(8)
+      p(11) = rm(42) + rm(43) + rm(44)
+      p(12) = rm(45) + rm(46) + rm(47) + rm(48) + rm(49) + rm(50) +
+     $       rm(51) + rm(52) + rm(53) + rm(54) + rm(55) + rm(56)
+      p(13) = p(2)*p(3) - p(12)
+      p(14) = p(1)*p(5) - p(12) - p(11) - p(13) - p(12)
+     $      - p(11) - p(11) - p(11)
+      p(15) = p(1)*p(6) - p(12)
+      p(16) = p(1)*p(7) - p(12)
+      p(17) = p(2)*p(2) - p(11) - p(11)
+      p(18) = p(3)*p(3) - p(12) - p(11) - p(15) - p(16)
+     $      - p(14) - p(12) - p(11) - p(15) - p(16) - p(14)
+     $      - p(12) - p(11) - p(12) - p(11)
+      p(19) = p(2)*p(4) - p(14)
+      p(20) = p(3)*p(4) - p(15) - p(16) - p(13)
+      p(21) = p(1)*p(10) - p(20) - p(19)
+      p(22) = rm(57) + rm(58) + rm(59) + rm(60) + rm(61) + rm(62)
+      p(23) = p(1)*p(11) - p(22)
+      p(24) = p(2)*p(6)
+      p(25) = p(2)*p(7)
+      p(26) = p(1)*p(12) - p(22) - p(24) - p(25) - p(22)
+     $      - p(22) - p(22)
+      p(27) = p(2)*p(5) - p(22) - p(23) - p(22)
+      p(28) = p(3)*p(5) - p(22) - p(26) - p(24) - p(25)
+     $      - p(23) - p(22) - p(24) - p(25) - p(23) - p(22)
+     $      - p(22)
+      p(29) = p(3)*p(6) - p(22) - p(26) - p(22)
+      p(30) = p(3)*p(7) - p(22) - p(26) - p(22)
+      p(31) = p(2)*p(9) - p(26) - p(28)
+      p(32) = p(1)*p(14) - p(26) - p(23) - p(28)
+      p(33) = p(4)*p(6) - p(25)
+      p(34) = p(4)*p(7) - p(24)
+      p(35) = p(1)*p(17) - p(27)
+      p(36) = p(1)*p(18) - p(29) - p(30) - p(28)
+      p(37) = p(2)*p(10) - p(32)
+      p(38) = p(3)*p(10) - p(33) - p(34) - p(31)
+      p(39) = p(1)*p(21) - p(38) - p(37)
+      p(40) = rm(63)
+      p(41) = rm(64) + rm(65) + rm(66) + rm(67) + rm(68) + rm(69) +
+     $       rm(70) + rm(71) + rm(72) + rm(73) + rm(74) + rm(75) +
+     $       rm(76) + rm(77) + rm(78) + rm(79) + rm(80) + rm(81) +
+     $       rm(82) + rm(83) + rm(84) + rm(85) + rm(86) + rm(87)
+      p(42) = p(1)*p(22) - p(40) - p(41) - p(40) - p(40)
+     $      - p(40) - p(40) - p(40)
+      p(43) = p(2)*p(11) - p(40) - p(40) - p(40)
+      p(44) = p(2)*p(12) - p(41)
+      p(45) = p(3)*p(11) - p(41)
+      p(46) = p(5)*p(6) - p(41)
+      p(47) = p(5)*p(7) - p(41)
+      p(48) = p(6)*p(7) - p(40) - p(40) - p(40) - p(40)
+      p(49) = p(4)*p(11) - p(42)
+      p(50) = p(2)*p(15) - p(46)
+      p(51) = p(2)*p(16) - p(47)
+      p(52) = p(4)*p(12) - p(41) - p(50) - p(51)
+      p(53) = p(2)*p(14) - p(42) - p(49) - p(42)
+      p(54) = p(6)*p(6) - p(42) - p(42)
+      p(55) = p(7)*p(7) - p(42) - p(42)
+      p(56) = p(3)*p(17) - p(44)
+      p(57) = p(2)*p(18) - p(48)
+      p(58) = p(3)*p(14) - p(41) - p(52) - p(46) - p(47)
+     $      - p(45) - p(45)
+      p(59) = p(6)*p(9) - p(41) - p(52) - p(47)
+      p(60) = p(7)*p(9) - p(41) - p(52) - p(46)
+      p(61) = p(2)*p(20) - p(52) - p(58)
+      p(62) = p(1)*p(32) - p(52) - p(49) - p(58)
+      p(63) = p(6)*p(10) - p(51)
+      p(64) = p(7)*p(10) - p(50)
+      p(65) = p(2)*p(17) - p(43)
+      p(66) = p(3)*p(18) - p(46) - p(47) - p(45) - p(59)
+     $      - p(60) - p(58)
+      p(67) = p(2)*p(19) - p(49)
+      p(68) = p(1)*p(36) - p(59) - p(60) - p(58) - p(57)
+     $      - p(66) - p(66)
+      p(69) = p(2)*p(21) - p(62)
+      p(70) = p(3)*p(21) - p(63) - p(64) - p(61)
+      p(71) = p(1)*p(39) - p(70) - p(69)
+      p(72) = p(40)*p(1)
+      p(73) = p(2)*p(22) - p(72)
+      p(74) = p(6)*p(11)
+      p(75) = p(7)*p(11)
+      p(76) = p(3)*p(22) - p(72) - p(74) - p(75) - p(72)
+     $      - p(72) - p(72)
+      p(77) = rm(88) + rm(89) + rm(90) + rm(91) + rm(92) + rm(93) +
+     $       rm(94) + rm(95) + rm(96) + rm(97) + rm(98) + rm(99) +
+     $       rm(100) + rm(101) + rm(102) + rm(103) + rm(104) + rm(105) +
+     $       rm(106) + rm(107) + rm(108) + rm(109) + rm(110) + rm(111)
+      p(78) = p(1)*p(42) - p(72) - p(76)
+      p(79) = p(5)*p(11) - p(72) - p(73) - p(72)
+      p(80) = p(2)*p(26) - p(76) - p(77)
+      p(81) = p(6)*p(12) - p(72) - p(76) - p(72)
+      p(82) = p(7)*p(12) - p(72) - p(76) - p(72)
+      p(83) = p(8)*p(11) - p(72)
+      p(84) = p(6)*p(17)
+      p(85) = p(7)*p(17)
+      p(86) = p(9)*p(11) - p(76) - p(77)
+      p(87) = p(2)*p(29) - p(81)
+      p(88) = p(6)*p(14) - p(75) - p(75)
+      p(89) = p(2)*p(30) - p(82)
+      p(90) = p(7)*p(14) - p(74) - p(74)
+      p(91) = p(1)*p(48) - p(76) - p(81) - p(82)
+      p(92) = p(10)*p(11) - p(78)
+      p(93) = p(2)*p(33) - p(88)
+      p(94) = p(2)*p(34) - p(90)
+      p(95) = p(10)*p(12) - p(77) - p(93) - p(94)
+      p(96) = p(2)*p(27) - p(73) - p(79)
+      p(97) = p(2)*p(28) - p(76) - p(86)
+      p(98) = p(1)*p(53) - p(80) - p(79) - p(97)
+      p(99) = p(1)*p(54) - p(81)
+      p(100) = p(1)*p(55) - p(82)
+      p(101) = p(5)*p(18) - p(76) - p(91) - p(87) - p(89)
+     $      - p(86)
+      p(102) = p(6)*p(18) - p(74) - p(90)
+      p(103) = p(7)*p(18) - p(75) - p(88)
+      p(104) = p(2)*p(31) - p(77) - p(86)
+      p(105) = p(2)*p(36) - p(91) - p(101)
+      p(106) = p(3)*p(32) - p(77) - p(95) - p(88) - p(90)
+     $      - p(86)
+      p(107) = p(4)*p(29) - p(82) - p(80) - p(99)
+      p(108) = p(4)*p(30) - p(81) - p(80) - p(100)
+      p(109) = p(2)*p(38) - p(95) - p(106)
+      p(110) = p(1)*p(62) - p(95) - p(92) - p(106)
+      p(111) = p(6)*p(21) - p(94)
+      p(112) = p(7)*p(21) - p(93)
+      p(113) = p(1)*p(65) - p(96)
+      p(114) = p(1)*p(66) - p(102) - p(103) - p(101)
+      p(115) = p(2)*p(37) - p(92)
+      p(116) = p(10)*p(18) - p(99) - p(100) - p(97)
+      p(117) = p(2)*p(39) - p(110)
+      p(118) = p(3)*p(39) - p(111) - p(112) - p(109)
+      p(119) = p(1)*p(71) - p(118) - p(117)
+      p(120) = p(40)*p(2)
+      p(121) = p(40)*p(3)
+      p(122) = p(40)*p(4)
+      p(123) = p(11)*p(12) - p(121)
+      p(124) = p(2)*p(42) - p(122)
+      p(125) = p(6)*p(22) - p(121)
+      p(126) = p(7)*p(22) - p(121)
+      p(127) = p(2)*p(41) - p(121) - p(123) - p(121)
+      p(128) = p(6)*p(23) - p(123)
+      p(129) = p(7)*p(23) - p(123)
+      p(130) = p(3)*p(41) - p(122) - p(121) - p(120) - p(125)
+     $      - p(128) - p(126) - p(129) - p(124) - p(123) - p(122)
+     $      - p(121) - p(120) - p(125) - p(126) - p(124) - p(123)
+     $      - p(122) - p(121) - p(120) - p(122) - p(121) - p(120)
+     $      - p(120) - p(120) - p(120) - p(120)
+      p(131) = p(3)*p(42) - p(121) - p(125) - p(126) - p(121)
+      p(132) = p(4)*p(41) - p(121) - p(131) - p(128) - p(129)
+     $      - p(127) - p(121)
+      p(133) = p(1)*p(78) - p(122) - p(131)
+      p(134) = p(11)*p(11) - p(120) - p(120)
+      p(135) = p(2)*p(48) - p(130)
+      p(136) = p(11)*p(17) - p(120)
+      p(137) = p(2)*p(44) - p(123)
+      p(138) = p(2)*p(45) - p(121)
+      p(139) = p(11)*p(14) - p(122) - p(124) - p(122)
+      p(140) = p(6)*p(27) - p(127)
+      p(141) = p(2)*p(54)
+      p(142) = p(7)*p(27) - p(127)
+      p(143) = p(2)*p(52) - p(131) - p(132)
+      p(144) = p(1)*p(81) - p(125) - p(141) - p(135) - p(125)
+      p(145) = p(2)*p(55)
+      p(146) = p(1)*p(82) - p(126) - p(135) - p(145) - p(126)
+      p(147) = p(11)*p(18) - p(130)
+      p(148) = p(6)*p(28) - p(129) - p(123) - p(143)
+      p(149) = p(7)*p(28) - p(128) - p(123) - p(143)
+      p(150) = p(6)*p(30) - p(121) - p(146)
+      p(151) = p(11)*p(19) - p(122)
+      p(152) = p(2)*p(50) - p(128)
+      p(153) = p(2)*p(51) - p(129)
+      p(154) = p(11)*p(20) - p(131) - p(132)
+      p(155) = p(2)*p(59) - p(144) - p(148)
+      p(156) = p(6)*p(32) - p(129)
+      p(157) = p(2)*p(60) - p(146) - p(149)
+      p(158) = p(7)*p(32) - p(128)
+      p(159) = p(6)*p(34) - p(122) - p(145) - p(122)
+      p(160) = p(11)*p(21) - p(133)
+      p(161) = p(2)*p(63) - p(156)
+      p(162) = p(2)*p(64) - p(158)
+      p(163) = p(12)*p(21) - p(132) - p(161) - p(162)
+      p(164) = p(2)*p(53) - p(124) - p(139)
+      p(165) = p(2)*p(58) - p(131) - p(154)
+      p(166) = p(3)*p(54) - p(125) - p(144)
+      p(167) = p(3)*p(55) - p(126) - p(146)
+      p(168) = p(3)*p(65) - p(137)
+      p(169) = p(17)*p(18) - p(135)
+      p(170) = p(1)*p(98) - p(143) - p(139) - p(165)
+      p(171) = p(4)*p(54) - p(135)
+      p(172) = p(4)*p(55) - p(135)
+      p(173) = p(2)*p(66) - p(150)
+      p(174) = p(1)*p(101) - p(148) - p(149) - p(147) - p(173)
+     $      - p(165) - p(147)
+      p(175) = p(1)*p(102) - p(150) - p(148) - p(166)
+      p(176) = p(1)*p(103) - p(150) - p(149) - p(167)
+      p(177) = p(2)*p(61) - p(132) - p(154)
+      p(178) = p(2)*p(68) - p(159) - p(174)
+      p(179) = p(3)*p(62) - p(132) - p(163) - p(156) - p(158)
+     $      - p(154)
+      p(180) = p(6)*p(38) - p(132) - p(163) - p(157)
+      p(181) = p(7)*p(38) - p(132) - p(163) - p(155)
+      p(182) = p(2)*p(70) - p(163) - p(179)
+      p(183) = p(1)*p(110) - p(163) - p(160) - p(179)
+      p(184) = p(6)*p(39) - p(162)
+      p(185) = p(7)*p(39) - p(161)
+      p(186) = p(2)*p(65) - p(136)
+      p(187) = p(3)*p(66) - p(148) - p(149) - p(147) - p(175)
+     $      - p(176) - p(174)
+      p(188) = p(2)*p(67) - p(151)
+      p(189) = p(4)*p(66) - p(166) - p(167) - p(165)
+      p(190) = p(2)*p(69) - p(160)
+      p(191) = p(18)*p(21) - p(171) - p(172) - p(169)
+      p(192) = p(2)*p(71) - p(183)
+      p(193) = p(3)*p(71) - p(184) - p(185) - p(182)
+      p(194) = p(1)*p(119) - p(193) - p(192)
+      p(195) = p(40)*p(5)
+      p(196) = p(40)*p(6)
+      p(197) = p(40)*p(7)
+      p(198) = p(40)*p(8)
+      p(199) = p(40)*p(9)
+      p(200) = p(40)*p(10)
+      p(201) = p(11)*p(22) - p(195)
+      p(202) = p(12)*p(22) - p(196) - p(197) - p(195) - p(196)
+     $      - p(197) - p(195) - p(196) - p(197)
+      p(203) = p(17)*p(22) - p(198)
+      p(204) = p(6)*p(43)
+      p(205) = p(7)*p(43)
+      p(206) = p(11)*p(26) - p(199) - p(202)
+      p(207) = p(2)*p(76) - p(199) - p(202)
+      p(208) = p(2)*p(78) - p(200)
+      p(209) = p(6)*p(41) - p(199) - p(195) - p(202) - p(195)
+      p(210) = p(6)*p(42) - p(197) - p(197) - p(197)
+      p(211) = p(7)*p(41) - p(199) - p(195) - p(202) - p(195)
+      p(212) = p(7)*p(42) - p(196) - p(196) - p(196)
+      p(213) = p(11)*p(29) - p(209)
+      p(214) = p(11)*p(30) - p(211)
+      p(215) = p(18)*p(22) - p(199) - p(213) - p(214)
+      p(216) = p(2)*p(77) - p(199) - p(206)
+      p(217) = p(6)*p(49) - p(205)
+      p(218) = p(7)*p(49) - p(204)
+      p(219) = p(3)*p(77) - p(200) - p(199) - p(198) - p(209)
+     $      - p(217) - p(211) - p(218) - p(207) - p(204) - p(205)
+     $      - p(200) - p(199) - p(198) - p(200) - p(198) - p(200)
+     $      - p(198)
+      p(220) = p(3)*p(78) - p(199) - p(210) - p(212)
+      p(221) = p(10)*p(41) - p(199) - p(220) - p(217) - p(218)
+     $      - p(216)
+      p(222) = p(1)*p(133) - p(200) - p(220)
+      p(223) = p(11)*p(27) - p(195) - p(203)
+      p(224) = p(1)*p(134) - p(201)
+      p(225) = p(2)*p(81) - p(209)
+      p(226) = p(2)*p(80) - p(202) - p(206)
+      p(227) = p(2)*p(82) - p(211)
+      p(228) = p(2)*p(91) - p(215) - p(219)
+      p(229) = p(11)*p(28) - p(199) - p(207)
+      p(230) = p(6)*p(53) - p(205)
+      p(231) = p(5)*p(54) - p(209)
+      p(232) = p(7)*p(53) - p(204)
+      p(233) = p(7)*p(54) - p(196)
+      p(234) = p(5)*p(55) - p(211)
+      p(235) = p(6)*p(55) - p(197)
+      p(236) = p(11)*p(35) - p(198)
+      p(237) = p(6)*p(65)
+      p(238) = p(7)*p(65)
+      p(239) = p(2)*p(86) - p(199) - p(229)
+      p(240) = p(1)*p(139) - p(206) - p(229) - p(224)
+      p(241) = p(17)*p(29) - p(225)
+      p(242) = p(2)*p(99) - p(231)
+      p(243) = p(17)*p(30) - p(227)
+      p(244) = p(2)*p(95) - p(220) - p(221)
+      p(245) = p(4)*p(81) - p(202) - p(242) - p(227)
+      p(246) = p(2)*p(100) - p(234)
+      p(247) = p(4)*p(82) - p(202) - p(225) - p(246)
+      p(248) = p(11)*p(36) - p(215) - p(219)
+      p(249) = p(2)*p(102) - p(233)
+      p(250) = p(6)*p(58) - p(206) - p(214) - p(244) - p(214)
+      p(251) = p(2)*p(103) - p(235)
+      p(252) = p(7)*p(58) - p(213) - p(206) - p(244) - p(213)
+      p(253) = p(1)*p(150) - p(215) - p(233) - p(235)
+      p(254) = p(11)*p(37) - p(200)
+      p(255) = p(2)*p(93) - p(217)
+      p(256) = p(2)*p(94) - p(218)
+      p(257) = p(11)*p(38) - p(220) - p(221)
+      p(258) = p(2)*p(107) - p(245) - p(250)
+      p(259) = p(6)*p(62) - p(218)
+      p(260) = p(2)*p(108) - p(247) - p(252)
+      p(261) = p(7)*p(62) - p(217)
+      p(262) = p(6)*p(64) - p(200) - p(246) - p(200)
+      p(263) = p(11)*p(39) - p(222)
+      p(264) = p(2)*p(111) - p(259)
+      p(265) = p(2)*p(112) - p(261)
+      p(266) = p(12)*p(39) - p(221) - p(264) - p(265)
+      p(267) = p(2)*p(98) - p(208) - p(240)
+      p(268) = p(6)*p(54) - p(210)
+      p(269) = p(7)*p(55) - p(212)
+      p(270) = p(2)*p(96) - p(203) - p(223)
+      p(271) = p(2)*p(97) - p(207) - p(229)
+      p(272) = p(2)*p(101) - p(215) - p(248)
+      p(273) = p(2)*p(106) - p(220) - p(257)
+      p(274) = p(6)*p(59) - p(220) - p(215) - p(209)
+      p(275) = p(7)*p(60) - p(220) - p(215) - p(211)
+      p(276) = p(5)*p(66) - p(215) - p(253) - p(249) - p(251)
+     $      - p(248)
+      p(277) = p(6)*p(66) - p(213) - p(252)
+      p(278) = p(7)*p(66) - p(214) - p(250)
+      p(279) = p(2)*p(104) - p(216) - p(239)
+      p(280) = p(2)*p(105) - p(219) - p(248)
+      p(281) = p(1)*p(170) - p(244) - p(240) - p(273)
+      p(282) = p(10)*p(54) - p(227)
+      p(283) = p(10)*p(55) - p(225)
+      p(284) = p(2)*p(114) - p(253) - p(276)
+      p(285) = p(1)*p(174) - p(250) - p(252) - p(248) - p(276)
+     $      - p(273)
+      p(286) = p(6)*p(68) - p(217) - p(261) - p(251)
+      p(287) = p(7)*p(68) - p(218) - p(259) - p(249)
+      p(288) = p(2)*p(109) - p(221) - p(257)
+      p(289) = p(2)*p(116) - p(262) - p(285)
+      p(290) = p(3)*p(110) - p(221) - p(266) - p(259) - p(261)
+     $      - p(257)
+      p(291) = p(6)*p(70) - p(221) - p(266) - p(260)
+      p(292) = p(7)*p(70) - p(221) - p(266) - p(258)
+      p(293) = p(2)*p(118) - p(266) - p(290)
+      p(294) = p(1)*p(183) - p(266) - p(263) - p(290)
+      p(295) = p(6)*p(71) - p(265)
+      p(296) = p(7)*p(71) - p(264)
+      p(297) = p(1)*p(186) - p(270)
+      p(298) = p(1)*p(187) - p(277) - p(278) - p(276)
+      p(299) = p(2)*p(115) - p(254)
+      p(300) = p(1)*p(189) - p(286) - p(287) - p(285) - p(284)
+     $      - p(298)
+      p(301) = p(2)*p(117) - p(263)
+      p(302) = p(18)*p(39) - p(282) - p(283) - p(280)
+      p(303) = p(2)*p(119) - p(294)
+      p(304) = p(3)*p(119) - p(295) - p(296) - p(293)
+      p(305) = p(1)*p(194) - p(304) - p(303)
+
+      return
+
+      end subroutine EvPoly
+      subroutine EvdVdR
+***********************************************************************
+* Subroutine to evaluate dVdR for giving R 
+* dVdR = C*dPdR
+* C:		Coefficients, stored in 'dim.inc' 
+* P:		Basis functions evaluated for giving R
+* M:		Monomials evluated for giving R
+* dMsdR:	dMsdR(6,6), 6 Morse terms w.r.t. 6 bond length
+* dMdR:		dMdR(6,nom), nom monomials w.r.t.6 bond length
+* dPdR:		dPdR(6,nob), nop polynomial basis functions 
+*		w.r.t. 6 bond length
+* nom:  	number of monomials
+* nob:  	number of basis functions(polynomials)
+* M(nom):	Array to store monomials
+* P(nob):	Array to store polynomials
+***********************************************************************
+      
+      implicit double precision (a-h,o-z)
+      
+      integer i,j
+
+      common /coord/    R(6)
+      common /epot/     rMs(6),rM(0:111),P(0:305),C(0:305)
+      common /gradt/    dMsdR(6,6),dMdR(6,0:111),dPdR(6,0:305),dVdR(6),
+     $                  dRdX(6,12)
+
+C Initialize dVdR(6)
+      do i=1,6
+        dVdR(i)=0.0d0
+      enddo
+
+C Calculate dMorse/dr(6,6) for giving R(6)
+      call evdmsdr
+
+C Calculate the monomials for each point by using six Morse terms
+      call evdmdr
+
+C Calculate the polynomials (basis functions) by using monomials
+      call evdpdr 
+
+C Evaluate dVdR(6) by taken the product of C(j) and dPdR(i,j)
+      do i=1,6      
+        do j=0,305
+         dVdR(i)=dVdR(i) + c(j)*dPdR(i,j)
+        enddo
+      enddo
+
+      return
+      end 
+      subroutine EvdRdX(X)
+***********************************************************************
+* Subroutine to evaluate dRdX for giving R and X 
+* R:		R(6), 6 bond lengths
+* X:		X(12), 12 Cartesian coordinates
+* 
+* dMdR:		dMdR(6,nom), nom monomials w.r.t.6 bond length
+* dPdR:		dPdR(6,nob), nop polynomial basis functions 
+*		w.r.t. 6 bond length
+* M(nom):	Array to store monomials
+* P(nob):	Array to store polynomials
+***********************************************************************
+      
+      implicit double precision (a-h,o-z)
+
+      integer i,j
+      double precision X(12)
+
+      common /coord/    R(6)
+      common /gradt/    dMsdR(6,6),dMdR(6,0:111),dPdR(6,0:305),dVdR(6),
+     $                  dRdX(6,12)
+
+C Initialize dRdX(6,12)
+      do i=1,6
+        do j=1,12
+          dRdX(i,j)=0.0d0
+        enddo
+      enddo
+
+C Start to calculate the non-zero dRdX
+C dr1dx
+      dRdX(1,1)=(x(1)-x(4))/r(1)
+      dRdX(1,2)=(x(2)-x(5))/r(1)
+      dRdX(1,3)=(x(3)-x(6))/r(1)
+      dRdX(1,4)=-dRdX(1,1)
+      dRdX(1,5)=-dRdX(1,2)
+      dRdX(1,6)=-dRdX(1,3)
+
+C dr2dx
+      dRdX(2,1)=(x(1)-x(7))/r(2)
+      dRdX(2,2)=(x(2)-x(8))/r(2)
+      dRdX(2,3)=(x(3)-x(9))/r(2)
+      dRdX(2,7)=-dRdX(2,1)
+      dRdX(2,8)=-dRdX(2,2)
+      dRdX(2,9)=-dRdX(2,3)
+
+C dr3dx
+      dRdX(3,1)=(x(1)-x(10))/r(3)
+      dRdX(3,2)=(x(2)-x(11))/r(3)
+      dRdX(3,3)=(x(3)-x(12))/r(3)
+      dRdX(3,10)=-dRdX(3,1)
+      dRdX(3,11)=-dRdX(3,2)
+      dRdX(3,12)=-dRdX(3,3)
+
+C dr4dx
+      dRdX(4,4)=(x(4)-x(7))/r(4)
+      dRdX(4,5)=(x(5)-x(8))/r(4)
+      dRdX(4,6)=(x(6)-x(9))/r(4)
+      dRdX(4,7)=-dRdX(4,4)
+      dRdX(4,8)=-dRdX(4,5)
+      dRdX(4,9)=-dRdX(4,6)
+
+C dr5dx
+      dRdX(5,4)=(x(4)-x(10))/r(5)
+      dRdX(5,5)=(x(5)-x(11))/r(5)
+      dRdX(5,6)=(x(6)-x(12))/r(5)
+      dRdX(5,10)=-dRdX(5,4)
+      dRdX(5,11)=-dRdX(5,5)
+      dRdX(5,12)=-dRdX(5,6)
+
+C dr6dx
+      dRdX(6,7)=(x(7)-x(10))/r(6)
+      dRdX(6,8)=(x(8)-x(11))/r(6)
+      dRdX(6,9)=(x(9)-x(12))/r(6)
+      dRdX(6,10)=-dRdX(6,7)
+      dRdX(6,11)=-dRdX(6,8)
+      dRdX(6,12)=-dRdX(6,9)
+C Finish the calculation of non-zero dRdX
+
+      return
+
+      end 
+      subroutine EvdMsdR
+***********************************************************************
+* Subroutine to evalute the derivatives of Morse term X
+* w.r.t. interatomic distance R(6)
+* dmsdR:	Local variables, dirm(6,6)
+* a:		Nonlinear pamameter(Angstrom)
+* re:		equilibrium bond length(Angstrom)
+***********************************************************************
+      
+      implicit double precision (a-h,o-z)
+
+      integer i,j
+
+      common /coord/    R(6)
+      common /gradt/    dMsdR(6,6),dMdR(6,0:111),dPdR(6,0:305),dVdR(6),
+     $                  dRdX(6,12)
+      common /msprmt/   a,re
+
+C Initialize dmsdr
+      do i=1,6
+        do j=1,6
+          dmsdr(i,j)=0.0d0
+        enddo
+      enddo
+C
+C Morse term dmsdr = exp(-(r-re)/a)
+C dmsdr(i,j)=0	i!=j
+C dmsdr(i,i)= -(1/a)*Exp(-r(i)-re)/a)
+C
+      do i=1,6
+         dmsdr(i,i)=-(1/a)*Exp(-(r(i)-re)/a)
+      enddo 
+
+      return
+
+      end 
+      subroutine EvdMdR
+***********************************************************************
+*  The subroutine reads M(nom) and dMSdR(6,6) and calculate the
+*  dMdR(6,nom) that do not have usable decomposition.
+*  For A4 with max. degree 9, the number of monomials is nom.
+***********************************************************************
+
+      implicit double precision (a-h,o-z)
+
+      integer i
+
+      common /epot/     rMs(6),rM(0:111),P(0:305),C(0:305)
+      common /gradt/    dMsdR(6,6),dMdR(6,0:111),dPdR(6,0:305),dVdR(6),
+     $                  dRdX(6,12)
+
+      do i=1,6
+        dmdr(i,0) = 0.0d0
+        dmdr(i,1) = dmsdr(i,6)
+        dmdr(i,2) = dmsdr(i,5)
+        dmdr(i,3) = dmsdr(i,4)
+        dmdr(i,4) = dmsdr(i,3)
+        dmdr(i,5) = dmsdr(i,2)
+        dmdr(i,6) = dmsdr(i,1)
+        dmdr(i,7) = dmdr(i,3)*rm(4) + rm(3)*dmdr(i,4)
+        dmdr(i,8) = dmdr(i,2)*rm(5) + rm(2)*dmdr(i,5)
+        dmdr(i,9) = dmdr(i,1)*rm(6) + rm(1)*dmdr(i,6)
+        dmdr(i,10) = dmdr(i,1)*rm(2) + rm(1)*dmdr(i,2)
+        dmdr(i,11) = dmdr(i,1)*rm(3) + rm(1)*dmdr(i,3)
+        dmdr(i,12) = dmdr(i,2)*rm(3) + rm(2)*dmdr(i,3)
+        dmdr(i,13) = dmdr(i,1)*rm(4) + rm(1)*dmdr(i,4)
+        dmdr(i,14) = dmdr(i,2)*rm(4) + rm(2)*dmdr(i,4)
+        dmdr(i,15) = dmdr(i,1)*rm(5) + rm(1)*dmdr(i,5)
+        dmdr(i,16) = dmdr(i,3)*rm(5) + rm(3)*dmdr(i,5)
+        dmdr(i,17) = dmdr(i,4)*rm(5) + rm(4)*dmdr(i,5)
+        dmdr(i,18) = dmdr(i,2)*rm(6) + rm(2)*dmdr(i,6)
+        dmdr(i,19) = dmdr(i,3)*rm(6) + rm(3)*dmdr(i,6)
+        dmdr(i,20) = dmdr(i,4)*rm(6) + rm(4)*dmdr(i,6)
+        dmdr(i,21) = dmdr(i,5)*rm(6) + rm(5)*dmdr(i,6)
+        dmdr(i,22) = dmdr(i,1)*rm(7) + rm(1)*dmdr(i,7)
+        dmdr(i,23) = dmdr(i,2)*rm(7) + rm(2)*dmdr(i,7)
+        dmdr(i,24) = dmdr(i,1)*rm(8) + rm(1)*dmdr(i,8)
+        dmdr(i,25) = dmdr(i,2)*rm(16) + rm(2)*dmdr(i,16)
+        dmdr(i,26) = dmdr(i,2)*rm(17) + rm(2)*dmdr(i,17)
+        dmdr(i,27) = dmdr(i,3)*rm(17) + rm(3)*dmdr(i,17)
+        dmdr(i,28) = dmdr(i,1)*rm(18) + rm(1)*dmdr(i,18)
+        dmdr(i,29) = dmdr(i,1)*rm(19) + rm(1)*dmdr(i,19)
+        dmdr(i,30) = dmdr(i,1)*rm(20) + rm(1)*dmdr(i,20)
+        dmdr(i,31) = dmdr(i,3)*rm(20) + rm(3)*dmdr(i,20)
+        dmdr(i,32) = dmdr(i,1)*rm(21) + rm(1)*dmdr(i,21)
+        dmdr(i,33) = dmdr(i,2)*rm(21) + rm(2)*dmdr(i,21)
+        dmdr(i,34) = dmdr(i,1)*rm(12) + rm(1)*dmdr(i,12)
+        dmdr(i,35) = dmdr(i,1)*rm(17) + rm(1)*dmdr(i,17)
+        dmdr(i,36) = dmdr(i,2)*rm(20) + rm(2)*dmdr(i,20)
+        dmdr(i,37) = dmdr(i,3)*rm(21) + rm(3)*dmdr(i,21)
+        dmdr(i,38) = dmdr(i,1)*rm(14) + rm(1)*dmdr(i,14)
+        dmdr(i,39) = dmdr(i,1)*rm(16) + rm(1)*dmdr(i,16)
+        dmdr(i,40) = dmdr(i,2)*rm(19) + rm(2)*dmdr(i,19)
+        dmdr(i,41) = dmdr(i,4)*rm(21) + rm(4)*dmdr(i,21)
+        dmdr(i,42) = dmdr(i,2)*rm(27) + rm(2)*dmdr(i,27)
+        dmdr(i,43) = dmdr(i,1)*rm(31) + rm(1)*dmdr(i,31)
+        dmdr(i,44) = dmdr(i,1)*rm(33) + rm(1)*dmdr(i,33)
+        dmdr(i,45) = dmdr(i,1)*rm(23) + rm(1)*dmdr(i,23)
+        dmdr(i,46) = dmdr(i,1)*rm(25) + rm(1)*dmdr(i,25)
+        dmdr(i,47) = dmdr(i,1)*rm(26) + rm(1)*dmdr(i,26)
+        dmdr(i,48) = dmdr(i,1)*rm(27) + rm(1)*dmdr(i,27)
+        dmdr(i,49) = dmdr(i,1)*rm(40) + rm(1)*dmdr(i,40)
+        dmdr(i,50) = dmdr(i,1)*rm(36) + rm(1)*dmdr(i,36)
+        dmdr(i,51) = dmdr(i,2)*rm(31) + rm(2)*dmdr(i,31)
+        dmdr(i,52) = dmdr(i,1)*rm(37) + rm(1)*dmdr(i,37)
+        dmdr(i,53) = dmdr(i,2)*rm(37) + rm(2)*dmdr(i,37)
+        dmdr(i,54) = dmdr(i,1)*rm(41) + rm(1)*dmdr(i,41)
+        dmdr(i,55) = dmdr(i,2)*rm(41) + rm(2)*dmdr(i,41)
+        dmdr(i,56) = dmdr(i,3)*rm(41) + rm(3)*dmdr(i,41)
+        dmdr(i,57) = dmdr(i,1)*rm(42) + rm(1)*dmdr(i,42)
+        dmdr(i,58) = dmdr(i,1)*rm(51) + rm(1)*dmdr(i,51)
+        dmdr(i,59) = dmdr(i,1)*rm(53) + rm(1)*dmdr(i,53)
+        dmdr(i,60) = dmdr(i,1)*rm(55) + rm(1)*dmdr(i,55)
+        dmdr(i,61) = dmdr(i,1)*rm(56) + rm(1)*dmdr(i,56)
+        dmdr(i,62) = dmdr(i,2)*rm(56) + rm(2)*dmdr(i,56)
+        dmdr(i,63) = dmdr(i,1)*rm(62) + rm(1)*dmdr(i,62)
+        dmdr(i,64) = dmdr(i,2)*rm(57) + rm(2)*dmdr(i,57)
+        dmdr(i,65) = dmdr(i,3)*rm(57) + rm(3)*dmdr(i,57)
+        dmdr(i,66) = dmdr(i,4)*rm(57) + rm(4)*dmdr(i,57)
+        dmdr(i,67) = dmdr(i,5)*rm(57) + rm(5)*dmdr(i,57)
+        dmdr(i,68) = dmdr(i,1)*rm(58) + rm(1)*dmdr(i,58)
+        dmdr(i,69) = dmdr(i,3)*rm(58) + rm(3)*dmdr(i,58)
+        dmdr(i,70) = dmdr(i,4)*rm(58) + rm(4)*dmdr(i,58)
+        dmdr(i,71) = dmdr(i,1)*rm(59) + rm(1)*dmdr(i,59)
+        dmdr(i,72) = dmdr(i,2)*rm(59) + rm(2)*dmdr(i,59)
+        dmdr(i,73) = dmdr(i,1)*rm(60) + rm(1)*dmdr(i,60)
+        dmdr(i,74) = dmdr(i,2)*rm(60) + rm(2)*dmdr(i,60)
+        dmdr(i,75) = dmdr(i,1)*rm(61) + rm(1)*dmdr(i,61)
+        dmdr(i,76) = dmdr(i,2)*rm(62) + rm(2)*dmdr(i,62)
+        dmdr(i,77) = dmdr(i,3)*rm(61) + rm(3)*dmdr(i,61)
+        dmdr(i,78) = dmdr(i,3)*rm(62) + rm(3)*dmdr(i,62)
+        dmdr(i,79) = dmdr(i,4)*rm(61) + rm(4)*dmdr(i,61)
+        dmdr(i,80) = dmdr(i,4)*rm(62) + rm(4)*dmdr(i,62)
+        dmdr(i,81) = dmdr(i,5)*rm(59) + rm(5)*dmdr(i,59)
+        dmdr(i,82) = dmdr(i,5)*rm(60) + rm(5)*dmdr(i,60)
+        dmdr(i,83) = dmdr(i,5)*rm(62) + rm(5)*dmdr(i,62)
+        dmdr(i,84) = dmdr(i,6)*rm(58) + rm(6)*dmdr(i,58)
+        dmdr(i,85) = dmdr(i,6)*rm(59) + rm(6)*dmdr(i,59)
+        dmdr(i,86) = dmdr(i,6)*rm(60) + rm(6)*dmdr(i,60)
+        dmdr(i,87) = dmdr(i,6)*rm(61) + rm(6)*dmdr(i,61)
+        dmdr(i,88) = dmdr(i,2)*rm(64) + rm(2)*dmdr(i,64)
+        dmdr(i,89) = dmdr(i,3)*rm(65) + rm(3)*dmdr(i,65)
+        dmdr(i,90) = dmdr(i,4)*rm(66) + rm(4)*dmdr(i,66)
+        dmdr(i,91) = dmdr(i,5)*rm(67) + rm(5)*dmdr(i,67)
+        dmdr(i,92) = dmdr(i,1)*rm(68) + rm(1)*dmdr(i,68)
+        dmdr(i,93) = dmdr(i,3)*rm(69) + rm(3)*dmdr(i,69)
+        dmdr(i,94) = dmdr(i,4)*rm(70) + rm(4)*dmdr(i,70)
+        dmdr(i,95) = dmdr(i,1)*rm(71) + rm(1)*dmdr(i,71)
+        dmdr(i,96) = dmdr(i,2)*rm(72) + rm(2)*dmdr(i,72)
+        dmdr(i,97) = dmdr(i,1)*rm(73) + rm(1)*dmdr(i,73)
+        dmdr(i,98) = dmdr(i,2)*rm(74) + rm(2)*dmdr(i,74)
+        dmdr(i,99) = dmdr(i,1)*rm(75) + rm(1)*dmdr(i,75)
+        dmdr(i,100) = dmdr(i,2)*rm(76) + rm(2)*dmdr(i,76)
+        dmdr(i,101) = dmdr(i,3)*rm(77) + rm(3)*dmdr(i,77)
+        dmdr(i,102) = dmdr(i,3)*rm(78) + rm(3)*dmdr(i,78)
+        dmdr(i,103) = dmdr(i,4)*rm(79) + rm(4)*dmdr(i,79)
+        dmdr(i,104) = dmdr(i,4)*rm(80) + rm(4)*dmdr(i,80)
+        dmdr(i,105) = dmdr(i,5)*rm(81) + rm(5)*dmdr(i,81)
+        dmdr(i,106) = dmdr(i,5)*rm(82) + rm(5)*dmdr(i,82)
+        dmdr(i,107) = dmdr(i,5)*rm(83) + rm(5)*dmdr(i,83)
+        dmdr(i,108) = dmdr(i,6)*rm(84) + rm(6)*dmdr(i,84)
+        dmdr(i,109) = dmdr(i,6)*rm(85) + rm(6)*dmdr(i,85)
+        dmdr(i,110) = dmdr(i,6)*rm(86) + rm(6)*dmdr(i,86)
+        dmdr(i,111) = dmdr(i,6)*rm(87) + rm(6)*dmdr(i,87)
+      enddo
+
+      return
+
+      end subroutine EvdMdR
+      subroutine EvdPdr
+***********************************************************************
+*  The subroutine reads monomials(m) and calculate the
+*  permutation invariant polynomials(p)
+*  For A4 with max. degree 9, the number of polynomials is nob.
+***********************************************************************
+
+      implicit double precision (a-h,o-z)
+
+      integer i
+
+      common /epot/     rMs(6),rM(0:111),P(0:305),C(0:305)
+      common /gradt/    dMsdR(6,6),dMdR(6,0:111),dPdR(6,0:305),dVdR(6),
+     $                  dRdX(6,12)
+
+      do i=1,6
+        dpdr(i,0) = dmdr(i,0)
+        dpdr(i,1) = dmdr(i,1) + dmdr(i,2) + dmdr(i,3) + dmdr(i,4) +
+     $         dmdr(i,5) + dmdr(i,6)
+        dpdr(i,2) = dmdr(i,7) + dmdr(i,8) + dmdr(i,9)
+        dpdr(i,3) = dmdr(i,10) + dmdr(i,11) + dmdr(i,12) + dmdr(i,13) +
+     $         dmdr(i,14) + dmdr(i,15) + dmdr(i,16) + dmdr(i,17) +
+     $         dmdr(i,18) + dmdr(i,19) + dmdr(i,20) + dmdr(i,21)
+        dpdr(i,4) = dpdr(i,1)*p(1) + p(1)*dpdr(i,1)
+     $        - dpdr(i,3) - dpdr(i,2) - dpdr(i,3) - dpdr(i,2)
+        dpdr(i,5) = dmdr(i,22) + dmdr(i,23) + dmdr(i,24) + dmdr(i,25) +
+     $         dmdr(i,26) + dmdr(i,27) + dmdr(i,28) + dmdr(i,29) +
+     $         dmdr(i,30) + dmdr(i,31) + dmdr(i,32) + dmdr(i,33)
+        dpdr(i,6) = dmdr(i,34) + dmdr(i,35) + dmdr(i,36) + dmdr(i,37)
+        dpdr(i,7) = dmdr(i,38) + dmdr(i,39) + dmdr(i,40) + dmdr(i,41)
+        dpdr(i,8) = dpdr(i,1)*p(2) + p(1)*dpdr(i,2)
+     $        - dpdr(i,5)
+        dpdr(i,9) = dpdr(i,1)*p(3) + p(1)*dpdr(i,3)
+     $        - dpdr(i,6) - dpdr(i,7) - dpdr(i,5) - dpdr(i,6)
+     $        - dpdr(i,7) - dpdr(i,5) - dpdr(i,6) - dpdr(i,7)
+        dpdr(i,10) = dpdr(i,1)*p(4) + p(1)*dpdr(i,4)
+     $        - dpdr(i,9) - dpdr(i,8)
+        dpdr(i,11) = dmdr(i,42) + dmdr(i,43) + dmdr(i,44)
+        dpdr(i,12) = dmdr(i,45) + dmdr(i,46) + dmdr(i,47) + dmdr(i,48) +
+     $         dmdr(i,49) + dmdr(i,50) + dmdr(i,51) + dmdr(i,52) +
+     $         dmdr(i,53) + dmdr(i,54) + dmdr(i,55) + dmdr(i,56)
+        dpdr(i,13) = dpdr(i,2)*p(3) + p(2)*dpdr(i,3)
+     $        - dpdr(i,12)
+        dpdr(i,14) = dpdr(i,1)*p(5) + p(1)*dpdr(i,5)
+     $        - dpdr(i,12) - dpdr(i,11) - dpdr(i,13) - dpdr(i,12)
+     $        - dpdr(i,11) - dpdr(i,11) - dpdr(i,11)
+        dpdr(i,15) = dpdr(i,1)*p(6) + p(1)*dpdr(i,6)
+     $        - dpdr(i,12)
+        dpdr(i,16) = dpdr(i,1)*p(7) + p(1)*dpdr(i,7)
+     $        - dpdr(i,12)
+        dpdr(i,17) = dpdr(i,2)*p(2) + p(2)*dpdr(i,2)
+     $        - dpdr(i,11) - dpdr(i,11)
+        dpdr(i,18) = dpdr(i,3)*p(3) + p(3)*dpdr(i,3)
+     $        - dpdr(i,12) - dpdr(i,11) - dpdr(i,15) - dpdr(i,16)
+     $        - dpdr(i,14) - dpdr(i,12) - dpdr(i,11) - dpdr(i,15)
+     $        - dpdr(i,16) - dpdr(i,14) - dpdr(i,12) - dpdr(i,11)
+     $        - dpdr(i,12) - dpdr(i,11)
+        dpdr(i,19) = dpdr(i,2)*p(4) + p(2)*dpdr(i,4)
+     $        - dpdr(i,14)
+        dpdr(i,20) = dpdr(i,3)*p(4) + p(3)*dpdr(i,4)
+     $        - dpdr(i,15) - dpdr(i,16) - dpdr(i,13)
+        dpdr(i,21) = dpdr(i,1)*p(10) + p(1)*dpdr(i,10)
+     $        - dpdr(i,20) - dpdr(i,19)
+        dpdr(i,22) = dmdr(i,57) + dmdr(i,58) + dmdr(i,59) + dmdr(i,60) +
+     $         dmdr(i,61) + dmdr(i,62)
+        dpdr(i,23) = dpdr(i,1)*p(11) + p(1)*dpdr(i,11)
+     $        - dpdr(i,22)
+        dpdr(i,24) = dpdr(i,2)*p(6) + p(2)*dpdr(i,6)
+        dpdr(i,25) = dpdr(i,2)*p(7) + p(2)*dpdr(i,7)
+        dpdr(i,26) = dpdr(i,1)*p(12) + p(1)*dpdr(i,12)
+     $        - dpdr(i,22) - dpdr(i,24) - dpdr(i,25) - dpdr(i,22)
+     $        - dpdr(i,22) - dpdr(i,22)
+        dpdr(i,27) = dpdr(i,2)*p(5) + p(2)*dpdr(i,5)
+     $        - dpdr(i,22) - dpdr(i,23) - dpdr(i,22)
+        dpdr(i,28) = dpdr(i,3)*p(5) + p(3)*dpdr(i,5)
+     $        - dpdr(i,22) - dpdr(i,26) - dpdr(i,24) - dpdr(i,25)
+     $        - dpdr(i,23) - dpdr(i,22) - dpdr(i,24) - dpdr(i,25)
+     $        - dpdr(i,23) - dpdr(i,22) - dpdr(i,22)
+        dpdr(i,29) = dpdr(i,3)*p(6) + p(3)*dpdr(i,6)
+     $        - dpdr(i,22) - dpdr(i,26) - dpdr(i,22)
+        dpdr(i,30) = dpdr(i,3)*p(7) + p(3)*dpdr(i,7)
+     $        - dpdr(i,22) - dpdr(i,26) - dpdr(i,22)
+        dpdr(i,31) = dpdr(i,2)*p(9) + p(2)*dpdr(i,9)
+     $        - dpdr(i,26) - dpdr(i,28)
+        dpdr(i,32) = dpdr(i,1)*p(14) + p(1)*dpdr(i,14)
+     $        - dpdr(i,26) - dpdr(i,23) - dpdr(i,28)
+        dpdr(i,33) = dpdr(i,4)*p(6) + p(4)*dpdr(i,6)
+     $        - dpdr(i,25)
+        dpdr(i,34) = dpdr(i,4)*p(7) + p(4)*dpdr(i,7)
+     $        - dpdr(i,24)
+        dpdr(i,35) = dpdr(i,1)*p(17) + p(1)*dpdr(i,17)
+     $        - dpdr(i,27)
+        dpdr(i,36) = dpdr(i,1)*p(18) + p(1)*dpdr(i,18)
+     $        - dpdr(i,29) - dpdr(i,30) - dpdr(i,28)
+        dpdr(i,37) = dpdr(i,2)*p(10) + p(2)*dpdr(i,10)
+     $        - dpdr(i,32)
+        dpdr(i,38) = dpdr(i,3)*p(10) + p(3)*dpdr(i,10)
+     $        - dpdr(i,33) - dpdr(i,34) - dpdr(i,31)
+        dpdr(i,39) = dpdr(i,1)*p(21) + p(1)*dpdr(i,21)
+     $        - dpdr(i,38) - dpdr(i,37)
+        dpdr(i,40) = dmdr(i,63)
+        dpdr(i,41) = dmdr(i,64) + dmdr(i,65) + dmdr(i,66) + dmdr(i,67) +
+     $         dmdr(i,68) + dmdr(i,69) + dmdr(i,70) + dmdr(i,71) +
+     $         dmdr(i,72) + dmdr(i,73) + dmdr(i,74) + dmdr(i,75) +
+     $         dmdr(i,76) + dmdr(i,77) + dmdr(i,78) + dmdr(i,79) +
+     $         dmdr(i,80) + dmdr(i,81) + dmdr(i,82) + dmdr(i,83) +
+     $         dmdr(i,84) + dmdr(i,85) + dmdr(i,86) + dmdr(i,87)
+        dpdr(i,42) = dpdr(i,1)*p(22) + p(1)*dpdr(i,22)
+     $        - dpdr(i,40) - dpdr(i,41) - dpdr(i,40) - dpdr(i,40)
+     $        - dpdr(i,40) - dpdr(i,40) - dpdr(i,40)
+        dpdr(i,43) = dpdr(i,2)*p(11) + p(2)*dpdr(i,11)
+     $        - dpdr(i,40) - dpdr(i,40) - dpdr(i,40)
+        dpdr(i,44) = dpdr(i,2)*p(12) + p(2)*dpdr(i,12)
+     $        - dpdr(i,41)
+        dpdr(i,45) = dpdr(i,3)*p(11) + p(3)*dpdr(i,11)
+     $        - dpdr(i,41)
+        dpdr(i,46) = dpdr(i,5)*p(6) + p(5)*dpdr(i,6)
+     $        - dpdr(i,41)
+        dpdr(i,47) = dpdr(i,5)*p(7) + p(5)*dpdr(i,7)
+     $        - dpdr(i,41)
+        dpdr(i,48) = dpdr(i,6)*p(7) + p(6)*dpdr(i,7)
+     $        - dpdr(i,40) - dpdr(i,40) - dpdr(i,40) - dpdr(i,40)
+        dpdr(i,49) = dpdr(i,4)*p(11) + p(4)*dpdr(i,11)
+     $        - dpdr(i,42)
+        dpdr(i,50) = dpdr(i,2)*p(15) + p(2)*dpdr(i,15)
+     $        - dpdr(i,46)
+        dpdr(i,51) = dpdr(i,2)*p(16) + p(2)*dpdr(i,16)
+     $        - dpdr(i,47)
+        dpdr(i,52) = dpdr(i,4)*p(12) + p(4)*dpdr(i,12)
+     $        - dpdr(i,41) - dpdr(i,50) - dpdr(i,51)
+        dpdr(i,53) = dpdr(i,2)*p(14) + p(2)*dpdr(i,14)
+     $        - dpdr(i,42) - dpdr(i,49) - dpdr(i,42)
+        dpdr(i,54) = dpdr(i,6)*p(6) + p(6)*dpdr(i,6)
+     $        - dpdr(i,42) - dpdr(i,42)
+        dpdr(i,55) = dpdr(i,7)*p(7) + p(7)*dpdr(i,7)
+     $        - dpdr(i,42) - dpdr(i,42)
+        dpdr(i,56) = dpdr(i,3)*p(17) + p(3)*dpdr(i,17)
+     $        - dpdr(i,44)
+        dpdr(i,57) = dpdr(i,2)*p(18) + p(2)*dpdr(i,18)
+     $        - dpdr(i,48)
+        dpdr(i,58) = dpdr(i,3)*p(14) + p(3)*dpdr(i,14)
+     $        - dpdr(i,41) - dpdr(i,52) - dpdr(i,46) - dpdr(i,47)
+     $        - dpdr(i,45) - dpdr(i,45)
+        dpdr(i,59) = dpdr(i,6)*p(9) + p(6)*dpdr(i,9)
+     $        - dpdr(i,41) - dpdr(i,52) - dpdr(i,47)
+        dpdr(i,60) = dpdr(i,7)*p(9) + p(7)*dpdr(i,9)
+     $        - dpdr(i,41) - dpdr(i,52) - dpdr(i,46)
+        dpdr(i,61) = dpdr(i,2)*p(20) + p(2)*dpdr(i,20)
+     $        - dpdr(i,52) - dpdr(i,58)
+        dpdr(i,62) = dpdr(i,1)*p(32) + p(1)*dpdr(i,32)
+     $        - dpdr(i,52) - dpdr(i,49) - dpdr(i,58)
+        dpdr(i,63) = dpdr(i,6)*p(10) + p(6)*dpdr(i,10)
+     $        - dpdr(i,51)
+        dpdr(i,64) = dpdr(i,7)*p(10) + p(7)*dpdr(i,10)
+     $        - dpdr(i,50)
+        dpdr(i,65) = dpdr(i,2)*p(17) + p(2)*dpdr(i,17)
+     $        - dpdr(i,43)
+        dpdr(i,66) = dpdr(i,3)*p(18) + p(3)*dpdr(i,18)
+     $        - dpdr(i,46) - dpdr(i,47) - dpdr(i,45) - dpdr(i,59)
+     $        - dpdr(i,60) - dpdr(i,58)
+        dpdr(i,67) = dpdr(i,2)*p(19) + p(2)*dpdr(i,19)
+     $        - dpdr(i,49)
+        dpdr(i,68) = dpdr(i,1)*p(36) + p(1)*dpdr(i,36)
+     $        - dpdr(i,59) - dpdr(i,60) - dpdr(i,58) - dpdr(i,57)
+     $        - dpdr(i,66) - dpdr(i,66)
+        dpdr(i,69) = dpdr(i,2)*p(21) + p(2)*dpdr(i,21)
+     $        - dpdr(i,62)
+        dpdr(i,70) = dpdr(i,3)*p(21) + p(3)*dpdr(i,21)
+     $        - dpdr(i,63) - dpdr(i,64) - dpdr(i,61)
+        dpdr(i,71) = dpdr(i,1)*p(39) + p(1)*dpdr(i,39)
+     $        - dpdr(i,70) - dpdr(i,69)
+        dpdr(i,72) = dpdr(i,40)*p(1) + p(40)*dpdr(i,1)
+        dpdr(i,73) = dpdr(i,2)*p(22) + p(2)*dpdr(i,22)
+     $        - dpdr(i,72)
+        dpdr(i,74) = dpdr(i,6)*p(11) + p(6)*dpdr(i,11)
+        dpdr(i,75) = dpdr(i,7)*p(11) + p(7)*dpdr(i,11)
+        dpdr(i,76) = dpdr(i,3)*p(22) + p(3)*dpdr(i,22)
+     $        - dpdr(i,72) - dpdr(i,74) - dpdr(i,75) - dpdr(i,72)
+     $        - dpdr(i,72) - dpdr(i,72)
+        dpdr(i,77) = dmdr(i,88) + dmdr(i,89) + dmdr(i,90) + dmdr(i,91) +
+     $         dmdr(i,92) + dmdr(i,93) + dmdr(i,94) + dmdr(i,95) +
+     $         dmdr(i,96) + dmdr(i,97) + dmdr(i,98) + dmdr(i,99) +
+     $         dmdr(i,100) + dmdr(i,101) + dmdr(i,102) + dmdr(i,103) +
+     $         dmdr(i,104) + dmdr(i,105) + dmdr(i,106) + dmdr(i,107) +
+     $         dmdr(i,108) + dmdr(i,109) + dmdr(i,110) + dmdr(i,111)
+        dpdr(i,78) = dpdr(i,1)*p(42) + p(1)*dpdr(i,42)
+     $        - dpdr(i,72) - dpdr(i,76)
+        dpdr(i,79) = dpdr(i,5)*p(11) + p(5)*dpdr(i,11)
+     $        - dpdr(i,72) - dpdr(i,73) - dpdr(i,72)
+        dpdr(i,80) = dpdr(i,2)*p(26) + p(2)*dpdr(i,26)
+     $        - dpdr(i,76) - dpdr(i,77)
+        dpdr(i,81) = dpdr(i,6)*p(12) + p(6)*dpdr(i,12)
+     $        - dpdr(i,72) - dpdr(i,76) - dpdr(i,72)
+        dpdr(i,82) = dpdr(i,7)*p(12) + p(7)*dpdr(i,12)
+     $        - dpdr(i,72) - dpdr(i,76) - dpdr(i,72)
+        dpdr(i,83) = dpdr(i,8)*p(11) + p(8)*dpdr(i,11)
+     $        - dpdr(i,72)
+        dpdr(i,84) = dpdr(i,6)*p(17) + p(6)*dpdr(i,17)
+        dpdr(i,85) = dpdr(i,7)*p(17) + p(7)*dpdr(i,17)
+        dpdr(i,86) = dpdr(i,9)*p(11) + p(9)*dpdr(i,11)
+     $        - dpdr(i,76) - dpdr(i,77)
+        dpdr(i,87) = dpdr(i,2)*p(29) + p(2)*dpdr(i,29)
+     $        - dpdr(i,81)
+        dpdr(i,88) = dpdr(i,6)*p(14) + p(6)*dpdr(i,14)
+     $        - dpdr(i,75) - dpdr(i,75)
+        dpdr(i,89) = dpdr(i,2)*p(30) + p(2)*dpdr(i,30)
+     $        - dpdr(i,82)
+        dpdr(i,90) = dpdr(i,7)*p(14) + p(7)*dpdr(i,14)
+     $        - dpdr(i,74) - dpdr(i,74)
+        dpdr(i,91) = dpdr(i,1)*p(48) + p(1)*dpdr(i,48)
+     $        - dpdr(i,76) - dpdr(i,81) - dpdr(i,82)
+        dpdr(i,92) = dpdr(i,10)*p(11) + p(10)*dpdr(i,11)
+     $        - dpdr(i,78)
+        dpdr(i,93) = dpdr(i,2)*p(33) + p(2)*dpdr(i,33)
+     $        - dpdr(i,88)
+        dpdr(i,94) = dpdr(i,2)*p(34) + p(2)*dpdr(i,34)
+     $        - dpdr(i,90)
+        dpdr(i,95) = dpdr(i,10)*p(12) + p(10)*dpdr(i,12)
+     $        - dpdr(i,77) - dpdr(i,93) - dpdr(i,94)
+        dpdr(i,96) = dpdr(i,2)*p(27) + p(2)*dpdr(i,27)
+     $        - dpdr(i,73) - dpdr(i,79)
+        dpdr(i,97) = dpdr(i,2)*p(28) + p(2)*dpdr(i,28)
+     $        - dpdr(i,76) - dpdr(i,86)
+        dpdr(i,98) = dpdr(i,1)*p(53) + p(1)*dpdr(i,53)
+     $        - dpdr(i,80) - dpdr(i,79) - dpdr(i,97)
+        dpdr(i,99) = dpdr(i,1)*p(54) + p(1)*dpdr(i,54)
+     $        - dpdr(i,81)
+        dpdr(i,100) = dpdr(i,1)*p(55) + p(1)*dpdr(i,55)
+     $        - dpdr(i,82)
+        dpdr(i,101) = dpdr(i,5)*p(18) + p(5)*dpdr(i,18)
+     $        - dpdr(i,76) - dpdr(i,91) - dpdr(i,87) - dpdr(i,89)
+     $        - dpdr(i,86)
+        dpdr(i,102) = dpdr(i,6)*p(18) + p(6)*dpdr(i,18)
+     $        - dpdr(i,74) - dpdr(i,90)
+        dpdr(i,103) = dpdr(i,7)*p(18) + p(7)*dpdr(i,18)
+     $        - dpdr(i,75) - dpdr(i,88)
+        dpdr(i,104) = dpdr(i,2)*p(31) + p(2)*dpdr(i,31)
+     $        - dpdr(i,77) - dpdr(i,86)
+        dpdr(i,105) = dpdr(i,2)*p(36) + p(2)*dpdr(i,36)
+     $        - dpdr(i,91) - dpdr(i,101)
+        dpdr(i,106) = dpdr(i,3)*p(32) + p(3)*dpdr(i,32)
+     $        - dpdr(i,77) - dpdr(i,95) - dpdr(i,88) - dpdr(i,90)
+     $        - dpdr(i,86)
+        dpdr(i,107) = dpdr(i,4)*p(29) + p(4)*dpdr(i,29)
+     $        - dpdr(i,82) - dpdr(i,80) - dpdr(i,99)
+        dpdr(i,108) = dpdr(i,4)*p(30) + p(4)*dpdr(i,30)
+     $        - dpdr(i,81) - dpdr(i,80) - dpdr(i,100)
+        dpdr(i,109) = dpdr(i,2)*p(38) + p(2)*dpdr(i,38)
+     $        - dpdr(i,95) - dpdr(i,106)
+        dpdr(i,110) = dpdr(i,1)*p(62) + p(1)*dpdr(i,62)
+     $        - dpdr(i,95) - dpdr(i,92) - dpdr(i,106)
+        dpdr(i,111) = dpdr(i,6)*p(21) + p(6)*dpdr(i,21)
+     $        - dpdr(i,94)
+        dpdr(i,112) = dpdr(i,7)*p(21) + p(7)*dpdr(i,21)
+     $        - dpdr(i,93)
+        dpdr(i,113) = dpdr(i,1)*p(65) + p(1)*dpdr(i,65)
+     $        - dpdr(i,96)
+        dpdr(i,114) = dpdr(i,1)*p(66) + p(1)*dpdr(i,66)
+     $        - dpdr(i,102) - dpdr(i,103) - dpdr(i,101)
+        dpdr(i,115) = dpdr(i,2)*p(37) + p(2)*dpdr(i,37)
+     $        - dpdr(i,92)
+        dpdr(i,116) = dpdr(i,10)*p(18) + p(10)*dpdr(i,18)
+     $        - dpdr(i,99) - dpdr(i,100) - dpdr(i,97)
+        dpdr(i,117) = dpdr(i,2)*p(39) + p(2)*dpdr(i,39)
+     $        - dpdr(i,110)
+        dpdr(i,118) = dpdr(i,3)*p(39) + p(3)*dpdr(i,39)
+     $        - dpdr(i,111) - dpdr(i,112) - dpdr(i,109)
+        dpdr(i,119) = dpdr(i,1)*p(71) + p(1)*dpdr(i,71)
+     $        - dpdr(i,118) - dpdr(i,117)
+        dpdr(i,120) = dpdr(i,40)*p(2) + p(40)*dpdr(i,2)
+        dpdr(i,121) = dpdr(i,40)*p(3) + p(40)*dpdr(i,3)
+        dpdr(i,122) = dpdr(i,40)*p(4) + p(40)*dpdr(i,4)
+        dpdr(i,123) = dpdr(i,11)*p(12) + p(11)*dpdr(i,12)
+     $        - dpdr(i,121)
+        dpdr(i,124) = dpdr(i,2)*p(42) + p(2)*dpdr(i,42)
+     $        - dpdr(i,122)
+        dpdr(i,125) = dpdr(i,6)*p(22) + p(6)*dpdr(i,22)
+     $        - dpdr(i,121)
+        dpdr(i,126) = dpdr(i,7)*p(22) + p(7)*dpdr(i,22)
+     $        - dpdr(i,121)
+        dpdr(i,127) = dpdr(i,2)*p(41) + p(2)*dpdr(i,41)
+     $        - dpdr(i,121) - dpdr(i,123) - dpdr(i,121)
+        dpdr(i,128) = dpdr(i,6)*p(23) + p(6)*dpdr(i,23)
+     $        - dpdr(i,123)
+        dpdr(i,129) = dpdr(i,7)*p(23) + p(7)*dpdr(i,23)
+     $        - dpdr(i,123)
+        dpdr(i,130) = dpdr(i,3)*p(41) + p(3)*dpdr(i,41)
+     $        - dpdr(i,122) - dpdr(i,121) - dpdr(i,120) - dpdr(i,125)
+     $        - dpdr(i,128) - dpdr(i,126) - dpdr(i,129) - dpdr(i,124)
+     $        - dpdr(i,123) - dpdr(i,122) - dpdr(i,121) - dpdr(i,120)
+     $        - dpdr(i,125) - dpdr(i,126) - dpdr(i,124) - dpdr(i,123)
+     $        - dpdr(i,122) - dpdr(i,121) - dpdr(i,120) - dpdr(i,122)
+     $        - dpdr(i,121) - dpdr(i,120) - dpdr(i,120) - dpdr(i,120)
+     $        - dpdr(i,120) - dpdr(i,120)
+        dpdr(i,131) = dpdr(i,3)*p(42) + p(3)*dpdr(i,42)
+     $        - dpdr(i,121) - dpdr(i,125) - dpdr(i,126) - dpdr(i,121)
+        dpdr(i,132) = dpdr(i,4)*p(41) + p(4)*dpdr(i,41)
+     $        - dpdr(i,121) - dpdr(i,131) - dpdr(i,128) - dpdr(i,129)
+     $        - dpdr(i,127) - dpdr(i,121)
+        dpdr(i,133) = dpdr(i,1)*p(78) + p(1)*dpdr(i,78)
+     $        - dpdr(i,122) - dpdr(i,131)
+        dpdr(i,134) = dpdr(i,11)*p(11) + p(11)*dpdr(i,11)
+     $        - dpdr(i,120) - dpdr(i,120)
+        dpdr(i,135) = dpdr(i,2)*p(48) + p(2)*dpdr(i,48)
+     $        - dpdr(i,130)
+        dpdr(i,136) = dpdr(i,11)*p(17) + p(11)*dpdr(i,17)
+     $        - dpdr(i,120)
+        dpdr(i,137) = dpdr(i,2)*p(44) + p(2)*dpdr(i,44)
+     $        - dpdr(i,123)
+        dpdr(i,138) = dpdr(i,2)*p(45) + p(2)*dpdr(i,45)
+     $        - dpdr(i,121)
+        dpdr(i,139) = dpdr(i,11)*p(14) + p(11)*dpdr(i,14)
+     $        - dpdr(i,122) - dpdr(i,124) - dpdr(i,122)
+        dpdr(i,140) = dpdr(i,6)*p(27) + p(6)*dpdr(i,27)
+     $        - dpdr(i,127)
+        dpdr(i,141) = dpdr(i,2)*p(54) + p(2)*dpdr(i,54)
+        dpdr(i,142) = dpdr(i,7)*p(27) + p(7)*dpdr(i,27)
+     $        - dpdr(i,127)
+        dpdr(i,143) = dpdr(i,2)*p(52) + p(2)*dpdr(i,52)
+     $        - dpdr(i,131) - dpdr(i,132)
+        dpdr(i,144) = dpdr(i,1)*p(81) + p(1)*dpdr(i,81)
+     $        - dpdr(i,125) - dpdr(i,141) - dpdr(i,135) - dpdr(i,125)
+        dpdr(i,145) = dpdr(i,2)*p(55) + p(2)*dpdr(i,55)
+        dpdr(i,146) = dpdr(i,1)*p(82) + p(1)*dpdr(i,82)
+     $        - dpdr(i,126) - dpdr(i,135) - dpdr(i,145) - dpdr(i,126)
+        dpdr(i,147) = dpdr(i,11)*p(18) + p(11)*dpdr(i,18)
+     $        - dpdr(i,130)
+        dpdr(i,148) = dpdr(i,6)*p(28) + p(6)*dpdr(i,28)
+     $        - dpdr(i,129) - dpdr(i,123) - dpdr(i,143)
+        dpdr(i,149) = dpdr(i,7)*p(28) + p(7)*dpdr(i,28)
+     $        - dpdr(i,128) - dpdr(i,123) - dpdr(i,143)
+        dpdr(i,150) = dpdr(i,6)*p(30) + p(6)*dpdr(i,30)
+     $        - dpdr(i,121) - dpdr(i,146)
+        dpdr(i,151) = dpdr(i,11)*p(19) + p(11)*dpdr(i,19)
+     $        - dpdr(i,122)
+        dpdr(i,152) = dpdr(i,2)*p(50) + p(2)*dpdr(i,50)
+     $        - dpdr(i,128)
+        dpdr(i,153) = dpdr(i,2)*p(51) + p(2)*dpdr(i,51)
+     $        - dpdr(i,129)
+        dpdr(i,154) = dpdr(i,11)*p(20) + p(11)*dpdr(i,20)
+     $        - dpdr(i,131) - dpdr(i,132)
+        dpdr(i,155) = dpdr(i,2)*p(59) + p(2)*dpdr(i,59)
+     $        - dpdr(i,144) - dpdr(i,148)
+        dpdr(i,156) = dpdr(i,6)*p(32) + p(6)*dpdr(i,32)
+     $        - dpdr(i,129)
+        dpdr(i,157) = dpdr(i,2)*p(60) + p(2)*dpdr(i,60)
+     $        - dpdr(i,146) - dpdr(i,149)
+        dpdr(i,158) = dpdr(i,7)*p(32) + p(7)*dpdr(i,32)
+     $        - dpdr(i,128)
+        dpdr(i,159) = dpdr(i,6)*p(34) + p(6)*dpdr(i,34)
+     $        - dpdr(i,122) - dpdr(i,145) - dpdr(i,122)
+        dpdr(i,160) = dpdr(i,11)*p(21) + p(11)*dpdr(i,21)
+     $        - dpdr(i,133)
+        dpdr(i,161) = dpdr(i,2)*p(63) + p(2)*dpdr(i,63)
+     $        - dpdr(i,156)
+        dpdr(i,162) = dpdr(i,2)*p(64) + p(2)*dpdr(i,64)
+     $        - dpdr(i,158)
+        dpdr(i,163) = dpdr(i,12)*p(21) + p(12)*dpdr(i,21)
+     $        - dpdr(i,132) - dpdr(i,161) - dpdr(i,162)
+        dpdr(i,164) = dpdr(i,2)*p(53) + p(2)*dpdr(i,53)
+     $        - dpdr(i,124) - dpdr(i,139)
+        dpdr(i,165) = dpdr(i,2)*p(58) + p(2)*dpdr(i,58)
+     $        - dpdr(i,131) - dpdr(i,154)
+        dpdr(i,166) = dpdr(i,3)*p(54) + p(3)*dpdr(i,54)
+     $        - dpdr(i,125) - dpdr(i,144)
+        dpdr(i,167) = dpdr(i,3)*p(55) + p(3)*dpdr(i,55)
+     $        - dpdr(i,126) - dpdr(i,146)
+        dpdr(i,168) = dpdr(i,3)*p(65) + p(3)*dpdr(i,65)
+     $        - dpdr(i,137)
+        dpdr(i,169) = dpdr(i,17)*p(18) + p(17)*dpdr(i,18)
+     $        - dpdr(i,135)
+        dpdr(i,170) = dpdr(i,1)*p(98) + p(1)*dpdr(i,98)
+     $        - dpdr(i,143) - dpdr(i,139) - dpdr(i,165)
+        dpdr(i,171) = dpdr(i,4)*p(54) + p(4)*dpdr(i,54)
+     $        - dpdr(i,135)
+        dpdr(i,172) = dpdr(i,4)*p(55) + p(4)*dpdr(i,55)
+     $        - dpdr(i,135)
+        dpdr(i,173) = dpdr(i,2)*p(66) + p(2)*dpdr(i,66)
+     $        - dpdr(i,150)
+        dpdr(i,174) = dpdr(i,1)*p(101) + p(1)*dpdr(i,101)
+     $        - dpdr(i,148) - dpdr(i,149) - dpdr(i,147) - dpdr(i,173)
+     $        - dpdr(i,165) - dpdr(i,147)
+        dpdr(i,175) = dpdr(i,1)*p(102) + p(1)*dpdr(i,102)
+     $        - dpdr(i,150) - dpdr(i,148) - dpdr(i,166)
+        dpdr(i,176) = dpdr(i,1)*p(103) + p(1)*dpdr(i,103)
+     $        - dpdr(i,150) - dpdr(i,149) - dpdr(i,167)
+        dpdr(i,177) = dpdr(i,2)*p(61) + p(2)*dpdr(i,61)
+     $        - dpdr(i,132) - dpdr(i,154)
+        dpdr(i,178) = dpdr(i,2)*p(68) + p(2)*dpdr(i,68)
+     $        - dpdr(i,159) - dpdr(i,174)
+        dpdr(i,179) = dpdr(i,3)*p(62) + p(3)*dpdr(i,62)
+     $        - dpdr(i,132) - dpdr(i,163) - dpdr(i,156) - dpdr(i,158)
+     $        - dpdr(i,154)
+        dpdr(i,180) = dpdr(i,6)*p(38) + p(6)*dpdr(i,38)
+     $        - dpdr(i,132) - dpdr(i,163) - dpdr(i,157)
+        dpdr(i,181) = dpdr(i,7)*p(38) + p(7)*dpdr(i,38)
+     $        - dpdr(i,132) - dpdr(i,163) - dpdr(i,155)
+        dpdr(i,182) = dpdr(i,2)*p(70) + p(2)*dpdr(i,70)
+     $        - dpdr(i,163) - dpdr(i,179)
+        dpdr(i,183) = dpdr(i,1)*p(110) + p(1)*dpdr(i,110)
+     $        - dpdr(i,163) - dpdr(i,160) - dpdr(i,179)
+        dpdr(i,184) = dpdr(i,6)*p(39) + p(6)*dpdr(i,39)
+     $        - dpdr(i,162)
+        dpdr(i,185) = dpdr(i,7)*p(39) + p(7)*dpdr(i,39)
+     $        - dpdr(i,161)
+        dpdr(i,186) = dpdr(i,2)*p(65) + p(2)*dpdr(i,65)
+     $        - dpdr(i,136)
+        dpdr(i,187) = dpdr(i,3)*p(66) + p(3)*dpdr(i,66)
+     $        - dpdr(i,148) - dpdr(i,149) - dpdr(i,147) - dpdr(i,175)
+     $        - dpdr(i,176) - dpdr(i,174)
+        dpdr(i,188) = dpdr(i,2)*p(67) + p(2)*dpdr(i,67)
+     $        - dpdr(i,151)
+        dpdr(i,189) = dpdr(i,4)*p(66) + p(4)*dpdr(i,66)
+     $        - dpdr(i,166) - dpdr(i,167) - dpdr(i,165)
+        dpdr(i,190) = dpdr(i,2)*p(69) + p(2)*dpdr(i,69)
+     $        - dpdr(i,160)
+        dpdr(i,191) = dpdr(i,18)*p(21) + p(18)*dpdr(i,21)
+     $        - dpdr(i,171) - dpdr(i,172) - dpdr(i,169)
+        dpdr(i,192) = dpdr(i,2)*p(71) + p(2)*dpdr(i,71)
+     $        - dpdr(i,183)
+        dpdr(i,193) = dpdr(i,3)*p(71) + p(3)*dpdr(i,71)
+     $        - dpdr(i,184) - dpdr(i,185) - dpdr(i,182)
+        dpdr(i,194) = dpdr(i,1)*p(119) + p(1)*dpdr(i,119)
+     $        - dpdr(i,193) - dpdr(i,192)
+        dpdr(i,195) = dpdr(i,40)*p(5) + p(40)*dpdr(i,5)
+        dpdr(i,196) = dpdr(i,40)*p(6) + p(40)*dpdr(i,6)
+        dpdr(i,197) = dpdr(i,40)*p(7) + p(40)*dpdr(i,7)
+        dpdr(i,198) = dpdr(i,40)*p(8) + p(40)*dpdr(i,8)
+        dpdr(i,199) = dpdr(i,40)*p(9) + p(40)*dpdr(i,9)
+        dpdr(i,200) = dpdr(i,40)*p(10) + p(40)*dpdr(i,10)
+        dpdr(i,201) = dpdr(i,11)*p(22) + p(11)*dpdr(i,22)
+     $        - dpdr(i,195)
+        dpdr(i,202) = dpdr(i,12)*p(22) + p(12)*dpdr(i,22)
+     $        - dpdr(i,196) - dpdr(i,197) - dpdr(i,195) - dpdr(i,196)
+     $        - dpdr(i,197) - dpdr(i,195) - dpdr(i,196) - dpdr(i,197)
+        dpdr(i,203) = dpdr(i,17)*p(22) + p(17)*dpdr(i,22)
+     $        - dpdr(i,198)
+        dpdr(i,204) = dpdr(i,6)*p(43) + p(6)*dpdr(i,43)
+        dpdr(i,205) = dpdr(i,7)*p(43) + p(7)*dpdr(i,43)
+        dpdr(i,206) = dpdr(i,11)*p(26) + p(11)*dpdr(i,26)
+     $        - dpdr(i,199) - dpdr(i,202)
+        dpdr(i,207) = dpdr(i,2)*p(76) + p(2)*dpdr(i,76)
+     $        - dpdr(i,199) - dpdr(i,202)
+        dpdr(i,208) = dpdr(i,2)*p(78) + p(2)*dpdr(i,78)
+     $        - dpdr(i,200)
+        dpdr(i,209) = dpdr(i,6)*p(41) + p(6)*dpdr(i,41)
+     $        - dpdr(i,199) - dpdr(i,195) - dpdr(i,202) - dpdr(i,195)
+        dpdr(i,210) = dpdr(i,6)*p(42) + p(6)*dpdr(i,42)
+     $        - dpdr(i,197) - dpdr(i,197) - dpdr(i,197)
+        dpdr(i,211) = dpdr(i,7)*p(41) + p(7)*dpdr(i,41)
+     $        - dpdr(i,199) - dpdr(i,195) - dpdr(i,202) - dpdr(i,195)
+        dpdr(i,212) = dpdr(i,7)*p(42) + p(7)*dpdr(i,42)
+     $        - dpdr(i,196) - dpdr(i,196) - dpdr(i,196)
+        dpdr(i,213) = dpdr(i,11)*p(29) + p(11)*dpdr(i,29)
+     $        - dpdr(i,209)
+        dpdr(i,214) = dpdr(i,11)*p(30) + p(11)*dpdr(i,30)
+     $        - dpdr(i,211)
+        dpdr(i,215) = dpdr(i,18)*p(22) + p(18)*dpdr(i,22)
+     $        - dpdr(i,199) - dpdr(i,213) - dpdr(i,214)
+        dpdr(i,216) = dpdr(i,2)*p(77) + p(2)*dpdr(i,77)
+     $        - dpdr(i,199) - dpdr(i,206)
+        dpdr(i,217) = dpdr(i,6)*p(49) + p(6)*dpdr(i,49)
+     $        - dpdr(i,205)
+        dpdr(i,218) = dpdr(i,7)*p(49) + p(7)*dpdr(i,49)
+     $        - dpdr(i,204)
+        dpdr(i,219) = dpdr(i,3)*p(77) + p(3)*dpdr(i,77)
+     $        - dpdr(i,200) - dpdr(i,199) - dpdr(i,198) - dpdr(i,209)
+     $        - dpdr(i,217) - dpdr(i,211) - dpdr(i,218) - dpdr(i,207)
+     $        - dpdr(i,204) - dpdr(i,205) - dpdr(i,200) - dpdr(i,199)
+     $        - dpdr(i,198) - dpdr(i,200) - dpdr(i,198) - dpdr(i,200)
+     $        - dpdr(i,198)
+        dpdr(i,220) = dpdr(i,3)*p(78) + p(3)*dpdr(i,78)
+     $        - dpdr(i,199) - dpdr(i,210) - dpdr(i,212)
+        dpdr(i,221) = dpdr(i,10)*p(41) + p(10)*dpdr(i,41)
+     $        - dpdr(i,199) - dpdr(i,220) - dpdr(i,217) - dpdr(i,218)
+     $        - dpdr(i,216)
+        dpdr(i,222) = dpdr(i,1)*p(133) + p(1)*dpdr(i,133)
+     $        - dpdr(i,200) - dpdr(i,220)
+        dpdr(i,223) = dpdr(i,11)*p(27) + p(11)*dpdr(i,27)
+     $        - dpdr(i,195) - dpdr(i,203)
+        dpdr(i,224) = dpdr(i,1)*p(134) + p(1)*dpdr(i,134)
+     $        - dpdr(i,201)
+        dpdr(i,225) = dpdr(i,2)*p(81) + p(2)*dpdr(i,81)
+     $        - dpdr(i,209)
+        dpdr(i,226) = dpdr(i,2)*p(80) + p(2)*dpdr(i,80)
+     $        - dpdr(i,202) - dpdr(i,206)
+        dpdr(i,227) = dpdr(i,2)*p(82) + p(2)*dpdr(i,82)
+     $        - dpdr(i,211)
+        dpdr(i,228) = dpdr(i,2)*p(91) + p(2)*dpdr(i,91)
+     $        - dpdr(i,215) - dpdr(i,219)
+        dpdr(i,229) = dpdr(i,11)*p(28) + p(11)*dpdr(i,28)
+     $        - dpdr(i,199) - dpdr(i,207)
+        dpdr(i,230) = dpdr(i,6)*p(53) + p(6)*dpdr(i,53)
+     $        - dpdr(i,205)
+        dpdr(i,231) = dpdr(i,5)*p(54) + p(5)*dpdr(i,54)
+     $        - dpdr(i,209)
+        dpdr(i,232) = dpdr(i,7)*p(53) + p(7)*dpdr(i,53)
+     $        - dpdr(i,204)
+        dpdr(i,233) = dpdr(i,7)*p(54) + p(7)*dpdr(i,54)
+     $        - dpdr(i,196)
+        dpdr(i,234) = dpdr(i,5)*p(55) + p(5)*dpdr(i,55)
+     $        - dpdr(i,211)
+        dpdr(i,235) = dpdr(i,6)*p(55) + p(6)*dpdr(i,55)
+     $        - dpdr(i,197)
+        dpdr(i,236) = dpdr(i,11)*p(35) + p(11)*dpdr(i,35)
+     $        - dpdr(i,198)
+        dpdr(i,237) = dpdr(i,6)*p(65) + p(6)*dpdr(i,65)
+        dpdr(i,238) = dpdr(i,7)*p(65) + p(7)*dpdr(i,65)
+        dpdr(i,239) = dpdr(i,2)*p(86) + p(2)*dpdr(i,86)
+     $        - dpdr(i,199) - dpdr(i,229)
+        dpdr(i,240) = dpdr(i,1)*p(139) + p(1)*dpdr(i,139)
+     $        - dpdr(i,206) - dpdr(i,229) - dpdr(i,224)
+        dpdr(i,241) = dpdr(i,17)*p(29) + p(17)*dpdr(i,29)
+     $        - dpdr(i,225)
+        dpdr(i,242) = dpdr(i,2)*p(99) + p(2)*dpdr(i,99)
+     $        - dpdr(i,231)
+        dpdr(i,243) = dpdr(i,17)*p(30) + p(17)*dpdr(i,30)
+     $        - dpdr(i,227)
+        dpdr(i,244) = dpdr(i,2)*p(95) + p(2)*dpdr(i,95)
+     $        - dpdr(i,220) - dpdr(i,221)
+        dpdr(i,245) = dpdr(i,4)*p(81) + p(4)*dpdr(i,81)
+     $        - dpdr(i,202) - dpdr(i,242) - dpdr(i,227)
+        dpdr(i,246) = dpdr(i,2)*p(100) + p(2)*dpdr(i,100)
+     $        - dpdr(i,234)
+        dpdr(i,247) = dpdr(i,4)*p(82) + p(4)*dpdr(i,82)
+     $        - dpdr(i,202) - dpdr(i,225) - dpdr(i,246)
+        dpdr(i,248) = dpdr(i,11)*p(36) + p(11)*dpdr(i,36)
+     $        - dpdr(i,215) - dpdr(i,219)
+        dpdr(i,249) = dpdr(i,2)*p(102) + p(2)*dpdr(i,102)
+     $        - dpdr(i,233)
+        dpdr(i,250) = dpdr(i,6)*p(58) + p(6)*dpdr(i,58)
+     $        - dpdr(i,206) - dpdr(i,214) - dpdr(i,244) - dpdr(i,214)
+        dpdr(i,251) = dpdr(i,2)*p(103) + p(2)*dpdr(i,103)
+     $        - dpdr(i,235)
+        dpdr(i,252) = dpdr(i,7)*p(58) + p(7)*dpdr(i,58)
+     $        - dpdr(i,213) - dpdr(i,206) - dpdr(i,244) - dpdr(i,213)
+        dpdr(i,253) = dpdr(i,1)*p(150) + p(1)*dpdr(i,150)
+     $        - dpdr(i,215) - dpdr(i,233) - dpdr(i,235)
+        dpdr(i,254) = dpdr(i,11)*p(37) + p(11)*dpdr(i,37)
+     $        - dpdr(i,200)
+        dpdr(i,255) = dpdr(i,2)*p(93) + p(2)*dpdr(i,93)
+     $        - dpdr(i,217)
+        dpdr(i,256) = dpdr(i,2)*p(94) + p(2)*dpdr(i,94)
+     $        - dpdr(i,218)
+        dpdr(i,257) = dpdr(i,11)*p(38) + p(11)*dpdr(i,38)
+     $        - dpdr(i,220) - dpdr(i,221)
+        dpdr(i,258) = dpdr(i,2)*p(107) + p(2)*dpdr(i,107)
+     $        - dpdr(i,245) - dpdr(i,250)
+        dpdr(i,259) = dpdr(i,6)*p(62) + p(6)*dpdr(i,62)
+     $        - dpdr(i,218)
+        dpdr(i,260) = dpdr(i,2)*p(108) + p(2)*dpdr(i,108)
+     $        - dpdr(i,247) - dpdr(i,252)
+        dpdr(i,261) = dpdr(i,7)*p(62) + p(7)*dpdr(i,62)
+     $        - dpdr(i,217)
+        dpdr(i,262) = dpdr(i,6)*p(64) + p(6)*dpdr(i,64)
+     $        - dpdr(i,200) - dpdr(i,246) - dpdr(i,200)
+        dpdr(i,263) = dpdr(i,11)*p(39) + p(11)*dpdr(i,39)
+     $        - dpdr(i,222)
+        dpdr(i,264) = dpdr(i,2)*p(111) + p(2)*dpdr(i,111)
+     $        - dpdr(i,259)
+        dpdr(i,265) = dpdr(i,2)*p(112) + p(2)*dpdr(i,112)
+     $        - dpdr(i,261)
+        dpdr(i,266) = dpdr(i,12)*p(39) + p(12)*dpdr(i,39)
+     $        - dpdr(i,221) - dpdr(i,264) - dpdr(i,265)
+        dpdr(i,267) = dpdr(i,2)*p(98) + p(2)*dpdr(i,98)
+     $        - dpdr(i,208) - dpdr(i,240)
+        dpdr(i,268) = dpdr(i,6)*p(54) + p(6)*dpdr(i,54)
+     $        - dpdr(i,210)
+        dpdr(i,269) = dpdr(i,7)*p(55) + p(7)*dpdr(i,55)
+     $        - dpdr(i,212)
+        dpdr(i,270) = dpdr(i,2)*p(96) + p(2)*dpdr(i,96)
+     $        - dpdr(i,203) - dpdr(i,223)
+        dpdr(i,271) = dpdr(i,2)*p(97) + p(2)*dpdr(i,97)
+     $        - dpdr(i,207) - dpdr(i,229)
+        dpdr(i,272) = dpdr(i,2)*p(101) + p(2)*dpdr(i,101)
+     $        - dpdr(i,215) - dpdr(i,248)
+        dpdr(i,273) = dpdr(i,2)*p(106) + p(2)*dpdr(i,106)
+     $        - dpdr(i,220) - dpdr(i,257)
+        dpdr(i,274) = dpdr(i,6)*p(59) + p(6)*dpdr(i,59)
+     $        - dpdr(i,220) - dpdr(i,215) - dpdr(i,209)
+        dpdr(i,275) = dpdr(i,7)*p(60) + p(7)*dpdr(i,60)
+     $        - dpdr(i,220) - dpdr(i,215) - dpdr(i,211)
+        dpdr(i,276) = dpdr(i,5)*p(66) + p(5)*dpdr(i,66)
+     $        - dpdr(i,215) - dpdr(i,253) - dpdr(i,249) - dpdr(i,251)
+     $        - dpdr(i,248)
+        dpdr(i,277) = dpdr(i,6)*p(66) + p(6)*dpdr(i,66)
+     $        - dpdr(i,213) - dpdr(i,252)
+        dpdr(i,278) = dpdr(i,7)*p(66) + p(7)*dpdr(i,66)
+     $        - dpdr(i,214) - dpdr(i,250)
+        dpdr(i,279) = dpdr(i,2)*p(104) + p(2)*dpdr(i,104)
+     $        - dpdr(i,216) - dpdr(i,239)
+        dpdr(i,280) = dpdr(i,2)*p(105) + p(2)*dpdr(i,105)
+     $        - dpdr(i,219) - dpdr(i,248)
+        dpdr(i,281) = dpdr(i,1)*p(170) + p(1)*dpdr(i,170)
+     $        - dpdr(i,244) - dpdr(i,240) - dpdr(i,273)
+        dpdr(i,282) = dpdr(i,10)*p(54) + p(10)*dpdr(i,54)
+     $        - dpdr(i,227)
+        dpdr(i,283) = dpdr(i,10)*p(55) + p(10)*dpdr(i,55)
+     $        - dpdr(i,225)
+        dpdr(i,284) = dpdr(i,2)*p(114) + p(2)*dpdr(i,114)
+     $        - dpdr(i,253) - dpdr(i,276)
+        dpdr(i,285) = dpdr(i,1)*p(174) + p(1)*dpdr(i,174)
+     $        - dpdr(i,250) - dpdr(i,252) - dpdr(i,248) - dpdr(i,276)
+     $        - dpdr(i,273)
+        dpdr(i,286) = dpdr(i,6)*p(68) + p(6)*dpdr(i,68)
+     $        - dpdr(i,217) - dpdr(i,261) - dpdr(i,251)
+        dpdr(i,287) = dpdr(i,7)*p(68) + p(7)*dpdr(i,68)
+     $        - dpdr(i,218) - dpdr(i,259) - dpdr(i,249)
+        dpdr(i,288) = dpdr(i,2)*p(109) + p(2)*dpdr(i,109)
+     $        - dpdr(i,221) - dpdr(i,257)
+        dpdr(i,289) = dpdr(i,2)*p(116) + p(2)*dpdr(i,116)
+     $        - dpdr(i,262) - dpdr(i,285)
+        dpdr(i,290) = dpdr(i,3)*p(110) + p(3)*dpdr(i,110)
+     $        - dpdr(i,221) - dpdr(i,266) - dpdr(i,259) - dpdr(i,261)
+     $        - dpdr(i,257)
+        dpdr(i,291) = dpdr(i,6)*p(70) + p(6)*dpdr(i,70)
+     $        - dpdr(i,221) - dpdr(i,266) - dpdr(i,260)
+        dpdr(i,292) = dpdr(i,7)*p(70) + p(7)*dpdr(i,70)
+     $        - dpdr(i,221) - dpdr(i,266) - dpdr(i,258)
+        dpdr(i,293) = dpdr(i,2)*p(118) + p(2)*dpdr(i,118)
+     $        - dpdr(i,266) - dpdr(i,290)
+        dpdr(i,294) = dpdr(i,1)*p(183) + p(1)*dpdr(i,183)
+     $        - dpdr(i,266) - dpdr(i,263) - dpdr(i,290)
+        dpdr(i,295) = dpdr(i,6)*p(71) + p(6)*dpdr(i,71)
+     $        - dpdr(i,265)
+        dpdr(i,296) = dpdr(i,7)*p(71) + p(7)*dpdr(i,71)
+     $        - dpdr(i,264)
+        dpdr(i,297) = dpdr(i,1)*p(186) + p(1)*dpdr(i,186)
+     $        - dpdr(i,270)
+        dpdr(i,298) = dpdr(i,1)*p(187) + p(1)*dpdr(i,187)
+     $        - dpdr(i,277) - dpdr(i,278) - dpdr(i,276)
+        dpdr(i,299) = dpdr(i,2)*p(115) + p(2)*dpdr(i,115)
+     $        - dpdr(i,254)
+        dpdr(i,300) = dpdr(i,1)*p(189) + p(1)*dpdr(i,189)
+     $        - dpdr(i,286) - dpdr(i,287) - dpdr(i,285) - dpdr(i,284)
+     $        - dpdr(i,298)
+        dpdr(i,301) = dpdr(i,2)*p(117) + p(2)*dpdr(i,117)
+     $        - dpdr(i,263)
+        dpdr(i,302) = dpdr(i,18)*p(39) + p(18)*dpdr(i,39)
+     $        - dpdr(i,282) - dpdr(i,283) - dpdr(i,280)
+        dpdr(i,303) = dpdr(i,2)*p(119) + p(2)*dpdr(i,119)
+     $        - dpdr(i,294)
+        dpdr(i,304) = dpdr(i,3)*p(119) + p(3)*dpdr(i,119)
+     $        - dpdr(i,295) - dpdr(i,296) - dpdr(i,293)
+        dpdr(i,305) = dpdr(i,1)*p(194) + p(1)*dpdr(i,194)
+     $        - dpdr(i,304) - dpdr(i,303)
+      enddo
+
+      return
+
+      end subroutine EvdPdR
+C Begin
+      block data prmt
+
+      implicit double precision (a-h,o-z)
+
+      common /coord/    R(6)
+      common /epot/     rMs(6),rM(0:111),P(0:305),C(0:305)
+      common /gradt/    dMsdR(6,6),dMdR(6,0:111),dPdR(6,0:305),dVdR(6),
+     $                  dRdX(6,12) 
+      common /msprmt/   a,re
+
+C Nonlinear parameters of a(0.8A) and re (1.098A)
+      data a    /0.8d0/
+      data re   /1.098d0/
+
+C Linear parameters optimized by the weighted-least square fitting
+      data C(  0)   /  0.4568000000D+03/
+      data C(  1)   /  0.1728267710D+03/
+      data C(  2)   /  0.2359968892D+04/
+      data C(  3)   / -0.2258545770D+03/
+      data C(  4)   / -0.2872223359D+04/
+      data C(  5)   / -0.3854210585D+04/
+      data C(  6)   /  0.9346500323D+04/
+      data C(  7)   / -0.4271391695D+04/
+      data C(  8)   /  0.1417457931D+04/
+      data C(  9)   /  0.2752596517D+04/
+      data C( 10)   /  0.5517358502D+04/
+      data C( 11)   /  0.1121347927D+05/
+      data C( 12)   / -0.3867215196D+04/
+      data C( 13)   /  0.6462455730D+04/
+      data C( 14)   / -0.2507843640D+04/
+      data C( 15)   / -0.1134925650D+05/
+      data C( 16)   /  0.7486570667D+04/
+      data C( 17)   /  0.2949675003D+04/
+      data C( 18)   /  0.7521161409D+04/
+      data C( 19)   / -0.2411133187D+05/
+      data C( 20)   / -0.1410391419D+05/
+      data C( 21)   /  0.3899092968D+04/
+      data C( 22)   /  0.7324183458D+04/
+      data C( 23)   / -0.1463873740D+05/
+      data C( 24)   /  0.1498409931D+05/
+      data C( 25)   / -0.1634563680D+05/
+      data C( 26)   /  0.5142637361D+04/
+      data C( 27)   / -0.2731392098D+05/
+      data C( 28)   / -0.6176451832D+04/
+      data C( 29)   /  0.5353703957D+05/
+      data C( 30)   / -0.1373232612D+05/
+      data C( 31)   /  0.1234956349D+05/
+      data C( 32)   /  0.1193720701D+05/
+      data C( 33)   / -0.4448433220D+05/
+      data C( 34)   /  0.1391160586D+04/
+      data C( 35)   /  0.2061473730D+05/
+      data C( 36)   / -0.6650083108D+04/
+      data C( 37)   /  0.3199505523D+05/
+      data C( 38)   /  0.2833289591D+05/
+      data C( 39)   / -0.2747981885D+05/
+      data C( 40)   / -0.1464037787D+06/
+      data C( 41)   / -0.8081935601D+04/
+      data C( 42)   /  0.3250976916D+05/
+      data C( 43)   /  0.5117150475D+05/
+      data C( 44)   / -0.1175443786D+05/
+      data C( 45)   /  0.1171867590D+05/
+      data C( 46)   / -0.5223268151D+05/
+      data C( 47)   /  0.2505593004D+05/
+      data C( 48)   /  0.2286523271D+04/
+      data C( 49)   /  0.4893246531D+04/
+      data C( 50)   /  0.4204794707D+05/
+      data C( 51)   /  0.7817794281D+04/
+      data C( 52)   /  0.6396172128D+04/
+      data C( 53)   / -0.1186661815D+04/
+      data C( 54)   /  0.1169708947D+06/
+      data C( 55)   /  0.9660713686D+04/
+      data C( 56)   /  0.2130334722D+05/
+      data C( 57)   /  0.8375464628D+04/
+      data C( 58)   /  0.3612597371D+04/
+      data C( 59)   / -0.6963019253D+05/
+      data C( 60)   /  0.2877223580D+03/
+      data C( 61)   / -0.3843192586D+05/
+      data C( 62)   / -0.1363899290D+05/
+      data C( 63)   /  0.9130352734D+05/
+      data C( 64)   / -0.4627715560D+04/
+      data C( 65)   / -0.2596512783D+05/
+      data C( 66)   /  0.3738892036D+05/
+      data C( 67)   / -0.3687123563D+05/
+      data C( 68)   / -0.9384174508D+04/
+      data C( 69)   / -0.4451208121D+04/
+      data C( 70)   / -0.2786343120D+05/
+      data C( 71)   /  0.3901850530D+05/
+      data C( 72)   /  0.2870351911D+05/
+      data C( 73)   /  0.4784341904D+05/
+      data C( 74)   /  0.2791906547D+05/
+      data C( 75)   /  0.4420023054D+05/
+      data C( 76)   / -0.5521041878D+05/
+      data C( 77)   / -0.4570384764D+04/
+      data C( 78)   /  0.1548528663D+05/
+      data C( 79)   / -0.3095883907D+05/
+      data C( 80)   / -0.1093825424D+05/
+      data C( 81)   / -0.2892907732D+05/
+      data C( 82)   /  0.2523229417D+05/
+      data C( 83)   / -0.3636979289D+05/
+      data C( 84)   /  0.1088338540D+05/
+      data C( 85)   / -0.6672471270D+04/
+      data C( 86)   / -0.8903237490D+04/
+      data C( 87)   /  0.6763525602D+05/
+      data C( 88)   /  0.3146605656D+05/
+      data C( 89)   / -0.1618199065D+05/
+      data C( 90)   / -0.1214951173D+05/
+      data C( 91)   /  0.7353805581D+04/
+      data C( 92)   /  0.6547366304D+04/
+      data C( 93)   / -0.9334599855D+05/
+      data C( 94)   /  0.1134462266D+05/
+      data C( 95)   / -0.1561400150D+05/
+      data C( 96)   / -0.2581473665D+05/
+      data C( 97)   /  0.3304143981D+04/
+      data C( 98)   /  0.7435949317D+04/
+      data C( 99)   / -0.5164778188D+05/
+      data C(100)   / -0.1464703054D+05/
+      data C(101)   / -0.2376905706D+05/
+      data C(102)   /  0.7668944298D+05/
+      data C(103)   / -0.4996289069D+04/
+      data C(104)   /  0.1348262104D+04/
+      data C(105)   /  0.9435306370D+03/
+      data C(106)   /  0.7386342321D+04/
+      data C(107)   /  0.1931402617D+05/
+      data C(108)   /  0.1295560073D+05/
+      data C(109)   /  0.3717584317D+05/
+      data C(110)   /  0.1545200880D+04/
+      data C(111)   / -0.4898725920D+05/
+      data C(112)   / -0.1189886683D+04/
+      data C(113)   /  0.2587386996D+05/
+      data C(114)   / -0.1971128299D+05/
+      data C(115)   /  0.1812490757D+05/
+      data C(116)   /  0.9587406614D+04/
+      data C(117)   / -0.1665125314D+05/
+      data C(118)   /  0.1379519353D+05/
+      data C(119)   / -0.2543630652D+05/
+      data C(120)   /  0.4219050240D+06/
+      data C(121)   / -0.1109776165D+06/
+      data C(122)   / -0.3476475762D+05/
+      data C(123)   / -0.3147377324D+05/
+      data C(124)   / -0.5093094080D+05/
+      data C(125)   /  0.2199240180D+05/
+      data C(126)   /  0.3537903158D+05/
+      data C(127)   / -0.5173298876D+05/
+      data C(128)   /  0.1767514823D+05/
+      data C(129)   /  0.2783469331D+05/
+      data C(130)   /  0.3087173564D+05/
+      data C(131)   /  0.3540452049D+05/
+      data C(132)   / -0.3243643332D+04/
+      data C(133)   / -0.4583579661D+05/
+      data C(134)   / -0.9497376100D+02/
+      data C(135)   /  0.1942932093D+05/
+      data C(136)   /  0.2570903640D+05/
+      data C(137)   / -0.3984261959D+04/
+      data C(138)   /  0.4309405186D+05/
+      data C(139)   / -0.5034287621D+05/
+      data C(140)   / -0.1099278456D+05/
+      data C(141)   /  0.5950502599D+05/
+      data C(142)   /  0.1224413149D+05/
+      data C(143)   /  0.2716751081D+05/
+      data C(144)   / -0.1858528252D+05/
+      data C(145)   / -0.2718628779D+05/
+      data C(146)   / -0.2929430605D+05/
+      data C(147)   / -0.7954073480D+04/
+      data C(148)   / -0.6517503165D+05/
+      data C(149)   /  0.5092420730D+04/
+      data C(150)   / -0.1238271612D+05/
+      data C(151)   / -0.6787432640D+03/
+      data C(152)   /  0.8475117533D+04/
+      data C(153)   /  0.1814312700D+05/
+      data C(154)   /  0.5881688166D+04/
+      data C(155)   / -0.2482123345D+05/
+      data C(156)   /  0.4148850214D+04/
+      data C(157)   / -0.4042792226D+04/
+      data C(158)   / -0.2567076625D+04/
+      data C(159)   /  0.1420941087D+05/
+      data C(160)   / -0.1204901543D+04/
+      data C(161)   /  0.5444731538D+05/
+      data C(162)   / -0.1062787679D+05/
+      data C(163)   /  0.7950514718D+04/
+      data C(164)   / -0.3024373623D+04/
+      data C(165)   /  0.2965843747D+04/
+      data C(166)   /  0.2091954957D+05/
+      data C(167)   /  0.1892377173D+05/
+      data C(168)   /  0.7272407264D+04/
+      data C(169)   / -0.6076875487D+04/
+      data C(170)   / -0.1412751054D+05/
+      data C(171)   / -0.3122881423D+04/
+      data C(172)   /  0.6265615865D+04/
+      data C(173)   /  0.1428300957D+05/
+      data C(174)   /  0.1280221445D+05/
+      data C(175)   / -0.1582529439D+05/
+      data C(176)   / -0.4543305110D+04/
+      data C(177)   / -0.5370846318D+04/
+      data C(178)   / -0.2406545796D+04/
+      data C(179)   / -0.6296392177D+04/
+      data C(180)   /  0.1765504755D+04/
+      data C(181)   / -0.4488022864D+04/
+      data C(182)   / -0.1665571043D+05/
+      data C(183)   /  0.4623631265D+04/
+      data C(184)   /  0.4019666616D+04/
+      data C(185)   / -0.3151177540D+03/
+      data C(186)   / -0.1412063132D+05/
+      data C(187)   /  0.1371328049D+05/
+      data C(188)   / -0.7819247306D+04/
+      data C(189)   / -0.1943396172D+04/
+      data C(190)   / -0.2852160685D+04/
+      data C(191)   / -0.4109817110D+03/
+      data C(192)   /  0.1190769714D+05/
+      data C(193)   / -0.2976214526D+04/
+      data C(194)   /  0.7823508325D+04/
+      data C(195)   /  0.1055030508D+06/
+      data C(196)   / -0.1573516714D+06/
+      data C(197)   / -0.3367895008D+06/
+      data C(198)   / -0.2111856601D+06/
+      data C(199)   /  0.1026869631D+06/
+      data C(200)   / -0.3680157622D+05/
+      data C(201)   / -0.7204681377D+05/
+      data C(202)   /  0.4330305175D+05/
+      data C(203)   /  0.2545168178D+05/
+      data C(204)   /  0.4309331615D+05/
+      data C(205)   /  0.2645689855D+05/
+      data C(206)   / -0.6520607090D+05/
+      data C(207)   / -0.3829963944D+05/
+      data C(208)   /  0.3646560512D+05/
+      data C(209)   /  0.1278604196D+05/
+      data C(210)   / -0.4772335260D+05/
+      data C(211)   /  0.4177097111D+05/
+      data C(212)   / -0.7054736584D+05/
+      data C(213)   / -0.2121124298D+05/
+      data C(214)   / -0.4388688461D+05/
+      data C(215)   / -0.2502864513D+05/
+      data C(216)   /  0.1986038276D+05/
+      data C(217)   / -0.6520389968D+04/
+      data C(218)   / -0.9784910672D+04/
+      data C(219)   / -0.1026222540D+05/
+      data C(220)   /  0.1870940527D+05/
+      data C(221)   /  0.4286544974D+04/
+      data C(222)   / -0.7684396458D+04/
+      data C(223)   / -0.3567678167D+05/
+      data C(224)   /  0.6957919579D+04/
+      data C(225)   / -0.3043808827D+05/
+      data C(226)   /  0.8382205044D+04/
+      data C(227)   / -0.9183749522D+04/
+      data C(228)   /  0.7023143501D+04/
+      data C(229)   /  0.1168281562D+05/
+      data C(230)   /  0.1238226476D+05/
+      data C(231)   / -0.2045409064D+05/
+      data C(232)   / -0.1349459250D+03/
+      data C(233)   /  0.5840662150D+05/
+      data C(234)   /  0.1439212322D+05/
+      data C(235)   / -0.1018801731D+05/
+      data C(236)   /  0.2071204399D+04/
+      data C(237)   / -0.1561067355D+05/
+      data C(238)   /  0.6555542668D+04/
+      data C(239)   / -0.7346195982D+04/
+      data C(240)   /  0.2029697325D+05/
+      data C(241)   /  0.1580694800D+03/
+      data C(242)   /  0.7515945775D+04/
+      data C(243)   / -0.7361615500D+04/
+      data C(244)   / -0.1887499245D+05/
+      data C(245)   / -0.1723211989D+05/
+      data C(246)   / -0.1055630029D+05/
+      data C(247)   /  0.1051371844D+05/
+      data C(248)   /  0.1091811190D+04/
+      data C(249)   /  0.1428738391D+05/
+      data C(250)   /  0.2402434493D+05/
+      data C(251)   /  0.1207600983D+05/
+      data C(252)   / -0.1079540550D+05/
+      data C(253)   / -0.2835050691D+04/
+      data C(254)   / -0.2689952805D+04/
+      data C(255)   /  0.4154523410D+04/
+      data C(256)   / -0.7801065301D+04/
+      data C(257)   / -0.1127096517D+04/
+      data C(258)   / -0.2375061355D+04/
+      data C(259)   / -0.3150276038D+04/
+      data C(260)   /  0.4297916505D+04/
+      data C(261)   /  0.9757837646D+04/
+      data C(262)   / -0.2641219635D+04/
+      data C(263)   / -0.7582900080D+03/
+      data C(264)   / -0.9541900957D+04/
+      data C(265)   /  0.2216336730D+04/
+      data C(266)   / -0.1995060439D+04/
+      data C(267)   / -0.7778617500D+03/
+      data C(268)   / -0.2219327044D+05/
+      data C(269)   / -0.1175212195D+05/
+      data C(270)   / -0.3529771766D+04/
+      data C(271)   /  0.1765227426D+04/
+      data C(272)   / -0.2520911589D+04/
+      data C(273)   /  0.3458891940D+03/
+      data C(274)   /  0.1140015997D+04/
+      data C(275)   / -0.9336861700D+03/
+      data C(276)   / -0.4959775194D+04/
+      data C(277)   /  0.1232639858D+05/
+      data C(278)   / -0.3498771588D+04/
+      data C(279)   /  0.1167160197D+04/
+      data C(280)   /  0.1877109273D+04/
+      data C(281)   /  0.4969777327D+04/
+      data C(282)   /  0.9082995377D+04/
+      data C(283)   / -0.5372621469D+04/
+      data C(284)   / -0.2165909018D+04/
+      data C(285)   / -0.2971746043D+04/
+      data C(286)   / -0.1125842991D+05/
+      data C(287)   /  0.5234322840D+04/
+      data C(288)   /  0.6458468530D+03/
+      data C(289)   /  0.3590820420D+03/
+      data C(290)   /  0.8841233700D+03/
+      data C(291)   /  0.1718200275D+04/
+      data C(292)   / -0.1712440597D+04/
+      data C(293)   /  0.3053046184D+04/
+      data C(294)   / -0.1531020734D+04/
+      data C(295)   /  0.1261392472D+04/
+      data C(296)   /  0.1645236231D+04/
+      data C(297)   /  0.2914262927D+04/
+      data C(298)   / -0.1598447613D+04/
+      data C(299)   / -0.6267022440D+03/
+      data C(300)   /  0.2702011270D+04/
+      data C(301)   /  0.6179115010D+03/
+      data C(302)   / -0.1136671218D+04/
+      data C(303)   / -0.2694515089D+04/
+      data C(304)   /  0.1405521830D+03/
+      data C(305)   / -0.8714287460D+03/
+
+      end

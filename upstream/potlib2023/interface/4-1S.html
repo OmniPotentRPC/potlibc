@@ -1,0 +1,122 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Generator" content="Microsoft Word 97">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (X11; I; Linux 2.0.36 i686) [Netscape]">
+   <meta name="Author" content="Yuri Volobuev">
+   <meta name="Keywords" content="POTLIB, potential energy surface, PES">
+   <title>POTLIB Interface 4-1S</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EF" vlink="#51188E" alink="#FF0000">
+
+<center><h2>Interface 4-1S</h2></center>
+
+<hr>
+
+<br>
+<h4>Summary:</h4>
+The 4-1S interface is used with potential energy subprograms for 4-body systems.  
+The coordinate system used is useful for systems that are dimers of two diatomic molecules.  
+(The <a href="4-XS.html">4-XS interface</a> is designed for more general 4-body systems.)
+The driver program obtains the energy at one or more
+nuclear geometries by passing them as arguments between the subprogram and the driver
+program.<br>
+
+<h4>Format and selected details:</h4>
+
+The subroutine PREPOT, which takes no arguments, is called once
+before subsequent calls to the subroutine POT.  PREPOT is usually used 
+to initialize constant parameters of the surface, which are stored using 
+the FORTRAN command <tt>save</tt>. Alternatively, the parameters may be stored 
+in common blocks.  Once the surface has been initialized, the 
+subroutine POT may be called whenever the potential energy is needed.<br>
+
+<br>
+
+In general, a 4-1S potential energy routine has the following format:<br>
+
+<pre>
+SUBROUTINE PREPOT
+
+DATA STORAGE/HERE/,ETC...
+SAVE
+
+RETURN
+
+ENTRY POT( R1, R2, R, TH1, TH2, TAU, E )
+
+E = . . . 
+
+RETURN
+
+END
+</pre>
+
+
+<h4>Required variables:</h4>
+The subroutine POT takes the following arguments<br>
+
+<br>
+
+<blockquote><tt>POT ( R1, R2, R, TH1, TH2, TAU, E )</tt></blockquote>
+
+where<br>
+<br>
+
+<blockquote>
+<table>
+
+	<tr valign=top>
+		<td colspan=3><tt>Throughout this discussion we will consider a 
+		dimer of diatomics (AB)(AB) as our four-body system, although
+		the interface is more general. Atomic units are used throughout.<br><br>
+		</td>
+	</tr>
+
+	<tr valign=top>
+		<td width=100><tt>R1,R2</td>
+		<td width=200><tt>input, double precision</td>
+		<td><tt>Diatomic internuclear distances for each dimer.<br><br>
+		</td>
+	</tr>
+
+	<tr valign=top>
+		<td width=100><tt>R</td>
+		<td width=200><tt>input, double precision</td>
+		<td><tt>Distance between the centers of mass of the dimers.<br><br>
+		</td>
+	</tr>
+
+	<tr valign=top>
+		<td width=100><tt>TH1,TH2</td>
+		<td width=200><tt>input, double precision</td>
+		<td><tt>The angles between the AB diatom bonds and the vector 
+			connecting the centers of mass of the two diatoms. <br><br>
+		</td>
+	</tr>
+
+	<tr valign=top>
+		<td width=100><tt>TAU</td>
+		<td width=200><tt>input, double precision</td>
+		<td><tt>The dihedral angle between two planes; the first plane 
+			contains the first AB diatom bond and the vector 
+			connecting the centers of mass of the two diatoms, and the 
+			second plane contains the second AB diatom bond and the vector 
+			connecting the centers of mass of the two diatoms. <br><br>
+		</td>
+	</tr>
+
+	<tr valign=top>
+		<td width=100><tt>E</td>
+		<td width=200><tt>output, double precision</td>
+		<td><tt>The potential energy.<br><br>
+		</td>
+	</tr>
+
+</table>
+
+</blockquote>
+
+</body>
+</html>

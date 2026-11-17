@@ -1,0 +1,134 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Generator" content="Microsoft Word 97">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (X11; I; Linux 2.0.36 i686) [Netscape]">
+   <meta name="Author" content="Yuri Volobuev">
+   <meta name="Keywords" content="POTLIB, potential energy surface, PES">
+   <title>POTLIB Interface 3-2V</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EF" vlink="#51188E" alink="#FF0000">
+
+<center><h2>Interface 3-2V</h2></center>
+
+<hr>
+
+<br>
+<h4>Summary:</h4>
+The 3-2V interface is used with potential energy subprograms
+that calculate the potential energy and the analytical derivatives for 
+a 3-body system.  The driver program obtains the energy and its derivatives at one or more
+nuclear geometries by passing them as arguments between the subprogram and the driver
+program.<br>
+
+<h4>Format and selected details:</h4>
+
+The subroutine PREPOT, which takes no arguments, is called once
+before subsequent calls to the subroutine POT.  PREPOT is usually used 
+to initialize constant parameters of the surface, which are stored using 
+the FORTRAN command <tt>save</tt>. Alternatively, the parameters may be stored 
+in common blocks.  Once the surface has been initialized, the 
+subroutine POT may be called whenever the potential energy and its 
+derivatives are needed.<br>
+
+<br>
+
+In general, a 3-2V potential energy routine has the following format:<br>
+
+<pre>
+SUBROUTINE PREPOT
+
+DATA STORAGE/HERE/,ETC...
+SAVE
+
+RETURN
+
+ENTRY POT( R, E, DE, NVALS, NSURF)
+DIMENSION R(NVALS,3), E(NVALS), DE(3,NVALS)
+
+DO I=1,NVALS
+    E(I)    = SOME FUNCTION OF ( R(I,1),  R(I,2), R(I,3), and NSURF )
+    DE(1,I) = . . .
+    DE(2,I) = . . .
+    DE(3,I) = . . .
+ENDDO
+
+RETURN
+
+END
+</pre>
+
+
+<h4>Required variables:</h4>
+The subroutine POT takes the following arguments<br>
+
+<br>
+
+<blockquote><tt>
+POT( R, E, DE, NVALS, NSURF)<br>
+DIMENSION R(NVALS,3), E(NVALS), DE(3,NVALS)
+</tt></blockquote>
+
+where<br>
+<br>
+
+<blockquote>
+<table>
+
+	<tr valign=top>
+		<td width=100><tt>NVALS</td>
+		<td width=200><tt>input, integer</td>
+		<td><tt>The energy and the derivatives are computed for 
+			NVALS different geometries.
+			<br><br>
+		</td>
+	</tr>
+
+	<tr valign=top>
+		<td width=100><tt>NSURF</td>
+		<td width=200><tt>input, integer</td>
+		<td><tt>NSURF labels the potential energy surface. For a 
+			single-surface potential, NSURF=1.  For a two-state
+			potential, NSURF=1 and 3 for the two diagonal diabatic 
+			potential energy surfaces, and NSURF=2 for the diabatic
+			coupling surface.<br><br>
+		</td>
+	</tr>
+
+	<tr valign=top>
+		<td width=100><tt>R(NVALS,3)</td>
+		<td width=200><tt>input, double precision</td>
+		<td><tt>A two dimensional array containing the internuclear 
+			bond distances.  The first index labels the NVALS 
+			different geometries, and the second index labels the 
+			three internuclear distances. Atomic units are used.<br><br>
+		</td>
+	</tr>
+
+	<tr valign=top>
+		<td width=100><tt>E(NVALS)</td>
+		<td width=200><tt>output, double precision</td>
+		<td><tt>An array containing the potential energies of surface
+			NSURF at each of the NVALS geometries. Atomic units are used.<br><br>
+		</td>
+	</tr>
+
+	<tr valign=top>
+		<td width=100><tt>DE(3,NVALS)</td>
+		<td width=200><tt>output, double precision</td>
+		<td><tt>A two dimensional array of the first derivatives
+			of state NSURF with respect to the three internuclear
+			distances.  The first index labels the three 
+			internuclear distances, and the second index labels 
+			the NVALS different geometries. Atomic units are used.<br><br>
+		</td>
+	</tr>
+
+
+</table>
+
+</blockquote>
+
+</body>
+</html>

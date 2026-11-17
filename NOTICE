@@ -1,0 +1,422 @@
+potlibc
+Copyright 2026 Rohit Goswami
+
+This distribution includes potential-energy surfaces from POTLIB:
+
+Y. Shu, Z. Varga, A. W. Jasper, B. C. Garrett, J. Espinosa-García,
+J. C. Corchado, R. J. Duchovic, M. Volobuev, B. J. Lynch, K. Yang,
+T. C. Allison, A. F. Wagner, and D. G. Truhlar, POTLIB,
+https://comp.chem.umn.edu/potlib
+
+Y. Shu, Z. Varga, A. W. Jasper, J. Espinosa-García, J. C. Corchado,
+and D. G. Truhlar, “PotLib 2023: New version of a potential energy
+surface library for chemical systems,” Mendeley Data, version 1 (2023).
+https://doi.org/10.17632/chxxhnnt4p.1
+
+Included surface file-header references:
+- src/ALC/chc.f: unpublished
+- src/ALC/chc5m0.f: unpublished
+- src/ALC/chc6m0.f: unpublished
+- src/ALC/chc7m0.f: M. M. Kreevoy, D. Ostovic,
+- src/ALC/chc7m1.f: M. M. Kreevoy, D. Ostovic,
+- src/ALC/chc7m10.f: unpublished
+- src/ALC/chc7m4.f: M. M. Kreevoy, D. Ostovic,
+- src/ALC/chc7m5.f: M. M. Kreevoy, D. Ostovic,
+- src/ALC/chc7m7.f: M. M. Kreevoy, D. Ostovic,
+- src/ALC/chc7p2.f: M. M. Kreevoy, D. Ostovic,
+- src/ALC/chc7p3.f: M. M. Kreevoy, D. Ostovic,
+- src/ALC/chc7p5.f: M. M. Kreevoy, D. Ostovic,
+- src/AlmHn/vbo-beta1.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/AlmHn/vbo2-beta1.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/BetH.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/CleR.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/CoxJM.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/ER.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/ER2.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/ER2AT.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/ER2BA.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/ER2CN.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/ER2CoxJM.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/ER2EACN.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/ER2EAT.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/ER2EBA.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/ER2ECN.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/ER2ES.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/ER2ESCNa.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/ER2ESCNm.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/ER2GEA.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/ER2MeiD.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/ER2MisFMP.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/ER2S.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/ER2SCNa.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/ER2SCNm.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/ErkIV.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/ErkV.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/ErkVIII.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/Gol.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/HalP.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/Jac.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/MeiD.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/MisFMP.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/NP-A.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/NP-Ad.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/NP-B.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/NP-Bd.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/NP-C.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/NP-D.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/NP-E.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/PapCEP.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/PapKEP.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/PeaTHT.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/PetW.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/StrM.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/SutC.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/deSPH-LJAT.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/deSPH-M.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/reCoxJM.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/reErkIV.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/reErkVIII.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/reGEA.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/reGol.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/reHalP.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/reJac.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/reLJAT.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/reMeiD.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/reMisFMP.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/rePetW.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/reStrM.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/reSutC.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/Aln/redeSPH-M.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/BrH2/brh2dim3c.f: D. C. Clary
+- src/BrH2/brh2dim3c2001.f: D. C. Clary
+- src/BrH2/brh2leps.f: S. Sato
+- src/BrH2/brh2leps2001.f: R. Weston, J. Chem. Phys., Vol. 31, 892 (1959).
+- src/BrH2/brh2sec.f: G. C. Lynch, D. G. Truhlar, F. B. Brown, and J.-g. Zhao
+- src/BrH2/brh2sec2001.f: G. C. Lynch, D. G. Truhlar, F. B. Brown, and J.-g. Zhao
+- src/BrH2/brh2secd.f: G. C. Lynch, D. G. Truhlar, F. B. Brown, et. al.
+- src/BrH2/brh2so.f: G. C. Lynch, D. G. Truhlar, F. B. Brown, and J.-g. Zhao
+- src/BrH2/brh2so2001.f: G. C. Lynch, D. G. Truhlar, F. B. Brown, et. al.
+- src/BrHCl/brhcleleps2-2001.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/BrHCl/brhcleleps2.f: P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner,
+- src/BrHCl/brhcleleps3-2001.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/BrHCl/brhcleleps3.f: P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner,
+- src/BrHCl/brhcllepsk.f: P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner,
+- src/BrHCl/brhcllepsk2001.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/BrHCl/clhbrblm.f: P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner,
+- src/BrHCl/clhbreleps.f: P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner,
+- src/BrHCl/clhbrlepsk.f: P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner,
+- src/C2H6Cl/C2H6Cl-rev2019.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/C2H6F/C2H6F-rev2019.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/C2H6H/C2H6H-rev2019.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/C2H6O/c2h6o-v2020.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/C2H6OH/c2h6oh-v2020.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/C2H7/c2h7.f: : Arindam Chakraborty, Yan Zhao, Hai Lin, and Donald G. Truhlar,
+- src/C2H7/c2h7pot5.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/C2H7/interface_c2h7pot5_mod.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/C3H7NO/Full-PES/basis.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/C3H7NO/Full-PES/gradient.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/C3H7NO/Full-PES/pes_shell.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/C3H7NO/Full-PES/test.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/C3H7NO/__MACOSX/Full-PES/._basis.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/C3H7NO/__MACOSX/Full-PES/._gradient.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/C3H7NO/__MACOSX/Full-PES/._pes_shell.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/C3H7NO/__MACOSX/Full-PES/._test.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/C6H5SH/phsh_aprp.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/C6H6O/phoh_aprp.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/C7H8S/phsch3_II.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/C7H8S/phsch3_III.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/C7H8S/phsch3_Ia.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/C7H8S/phsch3_S-1.8.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/C7H8S/phsch3_S-2.0.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/C7H8S/phsch3_S-2.2.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/C7H8S/phsch3_S-2.5.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/C7H8S/phsch3_aprp.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/CH3NH2/CH3NH2.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/CH4/ch4T8.F: (file header has no Reference(s) field; see the cited vendor path)
+- src/CH4/getpot_ch4t8.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/CH4Br/ch4br.f: J. Espinosa-Garcia, J. Chem. Phys., Vol. 117, 2076 (2002).
+- src/CH4CN/ch4cn-2016.f: J.Espinosa-Garcia, C. Rangel and
+- src/CH4Cl/ch4cl.f: Corchado, Truhlar and Espinosa JPC, 112, 9375, 2000
+- src/CH4Cl/ch4cl2001.f: Corchado, Truhlar and Espinosa JPC, 112, 9375, 2000
+- src/CH4Cl/ch4cl2005.f: C. Rangel, M. Navarrete, J.C. Corchado and
+- src/CH4F/ch4f-noso.f: Espinosa-Garcia, J.; Corchado, J.C. J. Phys. Chem., 100 (1996) 16561
+- src/CH4F/ch4f-so.f: Espinosa-Garcia, J.; Corchado, J.C. J. Phys. Chem., 100 (1996) 16561
+- src/CH4F/ch4f2006.f: C. Rangel, M. Navarrete, J.C. Corchado and
+- src/CH4O/ch4o-2014.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/CH4O/ch4o00.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/CH4O/ch4o01-2001.f: J. Espinosa-Garcia, J. C. Garcia-Bernandez, Phys. Chem.
+- src/CH4O/ch4o95-2001.f: J. C. Corchado, J. Espinosa-Garcia, O. Roberto-Neto, Y.-Y. Chuang,
+- src/CH4O/ch4o98-2001.f: J. C. Corchado, J. Espinosa-Garcia, O. Roberto-Neto, Y.-Y. Chuang,
+- src/CH4O/ch4o98.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/CH4OH/ch4oh.f: J. Espinosa-Garcia, J. C. Corchado, J. Chem. Phys.,
+- src/CH4OH/ch4oh2001.f: J. Espinosa-Garcia, J. C. Corchado, J. Chem. Phys.,
+- src/CH4OH/ch4oh2014.f: J. Espinosa-Garcia and J. C. Corchado,
+- src/CH5/ch52008.f: J.C. Corchado, J.L. Bravo and J. Espinosa-Garcia
+- src/CH5/ch5j1.f: T. Joseph, R. Steckler, and D. G. Truhlar
+- src/CH5/ch5j2.f: T. Joseph, R. Steckler, and D. G. Truhlar
+- src/CH5/ch5jg2.f: M. J. T. Jordan, R. G. Gilbert, J. Chem. Phys.,
+- src/CH5/ch5jg2001.f: M. J. T. Jordan, R. G. Gilbert, J. Chem. Phys.,
+- src/CH5/ch5jg2001X.f: M. J. T. Jordan, R. G. Gilbert, J. Chem. Phys.,
+- src/CH5/ch5jg2008.f: M. J. T. Jordan, R. G. Gilbert, J. Chem. Phys.,
+- src/CH5/ch5jg2008X.f: M. J. T. Jordan, R. G. Gilbert, J. Chem. Phys.,
+- src/CH5/ch5jg2X.f: M. J. T. Jordan, R. G. Gilbert, J. Chem. Phys.,
+- src/CH5/ch5jgX.f: M. J. T. Jordan, R. G. Gilbert, J. Chem. Phys.,
+- src/CH5/ch5jj.f: J. Espinosa-Garcia, J. Chem. Phys., Vol. 116, 10664.
+- src/CH5/ch5jj2.f: J. Espinosa-Garcia, J. Chem. Phys., Vol. 116, 10664.
+- src/CH5/ch5jj2001.f: J. Espinosa-Garcia, J. Chem. Phys., Vol. 116, 10664.
+- src/Cl2H/clhclbcmr.f: S. Sato
+- src/Cl2H/clhclbcmr2001.f: D. K. Bondi, J. N. L. Connor, J. Manz, and J. Romelt
+- src/Cl2H/clhclpk2-2001.f: A. Persky and H. Kornweitz
+- src/Cl2H/clhclpk2.f: A. Persky and H. Kornweitz
+- src/Cl2H/clhclpk3-2001.f: A. Persky and H. Kornweitz
+- src/Cl2H/clhclpk3.f: A. Persky and H. Kornweitz
+- src/Cl2H/hcl2lep.f: P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner,
+- src/Cl2H/hcl2lep2001.f: P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner,
+- src/ClH2/clh2alab.f: B. C. Garrett, D. G. Truhlar, and A. W. Magnuson
+- src/ClH2/clh2dim3c.f: I. Last and M. Baer
+- src/ClH2/clh2dima.f: unpublished
+- src/ClH2/clh2dims.f: unpublished
+- src/ClH2/clh2g1.f: unpublished
+- src/ClH2/clh2g3.f: Allison, T. C.; Lynch, G. C.; Truhlar, D. G.;
+- src/ClH2/clh2g3v.f: Allison, T. C.; Lynch, G. C.; Truhlar, D. G.;
+- src/ClH2/clh2gq.f: D. W. Schwenke, S. C. Tucker, R. Steckler, F. B. Brown,
+- src/ClH2/clh2gqq.f: D. W. Schwenke, S. C. Tucker, R. Steckler, F. B. Brown,
+- src/ClH2/clh2gsi.f: A. Persky and F. S. Klein
+- src/ClH2/clh2gsii.f: A. Persky and F. S. Klein
+- src/ClH2/clh2s1.f: B. C. Garrett, D. G. Truhlar, and A. W. Magnuson
+- src/ClH2/clh2s2.f: B. C. Garrett, D. G. Truhlar, and A. W. Magnuson
+- src/ClH2/clh2s3.f: B. C. Garrett, D. G. Truhlar, and A. W. Magnuson
+- src/ClH2/clh2spkgsw.f: M. J. Stern, A. Persky, and F. S. Klein
+- src/ClNH3/clnh3-2012.f: M. Monge-Palacios, C. Rangel, J.C. Corchado and J. Espinosa-Garcia,
+- src/F2H/hf2eleps.f: P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner,
+- src/F2H/hf2eleps2001.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/F2H/hf2jotii.f: N. Jonathon, S. Okuda, and D. Timlin, Mol. Phys.
+- src/F2H/hf2jotii2001.f: N. Jonathon, S. Okuda, and D. Timlin, Mol. Phys.
+- src/F2H2/bjkkl.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/F2H2/f2h2s2-2001.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/F2H2/f2h2s2.f: W.C. Necoechea, D.G. Truhlar Chem. Phys. Lett. 248,
+- src/F2H2/f2h2sqsbde.f: M. Quack, M. Suhm Mol. Phys. 69 (1990) P791
+- src/F2H2/f2h2sqsbde2001.f: M. Quack, M. Suhm Mol. Phys. 69 (1990) P791
+- src/FH2/fh25av.f: R. Steckler, D.G. Truhlar, and B.C. Garrett,
+- src/FH2/fh25sec.f: G. C. Lynch, R. Steckler, D.W. Schwenke, A.J.C. Varandas,
+- src/FH2/fh25sec2001.f: G. C. Lynch, R. Steckler, D.W. Schwenke, A.J.C. Varandas,
+- src/FH2/fh25seccog1-2001.f: unpublished
+- src/FH2/fh25seccog1.f: unpublished
+- src/FH2/fh25seccog2-2001.f: unpublished
+- src/FH2/fh25seccog2.f: unpublished
+- src/FH2/fh25seccog3-2001.f: unpublished
+- src/FH2/fh25seccog3.f: unpublished
+- src/FH2/fh25secgm1-2001.f: unpublished
+- src/FH2/fh25secgm1.f: unpublished
+- src/FH2/fh25secgm2-2001.f: unpublished
+- src/FH2/fh25secgm2.f: unpublished
+- src/FH2/fh25secgm3-2001.f: unpublished
+- src/FH2/fh25secgm3.f: unpublished
+- src/FH2/fh25secgm4.f: unpublished
+- src/FH2/fh25secs1-2001.f: unpublished
+- src/FH2/fh25secs1.f: unpublished
+- src/FH2/fh25secs2-2001.f: unpublished
+- src/FH2/fh25secs2.f: unpublished
+- src/FH2/fh25secs3-2001.f: unpublished
+- src/FH2/fh25secs3.f: unpublished
+- src/FH2/fh25secw.f: G. C. Lynch, P. Halvick, M. Zhao, D. G. Truhlar,
+- src/FH2/fh25secw2001.f: G. C. Lynch, P. Halvick, M. Zhao, D. G. Truhlar,
+- src/FH2/fh26sec.f: S. L. Mielke, G. C. Lynch,
+- src/FH2/fh26sec2001.f: S. L. Mielke, G. C. Lynch,
+- src/FH2/fh2m5-2001.f: J. T. Muckerman
+- src/FH2/fh2m5.f: J. T. Muckerman
+- src/FH2/fh2m5sk.f: P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner,
+- src/FH2/fh2m5sk2001.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/FH2/fh2n1-2001.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/FH2/fh2n1.f: P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner,
+- src/FH2/fh2n2-2001.f: D. G. Truhlar, B. C. Garrett, and N. C. Blais
+- src/FH2/fh2n2.f: D. G. Truhlar, B. C. Garrett, and N. C. Blais
+- src/FH2/fh2n2a.f: unpublished
+- src/FH2/fh2n2a2001.f: unpublished
+- src/FH2/fh2n3-2001.f: R. Steckler, D. G. Truhlar, B. C. Garrett,
+- src/FH2/fh2n3.f: R. Steckler, D. G. Truhlar, B. C. Garrett,
+- src/FH2/fh2n4-2001.f: F. B. Brown, R. Steckler, D. W. Schwenke,
+- src/FH2/fh2n4.f: F. B. Brown, R. Steckler, D. W. Schwenke,
+- src/FH2/fh2n5-2001.f: F. B. Brown, R. Steckler, D. W. Schwenke,
+- src/FH2/fh2n5.f: F. B. Brown, R. Steckler, D. W. Schwenke,
+- src/FH2/fh2n5a.f: R. Steckler, D. G. Truhlar, and B. C. Garrett
+- src/FH2/fh2n5a2001.f: R. Steckler, D. G. Truhlar, and B. C. Garrett
+- src/FH2/fh2n5b.f: Unpublished, R. Steckler and D. G. Truhlar (1985).
+- src/FH2/fh2n5b2001.f: unpublished
+- src/FH2/fh2n5z.f: Unpublished, R. Steckler and D. G. Truhlar (1985).
+- src/FH2/fh2n5z2001.f: unpublished
+- src/FH2/fh2sk.f: G. C. Schatz and A. Kuppermann
+- src/FH2/fh2sk2001.f: G. C. Schatz and A. Kuppermann
+- src/GeH4OH/geh4oh-2014.f: J. Espinosa-Garcia, C. Rangel and J.C. Corchado
+- src/GeH5/geh5-2001.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/GeH5/geh5.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/H2O2/h2o2.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/H3/a2.f: SL Mielke, BC Garrett, and KA Peterson, J. Chem. Phys. 116 (2002) 4142.
+- src/H3/a3.f: SL Mielke, BC Garrett, and KA Peterson, J. Chem. Phys. 116 (2002) 4142.
+- src/H3/a4.f: SL Mielke, BC Garrett, and KA Peterson, J. Chem. Phys. 116 (2002) 4142.
+- src/H3/cci.f: SL Mielke, BC Garrett, and KA Peterson, J. Chem. Phys. 116 (2002) 4142.
+- src/H3/h3_bh.f: Steven L. Mielke, David W. Schwenke, George C. Schatz, Bruce C. Garrett, and Kirk A. Peterson, J. Phys. Chem. A 113, 4479 (2009).
+- src/H3/h3bkmp.f: A. I. Boothroyd, W. J. Keogh, P. G. Martin,
+- src/H3/h3bkmp3.f: A.I.Boothroyd, W.J.Keogh, P.G.Martin, M.R.Peterson
+- src/H3/h3dmbe.f: A. J. C. Varandas, F. B. Brown, C. A. Mead,
+- src/H3/h3dmbe2001.f: A. J. C. Varandas, F. B. Brown, C. A. Mead,
+- src/H3/h3dmbev.f: A. J. C. Varandas, F. B. Brown, C. A. Mead,
+- src/H3/h3lsth.f: B. Liu, J. Chem. Phys., Vol. 58, 1925 (1973);
+- src/H3/h3pk2-2001.f: C
+- src/H3/h3pk2.f: R. N. Porter and M. Karplus
+- src/H3/h3tk.f: D. G. Truhlar and A. Kuppermann
+- src/H3/h3tk2001.f: D. G. Truhlar and A. Kuppermann
+- src/H3Cl/H3Cl-package-mass-independent/pes-H3Cl.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/H3Cl/H3Cl-package-mass-independent/test.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/H3plus/h3plusKBNN.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/H3plus/h3plusKBNNd.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/H3plus/h3plusUNO.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/H3plus/h3plusUNOd.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/I2H/hi2kka.f: J. A. Kaye and A. Kuppermann, Chem. Phys. Lett.
+- src/I2H/hi2kka2001.f: J. A. Kaye and A. Kuppermann, Chem. Phys. Lett.
+- src/I2H/ihielepsa.f: C. A. Parr and D. G. Truhlar, J. Phys. Chem., Vol. 75, 1844 (1971).
+- src/I2H/ihielepsa2001.f: C
+- src/I2H/ihielepsb.f: C. A. Parr and D. G. Truhlar, J. Phys. Chem., Vol. 75, 1844 (1971).
+- src/I2H/ihielepsb2001.f: C
+- src/IH2/ih2eleps.f: P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner,
+- src/IH2/ih2eleps2001.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/IH2/ih2elepsa.f: P. J. Kuntz, E. M. Nemth, J. C. Polanyi,
+- src/IH2/ih2elepsa2001.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/IH2/ih2raff.f: L. Raff, L. Stivers, R. N. Porter, D. L. Thompson, L. B. Sims,
+- src/IH2/ih2raff2001.f: L. Raff et al.
+- src/IH2/ih2rmc1d.f: J. W. Duff and D. G. Truhlar, J. Chem. Phys., Vol. 52, 2477 (1975).
+- src/IH2/ih2rmc1d2001.f: C
+- src/IH2/ih2rmc3d.f: J. W. Duff and D. G. Truhlar, J. Chem. Phys., Vol. 52, 2477 (1975).
+- src/IH2/ih2rmc3d2001.f: C
+- src/LiFH/LiFHJ.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/LiFH/LiFHJS.f: A. W. Jasper, M. D. Hack, D. G. Truhlar, and P. Piecuch,
+- src/LiFH/LiFHd.f: A. W. Jasper, M. D. Hack, A. Chakraborty, D. G. Truhlar,
+- src/MCH/MCH_SB.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/MCH/MCH_SL.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/MCH/MCH_TL.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/MCH/MCH_WB.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/MCH/MCH_WL.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/MXH/MXH_SBd.f: Y. L. Volobuev, M. D. Hack, M. S. Topaler, and D. G. Truhlar,
+- src/MXH/MXH_SLd.f: Y. L. Volobuev, M. D. Hack, M. S. Topaler, and D. G. Truhlar,
+- src/MXH/MXH_WLd.f: Y. L. Volobuev, M. D. Hack, M. S. Topaler, and D. G. Truhlar,
+- src/N4/N4_1A_MB-PIP-MEG3.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/N4/PES_N4_MB-PIP-NN.F: (file header has no Reference(s) field; see the cited vendor path)
+- src/N4/PES_N4_MEG2.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/N4/PES_N4_singlet_umn_v3.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/N4/n4pes-gpip-meg.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/N4/n4pes-gpip-v2/n4pes-gpip-v2.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/N4/n4pes-gpip-v2/test.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/N4/n4pes-gpip-v2.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/N4/n4pes_130624/n4pes.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/N4/n4pes_130624/test.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/N4/n4pes_L-IMLS-G2_v1.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/NH3/nh3code1.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/NH3/nh3code2.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/NH3CN/nh3cn.f: J. Espinosa-Garcia, C. Rangel, M. Garcia-Chamorro and
+- src/NH3OH/nh3oh-2013.f: M. Monge-Palacios, C. Rangel and J. Espinosa-Garcia,
+- src/NH4/nh4.f: J. C. Corchado, J. Espinosa-Garcia, J. Chem. Phys.,
+- src/NH4/nh42001.f: J. C. Corchado, J. Espinosa-Garcia, J. Chem. Phys.,
+- src/NH4/nh42009.f: J. Espinosa-Garcia and J.C. Corchado
+- src/NaFH/nafh1v.f: Unpublished, M. S. Topaler and D. G. Truhlar
+- src/NaFH/nafh1v2001.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/NaFH/nafh2d.f: A. W. Jasper, M. D. Hack, A. Chakraborty, D. G. Truhlar,
+- src/NaFH/nafh2v.f: M.S. Topaler, D.G. Truhlar, X.Y. Chang, P. Piecuch,
+- src/NaH2/nah25f.f: P. Halvick and D. G. Truhlar, J. Chem. Phys. 96,
+- src/NaH2/nah25f2001.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/NaH2/nah25g.f: P. Halvick and D. G. Truhlar, J. Chem. Phys. 96,
+- src/NaH2/nah25g2001.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/NaH2/nah26_der.f: P. Halvick and D. G. Truhlar, J. Chem. Phys. 96,2895 (1992).
+- src/NaH2/nah2_7l.f: Unpublished,  M. D. Hack and D. G. Truhlar (2000).
+- src/NaH2/nah2_7l2001.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/NaH2/nah2_7ld.f: Unpublished, M. D. Hack and D. G. Truhlar (2000).
+- src/NaH2/nah2_7s.f: Unpublished, M. D. Hack and D. G. Truhlar (2000).
+- src/NaH2/nah2_7s2001.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/NaH2/nah2_7sd.f: Unpublished, M. D. Hack and D. G. Truhlar (2000).
+- src/NinR/nich4.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/NinR/niheam5.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/NinR/niheam6.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/NinR/niheam7.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/O2H/ho2mb.f: C. F. Melius and R. J. Blint
+- src/O2H/ho2mb2001.f: C. F. Melius and R. J. Blint
+- src/OH2/oh2dim.f: A. Whitlock, J. T. Muckerman, E. R. Fisher, \"Theoretical Invertigations of
+- src/OH2/oh2dim2001.f: C
+- src/OH2/oh2jw.f: B. R. Johnson and N. W. Winter
+- src/OH2/oh2jw2001.f: B. R. Johnson and N. W. Winter
+- src/OH2/oh2jws.f: G. C. Schatz
+- src/OH2/oh2jws2001.f: G. C. Schatz
+- src/OH2/oh2m2adp.f: B. C. Garrett and D. G. Truhlar
+- src/OH2/oh2m2adp2001.f: B. C. Garrett and D. G. Truhlar
+- src/OH2/oh2m2ap.f: B. C. Garrett and D. G. Truhlar
+- src/OH2/oh2m2ap2001.f: B. C. Garrett and D. G. Truhlar
+- src/OH2/oh2m3a.f: unpublished
+- src/OH2/oh2m3a2001.f: unpublished
+- src/OH2/oh2m3n.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/OH2/oh2m3n2001.f: unpublished
+- src/OH2/oh2pol.f: S. P. Walch, T. H. Dunning, Jr., F. W. Bobrowicz, R. Raffenetti,
+- src/OH2/oh2pol2001.f: C
+- src/OH2/oh2sl.f: R. Schinke and W. A. Lester, Jr., J. Chem. Phys., Vol. 70, 4893 (1979).
+- src/OH2/oh2sl2001.f: C
+- src/OH3/oh3.f: G. C. Schatz and H. Elgersma
+- src/SiH4Cl/sih4cl.f: J. Espinosa-Garcia and J.C. Corchado, PCCP, 23, 21065 (2021).
+- src/SiH5/sih5-1-2001.f: C
+- src/SiH5/sih5-2-2001.f: J. Espinosa-Garcia, J. Sanson, J. C. Corchado, J. Chem. Phys.
+- src/SiH5/sih5-2.f: J. Espinosa-Garcia, J. Sanson, J. C. Corchado, J. Chem. Phys.
+- src/SiOH/SiOH.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/YRH/yrh_der.f: A. W. Jasper, M. D. Hack, and D. G. Truhlar, J. Chem. Phys.,
+- src/done/FH2O/fh2o-pipnn.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/FH2O/jcb3_xyz.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/FH2O/soc-fh2o-nn.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/FH2O/test.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/HO3/ho3_pes/ho3_pes.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/HO3/ho3_pes/test.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/N2O/N2O_3Ap_MB-PIP-MEG2.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/N2O/N2O_3App_MB-PIP-MEG2.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/N2O/PES_N2O_3Ap_umn_v1.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/N2O/PES_N2O_3App_umn_v1.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/N2O/n2o-3Ap-gpip.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/N2O/n2o-3App-gpip.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/N2O2/N2O2_3A_MB-PIP-MEG2.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/N2O2/PES_N2O2_triplet_umn_v1.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/N3/N3_4App_MB-PIP-MEG.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/N3/n3pes.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/NO2/NO2_2Ap_MB-PIP-MEG.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/NO2/NO2_2Ap_PIP-NN/no2-pipnn.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/NO2/NO2_4Ap_MB-PIP-MEG.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/NO2/NO2_4Ap_PIP-NN/no2-pipnn.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/NO2/NO2_6Ap_MB-PIP-MEG.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/NO2/NO2_6Ap_PIP-NN/no2-pipnn.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O2H3/pip-nn-pes-OH+H2O/h3o2-pipnn.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O2H3/pip-nn-pes-OH+H2O/main.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O3/O3_14_3Ap_2022.f90: !   Z. Varga, Y. Shu, J. Ning, D. G. Truhlar, "Diabatic potential energy surfaces
+- src/done/O3/O3_14_3Ap_2023.f90: !   F. Badichi Akher, Y. Shu, Z. Varga, S. Bhaumik, D. G. Truhlar,
+- src/done/O3/O3_1_1Ap.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O3/O3_1_1App.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O3/O3_1_3Ap.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O3/O3_1_3App.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O3/O3_1_5Ap.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O3/O3_1_5App.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O3/O3_2_1Ap.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O3/O3_2_3Ap.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O3/O3_2_5Ap.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O3/O3_6_5Ap_2023.f90: !   F. Badichi Akher, Y. Shu, Z. Varga, D. G. Truhlar, "Semiclassical multi-state
+- src/done/O3/PES_O3_1_1Ap_umn_v1.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O3/PES_O3_1_1App_umn_v1.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O3/PES_O3_1_3Ap_umn_v1.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O3/PES_O3_1_3App_umn_v1.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O3/PES_O3_1_5Ap_umn_v1.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O3/PES_O3_1_5App_umn_v1.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O3/PES_O3_2_1Ap_umn_v1.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O3/PES_O3_2_3Ap_umn_v1.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O3/PES_O3_2_5Ap_umn_v1.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O3/o3pes.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O4/O4_quintet.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O4/O4_singlet.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O4/O4_triplet.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O4/O4_triplet_v2.f: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O4/PES_O4_quintet_umn_v1.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O4/PES_O4_singlet_umn_v1.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O4/PES_O4_triplet_umn_v2.f90: (file header has no Reference(s) field; see the cited vendor path)
+- src/done/O4/o4pes.f90: (file header has no Reference(s) field; see the cited vendor path)
+
+utilities/utility.f was written by R. J. Duchovic and A. F. Wagner
+and includes corrections by J. Corchado.

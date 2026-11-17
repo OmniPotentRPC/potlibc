@@ -1,0 +1,103 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta name="Keywords" content="POTLIB, potential energy surface, PES">
+   <title>POTLIB HO-MM-1 interface</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EF" vlink="#51188E" alink="#FF0000">
+
+<center><h2>HO-MM-1 homonuclear molecular mechanics interface</h2></center>
+
+<hr>
+
+<br>
+<h4>Summary:</h4>
+The HO-MM-1 interface is used for potential energy subprograms capable of
+handling an arbitrary number of identical atoms.  The driver program passes the
+geometry as a set of cartesian coordinates for each atom, and the potential energy
+and first derivatives are returned.<br>
+
+<h4>Format and selected details:</h4>
+
+In general, a HO-MM-1 potential energy routine has the following format:<br>
+
+<pre>
+
+SUBROUTINE POT( X, Y, Z, E, DEDX, DEDY, DEDZ, NATOM, MAXATOM)
+
+DIMENSION X(MAXATOM), Y(MAXATOM), Z(MAXATOM)
+DIMENSION DEDX(MAXATOM), DEDY(MAXATOM), DEDZ(MAXATOM)
+
+E = SOME FUNCTION OF ( X, Y, and Z )
+DEDX = SOME FUNCTION OF ( X, Y, and Z )
+DEDY = SOME FUNCTION OF ( X, Y, and Z )
+DEDZ = SOME FUNCTION OF ( X, Y, and Z )
+
+RETURN
+
+END
+
+</pre>
+
+
+<h4>Required variables:</h4>
+The subroutine POT takes the following arguments<br>
+
+<br>
+
+<blockquote><tt>POT ( X(NATOM), Y(NATOM), Z(NATOM), E, DEDX(NATOM), DEDY(NATOM), DEDZ(NATOM), NATOM, MAXATOM )</tt></blockquote>
+
+where<br>
+<br>
+
+<blockquote>
+<table>
+
+	<tr valign=top>
+		<td width=100><tt>NATOM</td>
+		<td width=200><tt>input, integer</td>
+		<td><tt>The number of identical atoms.<br><br>
+		</td>
+	</tr>
+
+	<tr valign=top>
+		<td width=100><tt>MAXATOM</td>
+		<td width=200><tt>input, integer</td>
+		<td><tt>Sets the dimension of the cartesian variables 
+                        X, Y, and Z.  MAXATOM must be greater than or equal 
+                        to NATOM.<br><br>
+		</td>
+	</tr>
+
+	<tr valign=top>
+		<td width=100><tt>X(NATOM)<br>Y(NATOM)<br>Z(NATOM)</td>
+		<td width=200><tt>input, double precision</td>
+		<td><tt>One-dimensional arrays containing the X, Y, and Z
+                        components of all NATOM atoms, where the index labels
+                        the atoms.<br><br>
+		</td>
+	</tr>
+
+	<tr valign=top>
+		<td width=100><tt>E</td>
+		<td width=200><tt>output, double precision</td>
+		<td><tt>The potential energy.<br><br>
+		</td>
+	</tr>
+
+	<tr valign=top>
+		<td width=100><tt>DEDX(NATOM)<br>DEDY(NATOM)<br>DEDZ(NATOM)</td>
+		<td width=200><tt>output, double precision</td>
+		<td><tt>One-dimensional arrays containing the first derivatives
+			of the energy E with respect to the X, Y, and Z components 
+			of all NATOM atoms, where the index labels the atoms.<br><br>
+		</td>
+	</tr>
+
+	<tr valign=top>
+</table>
+
+</blockquote>
+
+</body>
+</html>

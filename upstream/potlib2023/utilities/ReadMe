@@ -1,0 +1,77 @@
+In the Utilities subdirectory, there is also a program called "tester.f".  This is a 
+routine designed to test the installation of any PES subprogram.  Each PES subprogram 
+has within its subdirectory two associated computer files.  If "myPES.f" is the name 
+of the PES subprogram, then the two additional files are "myPES.dat" (an input file to 
+"test.f") and "myPES.out" (the corresponding output file).  The PES subprogram, 
+"utility.f", and "tester.f" are compiled and linked to form an executable file, 
+"tester.exe".  When "tester.exe" is executed with input "myPES.dat", it will create an 
+output file conventionally named "myPES-test.out".  A satisfactory match of 
+"myPES-test.out" with "myPES.out" verifies that POTLIB 2001 was installed correctly by 
+the user.  In addition, "myPES-test.out" identifies the reactant ordering (essential for 
+determining the non-default input to the array NULBL), the asymptote that sets the zero 
+of energy (essential for determining the non-default value of ANUZERO), the largest 
+number of electronic surfaces available for calculating the potential energy (essential 
+for determining the non-default values of NASURF), and the maximum order of the 
+derivatives (if any) which are explicitly calculated by the PES subprogram (essential 
+for determining the non-default value of NDER).  Furthermore, other descriptive 
+information about the surface, such as a literature reference (if any), will be listed.
+
+Checklist for Installing/Using a PES Subprogram from POTLIB 2001
+
+The correct installation of a PES subprogram involves the steps below.  Assume the 
+selected PES subprogram has the name of "myPES.f".
+
+   1.  	Copy "myPES.f", "myPES.dat", and "myPES.out" to a desired directory.
+   2.   Copy from the Utilities subdirectory "utility.f" and "tester.f". 
+   3.   Compile and link "myPES.f", "utility.f", and "tester.f" and call the 
+        executable "tester.exe".  Run "tester.exe" with "myPES.dat" as input 
+        and direct the output to "myPES-test.out". Compare the "myPES-test.out" 
+        produced to "myPES.out".  If differences in format or round-off error 
+        are within machine-specific tolerances, "myPES.f" has been correctly 
+        transferred.  
+
+After a successful installation, the correct use of a PES subprogram in a user-specific
+application involves the following steps:
+
+   1.   Within the user's routine that will call the PES subprogram, include the 
+        following FORTRAN statements:
+
+PARAMETER (NATOM = xx)
+PARAMETER (ISURF = yy) 
+PARAMETER (JSURF = ISURF * (ISURF + 1) / 2)
+COMMON /USRICM/	CART(NATOM,3), ANUZERO, NULBL(NATOM),
+	NFLAG(20), NASURF(ISURF+1,ISURF+1), NDER
+COMMON /USROCM/	PENGYGS, PENGYES(ISURF), PENGYIJ(JSURF), 
+	DGSCART(NATOM,3), DESCART(NATOM,3,ISURF), 
+	DIJCART(NATOM,3,JSURF) 
+
+        Here "xx" is the maximum number of atoms, and "yy" is the maximum number of 
+        electronic surfaces.  In version 1.0, xx = 25 and yy = 5.  Examining the PREPOT
+        subroutine in "myPES.f" will always reveal the most current values for "xx" and 
+        "yy".
+
+   2.	If desired, change distance and energy units from the default atomic units by 
+        assigning appropriate values to NFLAG(1) and NFLAG(2) in the calling routine.  
+        Change the default FORTRAN output unit from 6 by assigning a new value to 
+        NFLAG(18) in the calling routine.
+   3.	In "myPES-test.out", note the listed ordering of the atoms and change it, if 
+        desired, by assigning values to the array NULBL in the calling routine.  
+        Similarly, note the listed asymptote for the zero of energy and change the zero,
+        if desired, by assigning a non-zero value to ANUZERO in the calling routine.  
+        Finally, note the order of derivatives and the number of electronic surfaces 
+        available in the PES subprogram and select, if desired, a non-default option 
+        for each by assigning values to NDER and NASURF in the calling routine.
+
+	FORTRAN statements:
+
+   4.	Within the calling routine, call PREPOT once as the first call to the PES 
+        subprogram.  PREPOT has no arguments.
+   5.	Within the calling routine, assign Cartesian coordinates to the array CART 
+        using the ordering scheme and units selected above.
+   6.	Compile and link the user's application program, "myPES.f", and the utility 
+        routine "utility.f".  This will produce an executable file that correctly 
+        incorporates the POTLIB 2001 PES subprogram "myPES.f" into the user's 
+        application.  For a given CART geometry, each call to POT will then return the 
+        energies and derivatives in the specified units, in the specified order, and 
+        with the specified zero of energy.
+

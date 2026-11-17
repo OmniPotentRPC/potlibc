@@ -1,0 +1,49 @@
+!********************************************************************** 
+!   System:                     H3Cl
+!   Functional form:            permutationally invariant polynomial neural network
+!   Common name:                H3Cl
+!   Number of derivatives:      0
+!   Number of bodies:           4
+!   Number of electronic surfaces: 1
+!   Interface: Section-2
+!**********************************************************************
+!
+!   References: Q. Yao, M. Morita, C. Xie, N. Balakrishnan, and H. Guo
+!   "Globally Accurate Full-Dimensional Potential Energy Surface for
+!   H2 + HCl Inelastic Scattering"
+!   J. Phys. Chem. A 2019, 123, 6578
+!
+!   Notes: see below
+!
+!**********************************************************************
+
+**************************************************************
+*     H2 + HCl --> H2 + HCl inelastic scattering reaction    *
+*     2019.1.20  Qian Yao  updated                           *
+*     J. Phys. Chem. A 2019, 123, 6578                       *
+**************************************************************
+The energies are relative to H2+HCl            
+                            
+ 1)Initialization
+   call pes_init
+
+ 2) PES obtained by pip-NN fitting and long range fitting
+   call pesh3cl(x,vtot)
+   x: xyz format geometry in Angstrom
+   vtot: potential energy in eV
+
+
+Description of files
+
+H2.dat  		Bond distances(ang) and ab initio energies(hartree) for H2 
+
+HCl.dat 		Bond distances(ang) and ab initio energies(hartree) for HCl
+
+test.f   		An example FORTRAN program
+
+c.dat                   Fitting Parameters for the long-range potential
+
+
+1D PESs for H2 and HCl are recommended to obtain by the 6D PES with the r3 at 20 angstrom 
+for the PES of H2: only r1 is a variable, fixed other parameters(r2=1.28ang r3=20ang th1=90degree  th2=90degree phi=90degree)
+for the PES of HCl: only r2 is a variable, fixed other parameters(r1=0.74ang r3=20ang th1=90degree  th2=90degree phi=90degree)

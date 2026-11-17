@@ -1,0 +1,82 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<STYLE TYPE="text/css">
+<!--
+BODY
+   {
+   font-family:sans-serif;
+   }
+-->
+</STYLE>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.77C-CCK-MCD {C-UDP; EBM-APPLE} (Macintosh; U; PPC) [Netscape]">
+   <meta name="Author" content="Webmaster">
+   <title>POTLIB Interfaces</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EF" vlink="#51188E" alink="#FF0000">
+
+<center><h1>POTLIB Interfaces</h1></center>
+
+<hr>
+
+<h2>Section One: Standard Interfaces</h2>
+
+Potential energy surface subroutines with interfaces that conform to one of POTLIB's
+standard interfaces are grouped in Section One.<br><br>
+
+There are two kinds of potential energy surface subroutine interfaces in Section One: <br>
+<blockquote> (1) <b>Molecular mechanics interfaces</b>, which allow for a variable number of atoms and
+are labeled<br><br>
+<center><i>T-MM-D</i></center>
+
+<p>where <i>T</i> = "HO" or "HE" for a homonuclear or heteronuclear potential 
+energy subroutine, respectively, MM stands for "molecular mechanics", 
+and <i>D</i> is the number of analytic derivatives available.<br>
+
+<br>The following molecular mechanics interface is currently standard in POTLIB:
+<a href="HO-MM-0.html">HO-MM-0</a>, 
+<a href="HO-MM-1.html">HO-MM-1</a>.<br>
+More interfaces will be added as new potential energy subroutines become available.<br><br>
+
+(2) <b>Interfaces for a fixed number of atoms</b>.  These interfaces are labeled<br><br>
+
+<center><i>N-DM</i></center>
+
+<p>where <i>N</i> is the number of bodies, <i>D</i> is the number of analytic
+derivatives available plus one (e.g., for <i>D</i> = 1, only the potential
+energy is available, for <i>D</i> = 2, the potential energy and the first
+derivatives are available), and <i>M</i> is S for scalar mode (i.e., the
+energy for one geometry is computed per subroutine call, and the geometries, energies,
+and derivatives (when available) are passed using common blocks) and V for vector
+mode (i.e., the energies and derivatives (when available) for an array of geometries 
+are calculated per subroutine call and are passed as arguments).  Note if <i>D</i> = X,
+the potential interface is general enough to handle more than one value of <i>D</i>.<br>
+
+<br>The following interfaces for a fixed number of atoms are currently standard in POTLIB:
+<a href="potlib2001.html">POTLIB-2001</a>,
+<a href="3-XS.html">3-XS</a>,
+<a href="3-1V.html">3-1V</a>,
+<a href="3-2V.html">3-2V</a>,
+<a href="4-XS.html">4-XS</a>,
+<a href="4-1S.html">4-1S</a>,
+<a href="5-1S.html">5-1S</a>,
+<a href="6-1S.html">6-1S</a>,
+and
+<a href="7-1S.html">7-1S</a>.
+
+</blockquote>
+
+<h2>Section Two: Nonstandard Interfaces</h2>
+
+Potential routines with interfaces that do not conform to any of the standard
+protocols listed above are grouped together in Section Two.<br> 
+
+<br>
+
+<a href="../index.html">Return to the POTLIB online homepage.</a><br>
+
+<br>
+
+</body>
+</html>
