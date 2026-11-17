@@ -1,6 +1,10 @@
 # SPDX-FileCopyrightText: 2026 Rohit Goswami
 # SPDX-License-Identifier: BSD-3-Clause
 /build/
+/.docs-venv/
+/docs/_build/
+/docs/source/_doxygen/
+/docs/source/surfaces.rst
 __pycache__/
 *.mod
 *.o

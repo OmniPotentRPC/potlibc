@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2026 Rohit Goswami
+# SPDX-License-Identifier: BSD-3-Clause
+
+breathe>=4.36
+myst-parser>=4
+shibuya>=2025.8
+sphinx>=8
+sphinx-sitemap>=2.8

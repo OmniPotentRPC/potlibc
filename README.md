@@ -8,12 +8,19 @@ copy of its generated surface plugin, isolating Fortran COMMON and SAVE state
 without a global lock or an ELF namespace per handle. Coordinates are Bohr,
 energies Hartree, and forces Hartree/Bohr.
 
+The full user guide, generated C API reference, and exhaustive surface catalog
+are published at <https://omnipotentrpc.github.io/potlibc/>. The current
+per-handle loader requires Linux.
+
 ```sh
 meson setup build
 meson compile -C build
 meson test -C build
 meson compile -C build test-tsan
 ```
+
+The runnable C examples are in [`examples/`](examples/); Meson builds and
+executes them as part of the test suite.
 
 Use `potlibc_create()` for fixed-size surfaces or `potlibc_create_sized()` for
 variable-body surfaces with an id from [SURFACES.md](SURFACES.md), inspect
