@@ -21,6 +21,7 @@ c_api_test = executable(
   'test_c_api.c',
   include_directories: potlibc_inc,
   link_with: potlibc,
+  dependencies: cc.find_library('m', required: false),
 )
 test('C API and CBE exact parity', c_api_test, env: test_env)
 
