@@ -88,7 +88,7 @@ def header_block(text: str, names: tuple[str, ...]) -> str:
             continue
         body = raw[1:]
         line = body.strip()
-        match = re.match(r"([^:]+?)\s*:\s*(.*)$", line)
+        match = re.match(r"([^:]+?)\s*:+\s*(.*)$", line)
         if match and len(body) - len(body.lstrip()) <= 4:
             key = " ".join(match.group(1).lower().split())
             active = key in wanted
@@ -106,7 +106,7 @@ def header_block(text: str, names: tuple[str, ...]) -> str:
 def surface_documentation(text: str, fields: dict[str, str]) -> dict[str, Any]:
     """Extract the deposited descriptive metadata without interpreting it."""
     reference_parts = [
-        header_block(text, ("reference",)),
+        header_block(text, ("reference", "references", "ref")),
         header_block(text, ("cross reference",)),
     ]
     reference = "; ".join(part for part in reference_parts if part)
@@ -118,7 +118,15 @@ def surface_documentation(text: str, fields: dict[str, str]) -> dict[str, Any]:
     )
     return {
         "formula": fields.get("system", ""),
-        "coordinates": header_block(text, ("coordinates",)),
+        "coordinates": header_block(
+            text,
+            (
+                "coordinates",
+                "coordinates - distances",
+                "coord",
+                "input coordinate matrix",
+            ),
+        ),
         "reference": reference,
         "dois": dois,
     }

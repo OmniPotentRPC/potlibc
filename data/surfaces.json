@@ -696,7 +696,7 @@
       "documentation": {
         "formula": "Al, H, Al-H",
         "coordinates": "",
-        "reference": "",
+        "reference": "(1)\"valence-Bond Order(VBO): A New Approach to Modeling Reactive Potential Energy Surfaces for Materials and Nanoparticles\" Meiyu Zhao, Mark A. Iron, Przemys?aw Staszewski, Nathan E. Schultz, Rosendo Valero, and Donald G. Truhlar, manuscript in preparation, Oct.18, 2008.",
         "dois": []
       },
       "atom_count": {
@@ -754,7 +754,7 @@
       "documentation": {
         "formula": "AlmHn",
         "coordinates": "",
-        "reference": "",
+        "reference": "(1) Valence--Bond Order(VBO): A New Approach to Modeling Reactive Potential Energy Surfaces for Materials and Nanoparticles, Meiyu Zhao, Mark A. Iron, Przemyslaw Staszewski, Nathan E. Schultz, Rosendo Valero, and Donald G. Truhlar, manuscript in preparation, Oct.18, 2008.",
         "dois": []
       },
       "atom_count": {
@@ -812,7 +812,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "B. Betz and W. Husinsky, Nucl. Instrum. Methods B 122 (1997), 311.",
         "dois": []
       },
       "atom_count": {
@@ -868,7 +868,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "F. Cleri and V. Rosato, Phys. Rev. B 48, 22 (1993).",
         "dois": []
       },
       "atom_count": {
@@ -924,7 +924,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "H. Cox, R. L. Johnston, and J. N. Murrell, Surf. Sci., 373, 67 (1997).",
         "dois": []
       },
       "atom_count": {
@@ -980,7 +980,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -1036,7 +1036,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -1092,7 +1092,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -1169,7 +1169,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -1225,7 +1225,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -1281,7 +1281,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -1337,7 +1337,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -1393,7 +1393,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -1470,7 +1470,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -1526,7 +1526,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -1582,7 +1582,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -1638,7 +1638,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -1694,7 +1694,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -1750,7 +1750,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -1806,7 +1806,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -1862,7 +1862,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -1918,7 +1918,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -1974,7 +1974,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -2030,7 +2030,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -2086,7 +2086,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "S. Erkoc, Phys. Stat. Sol. (b) 161 (1990), 211. S. Erkoc, Empirical Potential Energy Functions Used in the Simulations of Materials Properties, Annual Reviews of Computational Physics IX, D. Stauffer, ed., World Scientific, Singapore 2001, pp. 1-103.",
         "dois": []
       },
       "atom_count": {
@@ -2142,7 +2142,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "S. Erkoc, Phys. Stat. Sol. (b) 161 (1990), 211. S. Erkoc, Empirical Potential Energy Functions Used in the Simulations of Materials Properties, Annual Reviews of Computational Physics IX, D. Stauffer, ed., World Scientific, Singapore 2001, pp. 1-103.",
         "dois": []
       },
       "atom_count": {
@@ -2198,7 +2198,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "S. Erkoc, Docga(A1), 9, 203 (1985). S. Erkoc, Empirical Potential Energy Functions Used in the Simulations of Materials Properties, Annual Reviews of Computational Physics IX, D. Stauffer, ed., World Scientific, Singapore 2001, pp. 1-103.",
         "dois": []
       },
       "atom_count": {
@@ -2273,7 +2273,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "H. Gollisch, Surface Science 166 (1986), 87.",
         "dois": []
       },
       "atom_count": {
@@ -2329,7 +2329,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "T. Halicioglu and G.M. Pound, Phys. Stat. Sol. (b) 30, 619 (1975).",
         "dois": []
       },
       "atom_count": {
@@ -2385,7 +2385,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "K. W. Jacobsen, Comments Cond. Mat. Phys. 14, 129 (1988).",
         "dois": []
       },
       "atom_count": {
@@ -2441,7 +2441,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "J. Mei and J. W. Davenport, Phys. Rev. B, 46, 21, (1992).",
         "dois": []
       },
       "atom_count": {
@@ -2497,7 +2497,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "Y. Mishin, D. Farkas, M. J. Mehl, and D. A. Papaconstantopoulos Mat. Res. Soc. Symp. Proc. 583, 535, (1999).",
         "dois": []
       },
       "atom_count": {
@@ -2553,7 +2553,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "(1) A. W. Jasper, N. E. Schultz, and D. G. Truhlar, \"Analytic Potential Energy Functions for Simulating Aluminum Nanoparticles,\" in preparation. (2) A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potential Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -2609,7 +2609,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "(1) A. W. Jasper, N. E. Schultz, and D. G. Truhlar, \"Analytic Potential Energy Functions for Simulating Aluminum Nanoparticles,\" in preparation. (2) A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potential Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -2671,7 +2671,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "(1) J. Mei and J. W. Davenport, Phys. Rev. B, 46, 21, (1992). (2) A. W. Jasper, N. E. Schultz, and D. G. Truhlar, \"Analytic Potential Energy Functions for Simulating Aluminum Nanoparticles,\" in preparation. (3) A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potential Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -2727,7 +2727,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "(1) J. Mei and J. W. Davenport, Phys. Rev. B, 46, 21, (1992). (2) A. W. Jasper, N. E. Schultz, and D. G. Truhlar, \"Analytic Potential Energy Functions for Simulating Aluminum Nanoparticles,\" in preparation. (3) A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potential Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -2789,7 +2789,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "(1) F. H. Streitz, and J. W. Mintmire, Phys. Rev. B, 50, 11996 (1994). (2) A. W. Jasper, N. E. Schultz, and D. G. Truhlar, \"Analytic Potential Energy Functions for Simulating Aluminum Nanoparticles,\" in preparation. (3) A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potential Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -2845,7 +2845,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "(1) H. Gollisch, Surface Science 166 (1986), 87. (2) A. W. Jasper, N. E. Schultz, and D. G. Truhlar, \"Analytic Potential Energy Functions for Simulating Aluminum Nanoparticles,\" in preparation. (3) A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potential Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -2901,7 +2901,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "(1) Y. Mishin, D. Farkas, M. J. Mehl, and D. A. Papaconstantopoulos Mat. Res. Soc. Symp. Proc. 583, 535, (1999). (2) A. W. Jasper, N. E. Schultz, and D. G. Truhlar, \"Analytic Potential Energy Functions for Simulating Aluminum Nanoparticles,\" in preparation. (3) A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potential Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -2957,7 +2957,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "N. I. Papanicolaou, H. Chamati, G. A. Evangelakis, D. A. Papaconstantopoulos, Computational Materials Science, 27, 191, (2003).",
         "dois": []
       },
       "atom_count": {
@@ -3013,7 +3013,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "N. I. Papanicolaou, G. C. Kallinteris, G. A. Evangelakis, D. A. Papaconstantopoulos, Computational Materials Science, 17, 224, (2000).",
         "dois": []
       },
       "atom_count": {
@@ -3069,7 +3069,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "E. Pearson, T. Takai, T. Halicioglu, and W.A. Tiller, J. Cryst. Growth 70, 33 (1984).",
         "dois": []
       },
       "atom_count": {
@@ -3146,7 +3146,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "D.G. Pettifor and M.A. Ward, Solid State Commun. 49, 291 (1984).",
         "dois": []
       },
       "atom_count": {
@@ -3202,7 +3202,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "F. H. Streitz, and J. W. Mintmire, Phys. Rev. B, 50, 11996 (1994).",
         "dois": []
       },
       "atom_count": {
@@ -3258,7 +3258,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. P. Sutton and J. Chen, Philos. Mag. Lett. 61, 139 (1990).",
         "dois": []
       },
       "atom_count": {
@@ -3314,7 +3314,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "P. de Sainte Claire, G. H. Peslherbe, and W. L. Hase J. Phys. Chem., 99, 8147 (1995).",
         "dois": []
       },
       "atom_count": {
@@ -3391,7 +3391,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "P. de Sainte Claire, G. H. Peslherbe, and W. L. Hase J. Phys. Chem., 99, 8147 (1995).",
         "dois": []
       },
       "atom_count": {
@@ -3447,7 +3447,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004). H. Cox, R. L. Johnston, and J. N. Murrell, Surf. Sci., 373, 67 (1997).",
         "dois": []
       },
       "atom_count": {
@@ -3503,7 +3503,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004). S. Erkoc, Phys. Stat. Sol. (b) 161 (1990), 211. S. Erkoc, Empirical Potential Energy Functions Used in the Simulations of Materials Properties, Annual Reviews of Computational Physics IX, D. Stauffer, ed., World Scientific, Singapore 2001, pp. 1-103.",
         "dois": []
       },
       "atom_count": {
@@ -3559,7 +3559,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004). S. Erkoc, Docga(A1), 9, 203 (1985). S. Erkoc, Empirical Potential Energy Functions Used in the Simulations of Materials Properties, Annual Reviews of Computational Physics IX, D. Stauffer, ed., World Scientific, Singapore 2001, pp. 1-103.",
         "dois": []
       },
       "atom_count": {
@@ -3634,7 +3634,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -3690,7 +3690,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004). H. Gollisch, Surface Science 166 (1986), 87.",
         "dois": []
       },
       "atom_count": {
@@ -3746,7 +3746,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004). T. Halicioglu and G. M. Pound, Phys. Stat. Sol. (b) 30, 619 (1975).",
         "dois": []
       },
       "atom_count": {
@@ -3802,7 +3802,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004). K. W. Jacobsen, Comments Cond. Mat. Phys. 14, 129 (1988).",
         "dois": []
       },
       "atom_count": {
@@ -3858,7 +3858,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004).",
         "dois": []
       },
       "atom_count": {
@@ -3935,7 +3935,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996 (2004). J. Mei and J. W. Davenport, Phys. Rev. B, 46, 21, (1992).",
         "dois": []
       },
       "atom_count": {
@@ -3991,7 +3991,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004). Y. Mishin, D. Farkas, M. J. Mehl, and D. A. Papaconstantopoulos Mat. Res. Soc. Symp. Proc. 583, 535, (1999).",
         "dois": []
       },
       "atom_count": {
@@ -4047,7 +4047,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004). D.G. Pettifor and M.A. Ward, Solid State Commun. 49, 291 (1984).",
         "dois": []
       },
       "atom_count": {
@@ -4103,7 +4103,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004). F. H. Streitz, and J. W. Mintmire, Phys. Rev. B, 50, 11996 (1994).",
         "dois": []
       },
       "atom_count": {
@@ -4159,7 +4159,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108 8996(2004). A. P. Sutton and J. Chen, Philos. Mag. Lett. 61, 139 (1990).",
         "dois": []
       },
       "atom_count": {
@@ -4215,7 +4215,7 @@
       "documentation": {
         "formula": "Aln",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, P. Staszewski, G. Staszewska, N. E. Schultz, and D. G. Truhlar, \"Analytic Potentials Energy Functions for Aluminum Clusters,\" J. Phys. Chem. B 108, 8996(2004). P. de Sainte Claire, G. H. Peslherbe, and W. L. Hase J. Phys. Chem., 99, 8147 (1995).",
         "dois": []
       },
       "atom_count": {
@@ -4278,7 +4278,7 @@
       "documentation": {
         "formula": "BrH2",
         "coordinates": "Internal, Definition: R(1) = R(Br-H) R(2) = R(H-H) R(3) = R(Br-H)",
-        "reference": "",
+        "reference": "D. C. Clary Chem. Phys. 71, 117 (1982) I. Last and M. Baer in Potential Energy Surfaces and Dynamics edited by D. G. Truhlar (Plenum, New York, 1981) p. 519",
         "dois": []
       },
       "atom_count": {
@@ -4420,7 +4420,7 @@
       "documentation": {
         "formula": "BrH2",
         "coordinates": "Internal, Definition: R(1) = R(Br-H) R(2) = R(H-H) R(3) = R(Br-H) Internal, Definition: R(1) = R(Br-H) R(2) = R(H-H) R(3) = R(Br-H)",
-        "reference": "",
+        "reference": "D. C. Clary Chem. Phys. 71, 117 (1982) I. Last and M. Baer in Potential Energy Surfaces and Dynamics edited by D. G. Truhlar (Plenum, New York, 1981) p. 519",
         "dois": []
       },
       "atom_count": {
@@ -4561,7 +4561,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "Internal, Definition: R(1) = R(Br-H) R(2) = R(H-H) R(3) = R(Br-H)",
-        "reference": "",
+        "reference": "R. Weston, J. Chem. Phys., Vol. 31, 892 (1959). S. Sato J. Chem. Phys. 592, 2465 (1955)",
         "dois": []
       },
       "atom_count": {
@@ -4615,7 +4615,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "Internal, Definition: R(1) = R(Br-H) R(2) = R(H-H) R(3) = R(Br-H)",
-        "reference": "",
+        "reference": "R. Weston, J. Chem. Phys., Vol. 31, 892 (1959). S. Sato J. Chem. Phys. 592, 2465 (1955)",
         "dois": []
       },
       "atom_count": {
@@ -5174,7 +5174,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "",
-        "reference": "",
+        "reference": "P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -5232,7 +5232,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "",
-        "reference": "",
+        "reference": "P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -5286,7 +5286,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "",
-        "reference": "",
+        "reference": "P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -5344,7 +5344,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "",
-        "reference": "",
+        "reference": "P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -5672,7 +5672,7 @@
       "documentation": {
         "formula": "C2H6 + X --> C2H5 + HX.",
         "coordinates": "",
-        "reference": "",
+        "reference": "C. Rangel and J. Espinosa-Garcia, Phys. Chem. Chem. Phys. 2018, 20, 3925 (original fit) J. Espinosa-Garcia, M. Garcia-Chamorro, J. C. Corchado, S. Bhowmick, and Y. V. Suleimanov, Phys. Chem. Chem. Phys. 2020, 22, 13790 (revised fit)",
         "dois": []
       },
       "atom_count": {
@@ -5873,7 +5873,7 @@
       "documentation": {
         "formula": "C2H6 + F --> C2H5 + HF.",
         "coordinates": "",
-        "reference": "",
+        "reference": "J. Espinosa-Garcia, J. C. Corchado, M. Garcia-Chamorro, and C. Rangel, Phys. Chem. Chem. Phys. 2018, 20, 19860 (original fit) J. Espinosa-Garcia, M. Garcia-Chamorro, J. C. Corchado, S. Bhowmick, and Y. V. Suleimanov, Phys. Chem. Chem. Phys. 2020, 22, 13790 (revised fit)",
         "dois": []
       },
       "atom_count": {
@@ -6082,7 +6082,7 @@
       "documentation": {
         "formula": "C2H6 + H --> C2H5 + H2.",
         "coordinates": "",
-        "reference": "",
+        "reference": "J. Espinosa-Garcia, M. Garcia-Chamorro, and J. C. Corchado, Phys. Chem. Chem. Phys. 2019, 21, 13165 (original fit) J. Espinosa-Garcia, M. Garcia-Chamorro, J. C. Corchado, S. Bhowmick, and Y. V. Suleimanov, Phys. Chem. Chem. Phys. 2020, 22, 13790 (revised fit)",
         "dois": []
       },
       "atom_count": {
@@ -6283,7 +6283,7 @@
       "documentation": {
         "formula": "C2H6 + O --> C2H5 + HO.",
         "coordinates": "",
-        "reference": "",
+        "reference": "J. Espinosa-Garcia, C. Rangel, J.C. Corchado and M. Garcia-Chamorro, PCCP, 22, 22591 (2020)",
         "dois": []
       },
       "atom_count": {
@@ -6484,7 +6484,7 @@
       "documentation": {
         "formula": "C2H6 + OH --> C2H5 + H2O.",
         "coordinates": "",
-        "reference": "",
+        "reference": "C. Rangel, M. Garcia-Chamorro, J.C. Corchado and J. Espinosa-Garcia, PCCP, 22 14796 (2020)",
         "dois": []
       },
       "atom_count": {
@@ -6693,8 +6693,8 @@
       "name": "c2h7",
       "documentation": {
         "formula": "C2H7",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9,3) Coordinates in Ang Energy in kcal **************************************************************",
+        "reference": "Arindam Chakraborty, Yan Zhao, Hai Lin, and Donald G. Truhlar, J. Chem. Phys., 124, 044315 (2006)",
         "dois": []
       },
       "atom_count": {
@@ -15162,7 +15162,7 @@
       "documentation": {
         "formula": "CH4",
         "coordinates": "",
-        "reference": "",
+        "reference": "D. W. Schwenke and H. Partridge, Spectrochim. Acta A 57, (2001) 887",
         "dois": []
       },
       "atom_count": {
@@ -15369,7 +15369,7 @@
       "documentation": {
         "formula": "CH4CN",
         "coordinates": "",
-        "reference": "",
+        "reference": "J.Espinosa-Garcia, C. Rangel and Y. Suleimanov, Phys.Chem.Chem.Phys. 2017, 19, 19341",
         "dois": []
       },
       "atom_count": {
@@ -15640,7 +15640,7 @@
       "documentation": {
         "formula": "CH4Cl",
         "coordinates": "",
-        "reference": "",
+        "reference": "Corchado, Truhlar and Espinosa JPC, 112, 9375, 2000",
         "dois": []
       },
       "atom_count": {
@@ -15775,7 +15775,7 @@
       "documentation": {
         "formula": "CH4Cl",
         "coordinates": "",
-        "reference": "",
+        "reference": "C. Rangel, M. Navarrete, J.C. Corchado and J. Espinosa-Garcia J.Chem.Phys. 124, 124306 (2006)",
         "dois": []
       },
       "atom_count": {
@@ -16202,7 +16202,7 @@
       "documentation": {
         "formula": "CH4F",
         "coordinates": "",
-        "reference": "J. Espinosa-Garcia, J.L. Bravo and C. Rangel J.Phys.Chem. A, 111, 2761 (2007).",
+        "reference": "C. Rangel, M. Navarrete, J.C. Corchado and J. Espinosa-Garcia J.Chem.Phys. 124, 124306 (2006) J. Espinosa-Garcia, J.L. Bravo and C. Rangel J.Phys.Chem. A, 111, 2761 (2007).",
         "dois": []
       },
       "atom_count": {
@@ -16337,7 +16337,7 @@
       "documentation": {
         "formula": "CH4O",
         "coordinates": "",
-        "reference": "",
+        "reference": "E. Gonzalez-Lavado, J.C. Corchado and J. Espinosa-Garcia J.Chem. Phys., Vol. 140, p. 064310, 2014.",
         "dois": []
       },
       "atom_count": {
@@ -16479,7 +16479,7 @@
       "documentation": {
         "formula": "CH4O",
         "coordinates": "",
-        "reference": "",
+        "reference": "J. Espinosa-Garcia, J. C. Garcia-Bernandez, Phys. Chem. Chem. Phys., Vol. 2, p. 2345, 2000.",
         "dois": []
       },
       "atom_count": {
@@ -16614,7 +16614,7 @@
       "documentation": {
         "formula": "CH4O",
         "coordinates": "",
-        "reference": "",
+        "reference": "J. Espinosa-Garcia, J. C. Garcia-Bernandez, Phys. Chem. Chem. Phys., Vol. 2, p. 2345, 2000.",
         "dois": []
       },
       "atom_count": {
@@ -16749,7 +16749,7 @@
       "documentation": {
         "formula": "CH4+O based on functional forms by",
         "coordinates": "",
-        "reference": "",
+        "reference": "J. C. Corchado, J. Espinosa-Garcia, O. Roberto-Neto, Y.-Y. Chuang, and D. G. Truhlar, J. Phys. Chem., Vol. 102, p. 4899, 1998.",
         "dois": []
       },
       "atom_count": {
@@ -16884,7 +16884,7 @@
       "documentation": {
         "formula": "CH4+O based on the surface by",
         "coordinates": "",
-        "reference": "",
+        "reference": "J. C. Corchado, J. Espinosa-Garcia, O. Roberto-Neto, Y.-Y. Chuang, and D. G. Truhlar, J. Phys. Chem., Vol. 102, p. 4899, 1998.",
         "dois": []
       },
       "atom_count": {
@@ -17019,7 +17019,7 @@
       "documentation": {
         "formula": "CH4O",
         "coordinates": "",
-        "reference": "",
+        "reference": "J. C. Corchado, J. Espinosa-Garcia, O. Roberto-Neto, Y.-Y. Chuang, and D. G. Truhlar, J. Phys. Chem., Vol. 102, p. 4899, 1998.",
         "dois": []
       },
       "atom_count": {
@@ -17154,7 +17154,7 @@
       "documentation": {
         "formula": "CH4OH",
         "coordinates": "",
-        "reference": "",
+        "reference": "J. Espinosa-Garcia, J. C. Corchado, J. Chem. Phys., Vol. 112, p. 5731, 2000.",
         "dois": []
       },
       "atom_count": {
@@ -17290,7 +17290,7 @@
       "documentation": {
         "formula": "CH4OH",
         "coordinates": "",
-        "reference": "",
+        "reference": "J. Espinosa-Garcia, J. C. Corchado, J. Chem. Phys., Vol. 112, p. 5731, 2000.",
         "dois": []
       },
       "atom_count": {
@@ -17426,7 +17426,7 @@
       "documentation": {
         "formula": "CH4OH",
         "coordinates": "",
-        "reference": "",
+        "reference": "J. Espinosa-Garcia and J. C. Corchado, Theor. Chem. Acc, 2015 134:6",
         "dois": []
       },
       "atom_count": {
@@ -20043,7 +20043,7 @@
       "documentation": {
         "formula": "ClH2",
         "coordinates": "Internal, Definition: R(1) = R(Cl-first H) R(2) = R(first H-second H) R(3) = R(Cl-second H)",
-        "reference": "",
+        "reference": "B. C. Garrett, D. G. Truhlar, and A. W. Magnuson J. Chem. Phys. 76, 2321 (1982) N. Agmon and R. D. Levine J. Chem. Phys. 71, 3034 (1979)",
         "dois": []
       },
       "atom_count": {
@@ -20536,7 +20536,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "",
-        "reference": "unpublished; P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
+        "reference": "unpublished P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966); P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -20806,7 +20806,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-H) R(3) = R(Cl-H)",
-        "reference": "A. Persky and F. S. Klein J. Chem. Phys. 44, 3617 (1966)",
+        "reference": "A. Persky and F. S. Klein J. Chem. Phys. 44, 3617 (1966) P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -20860,7 +20860,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-H) R(3) = R(Cl-H)",
-        "reference": "A. Persky and F. S. Klein J. Chem. Phys. 44, 3617 (1966)",
+        "reference": "A. Persky and F. S. Klein J. Chem. Phys. 44, 3617 (1966) P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -20914,7 +20914,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-H) R(3) = R(Cl-H)",
-        "reference": "B. C. Garrett, D. G. Truhlar, and A. W. Magnuson J. Chem. Phys. 74, 1029 (1981)",
+        "reference": "B. C. Garrett, D. G. Truhlar, and A. W. Magnuson J. Chem. Phys. 74, 1029 (1981) P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -20968,7 +20968,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-H) R(3) = R(Cl-H)",
-        "reference": "B. C. Garrett, D. G. Truhlar, and A. W. Magnuson J. Chem. Phys. 74, 1029 (1981)",
+        "reference": "B. C. Garrett, D. G. Truhlar, and A. W. Magnuson J. Chem. Phys. 74, 1029 (1981) P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -21022,7 +21022,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-H) R(3) = R(Cl-H)",
-        "reference": "B. C. Garrett, D. G. Truhlar, and A. W. Magnuson J. Chem. Phys. 74, 1029 (1981)",
+        "reference": "B. C. Garrett, D. G. Truhlar, and A. W. Magnuson J. Chem. Phys. 74, 1029 (1981) P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -21076,7 +21076,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-H) R(3) = R(Cl-H)",
-        "reference": "M. J. Stern, A. Persky, and F. S. Klein J. Chem. Phys. 58, 5697 (1973).",
+        "reference": "M. J. Stern, A. Persky, and F. S. Klein J. Chem. Phys. 58, 5697 (1973). P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -21130,7 +21130,7 @@
       "documentation": {
         "formula": "ClNH3",
         "coordinates": "",
-        "reference": "",
+        "reference": "M. Monge-Palacios, C. Rangel, J.C. Corchado and J. Espinosa-Garcia, Int.J.Quantum.Chem. 112, 1887 (2012)",
         "dois": []
       },
       "atom_count": {
@@ -21271,7 +21271,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "",
-        "reference": "",
+        "reference": "P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -21325,7 +21325,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "",
-        "reference": "",
+        "reference": "P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -21572,7 +21572,7 @@
       "documentation": {
         "formula": "F2H2",
         "coordinates": "",
-        "reference": "",
+        "reference": "W.C. Necoechea, D.G. Truhlar Chem. Phys. Lett. 248, (1995) 182 M. Quack, M. Suhm Mol. Phys. 69 (1990) P791 Kofranek et al Chem. Phys. 121 (1988) 137 Rijks and Wormer J. Chem. Phys. 90(1989) 6507",
         "dois": []
       },
       "atom_count": {
@@ -21663,7 +21663,7 @@
       "documentation": {
         "formula": "F2H2",
         "coordinates": "",
-        "reference": "",
+        "reference": "W.C. Necoechea, D.G. Truhlar Chem. Phys. Lett. 248, (1995) 182 M. Quack, M. Suhm Mol. Phys. 69 (1990) P791 Kofranek et al Chem. Phys. 121 (1988) 137 Rijks and Wormer J. Chem. Phys. 90(1989) 6507",
         "dois": []
       },
       "atom_count": {
@@ -21773,7 +21773,7 @@
       "documentation": {
         "formula": "F2H2",
         "coordinates": "",
-        "reference": "",
+        "reference": "M. Quack, M. Suhm Mol. Phys. 69 (1990) P791 Kofranek et al Chem. Phys. 121 (1988) 137 Rijks and Wormer J. Chem. Phys. 90(1989) 6507",
         "dois": []
       },
       "atom_count": {
@@ -21863,7 +21863,7 @@
       "documentation": {
         "formula": "F2H2",
         "coordinates": "",
-        "reference": "",
+        "reference": "M. Quack, M. Suhm Mol. Phys. 69 (1990) P791 Kofranek et al Chem. Phys. 121 (1988) 137 Rijks and Wormer J. Chem. Phys. 90(1989) 6507 M. Quack, M. Suhm Mol. Phys. 69 (1990) P791 Kofranek et al Chem. Phys. 121 (1988) 137 Rijks and Wormer J. Chem. Phys. 90(1989) 6507",
         "dois": []
       },
       "atom_count": {
@@ -21934,7 +21934,7 @@
       "documentation": {
         "formula": "FH2",
         "coordinates": "",
-        "reference": "",
+        "reference": "R. Steckler, D.G. Truhlar, and B.C. Garrett, J. Chem. Phys. vol. 82, pp. 5499-5505 (1985).",
         "dois": []
       },
       "atom_count": {
@@ -21993,7 +21993,7 @@
       "documentation": {
         "formula": "FH2",
         "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
-        "reference": "",
+        "reference": "G. C. Lynch, R. Steckler, D.W. Schwenke, A.J.C. Varandas, D.G. Truhlar, and B.C. Garrett, J. Chem. Phys. 94, 7136-7149 (1991)",
         "dois": []
       },
       "atom_count": {
@@ -22117,7 +22117,7 @@
       "documentation": {
         "formula": "FH2",
         "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
-        "reference": "",
+        "reference": "G. C. Lynch, R. Steckler, D.W. Schwenke, A.J.C. Varandas, D.G. Truhlar, and B.C. Garrett, J. Chem. Phys. 94, 7136-7149 (1991)",
         "dois": []
       },
       "atom_count": {
@@ -24507,7 +24507,7 @@
       "documentation": {
         "formula": "FH2",
         "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
-        "reference": "",
+        "reference": "G. C. Lynch, P. Halvick, M. Zhao, D. G. Truhlar, C.-h. Yu, D. J. Kouri, and D. W. Schwenke J. Chem. Phys. 94, 7150-7158 (1991)",
         "dois": []
       },
       "atom_count": {
@@ -24631,7 +24631,7 @@
       "documentation": {
         "formula": "FH2",
         "coordinates": "Internal, Definition: R(1) = R(F-H) R(2) = R(H-H) R(3) = R(H-F)",
-        "reference": "",
+        "reference": "G. C. Lynch, P. Halvick, M. Zhao, D. G. Truhlar, C.-h. Yu, D. J. Kouri, and D. W. Schwenke J. Chem. Phys. 94, 7150-7158 (1991)",
         "dois": []
       },
       "atom_count": {
@@ -25005,7 +25005,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "Internal, Definition: R(1) = R(F-first H) R(2) = R(first H-second H) R(3) = R(F-second H)",
-        "reference": "J. T. Muckerman Theor. Chem. Advan. Perspectives 6A, 1 (1981)",
+        "reference": "J. T. Muckerman Theor. Chem. Advan. Perspectives 6A, 1 (1981) P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -25063,7 +25063,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "Internal, Definition: R(1) = R(F-first H) R(2) = R(first H-second H) R(3) = R(F-second H)",
-        "reference": "J. T. Muckerman Theor. Chem. Advan. Perspectives 6A, 1 (1981)",
+        "reference": "J. T. Muckerman Theor. Chem. Advan. Perspectives 6A, 1 (1981) P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -25117,7 +25117,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "",
-        "reference": "",
+        "reference": "P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -25171,7 +25171,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "",
-        "reference": "",
+        "reference": "P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -25229,7 +25229,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "",
-        "reference": "",
+        "reference": "P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -25287,7 +25287,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "",
-        "reference": "",
+        "reference": "P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -26340,7 +26340,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "Internal, Definition: R(1) = R(F-first H) R(2) = R(first H-second H) R(3) = R(second H-F)",
-        "reference": "G. C. Schatz and A. Kuppermann J. Chem. Phys. 72, 2737 (1980).",
+        "reference": "G. C. Schatz and A. Kuppermann J. Chem. Phys. 72, 2737 (1980). P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -26394,7 +26394,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "Internal, Definition: R(1) = R(F-first H) R(2) = R(first H-second H) R(3) = R(second H-F)",
-        "reference": "G. C. Schatz and A. Kuppermann J. Chem. Phys. 72, 2737 (1980).",
+        "reference": "G. C. Schatz and A. Kuppermann J. Chem. Phys. 72, 2737 (1980). P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -26452,7 +26452,7 @@
       "documentation": {
         "formula": "GeH4OH",
         "coordinates": "",
-        "reference": "",
+        "reference": "J. Espinosa-Garcia, C. Rangel and J.C. Corchado Phys. Chem. Chem. Phys. 18, 16941 (2016)",
         "dois": []
       },
       "atom_count": {
@@ -26595,7 +26595,7 @@
       "documentation": {
         "formula": "GeH5",
         "coordinates": "",
-        "reference": "",
+        "reference": "J. Espinosa-Garcia, J. Chem. Phys., Vol. 111, p. 9330, 1999.",
         "dois": []
       },
       "atom_count": {
@@ -26737,7 +26737,7 @@
       "documentation": {
         "formula": "GeH5",
         "coordinates": "",
-        "reference": "",
+        "reference": "J. Espinosa-Garcia, J. Chem. Phys., Vol. 111, p. 9330, 1999.",
         "dois": []
       },
       "atom_count": {
@@ -26872,7 +26872,7 @@
       "documentation": {
         "formula": "H2O2, see Koput, J.; Carter, S.; Handy, N. C.;",
         "coordinates": "",
-        "reference": "Koput,Carter,&Handy, JPC A, 102, 6325 (1998).",
+        "reference": "Koput, J.; Carter, S.; Handy, N. C.; J. Phys. Chem. A, 102 (1998) 6325. Koput,Carter,&Handy, JPC A, 102, 6325 (1998).",
         "dois": []
       },
       "atom_count": {
@@ -27028,7 +27028,7 @@
       "documentation": {
         "formula": "H3",
         "coordinates": "",
-        "reference": "",
+        "reference": "SL Mielke, BC Garrett, and KA Peterson, J. Chem. Phys. 116 (2002) 4142.",
         "dois": []
       },
       "atom_count": {
@@ -27137,7 +27137,7 @@
       "documentation": {
         "formula": "H3",
         "coordinates": "",
-        "reference": "",
+        "reference": "SL Mielke, BC Garrett, and KA Peterson, J. Chem. Phys. 116 (2002) 4142.",
         "dois": []
       },
       "atom_count": {
@@ -27244,7 +27244,7 @@
       "documentation": {
         "formula": "H3",
         "coordinates": "",
-        "reference": "",
+        "reference": "SL Mielke, BC Garrett, and KA Peterson, J. Chem. Phys. 116 (2002) 4142.",
         "dois": []
       },
       "atom_count": {
@@ -27359,7 +27359,7 @@
       "documentation": {
         "formula": "H3",
         "coordinates": "",
-        "reference": "",
+        "reference": "SL Mielke, BC Garrett, and KA Peterson, J. Chem. Phys. 116 (2002) 4142.",
         "dois": []
       },
       "atom_count": {
@@ -27474,7 +27474,7 @@
       "documentation": {
         "formula": "H3",
         "coordinates": "",
-        "reference": "",
+        "reference": "Steven L. Mielke, David W. Schwenke, George C. Schatz, Bruce C. Garrett, and Kirk A. Peterson, J. Phys. Chem. A 113, 4479 (2009). Steven L. Mielke, Bruce C. Garrett, and Kirk A. Peterson, J. Chem. Phys. 116, 4142 (2002).",
         "dois": []
       },
       "atom_count": {
@@ -27840,7 +27840,7 @@
       "documentation": {
         "formula": "H3",
         "coordinates": "",
-        "reference": "",
+        "reference": "A.I.Boothroyd, W.J.Keogh, P.G.Martin, M.R.Peterson Journal of Chemical Physics 95 pp4343-4359 (Sept15/91) and JCP 104 pp 7139-7152 (May8/96)",
         "dois": []
       },
       "atom_count": {
@@ -28389,7 +28389,7 @@
       "documentation": {
         "formula": "H3",
         "coordinates": "Internal, Definition: R(1) = R(first H-second H) R(2) = R(second H-third H) R(3) = R(third H-first H)",
-        "reference": "",
+        "reference": "A. J. C. Varandas, F. B. Brown, C. A. Mead, D. G. Truhlar, and N. C. Blais J. Chem. Phys. 86, 6258 (1987). B. Liu & P. Siegbahn, J. Chem. Phys., 68, 2457, 1978; D.G. Truhlar & C.J. Horowitz, J. Chem. Phys., 68, 2466, 1978; A.J.C. Varandas, Mol. Phys., 53, 1303, 1984; A.J.C. Varandas, J. Mol. Struct. (Theochem), 21, 401, 1985;",
         "dois": []
       },
       "atom_count": {
@@ -29215,7 +29215,7 @@
       "documentation": {
         "formula": "H3plus",
         "coordinates": "",
-        "reference": "",
+        "reference": "V. G. Ushakov, K. Nobusada, and V. I. Osherov, Phys. Chem. Chem. Phys., Vol. 3, 63 (2001); H. Kamisaka, W. Bian, K. Nobusada, and H. Nakamura, J. Chem. Phys. Vol. 116, 654 (2002).",
         "dois": []
       },
       "atom_count": {
@@ -29274,7 +29274,7 @@
       "documentation": {
         "formula": "H3plus",
         "coordinates": "",
-        "reference": "",
+        "reference": "V. G. Ushakov, K. Nobusada, and V. I. Osherov, Phys. Chem. Chem. Phys., Vol. 3, 63 (2001); H. Kamisaka, W. Bian, K. Nobusada, and H. Nakamura, J. Chem. Phys. Vol. 116, 654 (2002).",
         "dois": []
       },
       "atom_count": {
@@ -29333,7 +29333,7 @@
       "documentation": {
         "formula": "H3plus",
         "coordinates": "",
-        "reference": "",
+        "reference": "V. G. Ushakov, K. Nobusada, and V. I. Osherov, Phys. Chem. Chem. Phys., Vol. 3, 63 (2001)",
         "dois": []
       },
       "atom_count": {
@@ -29392,7 +29392,7 @@
       "documentation": {
         "formula": "H3plus",
         "coordinates": "",
-        "reference": "",
+        "reference": "V. G. Ushakov, K. Nobusada, and V. I. Osherov, Phys. Chem. Chem. Phys., Vol. 3, 63 (2001)",
         "dois": []
       },
       "atom_count": {
@@ -29559,7 +29559,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "",
-        "reference": "C. A. Parr and D. G. Truhlar, J. Phys. Chem., Vol. 75, 1844 (1971).",
+        "reference": "C. A. Parr and D. G. Truhlar, J. Phys. Chem., Vol. 75, 1844 (1971). P. J. Kuntz, E. M. Nemeth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168-1184 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -29613,7 +29613,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "",
-        "reference": "",
+        "reference": "P. J. Kuntz, E. M. Nemeth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168-1184 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -29671,7 +29671,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "",
-        "reference": "C. A. Parr and D. G. Truhlar, J. Phys. Chem., Vol. 75, 1844 (1971).",
+        "reference": "C. A. Parr and D. G. Truhlar, J. Phys. Chem., Vol. 75, 1844 (1971). P. J. Kuntz, E. M. Nemeth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168-1184 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -29725,7 +29725,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "",
-        "reference": "",
+        "reference": "P. J. Kuntz, E. M. Nemeth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168-1184 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -29783,7 +29783,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "",
-        "reference": "",
+        "reference": "P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -29837,7 +29837,7 @@
       "documentation": {
         "formula": "ABC",
         "coordinates": "",
-        "reference": "",
+        "reference": "P. J. Kuntz, E. M. Nemth, J. C. Polanyi, S. D. Rosner, and C. E. Young J. Chem. Phys. 44, 1168 (1966)",
         "dois": []
       },
       "atom_count": {
@@ -30117,7 +30117,7 @@
       "documentation": {
         "formula": "IH2",
         "coordinates": "",
-        "reference": "",
+        "reference": "J. W. Duff and D. G. Truhlar, J. Chem. Phys., Vol. 52, 2477 (1975).",
         "dois": []
       },
       "atom_count": {
@@ -30237,7 +30237,7 @@
       "documentation": {
         "formula": "IH2",
         "coordinates": "",
-        "reference": "",
+        "reference": "J. W. Duff and D. G. Truhlar, J. Chem. Phys., Vol. 52, 2477 (1975).",
         "dois": []
       },
       "atom_count": {
@@ -30384,7 +30384,7 @@
       "documentation": {
         "formula": "LiFH",
         "coordinates": "Internal, Definition: R(1) = R(Li-H) R(2) = R(H-F) R(3) = R(Li-F)",
-        "reference": "A. W. Jasper, M. D. Hack, D. G. Truhlar, and P. Piecuch, J. Chem. Phys., prepared for publication.",
+        "reference": "A. W. Jasper, M. D. Hack, D. G. Truhlar, and P. Piecuch, J. Chem. Phys., Vol. 116, 8353 (2002). A. W. Jasper, M. D. Hack, D. G. Truhlar, and P. Piecuch, J. Chem. Phys., prepared for publication.",
         "dois": []
       },
       "atom_count": {
@@ -30513,7 +30513,7 @@
       "documentation": {
         "formula": "LiFH",
         "coordinates": "Internal, Definition: R(1) = R(Li-H) R(2) = R(H-F) R(3) = R(Li-F)",
-        "reference": "A. W. Jasper, M. D. Hack, D. G. Truhlar, and P. Piecuch, J. Chem. Phys., in preparation.",
+        "reference": "A. W. Jasper, M. D. Hack, D. G. Truhlar, and P. Piecuch, J. Chem. Phys., Vol. 116, 8353 (2002). A. W. Jasper, M. D. Hack, D. G. Truhlar, and P. Piecuch, J. Chem. Phys., in preparation.",
         "dois": []
       },
       "atom_count": {
@@ -30620,7 +30620,7 @@
       "documentation": {
         "formula": "LiFH",
         "coordinates": "Internal, Definition: R(1) = R(Li-H) R(2) = R(H-F) R(3) = R(Li-F)",
-        "reference": "",
+        "reference": "A. W. Jasper, M. D. Hack, A. Chakraborty, D. G. Truhlar, and P. Piecuch, J. Chem. Phys. 115, 7945 (2001).",
         "dois": []
       },
       "atom_count": {
@@ -31792,8 +31792,8 @@
       "name": "N4(adiabatic ground state)",
       "documentation": {
         "formula": "N4",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(12)in Ang N1: X(1),X(2),X(3) N2: X(4),X(5),X(6) N3: X(7),X(8),X(9) N4: X(10),X(11),X(12)",
+        "reference": "J. Li, Z. Varga, D. G. Truhlar, and H. Guo J. Chem. Theory Comput. 16, 4822 (2020). Z. Varga, J. Li, D. G. Truhlar, and H. Guo, MEG3 surface for N4, in: POTLIB: An Online Library of Potential Energy Surfaces, comp.chem.umn.edu/potlib/",
         "dois": []
       },
       "atom_count": {
@@ -32132,7 +32132,7 @@
       "documentation": {
         "formula": "N4",
         "coordinates": "",
-        "reference": "",
+        "reference": "J. Li, Z. Varga, D. G. Truhlar, and H. Guo J. Chem. Theory Comput. 16, 4822 (2020).",
         "dois": []
       },
       "atom_count": {
@@ -32415,8 +32415,8 @@
       "name": "N4(adiabatic ground state)",
       "documentation": {
         "formula": "N4",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(12)in Ang N1: X(1),X(2),X(3) N2: X(4),X(5),X(6) N3: X(7),X(8),X(9) N4: X(10),X(11),X(12)",
+        "reference": "J. Li, Z. Varga, D. G. Truhlar, and H. Guo J. Chem. Theory Comput. 16, 4822 (2020).",
         "dois": []
       },
       "atom_count": {
@@ -32735,8 +32735,8 @@
       "name": "N4(adiabatic ground state)",
       "documentation": {
         "formula": "N4",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(12)in Ang N1: X(1),X(2),X(3) N2: X(4),X(5),X(6) N3: X(7),X(8),X(9) N4: X(10),X(11),X(12)",
+        "reference": "Bender, Valentini, Nompelis, Paukku, Varga, Truhlar, Schwartzentruber, and Candler, Journal of Chemical Physics, submitted. Manuscript no. A15.02.0237",
         "dois": []
       },
       "atom_count": {
@@ -33010,8 +33010,8 @@
       "name": "N4(adiabatic ground state)",
       "documentation": {
         "formula": "N4",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(12)in Ang N1: X(1),X(2),X(3) N2: X(4),X(5),X(6) N3: X(7),X(8),X(9) N4: X(10),X(11),X(12)",
+        "reference": "Bender, Valentini, Nompelis, Paukku, Varga, Truhlar, Schwartzentruber, and Candler, Journal of Chemical Physics, submitted. Manuscript no. A15.02.0237",
         "dois": []
       },
       "atom_count": {
@@ -33206,8 +33206,8 @@
       "name": "N4(adiabatic ground state)",
       "documentation": {
         "formula": "N4",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(12)in Ang N1: X(1),X(2),X(3) N2: X(4),X(5),X(6) N3: X(7),X(8),X(9) N4: X(10),X(11),X(12)",
+        "reference": "Yuliya, Paukku, Ke R. Yang, Zoltan Varga, and Donald G. Truhlar J. Chem. Phys. 139, 044309 (2013).",
         "dois": []
       },
       "atom_count": {
@@ -33402,8 +33402,8 @@
       "name": "N4(adiabatic ground state)",
       "documentation": {
         "formula": "N4",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(12)in Ang N1: X(1),X(2),X(3) N2: X(4),X(5),X(6) N3: X(7),X(8),X(9) N4: X(10),X(11),X(12)",
+        "reference": "Yuliya, Paukku, Ke R. Yang, Zoltan Varga, and Donald G. Truhlar J. Chem. Phys. 139, 044309 (2013).",
         "dois": []
       },
       "atom_count": {
@@ -33598,8 +33598,8 @@
       "name": "N4(adiabatic ground state)",
       "documentation": {
         "formula": "N4",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(12)in Ang N1: X(1),X(2),X(3) N2: X(4),X(5),X(6) N3: X(7),X(8),X(9) N4: X(10),X(11),X(12)",
+        "reference": "Yuliya, Paukku, Ke R. Yang, Zoltan Varga, and Donald G. Truhlar J. Chem. Phys., submitted",
         "dois": []
       },
       "atom_count": {
@@ -33795,7 +33795,7 @@
       "documentation": {
         "formula": "N4",
         "coordinates": "",
-        "reference": "",
+        "reference": "Jason D. Bender, Sriram Doraiswamy, Donald G. Truhlar, and Graham V. Candler, J. Chem. Phys., forthcoming",
         "dois": []
       },
       "atom_count": {
@@ -34195,8 +34195,8 @@
       "name": "NH3 (code 1, not as optimized as code 2)",
       "documentation": {
         "formula": "NH3",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "x1,y1,z1...x4,y4,z4",
+        "reference": "1) Nangia, S.; Truhlar, D.G. J. Chem. Phys. 2006, 124, 124309 2) Li, Z.H.; Valero, R., Truhlar, D.G. Theor. Chem. Acc. 2007, 118, 9-24.",
         "dois": []
       },
       "atom_count": {
@@ -34550,8 +34550,8 @@
       "name": "NH3 (code 2, optimized)",
       "documentation": {
         "formula": "NH3",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "x1,y1,z1...x4,y4,z4",
+        "reference": "1) Nangia, S.; Truhlar, D.G. J. Chem. Phys. 2006, 124, 124309 2) Li, Z.H.; Valero, R., Truhlar, D.G. Theor. Chem. Acc. 2007, 118, 9-24.",
         "dois": []
       },
       "atom_count": {
@@ -35072,7 +35072,7 @@
       "documentation": {
         "formula": "NH3OH",
         "coordinates": "",
-        "reference": "",
+        "reference": "M. Monge-Palacios, C. Rangel and J. Espinosa-Garcia, J.Chem.Phys. 138, 084305 (2013)",
         "dois": []
       },
       "atom_count": {
@@ -35213,7 +35213,7 @@
       "documentation": {
         "formula": "NH4",
         "coordinates": "",
-        "reference": "",
+        "reference": "J. C. Corchado, J. Espinosa-Garcia, J. Chem. Phys., Vol. 106, p. 4013, 1997.",
         "dois": []
       },
       "atom_count": {
@@ -35354,7 +35354,7 @@
       "documentation": {
         "formula": "NH4",
         "coordinates": "",
-        "reference": "",
+        "reference": "J. C. Corchado, J. Espinosa-Garcia, J. Chem. Phys., Vol. 106, p. 4013, 1997.",
         "dois": []
       },
       "atom_count": {
@@ -35853,7 +35853,7 @@
       "documentation": {
         "formula": "NaFH",
         "coordinates": "",
-        "reference": "",
+        "reference": "A. W. Jasper, M. D. Hack, A. Chakraborty, D. G. Truhlar, and P. Piecuch, J. Chem. Phys. 115, 7945 (2001).",
         "dois": []
       },
       "atom_count": {
@@ -36008,7 +36008,7 @@
       "documentation": {
         "formula": "NaFH",
         "coordinates": "",
-        "reference": "",
+        "reference": "M.S. Topaler, D.G. Truhlar, X.Y. Chang, P. Piecuch, and J.C. Polanyi, J. Chem. Phys. 108, 5349 (1998).",
         "dois": []
       },
       "atom_count": {
@@ -36530,7 +36530,7 @@
       "documentation": {
         "formula": "NaH2",
         "coordinates": "Internal, Definition: R(1) = R(Na-H) R(2) = R(H-H') R(3) = R(Na-H') The final version of surface 6, completed on 9/24/98 This version contains derivatives, to be used with trajectory and other codes . . . It is based on version 5g of the NaH2 potential, in turn based on 5f.",
-        "reference": "P. Halvick and D. G. Truhlar, J. Chem. Phys. 96,2895 (1992). The \"zero\" of energy occurs when the Na atom is \"infinitely\" far from the H2 diatom and the H2 diatom is at its equilibrium geometry.",
+        "reference": "M. D. Hack and D. G. Truhlar, J. Chem. Phys. 112, 9716 (2000) P. Halvick and D. G. Truhlar, J. Chem. Phys. 96,2895 (1992). The \"zero\" of energy occurs when the Na atom is \"infinitely\" far from the H2 diatom and the H2 diatom is at its equilibrium geometry.",
         "dois": []
       },
       "atom_count": {
@@ -36660,7 +36660,7 @@
       "documentation": {
         "formula": "NaH2",
         "coordinates": "Internal, Definition: R(1) = R(Na-H) R(2) = R(H-H') R(3) = R(Na-H') This is NaH2 potential matrix 7l, finalized on 5/17/99 This version contains long range forces. The potential is called by first issuing a call to PREPOT which initializes all surfaces. The potential is called by calling POT with the parameters r, e, nt, nsurf. r(nt,3) and ei(nt) are double precision arrays of dimension nt which is an integer representing the number of geometries input. The integer nsurf selects the desired surface. nsurf=1 is the lower diabatic surface, nsurf=2 is the coupling surface, nsurf=3 is the upper diabatic surface, nsurf = 4 selects the lower adiabatic surface, and nsurf = 5 selects the upper adiabatic surface",
-        "reference": "",
+        "reference": "Unpublished, M. D. Hack and D. G. Truhlar (2000).",
         "dois": []
       },
       "atom_count": {
@@ -36863,7 +36863,7 @@
       "documentation": {
         "formula": "NaH2",
         "coordinates": "Internal, Definition: R(1) = R(Na-H) R(2) = R(H-H') R(3) = R(Na-H')",
-        "reference": "",
+        "reference": "Unpublished, M. D. Hack and D. G. Truhlar (2000).",
         "dois": []
       },
       "atom_count": {
@@ -36993,7 +36993,7 @@
       "documentation": {
         "formula": "NaH2",
         "coordinates": "Internal, Definition: R(1) = R(Na-H) R(2) = R(H-H') R(3) = R(Na-H')",
-        "reference": "",
+        "reference": "Unpublished, M. D. Hack and D. G. Truhlar (2000).",
         "dois": []
       },
       "atom_count": {
@@ -37196,7 +37196,7 @@
       "documentation": {
         "formula": "NaH2",
         "coordinates": "Internal, Definition: R(1) = R(Na-H) R(2) = R(H-H') R(3) = R(Na-H')",
-        "reference": "",
+        "reference": "Unpublished, M. D. Hack and D. G. Truhlar (2000).",
         "dois": []
       },
       "atom_count": {
@@ -37336,7 +37336,7 @@
       "documentation": {
         "formula": "NinR",
         "coordinates": "",
-        "reference": "",
+        "reference": "S.E. Wonchoba and D.G. Truhlar, J. Phys. Chem. B 102, 6842 (1998). This version of the potential energy surface was provided to POTLIB by Yao-Yuan Chuang (Nov. 8, 2007).",
         "dois": []
       },
       "atom_count": {
@@ -37828,7 +37828,7 @@
       "documentation": {
         "formula": "NinR",
         "coordinates": "",
-        "reference": "",
+        "reference": "S.E. Wonchoba, W.-P. Hu, and D.G. Truhlar, Physical Review B 51, 9985 (1995). This version of the potential energy surface was provided to POTLIB by Yao-Yuan Chuang (Nov. 8, 2007).",
         "dois": []
       },
       "atom_count": {
@@ -38109,7 +38109,7 @@
       "documentation": {
         "formula": "NinR",
         "coordinates": "",
-        "reference": "",
+        "reference": "S.E. Wonchoba and D.G. Truhlar, Physical Review B 53, 11222 (1996). This version of the potential energy surface was provided to POTLIB by Yao-Yuan Chuang (Nov. 8, 2007).",
         "dois": []
       },
       "atom_count": {
@@ -38399,7 +38399,7 @@
       "documentation": {
         "formula": "NinR",
         "coordinates": "",
-        "reference": "",
+        "reference": "S.E. Wonchoba and D.G. Truhlar, J. Phys. Chem. B 102, 6842 (1998). This version of the potential energy surface was provided to POTLIB by Yao-Yuan Chuang (Nov. 8, 2007).",
         "dois": []
       },
       "atom_count": {
@@ -39073,7 +39073,7 @@
       "documentation": {
         "formula": "OH2",
         "coordinates": "Internal, Definition: R(1) = R(O-first H) R(2) = R(first H-second H) R(3) = R(second H-O)",
-        "reference": "",
+        "reference": "G. C. Schatz J. Chem. Phys. 83, 5677 (1985) B. R. Johnson and N. W. Winter J. Chem. Phys. 66, 4116 (1977).",
         "dois": []
       },
       "atom_count": {
@@ -39126,7 +39126,7 @@
       "documentation": {
         "formula": "OH2",
         "coordinates": "Internal, Definition: R(1) = R(O-first H) R(2) = R(first H-second H) R(3) = R(second H-O) Internal, Definition: R(1) = R(O-first H) R(2) = R(first H-second H) R(3) = R(second H-O)",
-        "reference": "",
+        "reference": "G. C. Schatz J. Chem. Phys. 83, 5677 (1985) B. R. Johnson and N. W. Winter J. Chem. Phys. 66, 4116 (1977).",
         "dois": []
       },
       "atom_count": {
@@ -39198,7 +39198,7 @@
       "documentation": {
         "formula": "OH2",
         "coordinates": "",
-        "reference": "",
+        "reference": "B. C. Garrett and D. G. Truhlar Int. J. Quantum Chem. 29, 1463 (1986)",
         "dois": []
       },
       "atom_count": {
@@ -39277,7 +39277,7 @@
       "documentation": {
         "formula": "OH2 A'' surface",
         "coordinates": "",
-        "reference": "",
+        "reference": "B. C. Garrett and D. G. Truhlar Int. J. Quantum Chem. 29, 1463 (1986)",
         "dois": []
       },
       "atom_count": {
@@ -39376,7 +39376,7 @@
       "documentation": {
         "formula": "OH2",
         "coordinates": "",
-        "reference": "",
+        "reference": "B. C. Garrett and D. G. Truhlar Int. J. Quantum Chem. 29, 1463 (1986)",
         "dois": []
       },
       "atom_count": {
@@ -39455,7 +39455,7 @@
       "documentation": {
         "formula": "OH2 A' surface",
         "coordinates": "",
-        "reference": "",
+        "reference": "B. C. Garrett and D. G. Truhlar Int. J. Quantum Chem. 29, 1463 (1986)",
         "dois": []
       },
       "atom_count": {
@@ -40609,7 +40609,7 @@
       "documentation": {
         "formula": "SiH5",
         "coordinates": "",
-        "reference": "",
+        "reference": "J. Espinosa-Garcia, J. Sanson, J. C. Corchado, J. Chem. Phys. Vol. 102, p. 5669, 1995.",
         "dois": []
       },
       "atom_count": {
@@ -40744,7 +40744,7 @@
       "documentation": {
         "formula": "SiH5",
         "coordinates": "",
-        "reference": "",
+        "reference": "J. Espinosa-Garcia, J. Sanson, J. C. Corchado, J. Chem. Phys. Vol. 102, p. 5669, 1995.",
         "dois": []
       },
       "atom_count": {
@@ -40879,7 +40879,7 @@
       "documentation": {
         "formula": "SiOH",
         "coordinates": "",
-        "reference": "",
+        "reference": "(1) JApplPhys89(11) 2001 6013 (2) JChemPhys 89(9) 1988 5818",
         "dois": []
       },
       "atom_count": {
@@ -40946,7 +40946,7 @@
       "documentation": {
         "formula": "YRH",
         "coordinates": "Internal, Definition: R(1) = R(Y-R) R(2) = R(R-H) R(3) = R(H-Y)",
-        "reference": "",
+        "reference": "A. W. Jasper, M. D. Hack, and D. G. Truhlar, J. Chem. Phys., Vol. 115, p. 1804, 2001.",
         "dois": []
       },
       "atom_count": {
@@ -41733,8 +41733,8 @@
       "name": "N2O-3Ap (adiabatic triplet ground state)",
       "documentation": {
         "formula": "N2O (lowest 3A' state)",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(12)in Ang O1: X(1),X(2),X(3) O2: X(4),X(5),X(6) N3: X(7),X(8),X(9) N4: X(10),X(11),X(12)",
+        "reference": "W. Lin, Z. Varga, G. Song, Y. Paukku, and D. G. Truhlar, Global Triplet Potential Energy Surfaces for the N2(X 1\u00ce\u00a3) + O(3P) \u00e2\u0086\u0092 NO(X 2\u00ce ) + N(4S) Reaction, J. Chem. Phys. 2016, 144, 024309. Z. Varga, W. Lin, G. Song, Y. Paukku, and D. G. Truhlar, MEG2 surfaces for N2O, in: POTLIB: An Online Library of Potential Energy Surfaces, comp.chem.umn.edu/potlib/",
         "dois": []
       },
       "atom_count": {
@@ -42116,8 +42116,8 @@
       "name": "N2O-3App(adiabatic triplet ground state)",
       "documentation": {
         "formula": "N2O (lowest 3A\" state)",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(12)in Ang O1: X(1),X(2),X(3) O2: X(4),X(5),X(6) N3: X(7),X(8),X(9) N4: X(10),X(11),X(12)",
+        "reference": "W. Lin, Z. Varga, G. Song, Y. Paukku, and D. G. Truhlar, Global Triplet Potential Energy Surfaces for the N2(X 1\u00ce\u00a3) + O(3P) \u00e2\u0086\u0092 NO(X 2\u00ce ) + N(4S) Reaction, J. Chem. Phys. 2016, 144, 024309. Z. Varga, W. Lin, G. Song, Y. Paukku, and D. G. Truhlar, MEG2 surfaces for N2O, in: POTLIB: An Online Library of Potential Energy Surfaces, comp.chem.umn.edu/potlib/",
         "dois": []
       },
       "atom_count": {
@@ -42492,8 +42492,8 @@
       "name": "N2O2(adiabatic triplet ground state)",
       "documentation": {
         "formula": "N2O2",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(12)in Ang O1: X(1),X(2),X(3) O2: X(4),X(5),X(6) N3: X(7),X(8),X(9) N4: X(10),X(11),X(12)",
+        "reference": "W. Lin, Z. Varga, G. Song, Y. Paukku, D. G. Truhlar J. Chem. Phys. 2016, 144, 024309 Z. Varga, R. Meana-Pa\u00c3\u0083\u00c2\u00b1eda, G. Song, Y. Paukku, and D. G. Truhlar J. Chem. Phys. Submitted",
         "dois": []
       },
       "atom_count": {
@@ -42824,8 +42824,8 @@
       "name": "N2O2(adiabatic triplet ground state)",
       "documentation": {
         "formula": "N2O2",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(12)in Ang O1: X(1),X(2),X(3) O2: X(4),X(5),X(6) N3: X(7),X(8),X(9) N4: X(10),X(11),X(12)",
+        "reference": "W. Lin, Z. Varga, G. Song, Y. Paukku, D. G. Truhlar J. Chem. Phys. 2016, 144, 024309 Z. Varga, R. Meana-Pa\u00c3\u0083\u00c2\u00b1eda, G. Song, Y. Paukku, and D. G. Truhlar J. Chem. Phys. Submitted",
         "dois": []
       },
       "atom_count": {
@@ -43156,8 +43156,8 @@
       "name": "N2O2(adiabatic triplet ground state)",
       "documentation": {
         "formula": "N2O2",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(12)in Ang O1: X(1),X(2),X(3) O2: X(4),X(5),X(6) N3: X(7),X(8),X(9) N4: X(10),X(11),X(12)",
+        "reference": "W. Lin, Z. Varga, G. Song, Y. Paukku, D. G. Truhlar J. Chem. Phys. 2016, 144, 024309 Z. Varga, R. Meana-Pa\u00c3\u00b1eda, G. Song, Y. Paukku, and D. G. Truhlar J. Chem. Phys. Submitted",
         "dois": []
       },
       "atom_count": {
@@ -43361,8 +43361,8 @@
       "name": "N2O2(adiabatic triplet ground state)",
       "documentation": {
         "formula": "N2O2",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(12)in Ang O1: X(1),X(2),X(3) O2: X(4),X(5),X(6) N3: X(7),X(8),X(9) N4: X(10),X(11),X(12)",
+        "reference": "W. Lin, Z. Varga, G. Song, Y. Paukku, D. G. Truhlar J. Chem. Phys. 2016, 144, 024309 Z. Varga, R. Meana-Pa\u00c3\u00b1eda, G. Song, Y. Paukku, and D. G. Truhlar J. Chem. Phys. Submitted",
         "dois": []
       },
       "atom_count": {
@@ -43574,7 +43574,7 @@
       "documentation": {
         "formula": "N2O2",
         "coordinates": "",
-        "reference": "",
+        "reference": "Z. Varga, R. Meana-Pa\u00c3\u00b1eda, G. Song, Y. Paukku,and D. G. Truhlar \"Potential Energy Surface of Triplet N2O2\" J. Chem. Phys. 144, 024310/1-14 (2016) dx.doi.org/10.1063/1.4939008. Z. Varga, R. Meana-Pa\u00c3\u00b1eda, G. Song, Y. Paukku,and D. G. Truhlar, MEG2 surface for N2O2, in: POTLIB: An Online Library of Potential Energy Surfaces, comp.chem.umn.edu/potlib/",
         "dois": [
           "10.1063/1.4939008"
         ]
@@ -43915,7 +43915,7 @@
       "documentation": {
         "formula": "N2O2",
         "coordinates": "",
-        "reference": "",
+        "reference": "Z. Varga, R. Meana-Pa\u00c3\u00b1eda, G. Song, Y. Paukku, D. G. Truhlar \"Potential Energy Surface of Triplet N2O2\" J. Chem. Phys. 144, 024310/1-14 (2016) dx.doi.org/10.1063/1.4939008.",
         "dois": [
           "10.1063/1.4939008"
         ]
@@ -44211,8 +44211,8 @@
       "name": "N3 4App (quartet A\" state)",
       "documentation": {
         "formula": "N3",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang N1: X(1),X(2),X(3) N2: X(4),X(5),X(6) N3: X(7),X(8),X(9)",
+        "reference": "Z. Varga and D. G. Truhlar, to be published in PCCP",
         "dois": []
       },
       "atom_count": {
@@ -44562,7 +44562,7 @@
       "documentation": {
         "formula": "N3",
         "coordinates": "",
-        "reference": "",
+        "reference": "doi 10.1063/1.4983813 Author: Tapan K. Mankodi, Upendra V. Bhandarkar, Bhalchandra P. Puranik http://aip.scitation.org/doi/abs/10.1063/1.4983813 !",
         "dois": [
           "10.1063/1.4983813"
         ]
@@ -44618,8 +44618,8 @@
       "name": "NO2(adiabatic doublet ground state)",
       "documentation": {
         "formula": "NO2",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang O1: X(1),X(2),X(3) O2: X(4),X(5),X(6) N3: X(7),X(8),X(9)",
+        "reference": "Z. Varga, Y. Liu, J. Li, Y. Paukku, H. Guo, and D. G. Truhlar, in preparation",
         "dois": []
       },
       "atom_count": {
@@ -45005,7 +45005,7 @@
       "documentation": {
         "formula": "NO2",
         "coordinates": "",
-        "reference": "",
+        "reference": "Z. Varga, Y. Liu, J. Li, Y. Paukku, H. Guo, and D. G. Truhlar, in preparation",
         "dois": []
       },
       "atom_count": {
@@ -45292,8 +45292,8 @@
       "name": "NO2(adiabatic quartet ground state)",
       "documentation": {
         "formula": "NO2",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang O1: X(1),X(2),X(3) O2: X(4),X(5),X(6) N3: X(7),X(8),X(9)",
+        "reference": "Z. Varga, Y. Liu, J. Li, Y. Paukku, H. Guo, and D. G. Truhlar, in preparation",
         "dois": []
       },
       "atom_count": {
@@ -45679,7 +45679,7 @@
       "documentation": {
         "formula": "NO2",
         "coordinates": "",
-        "reference": "",
+        "reference": "Z. Varga, Y. Liu, J. Li, Y. Paukku, H. Guo, and D. G. Truhlar, in preparation",
         "dois": []
       },
       "atom_count": {
@@ -45948,8 +45948,8 @@
       "name": "NO2(adiabatic sextet ground state)",
       "documentation": {
         "formula": "NO2",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang O1: X(1),X(2),X(3) O2: X(4),X(5),X(6) N3: X(7),X(8),X(9)",
+        "reference": "Z. Varga, Y. Liu, J. Li, Y. Paukku, H. Guo, and D. G. Truhlar, in preparation",
         "dois": []
       },
       "atom_count": {
@@ -46335,7 +46335,7 @@
       "documentation": {
         "formula": "NO2",
         "coordinates": "",
-        "reference": "",
+        "reference": "Z. Varga, Y. Liu, J. Li, Y. Paukku, H. Guo, and D. G. Truhlar, in preparation",
         "dois": []
       },
       "atom_count": {
@@ -47455,8 +47455,8 @@
       "name": "O3 1 1Ap (1st adiab. singlet A' state)",
       "documentation": {
         "formula": "O3",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9)",
+        "reference": "Z. Varga, Y. Paukku, and D. G. Truhlar, \"Potential energy surfaces for O + O2 collisions\" J. Chem. Phys. 147, 154312/1-17 (2017). J. Chem. Phys. 132, 074307 (2010)",
         "dois": []
       },
       "atom_count": {
@@ -47689,8 +47689,8 @@
       "name": "O3 1 1App (1st adiab. singlet A\" state)",
       "documentation": {
         "formula": "O3",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9)",
+        "reference": "Z. Varga, Y. Paukku, and D. G. Truhlar, \"Potential energy surfaces for O + O2 collisions\" J. Chem. Phys. 147, 154312/1-17 (2017). J. Chem. Phys. 132, 074307 (2010)",
         "dois": []
       },
       "atom_count": {
@@ -47923,8 +47923,8 @@
       "name": "O3 1 3Ap (1st adiab. triplet A' state)",
       "documentation": {
         "formula": "O3",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9)",
+        "reference": "Z. Varga, Y. Paukku, and D. G. Truhlar, \"Potential energy surfaces for O + O2 collisions\" J. Chem. Phys. 147, 154312/1-17 (2017). J. Chem. Phys. 132, 074307 (2010)",
         "dois": []
       },
       "atom_count": {
@@ -48157,8 +48157,8 @@
       "name": "O3 1 3App (1st adiab. triplet A\" state)",
       "documentation": {
         "formula": "O3",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9)",
+        "reference": "Z. Varga, Y. Paukku, and D. G. Truhlar, \"Potential energy surfaces for O + O2 collisions\" J. Chem. Phys. 147, 154312/1-17 (2017). J. Chem. Phys. 132, 074307 (2010)",
         "dois": []
       },
       "atom_count": {
@@ -48391,8 +48391,8 @@
       "name": "O3 1 5Ap (1st adiab. quintet A' state)",
       "documentation": {
         "formula": "O3",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9)",
+        "reference": "Z. Varga, Y. Paukku, and D. G. Truhlar, \"Potential energy surfaces for O + O2 collisions\" submitted for publication (July 21, 2017). J. Chem. Phys. 147, 154312/1-17 (2017). J. Chem. Phys. 132, 074307 (2010)",
         "dois": []
       },
       "atom_count": {
@@ -48625,8 +48625,8 @@
       "name": "O3 1 5App (1st adiab. quintet A\" state)",
       "documentation": {
         "formula": "O3",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9)",
+        "reference": "Z. Varga, Y. Paukku, and D. G. Truhlar, \"Potential energy surfaces for O + O2 collisions\" J. Chem. Phys. 147, 154312/1-17 (2017). J. Chem. Phys. 132, 074307 (2010)",
         "dois": []
       },
       "atom_count": {
@@ -48859,8 +48859,8 @@
       "name": "O3 2 1Ap (2nd adiab. singlet A' state)",
       "documentation": {
         "formula": "O3",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9)",
+        "reference": "Z. Varga, Y. Paukku, and D. G. Truhlar, \"Potential energy surfaces for O + O2 collisions\" J. Chem. Phys. 147, 154312/1-17 (2017). J. Chem. Phys. 132, 074307 (2010)",
         "dois": []
       },
       "atom_count": {
@@ -49093,8 +49093,8 @@
       "name": "O3 2 3Ap (2nd adiab. triplet A' state)",
       "documentation": {
         "formula": "O3",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9)",
+        "reference": "Z. Varga, Y. Paukku, and D. G. Truhlar, \"Potential energy surfaces for O + O2 collisions\" J. Chem. Phys. 147, 154312/1-17 (2017). J. Chem. Phys. 132, 074307 (2010)",
         "dois": []
       },
       "atom_count": {
@@ -49327,8 +49327,8 @@
       "name": "O3 2 5Ap (2nd adiab. quintet A' state)",
       "documentation": {
         "formula": "O3",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9)",
+        "reference": "Z. Varga, Y. Paukku, and D. G. Truhlar, \"Potential energy surfaces for O + O2 collisions\" J. Chem. Phys. 147, 154312/1-17 (2017). J. Chem. Phys. 132, 074307 (2010)",
         "dois": []
       },
       "atom_count": {
@@ -49915,8 +49915,8 @@
       "name": "O3 1 1Ap (1st adiab. singlet A' state)",
       "documentation": {
         "formula": "O3",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9)",
+        "reference": "Z. Varga, Y. Paukku, and D. G. Truhlar, \"Potential energy surfaces for O + O2 collisions\" J. Chem. Phys. 147, 154312/1-17 (2017).",
         "dois": []
       },
       "atom_count": {
@@ -50235,8 +50235,8 @@
       "name": "O3 1 1App (1st adiab. singlet A\" state)",
       "documentation": {
         "formula": "O3",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9)",
+        "reference": "Z. Varga, Y. Paukku, and D. G. Truhlar, \"Potential energy surfaces for O + O2 collisions\" J. Chem. Phys. 147, 154312/1-17 (2017).",
         "dois": []
       },
       "atom_count": {
@@ -50555,8 +50555,8 @@
       "name": "O3 1 3Ap (1st adiab. triplet A' state)",
       "documentation": {
         "formula": "O3",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9)",
+        "reference": "Z. Varga, Y. Paukku, and D. G. Truhlar, \"Potential energy surfaces for O + O2 collisions\" J. Chem. Phys. 147, 154312/1-17 (2017).",
         "dois": []
       },
       "atom_count": {
@@ -50875,8 +50875,8 @@
       "name": "O3 1 3App (1st adiab. triplet A\" state)",
       "documentation": {
         "formula": "O3",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9)",
+        "reference": "Z. Varga, Y. Paukku, and D. G. Truhlar, \"Potential energy surfaces for O + O2 collisions\" J. Chem. Phys. 147, 154312/1-17 (2017).",
         "dois": []
       },
       "atom_count": {
@@ -51195,8 +51195,8 @@
       "name": "O3 1 5Ap (1st adiab. quintet A' state)",
       "documentation": {
         "formula": "O3",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9)",
+        "reference": "Z. Varga, Y. Paukku, and D. G. Truhlar, \"Potential energy surfaces for O + O2 collisions\" J. Chem. Phys. 147, 154312/1-17 (2017).",
         "dois": []
       },
       "atom_count": {
@@ -51515,8 +51515,8 @@
       "name": "O3 1 5App (1st adiab. quintet A\" state)",
       "documentation": {
         "formula": "O3",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9)",
+        "reference": "Z. Varga, Y. Paukku, and D. G. Truhlar, \"Potential energy surfaces for O + O2 collisions\" J. Chem. Phys. 147, 154312/1-17 (2017).",
         "dois": []
       },
       "atom_count": {
@@ -51835,8 +51835,8 @@
       "name": "O3 2 1Ap (2nd adiab. singlet A' state)",
       "documentation": {
         "formula": "O3",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9)",
+        "reference": "Z. Varga, Y. Paukku, and D. G. Truhlar, \"Potential energy surfaces for O + O2 collisions\" J. Chem. Phys. 147, 154312/1-17 (2017).",
         "dois": []
       },
       "atom_count": {
@@ -52155,8 +52155,8 @@
       "name": "O3 2 3Ap (2nd adiab. triplet A' state)",
       "documentation": {
         "formula": "O3",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9)",
+        "reference": "Z. Varga, Y. Paukku, and D. G. Truhlar, \"Potential energy surfaces for O + O2 collisions\" J. Chem. Phys. 147, 154312/1-17 (2017).",
         "dois": []
       },
       "atom_count": {
@@ -52475,8 +52475,8 @@
       "name": "O3 2 5Ap (2nd adiab. quintet A' state)",
       "documentation": {
         "formula": "O3",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9)",
+        "reference": "Z. Varga, Y. Paukku, and D. G. Truhlar, \"Potential energy surfaces for O + O2 collisions\" J. Chem. Phys. 147, 154312/1-17 (2017).",
         "dois": []
       },
       "atom_count": {
@@ -52810,7 +52810,7 @@
       "documentation": {
         "formula": "O3",
         "coordinates": "",
-        "reference": "",
+        "reference": "doi 10.1063/1.4983813 Author: Tapan K. Mankodi, Upendra V. Bhandarkar, Bhalchandra P. Puranik http://aip.scitation.org/doi/abs/10.1063/1.4983813 !",
         "dois": [
           "10.1063/1.4983813"
         ]
@@ -52866,8 +52866,8 @@
       "name": "O4 quintet (adiabatic ground state)",
       "documentation": {
         "formula": "O4",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(12)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9) O4: X(10),X(11),X(12)",
+        "reference": "Y. Paukku, K. R. Yang, Z. Varga, G. Song, J. D. Bender, D. G. Truhlar, J. Chem. Phys. 147, 034301/1-11 (2017)",
         "dois": []
       },
       "atom_count": {
@@ -53100,8 +53100,8 @@
       "name": "O4 singlet (adiabatic ground state)",
       "documentation": {
         "formula": "O4",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(12)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9) O4: X(10),X(11),X(12)",
+        "reference": "Y. Paukku, K. R. Yang, Z. Varga, G. Song, J. D. Bender, D. G. Truhlar, J. Chem. Phys. 147, 034301/1-11 (2017)",
         "dois": []
       },
       "atom_count": {
@@ -53334,7 +53334,7 @@
       "name": "O4 triplet(adiabatic ground state)",
       "documentation": {
         "formula": "O4",
-        "coordinates": "",
+        "coordinates": "X(12)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9) O4: X(10),X(11),X(12)",
         "reference": "",
         "dois": []
       },
@@ -53568,7 +53568,7 @@
       "name": "O4 triplet(adiabatic ground state)",
       "documentation": {
         "formula": "O4",
-        "coordinates": "",
+        "coordinates": "X(12)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9) O4: X(10),X(11),X(12)",
         "reference": "",
         "dois": []
       },
@@ -53802,8 +53802,8 @@
       "name": "O4 quintet (adiabatic ground state)",
       "documentation": {
         "formula": "O4",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9) O4: X(10),X(11),X(12)",
+        "reference": "Y. Paukku, K. R. Yang, Z. Varga, G. Song, J. D. Bender, D. G. Truhlar J.Chem.Phys. 147, 034301/1-11 (2017)",
         "dois": []
       },
       "atom_count": {
@@ -54122,8 +54122,8 @@
       "name": "O4 singlet (adiabatic ground state)",
       "documentation": {
         "formula": "O4",
-        "coordinates": "",
-        "reference": "",
+        "coordinates": "X(9)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9) O4: X(10),X(11),X(12)",
+        "reference": "Y. Paukku, K. R. Yang, Z. Varga, G. Song, J. D. Bender, D. G. Truhlar J. Chem. Phys. 147, 034301/1-11 (2017)",
         "dois": []
       },
       "atom_count": {
@@ -54442,7 +54442,7 @@
       "name": "O4 singlet (adiabatic ground state)",
       "documentation": {
         "formula": "O4",
-        "coordinates": "",
+        "coordinates": "X(9)in Ang o1: X(1),X(2),X(3) O2: X(4),X(5),X(6) O3: X(7),X(8),X(9) O4: X(10),X(11),X(12)",
         "reference": "",
         "dois": []
       },
@@ -54789,7 +54789,7 @@
       "documentation": {
         "formula": "O4",
         "coordinates": "",
-        "reference": "",
+        "reference": "doi 10.1063/1.5008973 Tapan K. Mankodi, Upendra V. Bhandarkar, Bhalchandra P. Puranik http://aip.scitation.org/doi/abs/10.1063/1.5008973 !",
         "dois": [
           "10.1063/1.5008973"
         ]

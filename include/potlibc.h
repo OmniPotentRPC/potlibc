@@ -50,9 +50,9 @@ typedef enum potlibc_status {
     POTLIBC_ERROR_PLUGIN_ABI,
     /** Memory allocation failed. */
     POTLIBC_ERROR_ALLOCATION,
-    /** A batch count is zero or exceeds the C ABI integer range. */
+    /** A batch count is zero. */
     POTLIBC_ERROR_INVALID_COUNT,
-    /** A size cannot be represented by the generated surface interface. */
+    /** A count or buffer size exceeds the supported integer range. */
     POTLIBC_ERROR_COUNT_RANGE,
     /** At least one coordinate or direction component is not finite. */
     POTLIBC_ERROR_NONFINITE_INPUT,
