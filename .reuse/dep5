@@ -4,6 +4,6 @@ Files: upstream/potlib2023/*
 Copyright: POTLIB contributors named in the corresponding file headers
 License: Apache-2.0
 
-Files: data/surfaces.json NOTICE
+Files: data/surfaces.json data/non-surfaces.json NOTICE
 Copyright: 2026 Rohit Goswami
 License: BSD-3-Clause

@@ -1,0 +1,410 @@
+{
+  "schema_version": 1,
+  "non_surfaces": [
+    {
+      "path": "src/C2H7/interface_c2h7pot5_mod.f90",
+      "sha256": "987e4b35f06f8068a271b099077b88347909beefe7711c2778d7be99a2c434a9",
+      "classification": "adapter_module",
+      "source_dependencies": [],
+      "external_data_files": [],
+      "category": "adapter_module",
+      "reason": "adapter module for another PES implementation",
+      "owner_surface_ids": [
+        "c2h7",
+        "c2h7pot5"
+      ]
+    },
+    {
+      "path": "src/C3H7NO/Full-PES/basis.f90",
+      "sha256": "9ee396d341f2e66f578e38931aa637a946d52399b757a7bfe7aa0c291b6ade79",
+      "classification": "helper_module",
+      "source_dependencies": [],
+      "external_data_files": [],
+      "category": "helper_module",
+      "reason": "support module without an independent PES entry",
+      "owner_surface_ids": [
+        "pes-shell"
+      ]
+    },
+    {
+      "path": "src/C3H7NO/Full-PES/gradient.f90",
+      "sha256": "a560c3761bb5e7aab14149413b248d0a4784785c49f0546355d17597dfb5a7fd",
+      "classification": "helper_module",
+      "source_dependencies": [],
+      "external_data_files": [],
+      "category": "helper_module",
+      "reason": "support module without an independent PES entry",
+      "owner_surface_ids": [
+        "pes-shell"
+      ]
+    },
+    {
+      "path": "src/C3H7NO/Full-PES/test.f90",
+      "sha256": "d05f869ea8253e8766febe8e342dd7cfed4f5cf744e64b1e61bd3d29847edf2e",
+      "classification": "test_driver",
+      "source_dependencies": [
+        {
+          "path": "src/C3H7NO/Full-PES/pes_shell.f90",
+          "evidence": [
+            "CALL",
+            "USE"
+          ]
+        }
+      ],
+      "external_data_files": [
+        {
+          "name": "trim(bname)//'.out'",
+          "evidence": [
+            "OPEN"
+          ],
+          "literal": false,
+          "unit": 13,
+          "read": false,
+          "resolved_paths": []
+        },
+        {
+          "name": "trim(fname)",
+          "evidence": [
+            "OPEN"
+          ],
+          "literal": false,
+          "unit": 12,
+          "read": true,
+          "resolved_paths": []
+        }
+      ],
+      "category": "test_driver",
+      "reason": "test or example driver for a packaged surface",
+      "owner_surface_ids": [
+        "pes-shell"
+      ]
+    },
+    {
+      "path": "src/C3H7NO/__MACOSX/Full-PES/._basis.f90",
+      "sha256": "4f618bf99f524c4a1435529e5f55fbe9a03e5195eaab9260a5de8afaa51e766b",
+      "classification": "macos_metadata",
+      "source_dependencies": [],
+      "external_data_files": [],
+      "category": "macos_metadata",
+      "reason": "AppleDouble/macOS metadata, not Fortran source",
+      "owner_surface_ids": [
+        "pes-shell"
+      ]
+    },
+    {
+      "path": "src/C3H7NO/__MACOSX/Full-PES/._gradient.f90",
+      "sha256": "4f618bf99f524c4a1435529e5f55fbe9a03e5195eaab9260a5de8afaa51e766b",
+      "classification": "macos_metadata",
+      "source_dependencies": [],
+      "external_data_files": [],
+      "category": "macos_metadata",
+      "reason": "AppleDouble/macOS metadata, not Fortran source",
+      "owner_surface_ids": [
+        "pes-shell"
+      ]
+    },
+    {
+      "path": "src/C3H7NO/__MACOSX/Full-PES/._pes_shell.f90",
+      "sha256": "4f618bf99f524c4a1435529e5f55fbe9a03e5195eaab9260a5de8afaa51e766b",
+      "classification": "macos_metadata",
+      "source_dependencies": [],
+      "external_data_files": [],
+      "category": "macos_metadata",
+      "reason": "AppleDouble/macOS metadata, not Fortran source",
+      "owner_surface_ids": [
+        "pes-shell"
+      ]
+    },
+    {
+      "path": "src/C3H7NO/__MACOSX/Full-PES/._test.f90",
+      "sha256": "4f618bf99f524c4a1435529e5f55fbe9a03e5195eaab9260a5de8afaa51e766b",
+      "classification": "macos_metadata",
+      "source_dependencies": [],
+      "external_data_files": [],
+      "category": "macos_metadata",
+      "reason": "AppleDouble/macOS metadata, not Fortran source",
+      "owner_surface_ids": [
+        "pes-shell"
+      ]
+    },
+    {
+      "path": "src/CH4/getpot_ch4t8.f90",
+      "sha256": "19e72a9cde290aa7e12ecc0f6599b47f228401f04dba334be6b3068718b56819",
+      "classification": "adapter",
+      "source_dependencies": [
+        {
+          "path": "src/CH4/ch4T8.F",
+          "evidence": [
+            "CALL"
+          ]
+        }
+      ],
+      "external_data_files": [],
+      "category": "adapter",
+      "reason": "coordinate/interface adapter for another PES implementation",
+      "owner_surface_ids": [
+        "ch4t8"
+      ]
+    },
+    {
+      "path": "src/H3Cl/H3Cl-package-mass-independent/test.f",
+      "sha256": "5f995d4452537dda490d21e840884ba65ba78a213dff43e5f012ec4bb8ee5f60",
+      "classification": "test_driver",
+      "source_dependencies": [
+        {
+          "path": "src/H3Cl/H3Cl-package-mass-independent/pes-H3Cl.f",
+          "evidence": [
+            "CALL",
+            "INCLUDE"
+          ]
+        }
+      ],
+      "external_data_files": [
+        {
+          "name": "test.in",
+          "evidence": [
+            "OPEN"
+          ],
+          "literal": true,
+          "unit": 1,
+          "read": true,
+          "resolved_paths": [
+            "src/H3Cl/H3Cl-package-mass-independent/test.in"
+          ]
+        },
+        {
+          "name": "test.out",
+          "evidence": [
+            "OPEN"
+          ],
+          "literal": true,
+          "unit": 2,
+          "read": false,
+          "resolved_paths": [
+            "src/H3Cl/H3Cl-package-mass-independent/test.out"
+          ]
+        }
+      ],
+      "category": "test_driver",
+      "reason": "test or example driver for a packaged surface",
+      "owner_surface_ids": [
+        "pes-h3cl"
+      ]
+    },
+    {
+      "path": "src/N4/n4pes-gpip-v2/test.f",
+      "sha256": "2a15a5a514427409a626eecd0a68508c74d6495b9f327ea643ed4880d39a4eb8",
+      "classification": "test_driver",
+      "source_dependencies": [],
+      "external_data_files": [
+        {
+          "name": "test.dat",
+          "evidence": [
+            "OPEN"
+          ],
+          "literal": true,
+          "unit": 20,
+          "read": true,
+          "resolved_paths": [
+            "src/N4/n4pes-gpip-v2/test.dat"
+          ]
+        },
+        {
+          "name": "test.out",
+          "evidence": [
+            "OPEN"
+          ],
+          "literal": true,
+          "unit": 30,
+          "read": false,
+          "resolved_paths": [
+            "src/N4/n4pes-gpip-v2/test.out"
+          ]
+        }
+      ],
+      "category": "test_driver",
+      "reason": "test or example driver for a packaged surface",
+      "owner_surface_ids": [
+        "n4pes-gpip-v2-package"
+      ]
+    },
+    {
+      "path": "src/N4/n4pes_130624/test.f",
+      "sha256": "320688763d3ccd157b1adcdb019fc9c951882fd6037272f5c8f1b6dd114269f0",
+      "classification": "test_driver",
+      "source_dependencies": [],
+      "external_data_files": [
+        {
+          "name": "n4pes.dat",
+          "evidence": [
+            "OPEN"
+          ],
+          "literal": true,
+          "unit": 20,
+          "read": true,
+          "resolved_paths": [
+            "src/N4/n4pes_130624/n4pes.dat"
+          ]
+        },
+        {
+          "name": "test.out",
+          "evidence": [
+            "OPEN"
+          ],
+          "literal": true,
+          "unit": 30,
+          "read": false,
+          "resolved_paths": []
+        }
+      ],
+      "category": "test_driver",
+      "reason": "test or example driver for a packaged surface",
+      "owner_surface_ids": [
+        "n4pes"
+      ]
+    },
+    {
+      "path": "src/done/FH2O/jcb3_xyz.f",
+      "sha256": "3910921a9622e2e79730f55389fb06816d9a56cd9555bf999296fbb07548d783",
+      "classification": "coordinate_helper",
+      "source_dependencies": [],
+      "external_data_files": [],
+      "category": "coordinate_helper",
+      "reason": "coordinate conversion helper",
+      "owner_surface_ids": [
+        "soc-fh2o-nn"
+      ]
+    },
+    {
+      "path": "src/done/FH2O/test.f",
+      "sha256": "fa447d41c1ef26aecb7fde4adbc2ce6b507ce4ce1ae694bfa8a81b6d8968a8da",
+      "classification": "test_driver",
+      "source_dependencies": [
+        {
+          "path": "src/done/FH2O/fh2o-pipnn.f",
+          "evidence": [
+            "CALL",
+            "USE"
+          ]
+        },
+        {
+          "path": "src/done/FH2O/jcb3_xyz.f",
+          "evidence": [
+            "CALL"
+          ]
+        },
+        {
+          "path": "src/done/FH2O/soc-fh2o-nn.f",
+          "evidence": [
+            "CALL"
+          ]
+        }
+      ],
+      "external_data_files": [
+        {
+          "name": "out-stationary-casci",
+          "evidence": [
+            "OPEN"
+          ],
+          "literal": true,
+          "unit": 21,
+          "read": true,
+          "resolved_paths": []
+        },
+        {
+          "name": "stationary.pes",
+          "evidence": [
+            "OPEN"
+          ],
+          "literal": true,
+          "unit": 23,
+          "read": false,
+          "resolved_paths": []
+        }
+      ],
+      "category": "test_driver",
+      "reason": "test or example driver for a packaged surface",
+      "owner_surface_ids": [
+        "fh2o-pipnn",
+        "soc-fh2o-nn"
+      ]
+    },
+    {
+      "path": "src/done/HO3/ho3_pes/test.f",
+      "sha256": "115318d47edd36f46431a285c34b8e7967b2c1b3352deade4b171e728dfb32b1",
+      "classification": "test_driver",
+      "source_dependencies": [
+        {
+          "path": "src/done/HO3/ho3_pes/ho3_pes.f",
+          "evidence": [
+            "CALL",
+            "INCLUDE"
+          ]
+        }
+      ],
+      "external_data_files": [
+        {
+          "name": "test.dat",
+          "evidence": [
+            "OPEN"
+          ],
+          "literal": true,
+          "unit": 61,
+          "read": false,
+          "resolved_paths": [
+            "src/done/HO3/ho3_pes/test.dat"
+          ]
+        },
+        {
+          "name": "test.xyz",
+          "evidence": [
+            "OPEN"
+          ],
+          "literal": true,
+          "unit": 51,
+          "read": true,
+          "resolved_paths": [
+            "src/done/HO3/ho3_pes/test.xyz"
+          ]
+        }
+      ],
+      "category": "test_driver",
+      "reason": "test or example driver for a packaged surface",
+      "owner_surface_ids": [
+        "ho3-pes"
+      ]
+    },
+    {
+      "path": "src/done/O2H3/pip-nn-pes-OH+H2O/main.f",
+      "sha256": "49670b11b5765a5e6ce46ac4568fd2f85fbfb32ef5be42754d2514dd0d2a7ad2",
+      "classification": "test_driver",
+      "source_dependencies": [
+        {
+          "path": "src/done/O2H3/pip-nn-pes-OH+H2O/h3o2-pipnn.f",
+          "evidence": [
+            "CALL"
+          ]
+        }
+      ],
+      "external_data_files": [
+        {
+          "name": "test-h3o2.xyz",
+          "evidence": [
+            "OPEN"
+          ],
+          "literal": true,
+          "unit": 11,
+          "read": true,
+          "resolved_paths": [
+            "src/done/O2H3/pip-nn-pes-OH+H2O/test-h3o2.xyz"
+          ]
+        }
+      ],
+      "category": "test_driver",
+      "reason": "test or example driver for a packaged surface",
+      "owner_surface_ids": [
+        "h3o2-pipnn"
+      ]
+    }
+  ]
+}
