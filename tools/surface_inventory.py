@@ -19,6 +19,20 @@ sys.dont_write_bytecode = True
 
 FORTRAN_SUFFIXES = {".f", ".F", ".f90", ".F90"}
 EXPECTED_FILE_COUNT = 403
+# ch52008 converts coordinates by 0.52918 and energy by 0.03812, then applies
+# the rounded gradient factor 0.0201723. Regenerating the catalog must keep
+# the ratio of the consistent product to that deposited factor.
+CH52008_BOHR_TO_ANGSTROM = 0.52918
+CH52008_ENERGY_CONVERSION = 0.03812
+CH52008_DEPOSITED_GRADIENT_FACTOR = 0.0201723
+CH52008_GRADIENT_SCALE = (
+    CH52008_BOHR_TO_ANGSTROM
+    * CH52008_ENERGY_CONVERSION
+    / CH52008_DEPOSITED_GRADIENT_FACTOR
+)
+GRADIENT_SCALES = {
+    "ch52008": CH52008_GRADIENT_SCALE,
+}
 HEADER = re.compile(r"(?im)^[c*!][ \t]*([^:\n]+?)[ \t]*:[ \t]*(.*?)[ \t]*$")
 DOI = re.compile(
     r"(?i)\b10\.\d{4,9}/[-._;()/:A-Z0-9]+"
@@ -848,6 +862,18 @@ def inventory(vendor: Path) -> dict[str, Any]:
     ]
     if len(final_ids) != len(set(final_ids)):
         raise ValueError("surface identifiers remain ambiguous after path disambiguation")
+
+    for record in records.values():
+        scale = GRADIENT_SCALES.get(record.get("id"))
+        if scale is None or not record["_surface"]:
+            continue
+        ordered: dict[str, Any] = {}
+        for key, value in record.items():
+            ordered[key] = value
+            if key == "id":
+                ordered["gradient_scale"] = scale
+        record.clear()
+        record.update(ordered)
 
     build_dependencies(records)
     surface_ids = {
