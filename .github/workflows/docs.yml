@@ -42,6 +42,11 @@ jobs:
         run: python -m pip install -r docs/requirements.txt
       - name: Build documentation with warnings as errors
         run: python docs/build.py
+      - name: Check documentation links
+        run: >-
+          python -m sphinx -b linkcheck -q docs/source docs/_build/linkcheck
+      - name: Check cited DOIs
+        run: python tools/check_dois.py data/surfaces.json
       - name: Build and run documented regressions
         run: |
           meson setup build
@@ -55,10 +60,10 @@ jobs:
           path: docs/_build/html
       - name: Configure GitHub Pages
         if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
-        uses: actions/configure-pages@0803b85fc42da21708b66b1ea8e0bb514174a074 # v5
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
       - name: Upload GitHub Pages artifact
         if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
-        uses: actions/upload-pages-artifact@93778534b466575593d68503d6e1761c5e30ff30 # v4
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
         with:
           path: docs/_build/html
 
@@ -74,4 +79,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@3398debb84c3becf5192795192b46d5d40f318a3 # v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

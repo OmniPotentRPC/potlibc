@@ -79,3 +79,12 @@ nitpick_ignore = [
     ("c:identifier", "uint32_t"),
 ]
 exclude_patterns = ["_doxygen"]
+
+# These publisher domains return 403 to scripted HTTP clients (confirmed
+# with both a default and a browser User-Agent), not just to Sphinx, so
+# linkcheck cannot verify them. The DOIs that redirect here are instead
+# checked against the Handle System API by tools/check_dois.py.
+linkcheck_ignore = [
+    r"^https://pubs\.aip\.org/",
+    r"^https://aip\.scitation\.org/",
+]
