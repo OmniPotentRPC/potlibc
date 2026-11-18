@@ -40,3 +40,5 @@ The generated-source transforms and state-isolation design are documented in
 [docs/design.md](docs/design.md).
 
 The per-handle loader uses Linux `memfd_create` and `/proc/self/fd`.
+
+See [`CHANGELOG.md`](CHANGELOG.md) for notable changes.
