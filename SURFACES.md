@@ -4,6 +4,12 @@
 
 All 387 deposited surface source roots are wrapped. The remaining 16 Fortran files are support material owned by the surfaces listed below.
 
+The deposited CH5 2008 CBE source rounds its gradient conversion more
+aggressively than its energy conversion. potlibc corrects that gradient and
+its Hessian-vector products by default without changing the pristine upstream
+file. Applications that require legacy bit parity can opt into the raw
+upstream values with `potlibc_set_gradient_mode()`.
+
 # Wrapped surfaces
 
 | ID | Vendor source | Interface | Atoms |

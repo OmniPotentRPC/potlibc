@@ -22,6 +22,16 @@ This complete example evaluates one six-atom geometry:
 required. For a batch of ``count`` geometries, flatten coordinates and forces
 as ``[count][atom_count][3]`` and provide ``count`` energy values.
 
+Corrected gradients
+-------------------
+
+Gradients are consistent with the returned energy by default. The deposited
+CH5 2008 CBE source uses a rounded gradient conversion, so potlibc applies its
+cataloged correction to both forces and Hessian-vector products. Call
+:c:func:`potlibc_set_gradient_mode` with
+:c:enumerator:`POTLIBC_GRADIENT_RAW_UPSTREAM` only when reproducing legacy
+upstream gradient bits is more important than derivative consistency.
+
 Hessian-vector products
 -----------------------
 

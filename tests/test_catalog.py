@@ -17,11 +17,21 @@ spec.loader.exec_module(inventory_module)
 
 actual = inventory_module.inventory(vendor_path)
 expected = json.loads(expected_path.read_text())
+gradient_scales = {
+    surface["id"]: surface.pop("gradient_scale")
+    for surface in expected["surfaces"]
+    if "gradient_scale" in surface
+}
 if actual != expected:
     raise SystemExit(
         "data/surfaces.json is stale; regenerate it with "
         "tools/surface_inventory.py"
     )
+if any(
+    not isinstance(scale, (int, float)) or scale <= 0
+    for scale in gradient_scales.values()
+):
+    raise SystemExit("gradient_scale values must be positive numbers")
 if len({surface["id"] for surface in actual["surfaces"]}) != len(
     actual["surfaces"]
 ):

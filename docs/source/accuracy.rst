@@ -25,14 +25,15 @@ The release test suite reports:
 
 .. code-block:: text
 
-   CBE energy=0x1.885b2451b0c6p-6 energy_abs_error=0x0p+0 force_max_abs_error=0x0p+0 hvp_max_abs_error=0x0p+0
+   CBE energy=0x1.885b2451b0c6p-6 scale=0x1.000022993a1a7p+0 fd_best_error=0x1.2e6bbep-37 raw_force_error=0x0p+0 raw_hvp_error=0x0p+0
    threading: 128 concurrent handles across 64 threads and 6 surfaces, bit-identical energy and forces
 
-The CBE regression compares one energy, all 18 force components, and all 18
-HVP components bit-for-bit with committed hexadecimal references. Its maximum
-absolute error is exactly zero for each quantity.
+The CBE regression compares the raw values of all 18 force and HVP components
+bit-for-bit with committed hexadecimal references, pins the cataloged
+correction ratio, and checks the corrected gradient against centered energy
+differences at three geometries over a step-size sweep.
 
-The complete Meson run passed 395 of 395 tests. This includes 387 of 387
+The complete Meson run passed 397 of 397 tests. This includes 387 of 387
 per-surface dual consistency cases. For every catalog surface, that test:
 
 #. compares the dual directional energy derivative with

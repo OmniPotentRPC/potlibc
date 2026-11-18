@@ -18789,6 +18789,7 @@
       "source_dependencies": [],
       "external_data_files": [],
       "id": "ch52008",
+      "gradient_scale": 1.0000020622338555,
       "system": "CH5",
       "name": "CH5",
       "documentation": {

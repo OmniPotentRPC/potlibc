@@ -35,6 +35,7 @@ typedef int (*metadata_fn)(int, int *, int *, double *);
 typedef void (*evaluate_fn)(int, const double *, double *, double *);
 typedef void (*directional_fn)(int, const double *, const double *, double *);
 typedef void (*hvp_fn)(int, const double *, const double *, double *);
+typedef double (*gradient_scale_fn)(void);
 typedef void (*release_fn)(void);
 
 struct potlibc_handle {
@@ -45,6 +46,8 @@ struct potlibc_handle {
     double *reference_geometry;
     size_t atom_count;
     uint32_t capabilities;
+    double gradient_scale;
+    potlibc_gradient_mode gradient_mode;
     evaluate_fn evaluate;
     directional_fn directional;
     hvp_fn hvp;
@@ -159,6 +162,7 @@ static potlibc_status create_handle(const char *surface_id,
     initialize_fn initialize;
     atom_count_fn get_atom_count;
     metadata_fn metadata;
+    gradient_scale_fn get_gradient_scale;
     int fixed_atom_count;
     int selected_atom_count;
     int derivatives;
@@ -209,6 +213,8 @@ static potlibc_status create_handle(const char *surface_id,
     get_atom_count =
         (atom_count_fn)dlsym(handle->image, "potlib_plugin_atom_count");
     metadata = (metadata_fn)dlsym(handle->image, "potlib_plugin_metadata");
+    get_gradient_scale = (gradient_scale_fn)dlsym(
+        handle->image, "potlib_plugin_gradient_scale");
     handle->evaluate =
         (evaluate_fn)dlsym(handle->image, "potlib_plugin_evaluate");
     handle->directional =
@@ -218,11 +224,17 @@ static potlibc_status create_handle(const char *surface_id,
     handle->release =
         (release_fn)dlsym(handle->image, "potlibc_state_release");
     if (initialize == NULL || get_atom_count == NULL || metadata == NULL ||
-        handle->evaluate == NULL) {
+        get_gradient_scale == NULL || handle->evaluate == NULL) {
         potlibc_destroy(handle);
         return POTLIBC_ERROR_PLUGIN_ABI;
     }
     initialize();
+    handle->gradient_scale = get_gradient_scale();
+    if (!isfinite(handle->gradient_scale) || handle->gradient_scale <= 0.0) {
+        potlibc_destroy(handle);
+        return POTLIBC_ERROR_PLUGIN_ABI;
+    }
+    handle->gradient_mode = POTLIBC_GRADIENT_CORRECTED;
     fixed_atom_count = get_atom_count();
     if (fixed_atom_count < 0) {
         potlibc_destroy(handle);
@@ -331,6 +343,20 @@ potlibc_status potlibc_get_metadata(const potlibc_handle *handle,
     return POTLIBC_SUCCESS;
 }
 
+potlibc_status potlibc_set_gradient_mode(potlibc_handle *handle,
+                                         potlibc_gradient_mode mode)
+{
+    if (handle == NULL) {
+        return POTLIBC_ERROR_NULL_POINTER;
+    }
+    if (mode != POTLIBC_GRADIENT_CORRECTED &&
+        mode != POTLIBC_GRADIENT_RAW_UPSTREAM) {
+        return POTLIBC_ERROR_INVALID_GRADIENT_MODE;
+    }
+    handle->gradient_mode = mode;
+    return POTLIBC_SUCCESS;
+}
+
 potlibc_status potlibc_evaluate(potlibc_handle *handle, size_t count,
                                 const double *x, double *energy, double *force)
 {
@@ -359,6 +385,11 @@ potlibc_status potlibc_evaluate(potlibc_handle *handle, size_t count,
         force = discarded_force;
     }
     handle->evaluate((int)count, x, energy, force);
+    if (handle->gradient_mode == POTLIBC_GRADIENT_CORRECTED) {
+        for (size_t coordinate = 0; coordinate < coordinates; ++coordinate) {
+            force[coordinate] *= handle->gradient_scale;
+        }
+    }
     if (!finite_values(count, energy) ||
         (!finite_values(coordinates, force) &&
          (handle->capabilities & POTLIBC_CAP_FORCES))) {
@@ -417,6 +448,11 @@ potlibc_status potlibc_hessian_vector_product(
         return POTLIBC_ERROR_NONFINITE_INPUT;
     }
     handle->hvp((int)count, x, direction, product);
+    if (handle->gradient_mode == POTLIBC_GRADIENT_CORRECTED) {
+        for (size_t coordinate = 0; coordinate < coordinates; ++coordinate) {
+            product[coordinate] *= handle->gradient_scale;
+        }
+    }
     return finite_values(coordinates, product)
                ? POTLIBC_SUCCESS
                : POTLIBC_ERROR_NONFINITE_RESULT;
@@ -431,7 +467,7 @@ const char *potlibc_status_string(potlibc_status status)
         "non-finite result", "operation unsupported by surface",
         "atom count required for variable-size surface",
         "atom count is only valid for variable-size surfaces",
-        "invalid atom count"
+        "invalid atom count", "invalid gradient mode"
     };
     size_t index = (size_t)status;
     return index < sizeof(messages) / sizeof(messages[0])

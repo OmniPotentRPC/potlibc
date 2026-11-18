@@ -17,6 +17,7 @@ dl = cc.find_library('dl')
 catalog = files('tools/catalog.py')
 inventory = files('tools/surface_inventory.py')
 generator = files('tools/generate_surface.py')
+surface_metadata = files('data/surfaces.json')
 vendor = meson.current_source_dir() / 'upstream/potlib2023'
 plugin_install_dir = get_option('libdir') / 'potlibc'
 
@@ -48,11 +49,13 @@ foreach row : surface_rows
   generated_command = [
     python, generator, vendor, surface_id,
     '@OUTPUT0@', '@OUTPUT1@', '@OUTPUT2@', '@OUTPUT3@', '@OUTPUT4@',
+      '--metadata-catalog', surface_metadata,
   ]
   generator_inputs = [
     generator,
     inventory,
     catalog,
+    surface_metadata,
     vendor_source,
     files('upstream/potlib2023/utilities/utility.f'),
   ]

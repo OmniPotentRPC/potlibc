@@ -6,6 +6,8 @@
 from __future__ import annotations
 
 import argparse
+import json
+import math
 import re
 import sys
 import tarfile
@@ -43,6 +45,7 @@ DISTANCE_FAMILIES = {"3-1V", "3-2V"}
 POTLIB_FAMILY = "POTLIB-2001"
 FIXED_SUFFIXES = {".f", ".F"}
 ACTIVE_CALL = r"(?im)^(?![c*!])([ \t]*call\s+{}\s*(?:\([^)]*\))?[^\n]*)$"
+IDENTITY_GRADIENT_SCALE = 1.0
 
 
 @dataclass(frozen=True)
@@ -1365,8 +1368,28 @@ end subroutine pair_distances
 """
 
 
-def _cbe_adapter() -> str:
-    return """\
+def _gradient_scale_function(plan: SurfacePlan) -> str:
+    scale = IDENTITY_GRADIENT_SCALE
+    if "gradient_scale" in plan.record:
+        scale = plan.record["gradient_scale"]
+    if not isinstance(scale, (int, float)) or not math.isfinite(scale) or scale <= 0:
+        raise ValueError(f"{plan.record['id']}: invalid gradient_scale")
+    literal = format(float(scale), ".17g").replace("e", "d")
+    if "d" not in literal:
+        literal += "d0"
+    return f"""\
+function potlib_plugin_gradient_scale() result(scale) bind(c)
+  use iso_c_binding, only: c_double
+  implicit none
+  real(c_double) :: scale
+  scale={literal}
+end function potlib_plugin_gradient_scale
+
+"""
+
+
+def _cbe_adapter(plan: SurfacePlan) -> str:
+    return _gradient_scale_function(plan) + """\
 subroutine potlib_plugin_initialize() bind(c)
   implicit none
   call prepot()
@@ -1501,7 +1524,7 @@ end subroutine potlib_plugin_hvp
 
 def _adapter(plan: SurfacePlan) -> str:
     if plan.record["path"] == "src/CH5/ch52008.f":
-        return _cbe_adapter()
+        return _cbe_adapter(plan)
     fixed_atoms = 0 if plan.variable_atoms else plan.atoms
     init_name = _initialization_name(plan)
     if plan.strategy in {"triatomic-function", "distance-function"}:
@@ -1585,7 +1608,7 @@ def _adapter(plan: SurfacePlan) -> str:
   do index=1,natoms
     atomic_numbers(index)=0
   end do"""
-    return f"""\
+    return _gradient_scale_function(plan) + f"""\
 module potlibc_generated_state
   use iso_c_binding, only: c_int
   implicit none
@@ -1745,12 +1768,28 @@ def generate(
     output_adapter: Path,
     output_data_c: Path | None = None,
     output_data_bin: Path | None = None,
+    metadata_catalog: Path | None = None,
 ) -> SurfacePlan:
     catalog = inventory(vendor)
     matches = [item for item in catalog["surfaces"] if item["id"] == surface_id]
     if not matches:
         raise ValueError(f"unknown surface id {surface_id!r}")
-    plan = _plan(matches[0], vendor)
+    record = matches[0]
+    if metadata_catalog is not None:
+        metadata = json.loads(metadata_catalog.read_text(encoding="utf-8"))
+        metadata_matches = [
+            item for item in metadata["surfaces"] if item["id"] == surface_id
+        ]
+        if len(metadata_matches) != 1:
+            raise ValueError(
+                f"{surface_id}: metadata catalog must contain exactly one record"
+            )
+        if "gradient_scale" in metadata_matches[0]:
+            record = {
+                **record,
+                "gradient_scale": metadata_matches[0]["gradient_scale"],
+            }
+    plan = _plan(record, vendor)
     transformed_source, transformed_utility = _transform(plan, vendor)
     for output in (output_source, output_utility, output_adapter):
         output.parent.mkdir(parents=True, exist_ok=True)
@@ -1848,6 +1887,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("output_adapter", type=Path)
     parser.add_argument("output_data_c", type=Path, nargs="?")
     parser.add_argument("output_data_bin", type=Path, nargs="?")
+    parser.add_argument("--metadata-catalog", type=Path)
     args = parser.parse_args(argv)
     try:
         plan = generate(
@@ -1858,6 +1898,7 @@ def main(argv: list[str] | None = None) -> int:
             args.output_adapter,
             args.output_data_c,
             args.output_data_bin,
+            args.metadata_catalog,
         )
     except (OSError, RuntimeError, ValueError, StopIteration) as error:
         parser.error(str(error))
