@@ -3,7 +3,7 @@
 project(
   'potlibc',
   ['c', 'fortran'],
-  version: '0.1.0',
+  version: '0.2.0',
   meson_version: '>=1.1.0',
   default_options: ['c_std=c11', 'warning_level=3'],
 )
@@ -131,7 +131,9 @@ potlibc = library(
   dependencies: [dl, threads],
   gnu_symbol_visibility: 'hidden',
   install: true,
+  # Compatible plugin and C ABI addition. SONAME stays libpotlibc.so.0.
   version: meson.project_version(),
+  soversion: '0',
 )
 
 install_headers('include/potlibc.h')
