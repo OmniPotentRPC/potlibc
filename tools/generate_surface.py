@@ -1092,6 +1092,11 @@ def _internal_distance_order(plan: SurfacePlan) -> tuple[tuple[int, int], ...] |
         left, right = (part.strip() for part in descriptor.split("-", 1))
         definitions[index] = (_normalize_label(left), _normalize_label(right))
     if len(definitions) != 3:
+        if symbols is not None:
+            raise ValueError(
+                f"{plan.record['id']}: fixed triatomic metadata requires "
+                "three internal-coordinate bond definitions"
+            )
         if plan.strategy in {
             "pair-common",
             "pot2-common",

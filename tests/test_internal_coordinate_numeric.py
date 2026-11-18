@@ -77,11 +77,51 @@ def _fortran_reference(
     build_root: Path,
     surface_id: str,
     distances: tuple[float, float, float],
+    geometry: list[tuple[float, float, float]],
 ) -> float:
     def fmt_d(value: float) -> str:
         return f"{value:.17E}".replace("E", "D")
 
-    program = f"""\
+    if surface_id in {"hf2jotii2001", "hi2kka2001"}:
+        assignments = "\n".join(
+            f"      cart({atom},{axis})=dual2({fmt_d(value)},0d0,0d0,0d0)"
+            for atom, coordinates in enumerate(geometry, 1)
+            for axis, value in enumerate(coordinates, 1)
+        )
+        program = f"""\
+      program eval
+      use dual2_mod
+      implicit none
+      type(dual2) r(75),energy,dedr(75),cart(25,3),anuzero
+      integer nullbl(25),nflag(20),nasurf(6,6),nder
+      common /zpt1cm/ r,energy,dedr
+      common /zusricm/ cart,anuzero,nullbl,nflag,nasurf,nder
+      call zprepot
+{assignments}
+      call zpot
+      write(*,'(a,1x,es24.16)') 'ENERGY',energy%re
+      end
+"""
+    elif surface_id in {"nafh2d", "nafh2v"}:
+        program = f"""\
+      program eval
+      use dual2_mod
+      implicit none
+      type(dual2) r(1,3),energy(1),dedr(3,1)
+      integer g_myrank,g_nprocs
+      common /zcom_para/ g_myrank,g_nprocs
+      g_myrank=1
+      g_nprocs=1
+      call zprepot
+      r(1,1)=dual2({fmt_d(distances[0])},0d0,0d0,0d0)
+      r(1,2)=dual2({fmt_d(distances[1])},0d0,0d0,0d0)
+      r(1,3)=dual2({fmt_d(distances[2])},0d0,0d0,0d0)
+      call zpot(r,energy,dedr,1,1)
+      write(*,'(a,1x,es24.16)') 'ENERGY',energy(1)%re
+      end
+"""
+    else:
+        program = f"""\
       program eval
       use dual2_mod
       implicit double precision (a-h,o-z)
@@ -328,7 +368,33 @@ def main() -> int:
             [(0.0, 0.0, 0.0), (2.7, 0.2, 0.0), (1.0, 1.6, 0.1)],
             ("r13", "r12", "r23"),
         ),
+        (
+            "nafh2d",
+            [(0.0, 0.0, 0.0), (3.0, 0.2, 0.0), (4.2, 1.4, 0.1)],
+            ("r12", "r23", "r13"),
+        ),
+        (
+            "nafh2v",
+            [(0.0, 0.0, 0.0), (3.0, 0.2, 0.0), (4.2, 1.4, 0.1)],
+            ("r12", "r23", "r13"),
+        ),
+        (
+            "hf2jotii2001",
+            [(0.0, 0.0, 0.0), (1.7, 0.2, 0.0), (3.5, 1.2, 0.1)],
+            ("r12", "r23", "r13"),
+        ),
+        (
+            "hi2kka2001",
+            [(0.0, 0.0, 0.0), (3.0, 0.1, 0.0), (4.8, 1.2, 0.2)],
+            ("r12", "r23", "r13"),
+        ),
     ]
+    source_atom_numbers = {
+        "nafh2d": [11, 1, 9],
+        "nafh2v": [11, 1, 9],
+        "hf2jotii2001": [1, 9, 9],
+        "hi2kka2001": [53, 1, 53],
+    }
     coordinate_failures: list[str] = []
     for surface_id, geometry, coordinate_order in surfaces:
         handle = ctypes.c_void_p()
@@ -339,7 +405,28 @@ def main() -> int:
             raise SystemExit(f"metadata failed for {surface_id}")
         if metadata.atom_count != 3:
             raise SystemExit(f"{surface_id}: expected 3 atoms")
-        xyz = [component for atom in geometry for component in atom]
+        wrapper_geometry = geometry
+        if surface_id in source_atom_numbers:
+            source_numbers = source_atom_numbers[surface_id]
+            unused = list(range(3))
+            wrapper_geometry = []
+            for index in range(3):
+                number = metadata.atomic_numbers[index]
+                match = next(
+                    (
+                        source_index
+                        for source_index in unused
+                        if source_numbers[source_index] == number
+                    ),
+                    None,
+                )
+                if match is None:
+                    raise SystemExit(
+                        f"{surface_id}: published atom {number} is not in source order"
+                    )
+                unused.remove(match)
+                wrapper_geometry.append(geometry[match])
+        xyz = [component for atom in wrapper_geometry for component in atom]
         x = (ctypes.c_double * 9)(*xyz)
         energy = (ctypes.c_double * 1)()
         force = (ctypes.c_double * 9)()
@@ -353,6 +440,7 @@ def main() -> int:
             build_root,
             surface_id,
             tuple(distances[name] for name in coordinate_order),
+            geometry,
         )
         if abs(energy[0] - reference) > 1.0e-10:
             coordinate_failures.append(

@@ -15,11 +15,16 @@ import json
 import os
 import re
 import sys
+import tempfile
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(root / "tools"))
-from generate_surface import _save_entry_locals  # noqa: E402
+from generate_surface import (  # noqa: E402
+    SurfacePlan,
+    _internal_distance_order,
+    _save_entry_locals,
+)
 
 surface_expectations = {
     # Header definitions:
@@ -38,6 +43,8 @@ surface_expectations = {
     "lifhjs": ("(1,:)", "(2,:)", "(1,:)"),
     "lifhd": ("(1,:)", "(2,:)", "(1,:)"),
     "nafh1v": ("(1,:)", "(2,:)", "(1,:)"),
+    "nafh2d": ("(1,:)", "(2,:)", "(3,:)"),
+    "nafh2v": ("(1,:)", "(2,:)", "(3,:)"),
 }
 
 
@@ -50,6 +57,20 @@ def test_internal_coordinate_order() -> None:
         "hf2jotii": [("1", "1", "3"), ("2", "1", "2"), ("3", "2", "3")],
     }
     standard = [("1", "1", "2"), ("2", "2", "3"), ("3", "1", "3")]
+    catalog = {
+        surface["id"]: surface
+        for surface in json.loads(
+            (root / "data" / "surfaces.json").read_text()
+        )["surfaces"]
+    }
+    symbols = {
+        "hf2jotii": ["F", "F", "H"],
+        "hi2kka": ["H", "I", "I"],
+        "nafh2d": ["NA", "H", "F"],
+        "nafh2v": ["NA", "H", "F"],
+        "hf2jotii2001": ["H", "F", "F"],
+        "hi2kka2001": ["I", "H", "I"],
+    }
     for surface_id in surface_expectations:
         adapter = (build_root / f"{surface_id}-adapter.f90").read_text(
             encoding="utf-8"
@@ -61,6 +82,12 @@ def test_internal_coordinate_order() -> None:
         if assignments[:3] != expected.get(surface_id, standard):
             raise SystemExit(
                 f"{surface_id}: unexpected R order {assignments[:3]!r}"
+            )
+    for surface_id, expected_symbols in symbols.items():
+        if catalog[surface_id]["atomic_metadata"]["symbols"] != expected_symbols:
+            raise SystemExit(
+                f"{surface_id}: unexpected atom order "
+                f"{catalog[surface_id]['atomic_metadata']['symbols']!r}"
             )
 
 
@@ -77,6 +104,40 @@ def test_save_entry_locals_function_headers() -> None:
         )
         if transformed.splitlines()[:2] != [header, "save"]:
             raise SystemExit(f"SAVE inserted outside {header!r}")
+
+
+def test_incomplete_fixed_triatomic_bonds_are_rejected() -> None:
+    with tempfile.TemporaryDirectory() as directory:
+        source = Path(directory) / "incomplete.f"
+        source.write_text(
+            "C R(1) = R(A-B)\nC R(2) = R(B-C)\n",
+            encoding="ascii",
+        )
+        plan = SurfacePlan(
+            record={
+                "id": "incomplete",
+                "atom_count": {"kind": "fixed", "value": 3},
+                "atomic_metadata": {
+                    "kind": "fixed",
+                    "symbols": ["H", "F", "CL"],
+                },
+                "documentation": {},
+            },
+            source=source,
+            atoms=3,
+            variable_atoms=False,
+            strategy="pair-common",
+            entry_name="",
+            entry_arguments=(),
+            module_name=None,
+        )
+        try:
+            _internal_distance_order(plan)
+        except ValueError as error:
+            if "three internal-coordinate bond definitions" not in str(error):
+                raise
+        else:
+            raise SystemExit("incomplete fixed triatomic bonds were accepted")
 
 
 def test_all_generated_entry_units_have_save() -> None:
@@ -116,5 +177,6 @@ def test_all_generated_entry_units_have_save() -> None:
 if __name__ == "__main__":
     test_internal_coordinate_order()
     test_save_entry_locals_function_headers()
+    test_incomplete_fixed_triatomic_bonds_are_rejected()
     test_all_generated_entry_units_have_save()
     print("internal-coordinate order and corpus SAVE checks passed")
