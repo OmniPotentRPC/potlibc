@@ -3,8 +3,12 @@
  */
 #include "potlibc.h"
 
+#include <float.h>
 #include <math.h>
 #include <stdio.h>
+#include <string.h>
+
+static const double CBE_GRADIENT_SCALE = 0x1.000022993a1a7p+0;
 
 static const double x[18] = {
     2.5448986937601746, 3.0319878740728727, 2.603957609783651,
@@ -47,12 +51,56 @@ static int check(double actual, double expected)
     return actual == expected;
 }
 
+static double finite_difference_error(potlibc_handle *handle,
+                                      const double geometry[18])
+{
+    static const double step_factors[] = {
+        8.0, 4.0, 2.0, 1.0, 0.5, 0.25, 0.125
+    };
+    double energy, force[18], displaced[18];
+    double worst_best = 0.0;
+    if (potlibc_evaluate(handle, 1, geometry, &energy, force) !=
+        POTLIBC_SUCCESS) {
+        return INFINITY;
+    }
+    for (size_t coordinate = 0; coordinate < 18; ++coordinate) {
+        double best = INFINITY;
+        const double base_step =
+            cbrt(DBL_EPSILON) * fmax(1.0, fabs(geometry[coordinate]));
+        for (size_t step_index = 0;
+             step_index < sizeof(step_factors) / sizeof(step_factors[0]);
+             ++step_index) {
+            double plus, minus;
+            const double step = base_step * step_factors[step_index];
+            memcpy(displaced, geometry, sizeof(displaced));
+            displaced[coordinate] += step;
+            if (potlibc_evaluate(handle, 1, displaced, &plus, NULL) !=
+                POTLIBC_SUCCESS) {
+                return INFINITY;
+            }
+            displaced[coordinate] -= 2.0 * step;
+            if (potlibc_evaluate(handle, 1, displaced, &minus, NULL) !=
+                POTLIBC_SUCCESS) {
+                return INFINITY;
+            }
+            const double derivative = (plus - minus) / (2.0 * step);
+            const double scale = fmax(1.0, fmax(fabs(derivative),
+                                                fabs(force[coordinate])));
+            best = fmin(best, fabs(derivative + force[coordinate]) / scale);
+        }
+        worst_best = fmax(worst_best, best);
+    }
+    return worst_best;
+}
+
 int main(void)
 {
     potlibc_handle *handle;
     potlibc_metadata metadata;
-    double energy, force[18], product[18];
+    double energy, force[18], product[18], corrected_force[18];
+    double corrected_product[18];
     double force_error = 0.0, hvp_error = 0.0;
+    double fd_error = 0.0;
     if (potlibc_create("ch52008", &handle) != POTLIBC_SUCCESS) return 1;
     if (potlibc_get_metadata(handle, &metadata) != POTLIBC_SUCCESS) return 2;
     if (metadata.atom_count != 6 ||
@@ -62,32 +110,75 @@ int main(void)
         return 3;
     if (potlibc_evaluate(handle, 1, x, &energy, force) != POTLIBC_SUCCESS)
         return 4;
+    memcpy(corrected_force, force, sizeof(corrected_force));
     if (!check(energy, expected_energy)) {
         fprintf(stderr, "CBE energy got %a expected %a\n", energy,
                 expected_energy);
         return 5;
     }
+    if (potlibc_hessian_vector_product(handle, 1, x, direction, product) !=
+        POTLIBC_SUCCESS) return 7;
+    memcpy(corrected_product, product, sizeof(corrected_product));
+    static const double geometries[3][18] = {
+        {
+            2.5448986937601746, 3.0319878740728727, 2.603957609783651,
+            1.1100980488026544, 1.3613545004038685, 1.1486133528262976,
+            0.013880929393421192, 0.2086334261632169, 2.457516169583444,
+            2.4611712350631576, 0.21486419033998002, 0.07550700261319757,
+            -0.09665148160819977, 2.4937031206965017, -0.0782634154328256,
+            3.3853544918540113, 4.100244654765713, 3.5175358525837166
+        },
+        {
+            2.52, 3.06, 2.58, 1.13, 1.34, 1.17, 0.04, 0.19, 2.49,
+            2.43, 0.24, 0.09, -0.07, 2.46, -0.10, 3.41, 4.07, 3.54
+        },
+        {
+            2.57, 3.00, 2.63, 1.08, 1.39, 1.12, -0.02, 0.23, 2.43,
+            2.49, 0.18, 0.05, -0.12, 2.52, -0.05, 3.36, 4.13, 3.49
+        }
+    };
+    for (size_t geometry = 0; geometry < 3; ++geometry) {
+        fd_error = fmax(fd_error,
+                        finite_difference_error(handle, geometries[geometry]));
+    }
+    const double fd_tolerance =
+        32.0 * cbrt(DBL_EPSILON) * cbrt(DBL_EPSILON);
+    if (fd_error > fd_tolerance) {
+        fprintf(stderr, "CBE corrected gradient FD error %a exceeds %a\n",
+                fd_error, fd_tolerance);
+        return 6;
+    }
+    if (potlibc_set_gradient_mode(handle, POTLIBC_GRADIENT_RAW_UPSTREAM) !=
+        POTLIBC_SUCCESS) return 8;
+    if (potlibc_evaluate(handle, 1, x, &energy, force) != POTLIBC_SUCCESS)
+        return 9;
+    if (potlibc_hessian_vector_product(handle, 1, x, direction, product) !=
+        POTLIBC_SUCCESS) return 10;
     for (size_t i = 0; i < 18; ++i) {
         force_error = fmax(force_error, fabs(force[i] - expected_force[i]));
         if (!check(force[i], expected_force[i])) {
-            fprintf(stderr, "CBE force[%zu] got %a expected %a\n", i,
+            fprintf(stderr, "CBE raw force[%zu] got %a expected %a\n", i,
                     force[i], expected_force[i]);
-            return 6;
+            return 11;
         }
-    }
-    if (potlibc_hessian_vector_product(handle, 1, x, direction, product) !=
-        POTLIBC_SUCCESS) return 7;
-    for (size_t i = 0; i < 18; ++i) {
         hvp_error = fmax(hvp_error, fabs(product[i] - expected_hvp[i]));
         if (!check(product[i], expected_hvp[i])) {
-            fprintf(stderr, "CBE HVP[%zu] got %a expected %a\n", i,
+            fprintf(stderr, "CBE raw HVP[%zu] got %a expected %a\n", i,
                     product[i], expected_hvp[i]);
-            return 8;
+            return 12;
+        }
+        if (!check(corrected_force[i], force[i] * CBE_GRADIENT_SCALE) ||
+            !check(corrected_product[i], product[i] * CBE_GRADIENT_SCALE)) {
+            fprintf(stderr, "CBE correction ratio mismatch at %zu\n", i);
+            return 13;
         }
     }
-    printf("CBE energy=%a energy_abs_error=%a force_max_abs_error=%a "
-           "hvp_max_abs_error=%a\n",
-           energy, fabs(energy - expected_energy), force_error, hvp_error);
+    if (potlibc_set_gradient_mode(
+            handle, (potlibc_gradient_mode)-1) !=
+        POTLIBC_ERROR_INVALID_GRADIENT_MODE) return 14;
+    printf("CBE energy=%a scale=%a fd_best_error=%a raw_force_error=%a "
+           "raw_hvp_error=%a\n", energy, CBE_GRADIENT_SCALE, fd_error,
+           force_error, hvp_error);
     potlibc_destroy(handle);
     return 0;
 }

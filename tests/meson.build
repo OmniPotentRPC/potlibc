@@ -23,7 +23,11 @@ c_api_test = executable(
   link_with: potlibc,
   dependencies: cc.find_library('m', required: false),
 )
-test('C API and CBE exact parity', c_api_test, env: test_env)
+test(
+  'C API, corrected CBE gradient, and raw bit parity',
+  c_api_test,
+  env: test_env,
+)
 
 fortran_api_test = executable(
   'test-fortran-api',
@@ -31,7 +35,49 @@ fortran_api_test = executable(
   include_directories: potlibc_inc,
   link_with: potlibc,
 )
-test('Fortran API and CBE exact parity', fortran_api_test, env: test_env)
+test('Fortran API and CBE energy', fortran_api_test, env: test_env)
+
+plugin_abi_env = environment()
+plugin_abi_env.set('POTLIBC_PLUGIN_DIR', meson.current_build_dir())
+plugin_abi_stub = files('plugin_abi_stub.c')
+abi_old_plugin = shared_module(
+  'potlibc-abi-old',
+  plugin_abi_stub,
+  c_args: ['-DPLUGIN_ABI_OLD'],
+)
+abi_current_plugin = shared_module(
+  'potlibc-abi-current',
+  plugin_abi_stub,
+  c_args: ['-DPLUGIN_ABI_CURRENT'],
+)
+abi_future_plugin = shared_module(
+  'potlibc-abi-future',
+  plugin_abi_stub,
+  c_args: ['-DPLUGIN_ABI_FUTURE'],
+)
+plugin_abi_test = executable(
+  'test-plugin-abi',
+  'test_plugin_abi.c',
+  include_directories: potlibc_inc,
+  link_with: potlibc,
+  dependencies: cc.find_library('dl'),
+)
+test(
+  'plugin ABI compatibility',
+  plugin_abi_test,
+  env: plugin_abi_env,
+  depends: [abi_old_plugin, abi_current_plugin, abi_future_plugin],
+)
+old_loader_test = executable(
+  'test-plugin-abi-old-loader',
+  'test_plugin_abi_old_loader.c',
+  dependencies: cc.find_library('dl'),
+)
+test(
+  'plugin ABI fail-old',
+  old_loader_test,
+  args: [abi_current_plugin],
+)
 
 thread_test = executable(
   'test-threads',

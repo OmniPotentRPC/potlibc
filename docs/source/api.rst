@@ -19,6 +19,9 @@ Types
 .. doxygenenum:: potlibc_capability
    :project: potlibc
 
+.. doxygenenum:: potlibc_gradient_mode
+   :project: potlibc
+
 .. doxygenstruct:: potlibc_metadata
    :project: potlibc
    :members:
@@ -36,6 +39,9 @@ Functions
    :project: potlibc
 
 .. doxygenfunction:: potlibc_get_metadata
+   :project: potlibc
+
+.. doxygenfunction:: potlibc_set_gradient_mode
    :project: potlibc
 
 .. doxygenfunction:: potlibc_evaluate

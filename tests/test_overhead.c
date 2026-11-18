@@ -3,6 +3,7 @@
  */
 #define _POSIX_C_SOURCE 200809L
 #include "potlibc.h"
+#include "../src/plugin_abi.h"
 
 #include <dlfcn.h>
 #include <stdint.h>
@@ -11,6 +12,7 @@
 #include <time.h>
 
 typedef void (*initialize_fn)(void);
+typedef int (*abi_version_fn)(void);
 typedef int (*atom_count_fn)(void);
 typedef int (*metadata_fn)(int, int *, int *, double *);
 typedef void (*evaluate_fn)(int, const double *, double *, double *);
@@ -54,6 +56,7 @@ int main(void)
     char path[4096];
     void *image;
     initialize_fn initialize;
+    abi_version_fn abi_version;
     atom_count_fn atom_count;
     metadata_fn metadata;
     evaluate_fn evaluate;
@@ -68,11 +71,13 @@ int main(void)
     image = dlopen(path, RTLD_NOW | RTLD_LOCAL);
     if (image == NULL) return 3;
     initialize = (initialize_fn)dlsym(image, "potlib_plugin_initialize");
+    abi_version = (abi_version_fn)dlsym(image, POTLIBC_PLUGIN_ABI_SYMBOL);
     atom_count = (atom_count_fn)dlsym(image, "potlib_plugin_atom_count");
     metadata = (metadata_fn)dlsym(image, "potlib_plugin_metadata");
     evaluate = (evaluate_fn)dlsym(image, "potlib_plugin_evaluate");
-    if (initialize == NULL || atom_count == NULL || metadata == NULL ||
-        evaluate == NULL) return 4;
+    if (initialize == NULL || abi_version == NULL || atom_count == NULL ||
+        metadata == NULL || evaluate == NULL) return 4;
+    if (abi_version() != POTLIBC_PLUGIN_ABI_VERSION) return 4;
     initialize();
     atoms = atom_count();
     if (atoms != 6) return 5;

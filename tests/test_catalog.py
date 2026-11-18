@@ -17,11 +17,34 @@ spec.loader.exec_module(inventory_module)
 
 actual = inventory_module.inventory(vendor_path)
 expected = json.loads(expected_path.read_text())
+
+
+def require_ch52008_gradient_scale(catalog: dict, label: str) -> None:
+    matches = [
+        surface for surface in catalog["surfaces"] if surface["id"] == "ch52008"
+    ]
+    if len(matches) != 1:
+        raise SystemExit(f"{label} must contain exactly one ch52008 record")
+    scale = matches[0].get("gradient_scale")
+    if scale != inventory_module.CH52008_GRADIENT_SCALE:
+        raise SystemExit(
+            f"{label} must record gradient_scale for ch52008 (got {scale!r})"
+        )
+
+
+require_ch52008_gradient_scale(actual, "regenerated inventory")
+require_ch52008_gradient_scale(expected, "data/surfaces.json")
 if actual != expected:
     raise SystemExit(
         "data/surfaces.json is stale; regenerate it with "
         "tools/surface_inventory.py"
     )
+for surface in actual["surfaces"]:
+    scale = surface.get("gradient_scale")
+    if scale is None:
+        continue
+    if not isinstance(scale, (int, float)) or scale <= 0:
+        raise SystemExit("gradient_scale values must be positive numbers")
 if len({surface["id"] for surface in actual["surfaces"]}) != len(
     actual["surfaces"]
 ):

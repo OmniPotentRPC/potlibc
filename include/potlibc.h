@@ -65,7 +65,9 @@ typedef enum potlibc_status {
     /** A fixed-size surface was created with an atom count. */
     POTLIBC_ERROR_ATOM_COUNT_UNEXPECTED,
     /** The requested atom count is not valid for the surface. */
-    POTLIBC_ERROR_INVALID_ATOM_COUNT
+    POTLIBC_ERROR_INVALID_ATOM_COUNT,
+    /** The requested gradient mode is not a potlibc_gradient_mode value. */
+    POTLIBC_ERROR_INVALID_GRADIENT_MODE
 } potlibc_status;
 
 /** Surface capability bits reported by potlibc_metadata.capabilities. */
@@ -77,6 +79,14 @@ typedef enum potlibc_capability {
     /** Analytic Hessian-vector products are available. */
     POTLIBC_CAP_HVP = UINT32_C(1) << 2
 } potlibc_capability;
+
+/** Select corrected gradients or byte-for-byte legacy upstream values. */
+typedef enum potlibc_gradient_mode {
+    /** Return gradients consistent with the energy (the default). */
+    POTLIBC_GRADIENT_CORRECTED = 0,
+    /** Return the unscaled gradient produced by the upstream surface. */
+    POTLIBC_GRADIENT_RAW_UPSTREAM
+} potlibc_gradient_mode;
 
 /**
  * Immutable metadata owned by a potlibc_handle.
@@ -149,6 +159,20 @@ POTLIBC_API void potlibc_destroy(potlibc_handle *handle);
  */
 POTLIBC_API potlibc_status potlibc_get_metadata(
     const potlibc_handle *handle, potlibc_metadata *metadata);
+
+/**
+ * Select how a handle returns gradients and Hessian-vector products.
+ *
+ * Corrected mode is the default. Raw mode preserves legacy upstream values
+ * for surfaces whose deposited gradient conversion is inconsistent with the
+ * deposited energy conversion. Energies are unchanged in both modes.
+ *
+ * @param handle Live surface handle.
+ * @param mode POTLIBC_GRADIENT_CORRECTED or POTLIBC_GRADIENT_RAW_UPSTREAM.
+ * @return POTLIBC_SUCCESS or a diagnostic status.
+ */
+POTLIBC_API potlibc_status potlibc_set_gradient_mode(
+    potlibc_handle *handle, potlibc_gradient_mode mode);
 
 /**
  * Evaluate a batch of geometries.
