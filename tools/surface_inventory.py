@@ -71,6 +71,77 @@ ATOMIC_NUMBERS = {
     "AU": 79, "HG": 80, "TL": 81, "PB": 82, "BI": 83, "PO": 84, "AT": 85,
     "RN": 86,
 }
+ATOM_ORDER_CORRECTIONS = {
+    "LiFH/LiFHJ.f": ["LI", "H", "F"],
+    "LiFH/LiFHJS.f": ["LI", "H", "F"],
+    "LiFH/LiFHd.f": ["LI", "H", "F"],
+    "NaFH/nafh1v.f": ["NA", "H", "F"],
+    "NaFH/nafh2d.f": ["NA", "H", "F"],
+    "NaFH/nafh2v.f": ["NA", "H", "F"],
+}
+COORDINATE_CORRECTIONS = {
+    "F2H/hf2jotii.f": (
+        "R(1) = R(H-F) R(2) = R(F-F') R(3) = R(H-F')"
+    ),
+    "I2H/hi2kka.f": (
+        "R(1) = R(I-H) R(2) = R(H-I') R(3) = R(I-I')"
+    ),
+    "NaFH/nafh2d.f": (
+        "R(1) = R(Na-H) R(2) = R(H-F) R(3) = R(Na-F)"
+    ),
+    "NaFH/nafh2v.f": (
+        "R(1) = R(Na-H) R(2) = R(H-F) R(3) = R(Na-F)"
+    ),
+}
+COORDINATE_CORRECTIONS.update({
+    path: "R(1) = R(F-H) R(2) = R(H-H') R(3) = R(F-H')"
+    for path in [
+        "FH2/fh25av.f",
+        "FH2/fh26sec.f",
+        "FH2/fh2n5.f",
+        "FH2/fh2n5a.f",
+        "FH2/fh2n5b.f",
+        "FH2/fh2n5z.f",
+    ]
+})
+COORDINATE_CORRECTIONS.update({
+    path: "R(1) = R(1H-2H) R(2) = R(2H-3H) R(3) = R(1H-3H)"
+    for path in [
+        "H3/a2.f",
+        "H3/a3.f",
+        "H3/a4.f",
+        "H3/cci.f",
+        "H3/h3_bh.f",
+        "H3/h3bkmp.f",
+        "H3/h3bkmp3.f",
+        "H3/h3lsth.f",
+        "H3/h3pk2.f",
+        "H3/h3tk.f",
+        "H3plus/h3plusKBNN.f",
+        "H3plus/h3plusKBNNd.f",
+        "H3plus/h3plusUNO.f",
+        "H3plus/h3plusUNOd.f",
+    ]
+})
+COORDINATE_CORRECTIONS.update({
+    path: "R(1) = R(I-H) R(2) = R(H-H') R(3) = R(I-H')"
+    for path in [
+        "IH2/ih2raff.f",
+        "IH2/ih2rmc1d.f",
+        "IH2/ih2rmc3d.f",
+    ]
+})
+COORDINATE_CORRECTIONS.update({
+    path: "R(1) = R(Na-H) R(2) = R(H-H') R(3) = R(Na-H')"
+    for path in ["NaH2/nah25f.f", "NaH2/nah25g.f"]
+})
+COORDINATE_CORRECTIONS["O2H/ho2mb.f"] = (
+    "R(1) = R(H-O) R(2) = R(O-O') R(3) = R(H-O')"
+)
+COORDINATE_CORRECTIONS.update({
+    path: "R(1) = R(O-H) R(2) = R(H-H') R(3) = R(O-H')"
+    for path in ["OH2/oh2pol.f", "OH2/oh2sl.f"]
+})
 
 
 def digest(path: Path) -> str:
@@ -119,7 +190,17 @@ def header_block(text: str, names: tuple[str, ...]) -> str:
     return " ".join(" ".join(values).split())
 
 
-def surface_documentation(text: str, fields: dict[str, str]) -> dict[str, Any]:
+def _deduplicate_text(value: str) -> str:
+    words = value.split()
+    midpoint = len(words) // 2
+    if len(words) % 2 == 0 and words[:midpoint] == words[midpoint:]:
+        return " ".join(words[:midpoint])
+    return value
+
+
+def surface_documentation(
+    text: str, fields: dict[str, str], source_path: str
+) -> dict[str, Any]:
     """Extract the deposited descriptive metadata without interpreting it."""
     reference_parts = [
         header_block(text, ("reference", "references", "ref")),
@@ -132,17 +213,22 @@ def surface_documentation(text: str, fields: dict[str, str]) -> dict[str, Any]:
             for match in DOI.finditer(text[:16000])
         }
     )
-    return {
-        "formula": fields.get("system", ""),
-        "coordinates": header_block(
+    coordinates = COORDINATE_CORRECTIONS.get(
+        source_path,
+        header_block(
             text,
             (
                 "coordinates",
                 "coordinates - distances",
                 "coord",
                 "input coordinate matrix",
+                "the coordinates are defined as follows",
             ),
         ),
+    )
+    return {
+        "formula": fields.get("system", ""),
+        "coordinates": _deduplicate_text(coordinates),
         "reference": reference,
         "dois": dois,
     }
@@ -456,7 +542,8 @@ def formula_atom_count(system: str) -> int | None:
 
 
 def formula_symbols(system: str) -> list[str] | None:
-    compact = re.sub(r"[^A-Za-z0-9+]", "", system)
+    neutral_formula = re.sub(r"(?i)(?:plus|minus)$", "", system)
+    compact = re.sub(r"[^A-Za-z0-9+]", "", neutral_formula)
     if not compact or len(compact) > 32:
         return None
     symbols: list[str] = []
@@ -475,16 +562,39 @@ def formula_symbols(system: str) -> list[str] | None:
 
 
 def atomic_metadata(
-    system: str, count: dict[str, Any]
+    system: str, count: dict[str, Any], source_path: str, text: str
 ) -> dict[str, Any]:
-    symbols = formula_symbols(system)
+    symbols = ATOM_ORDER_CORRECTIONS.get(source_path)
+    source = "coordinate_header"
+    formula = formula_symbols(system)
+    if symbols is None and count["kind"] == "fixed" and int(count["value"]) == 3:
+        indexes: list[int] = []
+        for index in range(1, 4):
+            matches = re.findall(
+                rf"(?im)^(?![c*!])\s*indexes\s*\(\s*{index}\s*\)"
+                r"\s*=\s*(\d+)\b",
+                text,
+            )
+            if len(matches) != 1:
+                indexes = []
+                break
+            indexes.append(int(matches[0]))
+        number_symbols = {number: symbol for symbol, number in ATOMIC_NUMBERS.items()}
+        if indexes and all(number in number_symbols for number in indexes):
+            indexed_symbols = [number_symbols[number] for number in indexes]
+            if indexed_symbols != formula:
+                symbols = indexed_symbols
+                source = "indexes"
+    if symbols is None:
+        symbols = formula
+        source = "system_formula"
     if count["kind"] == "fixed":
         expected = int(count["value"])
         if symbols is not None and len(symbols) == expected:
             if all(symbol in ATOMIC_NUMBERS for symbol in symbols):
                 return {
                     "kind": "fixed",
-                    "source": "system_formula",
+                    "source": source,
                     "symbols": symbols,
                     "numbers": [ATOMIC_NUMBERS[symbol] for symbol in symbols],
                 }
@@ -770,7 +880,9 @@ def inventory(vendor: Path) -> dict[str, Any]:
                     "id": identifier,
                     "system": fields.get("system", ""),
                     "name": fields.get("common name", path.stem),
-                    "documentation": surface_documentation(text, fields),
+                    "documentation": surface_documentation(
+                        text, fields, relative
+                    ),
                     "atom_count": atom_count(fields, entry, family, relative),
                     "interface_family": family,
                     "interface_evidence": family_evidence,
@@ -784,7 +896,7 @@ def inventory(vendor: Path) -> dict[str, Any]:
                 }
             )
             record["atomic_metadata"] = atomic_metadata(
-                record["system"], record["atom_count"]
+                record["system"], record["atom_count"], relative, text
             )
             if archive_record is not None:
                 record["archive_source"] = archive_record

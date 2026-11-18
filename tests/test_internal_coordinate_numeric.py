@@ -10,6 +10,7 @@ import math
 import os
 import re
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
 
@@ -72,11 +73,55 @@ def _distance(a: tuple[float, float, float], b: tuple[float, float, float]) -> f
     return math.sqrt(sum((a[i] - b[i]) ** 2 for i in range(3)))
 
 
-def _fortran_reference(build_root: Path, surface_id: str, r12: float, r23: float, r13: float) -> tuple[float, float]:
+def _fortran_reference(
+    build_root: Path,
+    surface_id: str,
+    distances: tuple[float, float, float],
+    geometry: list[tuple[float, float, float]],
+) -> float:
     def fmt_d(value: float) -> str:
         return f"{value:.17E}".replace("E", "D")
 
-    program = f"""\
+    if surface_id in {"hf2jotii2001", "hi2kka2001"}:
+        assignments = "\n".join(
+            f"      cart({atom},{axis})=dual2({fmt_d(value)},0d0,0d0,0d0)"
+            for atom, coordinates in enumerate(geometry, 1)
+            for axis, value in enumerate(coordinates, 1)
+        )
+        program = f"""\
+      program eval
+      use dual2_mod
+      implicit none
+      type(dual2) r(75),energy,dedr(75),cart(25,3),anuzero
+      integer nullbl(25),nflag(20),nasurf(6,6),nder
+      common /zpt1cm/ r,energy,dedr
+      common /zusricm/ cart,anuzero,nullbl,nflag,nasurf,nder
+      call zprepot
+{assignments}
+      call zpot
+      write(*,'(a,1x,es24.16)') 'ENERGY',energy%re
+      end
+"""
+    elif surface_id in {"nafh2d", "nafh2v"}:
+        program = f"""\
+      program eval
+      use dual2_mod
+      implicit none
+      type(dual2) r(1,3),energy(1),dedr(3,1)
+      integer g_myrank,g_nprocs
+      common /zcom_para/ g_myrank,g_nprocs
+      g_myrank=1
+      g_nprocs=1
+      call zprepot
+      r(1,1)=dual2({fmt_d(distances[0])},0d0,0d0,0d0)
+      r(1,2)=dual2({fmt_d(distances[1])},0d0,0d0,0d0)
+      r(1,3)=dual2({fmt_d(distances[2])},0d0,0d0,0d0)
+      call zpot(r,energy,dedr,1,1)
+      write(*,'(a,1x,es24.16)') 'ENERGY',energy(1)%re
+      end
+"""
+    else:
+        program = f"""\
       program eval
       use dual2_mod
       implicit double precision (a-h,o-z)
@@ -89,18 +134,12 @@ def _fortran_reference(build_root: Path, surface_id: str, r12: float, r23: float
       nsurf=0
       nder=1
       call zprepot
-      r(1)=dual2({fmt_d(r12)},0d0,0d0,0d0)
-      r(2)=dual2({fmt_d(r23)},0d0,0d0,0d0)
-      r(3)=dual2({fmt_d(r13)},0d0,0d0,0d0)
+      r(1)=dual2({fmt_d(distances[0])},0d0,0d0,0d0)
+      r(2)=dual2({fmt_d(distances[1])},0d0,0d0,0d0)
+      r(3)=dual2({fmt_d(distances[2])},0d0,0d0,0d0)
       call zpot
       ec=energy
-      r(1)=dual2({fmt_d(r12)},0d0,0d0,0d0)
-      r(2)=dual2({fmt_d(r13)},0d0,0d0,0d0)
-      r(3)=dual2({fmt_d(r23)},0d0,0d0,0d0)
-      call zpot
-      ew=energy
-      write(*,'(a,1x,es24.16)') 'CORRECT',ec%re
-      write(*,'(a,1x,es24.16)') 'WRONG',ew%re
+      write(*,'(a,1x,es24.16)') 'ENERGY',ec%re
       end
 """
     with tempfile.TemporaryDirectory() as directory:
@@ -140,11 +179,66 @@ def _fortran_reference(build_root: Path, surface_id: str, r12: float, r23: float
             stderr=subprocess.STDOUT,
             text=True,
         ).stdout
-    m_correct = re.search(r"CORRECT\s+([+-]?\d+\.\d+E[+-]\d+)", out)
-    m_wrong = re.search(r"WRONG\s+([+-]?\d+\.\d+E[+-]\d+)", out)
-    if m_correct is None or m_wrong is None:
+    match = re.search(r"ENERGY\s+([+-]?\d+\.\d+E[+-]\d+)", out)
+    if match is None:
         raise SystemExit("cannot parse Fortran reference output")
-    return float(m_correct.group(1)), float(m_wrong.group(1))
+    return float(match.group(1))
+
+
+def _evaluate_energy(
+    api: ctypes.CDLL, surface_id: str, coords: list[float]
+) -> float:
+    handle = ctypes.c_void_p()
+    if api.potlibc_create(surface_id.encode(), ctypes.byref(handle)) != 0:
+        raise SystemExit(f"potlibc_create failed for {surface_id}")
+    try:
+        xyz = (ctypes.c_double * len(coords))(*coords)
+        energy = (ctypes.c_double * 1)()
+        force = (ctypes.c_double * len(coords))()
+        if api.potlibc_evaluate(handle, 1, xyz, energy, force) != 0:
+            raise SystemExit(f"potlibc_evaluate failed for {surface_id}")
+        return energy[0]
+    finally:
+        api.potlibc_destroy(handle)
+
+
+def _check_repeated_atom_symmetry(
+    api: ctypes.CDLL,
+) -> None:
+    geometry = [
+        0.0, 0.0, 0.0,
+        2.3, 0.2, -0.1,
+        0.4, 1.9, 0.3,
+    ]
+    failures: list[str] = []
+    cases = {
+        "hi2kka": (1, 2),
+        "hf2jotii": (0, 1),
+    }
+    for surface_id, (left, right) in cases.items():
+        original = _evaluate_energy(api, surface_id, geometry)
+        swapped = geometry.copy()
+        swapped[3 * left:3 * left + 3], swapped[3 * right:3 * right + 3] = (
+            swapped[3 * right:3 * right + 3],
+            swapped[3 * left:3 * left + 3],
+        )
+        permuted = _evaluate_energy(api, surface_id, swapped)
+        scale = max(1.0, abs(original), abs(permuted))
+        tolerance = 64.0 * sys.float_info.epsilon * scale
+        if (
+            not math.isfinite(original)
+            or not math.isfinite(permuted)
+            or abs(original - permuted) > tolerance
+        ):
+            failures.append(
+                f"{surface_id} atoms {left + 1}/{right + 1}: "
+                f"{original:.16e} != {permuted:.16e} "
+                f"(tol {tolerance:.3e})"
+            )
+    if failures:
+        raise SystemExit(
+            "repeated-atom symmetry failures:\n" + "\n".join(failures)
+        )
 
 
 def _check_dual_consistency(
@@ -183,9 +277,54 @@ def _check_dual_consistency(
         raise SystemExit("HVP projection does not match finite difference")
 
 
+def _check_energy_fd(
+    api: ctypes.CDLL,
+    handle: ctypes.c_void_p,
+    coords: list[float],
+    direction: list[float],
+) -> tuple[float, float, float]:
+    n = len(coords)
+    x = (ctypes.c_double * n)(*coords)
+    d = (ctypes.c_double * n)(*direction)
+    energy = (ctypes.c_double * 1)()
+    force = (ctypes.c_double * n)()
+    directional = (ctypes.c_double * 1)()
+    if api.potlibc_evaluate(handle, 1, x, energy, force) != 0:
+        raise SystemExit("potlibc_evaluate failed")
+    if api.potlibc_energy_directional_derivative(handle, 1, x, d, directional) != 0:
+        raise SystemExit("directional derivative call failed")
+    grad_proj = -sum(force[i] * direction[i] for i in range(n))
+    if abs(directional[0] - grad_proj) > 1.0e-10:
+        raise SystemExit(
+            f"directional derivative {directional[0]:.16e} != "
+            f"gradient projection {grad_proj:.16e}"
+        )
+    for step, tol in ((1.0e-4, 5.0e-7), (1.0e-5, 5.0e-8), (1.0e-6, 5.0e-7)):
+        xp = (ctypes.c_double * n)(*[coords[i] + step * direction[i] for i in range(n)])
+        xm = (ctypes.c_double * n)(*[coords[i] - step * direction[i] for i in range(n)])
+        ep = (ctypes.c_double * 1)()
+        em = (ctypes.c_double * 1)()
+        fp = (ctypes.c_double * n)()
+        fm = (ctypes.c_double * n)()
+        if api.potlibc_evaluate(handle, 1, xp, ep, fp) != 0:
+            raise SystemExit("displaced + evaluate failed")
+        if api.potlibc_evaluate(handle, 1, xm, em, fm) != 0:
+            raise SystemExit("displaced - evaluate failed")
+        fd = (ep[0] - em[0]) / (2.0 * step)
+        if abs(fd - directional[0]) > tol or abs(fd - grad_proj) > tol:
+            raise SystemExit(
+                f"step {step}: central FD {fd:.16e} disagrees with "
+                f"directional {directional[0]:.16e} / grad_proj {grad_proj:.16e}"
+            )
+    return energy[0], directional[0], grad_proj
+
+
 def main() -> int:
     root = Path(__file__).resolve().parents[1]
-    build_root = Path(os.environ["POTLIBC_PLUGIN_DIR"]).resolve()
+    build_root = Path(
+        os.environ.get("POTLIBC_PLUGIN_DIR", str(root / "build"))
+    ).resolve()
+    os.environ.setdefault("POTLIBC_PLUGIN_DIR", str(build_root))
     api = _load_library(build_root)
     _api_setup(api)
     surfaces = [
@@ -193,19 +332,71 @@ def main() -> int:
             "fh25sec",
             # F-H-H nearly collinear transition-state-like geometry
             [(0.0, 0.0, 0.0), (2.6844, 0.0, 0.0), (4.4434, 0.0, 0.0)],
+            ("r12", "r23", "r13"),
         ),
         (
             "brh2leps",
             # Br-H-H nearly collinear transition-state-like geometry
             [(0.0, 0.0, 0.0), (3.0802, 0.0, 0.0), (4.8202, 0.0, 0.0)],
+            ("r12", "r23", "r13"),
         ),
         (
             "brhcleleps2",
             # Br-H-Cl bent transition-state-like geometry
             [(0.0, 0.0, 0.0), (3.1, 0.0, 0.0), (1.0, 2.2, 0.0)],
+            ("r12", "r23", "r13"),
+        ),
+        (
+            "clh2g3",
+            # Cl-H-H bent encounter geometry
+            [(0.0, 0.0, 0.0), (2.4, 0.0, 0.0), (0.2, 1.5, 0.1)],
+            ("r12", "r23", "r13"),
+        ),
+        (
+            "clh2alab",
+            # Cl-H-H bent encounter geometry
+            [(0.0, 0.0, 0.0), (2.4, 0.0, 0.0), (0.2, 1.8, 0.1)],
+            ("r12", "r23", "r13"),
+        ),
+        (
+            "hi2kka",
+            [(0.0, 0.0, 0.0), (3.0, 0.1, 0.0), (4.8, 1.2, 0.2)],
+            ("r12", "r13", "r23"),
+        ),
+        (
+            "hf2jotii",
+            [(0.0, 0.0, 0.0), (2.7, 0.2, 0.0), (1.0, 1.6, 0.1)],
+            ("r13", "r12", "r23"),
+        ),
+        (
+            "nafh2d",
+            [(0.0, 0.0, 0.0), (3.0, 0.2, 0.0), (4.2, 1.4, 0.1)],
+            ("r12", "r23", "r13"),
+        ),
+        (
+            "nafh2v",
+            [(0.0, 0.0, 0.0), (3.0, 0.2, 0.0), (4.2, 1.4, 0.1)],
+            ("r12", "r23", "r13"),
+        ),
+        (
+            "hf2jotii2001",
+            [(0.0, 0.0, 0.0), (1.7, 0.2, 0.0), (3.5, 1.2, 0.1)],
+            ("r12", "r23", "r13"),
+        ),
+        (
+            "hi2kka2001",
+            [(0.0, 0.0, 0.0), (3.0, 0.1, 0.0), (4.8, 1.2, 0.2)],
+            ("r12", "r23", "r13"),
         ),
     ]
-    for surface_id, geometry in surfaces:
+    source_atom_numbers = {
+        "nafh2d": [11, 1, 9],
+        "nafh2v": [11, 1, 9],
+        "hf2jotii2001": [1, 9, 9],
+        "hi2kka2001": [53, 1, 53],
+    }
+    coordinate_failures: list[str] = []
+    for surface_id, geometry, coordinate_order in surfaces:
         handle = ctypes.c_void_p()
         if api.potlibc_create(surface_id.encode(), ctypes.byref(handle)) != 0:
             raise SystemExit(f"potlibc_create failed for {surface_id}")
@@ -214,7 +405,28 @@ def main() -> int:
             raise SystemExit(f"metadata failed for {surface_id}")
         if metadata.atom_count != 3:
             raise SystemExit(f"{surface_id}: expected 3 atoms")
-        xyz = [component for atom in geometry for component in atom]
+        wrapper_geometry = geometry
+        if surface_id in source_atom_numbers:
+            source_numbers = source_atom_numbers[surface_id]
+            unused = list(range(3))
+            wrapper_geometry = []
+            for index in range(3):
+                number = metadata.atomic_numbers[index]
+                match = next(
+                    (
+                        source_index
+                        for source_index in unused
+                        if source_numbers[source_index] == number
+                    ),
+                    None,
+                )
+                if match is None:
+                    raise SystemExit(
+                        f"{surface_id}: published atom {number} is not in source order"
+                    )
+                unused.remove(match)
+                wrapper_geometry.append(geometry[match])
+        xyz = [component for atom in wrapper_geometry for component in atom]
         x = (ctypes.c_double * 9)(*xyz)
         energy = (ctypes.c_double * 1)()
         force = (ctypes.c_double * 9)()
@@ -223,20 +435,59 @@ def main() -> int:
         r12 = _distance(geometry[0], geometry[1])
         r23 = _distance(geometry[1], geometry[2])
         r13 = _distance(geometry[0], geometry[2])
-        reference, wrong = _fortran_reference(build_root, surface_id, r12, r23, r13)
+        distances = {"r12": r12, "r23": r23, "r13": r13}
+        reference = _fortran_reference(
+            build_root,
+            surface_id,
+            tuple(distances[name] for name in coordinate_order),
+            geometry,
+        )
         if abs(energy[0] - reference) > 1.0e-10:
-            raise SystemExit(
+            coordinate_failures.append(
                 f"{surface_id}: wrapper energy {energy[0]:.16e} "
                 f"!= Fortran header-order energy {reference:.16e}"
             )
-        if abs(energy[0] - wrong) < 1.0e-6:
-            raise SystemExit(
-                f"{surface_id}: wrapper still matches legacy AB/AC/BC order"
-            )
         _check_dual_consistency(api, handle, xyz, 3)
         api.potlibc_destroy(handle)
+    if coordinate_failures:
+        raise SystemExit(
+            "coordinate reference failures:\n" + "\n".join(coordinate_failures)
+        )
+
+    clh2_geometries = [
+        [
+            0.0, 0.0, 0.0,
+            1.0 + 1.0 / 31.0, 1.0 / 47.0, 1.0 / 59.0,
+            2.0 / 31.0, 1.0 + 4.0 / 47.0, 8.0 / 59.0,
+        ],
+        [0.0, 0.0, 0.0, 2.4, 0.0, 0.0, 0.2, 1.5, 0.1],
+        [0.1, -0.2, 0.05, 2.7, 0.3, -0.1, 2.9, 1.7, 0.2],
+    ]
+    direction = [(i + 1) / 9.0 for i in range(9)]
+    h_g3 = ctypes.c_void_p()
+    h_g3v = ctypes.c_void_p()
+    if api.potlibc_create(b"clh2g3", ctypes.byref(h_g3)) != 0:
+        raise SystemExit("potlibc_create failed for clh2g3")
+    if api.potlibc_create(b"clh2g3v", ctypes.byref(h_g3v)) != 0:
+        raise SystemExit("potlibc_create failed for clh2g3v")
+    for coords in clh2_geometries:
+        e_g3, d_g3, _ = _check_energy_fd(api, h_g3, coords, direction)
+        e_g3v, d_g3v, _ = _check_energy_fd(api, h_g3v, coords, direction)
+        if abs(e_g3 - e_g3v) > 5.0e-6 or abs(d_g3 - d_g3v) > 5.0e-6:
+            raise SystemExit(
+                f"clh2g3 and clh2g3v disagree: ({e_g3}, {d_g3}) vs ({e_g3v}, {d_g3v})"
+            )
+    api.potlibc_destroy(h_g3)
+    api.potlibc_destroy(h_g3v)
+
+    _check_repeated_atom_symmetry(api)
+
     print("numeric internal-coordinate and dual-consistency checks passed")
     return 0
+
+
+def test_internal_coordinate_numeric() -> None:
+    assert main() == 0
 
 
 if __name__ == "__main__":
