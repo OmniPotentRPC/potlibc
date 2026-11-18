@@ -141,6 +141,7 @@ def surface_documentation(text: str, fields: dict[str, str]) -> dict[str, Any]:
                 "coordinates - distances",
                 "coord",
                 "input coordinate matrix",
+                "the coordinates are defined as follows",
             ),
         ),
         "reference": reference,

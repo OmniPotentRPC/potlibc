@@ -183,9 +183,54 @@ def _check_dual_consistency(
         raise SystemExit("HVP projection does not match finite difference")
 
 
+def _check_energy_fd(
+    api: ctypes.CDLL,
+    handle: ctypes.c_void_p,
+    coords: list[float],
+    direction: list[float],
+) -> tuple[float, float, float]:
+    n = len(coords)
+    x = (ctypes.c_double * n)(*coords)
+    d = (ctypes.c_double * n)(*direction)
+    energy = (ctypes.c_double * 1)()
+    force = (ctypes.c_double * n)()
+    directional = (ctypes.c_double * 1)()
+    if api.potlibc_evaluate(handle, 1, x, energy, force) != 0:
+        raise SystemExit("potlibc_evaluate failed")
+    if api.potlibc_energy_directional_derivative(handle, 1, x, d, directional) != 0:
+        raise SystemExit("directional derivative call failed")
+    grad_proj = -sum(force[i] * direction[i] for i in range(n))
+    if abs(directional[0] - grad_proj) > 1.0e-10:
+        raise SystemExit(
+            f"directional derivative {directional[0]:.16e} != "
+            f"gradient projection {grad_proj:.16e}"
+        )
+    for step, tol in ((1.0e-4, 5.0e-7), (1.0e-5, 5.0e-8), (1.0e-6, 5.0e-7)):
+        xp = (ctypes.c_double * n)(*[coords[i] + step * direction[i] for i in range(n)])
+        xm = (ctypes.c_double * n)(*[coords[i] - step * direction[i] for i in range(n)])
+        ep = (ctypes.c_double * 1)()
+        em = (ctypes.c_double * 1)()
+        fp = (ctypes.c_double * n)()
+        fm = (ctypes.c_double * n)()
+        if api.potlibc_evaluate(handle, 1, xp, ep, fp) != 0:
+            raise SystemExit("displaced + evaluate failed")
+        if api.potlibc_evaluate(handle, 1, xm, em, fm) != 0:
+            raise SystemExit("displaced - evaluate failed")
+        fd = (ep[0] - em[0]) / (2.0 * step)
+        if abs(fd - directional[0]) > tol or abs(fd - grad_proj) > tol:
+            raise SystemExit(
+                f"step {step}: central FD {fd:.16e} disagrees with "
+                f"directional {directional[0]:.16e} / grad_proj {grad_proj:.16e}"
+            )
+    return energy[0], directional[0], grad_proj
+
+
 def main() -> int:
     root = Path(__file__).resolve().parents[1]
-    build_root = Path(os.environ["POTLIBC_PLUGIN_DIR"]).resolve()
+    build_root = Path(
+        os.environ.get("POTLIBC_PLUGIN_DIR", str(root / "build"))
+    ).resolve()
+    os.environ.setdefault("POTLIBC_PLUGIN_DIR", str(build_root))
     api = _load_library(build_root)
     _api_setup(api)
     surfaces = [
@@ -203,6 +248,16 @@ def main() -> int:
             "brhcleleps2",
             # Br-H-Cl bent transition-state-like geometry
             [(0.0, 0.0, 0.0), (3.1, 0.0, 0.0), (1.0, 2.2, 0.0)],
+        ),
+        (
+            "clh2g3",
+            # Cl-H-H bent encounter geometry
+            [(0.0, 0.0, 0.0), (2.4, 0.0, 0.0), (0.2, 1.5, 0.1)],
+        ),
+        (
+            "clh2alab",
+            # Cl-H-H bent encounter geometry
+            [(0.0, 0.0, 0.0), (2.4, 0.0, 0.0), (0.2, 1.8, 0.1)],
         ),
     ]
     for surface_id, geometry in surfaces:
@@ -235,8 +290,39 @@ def main() -> int:
             )
         _check_dual_consistency(api, handle, xyz, 3)
         api.potlibc_destroy(handle)
+
+    clh2_geometries = [
+        [
+            0.0, 0.0, 0.0,
+            1.0 + 1.0 / 31.0, 1.0 / 47.0, 1.0 / 59.0,
+            2.0 / 31.0, 1.0 + 4.0 / 47.0, 8.0 / 59.0,
+        ],
+        [0.0, 0.0, 0.0, 2.4, 0.0, 0.0, 0.2, 1.5, 0.1],
+        [0.1, -0.2, 0.05, 2.7, 0.3, -0.1, 2.9, 1.7, 0.2],
+    ]
+    direction = [(i + 1) / 9.0 for i in range(9)]
+    h_g3 = ctypes.c_void_p()
+    h_g3v = ctypes.c_void_p()
+    if api.potlibc_create(b"clh2g3", ctypes.byref(h_g3)) != 0:
+        raise SystemExit("potlibc_create failed for clh2g3")
+    if api.potlibc_create(b"clh2g3v", ctypes.byref(h_g3v)) != 0:
+        raise SystemExit("potlibc_create failed for clh2g3v")
+    for coords in clh2_geometries:
+        e_g3, d_g3, _ = _check_energy_fd(api, h_g3, coords, direction)
+        e_g3v, d_g3v, _ = _check_energy_fd(api, h_g3v, coords, direction)
+        if abs(e_g3 - e_g3v) > 5.0e-6 or abs(d_g3 - d_g3v) > 5.0e-6:
+            raise SystemExit(
+                f"clh2g3 and clh2g3v disagree: ({e_g3}, {d_g3}) vs ({e_g3v}, {d_g3v})"
+            )
+    api.potlibc_destroy(h_g3)
+    api.potlibc_destroy(h_g3v)
+
     print("numeric internal-coordinate and dual-consistency checks passed")
     return 0
+
+
+def test_internal_coordinate_numeric() -> None:
+    assert main() == 0
 
 
 if __name__ == "__main__":

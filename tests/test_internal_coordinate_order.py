@@ -29,32 +29,50 @@ surface_expectations = {
     "brh2leps": ("(1,:)", "(2,:)", "(3,:)"),
     #   R(1) = R(H-Cl),  R(2) = R(H-H'),  R(3) = R(H'-Cl)
     "clh2g3": ("(1,:)", "(2,:)", "(3,:)"),
+    "clh2g3v": ("(1,:)", "(2,:)", "(3,:)"),
+    #   R(1) = R(Cl-first H), R(2) = R(first H-second H), R(3) = R(Cl-second H)
+    "clh2alab": ("(1,:)", "(2,:)", "(3,:)"),
 }
 
-for surface_id in surface_expectations:
-    with tempfile.TemporaryDirectory() as directory:
-        temp = Path(directory)
-        subprocess.run(
-            [
-                sys.executable,
-                str(generator),
-                str(vendor),
-                surface_id,
-                str(temp / "source.f90"),
-                str(temp / "utility.f90"),
-                str(temp / "adapter.f90"),
-            ],
-            check=True,
-        )
-        adapter = (temp / "adapter.f90").read_text(encoding="utf-8")
-        assignments = re.findall(
-            r"r\((\d)\)=distance3\(coords\((\d),:\),coords\((\d),:\)\)",
-            adapter,
-        )
-        if assignments[:3] != [("1", "1", "2"), ("2", "2", "3"), ("3", "1", "3")]:
-            raise SystemExit(
-                f"{surface_id}: expected R order (AB,BC,AC) from header, "
-                f"got {assignments[:3]!r}"
-            )
 
-print("internal-coordinate order checks passed for FH2, BrH2, and ClH2")
+def test_internal_coordinate_order() -> None:
+    for surface_id in surface_expectations:
+        with tempfile.TemporaryDirectory() as directory:
+            temp = Path(directory)
+            subprocess.run(
+                [
+                    sys.executable,
+                    str(generator),
+                    str(vendor),
+                    surface_id,
+                    str(temp / "source.f90"),
+                    str(temp / "utility.f90"),
+                    str(temp / "adapter.f90"),
+                ],
+                check=True,
+            )
+            source = (temp / "source.f90").read_text(encoding="utf-8")
+            adapter = (temp / "adapter.f90").read_text(encoding="utf-8")
+            assignments = re.findall(
+                r"r\((?:1,)?(\d)\)=distance3\(coords\((\d),:\),coords\((\d),:\)\)",
+                adapter,
+            )
+            if assignments[:3] != [
+                ("1", "1", "2"),
+                ("2", "2", "3"),
+                ("3", "1", "3"),
+            ]:
+                raise SystemExit(
+                    f"{surface_id}: expected R order (AB,BC,AC) from header, "
+                    f"got {assignments[:3]!r}"
+                )
+            if re.search(r"(?im)^\s*entry\b", source):
+                if not re.search(r"(?im)^\s*save\s*$", source):
+                    raise SystemExit(
+                        f"{surface_id}: ENTRY routine lacks blanket SAVE statement"
+                    )
+
+
+if __name__ == "__main__":
+    test_internal_coordinate_order()
+    print("internal-coordinate order checks passed for FH2, BrH2, and ClH2")

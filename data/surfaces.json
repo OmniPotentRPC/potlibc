@@ -22213,7 +22213,7 @@
       "name": "G3",
       "documentation": {
         "formula": "ClH2",
-        "coordinates": "",
+        "coordinates": "R(1) = R(H-Cl) R(2) = R(H-H') R(3) = R(H'-Cl)",
         "reference": "Allison, T. C.; Lynch, G. C.; Truhlar, D. G.; Gordon, M. S. J. Phys. Chem., to be submitted.",
         "dois": []
       },
@@ -22278,7 +22278,7 @@
       "name": "G3",
       "documentation": {
         "formula": "ClH2",
-        "coordinates": "",
+        "coordinates": "R(1) = R(H-Cl) R(2) = R(H-H') R(3) = R(H'-Cl)",
         "reference": "Allison, T. C.; Lynch, G. C.; Truhlar, D. G.; Gordon, M. S., J. Phys. Chem., Vol. 100, 13575 (1996).",
         "dois": []
       },
@@ -23177,7 +23177,7 @@
       "name": "JOT-II",
       "documentation": {
         "formula": "F2H",
-        "coordinates": "",
+        "coordinates": "R(1) = R(H-F) R(2) = R(F-F') R(3) = R(H-F') R(1) = R(H-F) R(2) = R(F-F') R(3) = R(H-F')",
         "reference": "N. Jonathon, S. Okuda, and D. Timlin, Mol. Phys. 24, 1143 (1972).",
         "dois": []
       },
@@ -32257,7 +32257,7 @@
       "name": "KK",
       "documentation": {
         "formula": "HI2",
-        "coordinates": "",
+        "coordinates": "R(1) = R(I-H) R(2) = R(H-I') R(3) = R(I-I') R(1) = R(I-H) R(2) = R(H-I') R(3) = R(I-I')",
         "reference": "J. A. Kaye and A. Kuppermann, Chem. Phys. Lett. 77, 573 (1981).",
         "dois": []
       },
