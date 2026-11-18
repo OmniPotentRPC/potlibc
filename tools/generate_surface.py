@@ -1195,6 +1195,12 @@ def _internal_distance_order(plan: SurfacePlan) -> tuple[tuple[int, int], ...] |
     return None
 
 
+# CODATA 2018. The c2h6 adapters already use the Bohr factor below.
+BOHR_TO_ANGSTROM = "0.529177210903d0"
+KCAL_PER_HARTREE = "627.5094740631d0"
+EV_PER_HARTREE = "27.211386245988d0"
+
+
 def _energy_bridge(plan: SurfacePlan) -> str:
     entry = "z" + plan.entry_name
     if plan.strategy in {"triatomic-function", "distance-function"}:
@@ -1338,40 +1344,49 @@ def _energy_bridge(plan: SurfacePlan) -> str:
   call {entry}(x,y,z,value,natoms,natoms)"""
     elif plan.strategy == "flat-cartesian":
         if plan.entry_name == "f":
-            body = """\
-  type(dual2) :: matrix(3,natoms)
-  matrix=transpose(coords)
-  value=zf(matrix)"""
-        else:
             body = f"""\
-  type(dual2) :: flat(3*natoms)
-  flat=reshape(transpose(coords),[3*natoms])
-  call {entry}(flat,value)"""
+  type(dual2) :: matrix(3,natoms)
+  matrix=transpose(coords)*{BOHR_TO_ANGSTROM}
+  value=zf(matrix)"""
+        elif plan.entry_name == "c2h7pot":
+            body = f"""\
+  type(dual2) :: xyz(natoms,3)
+  xyz=coords*{BOHR_TO_ANGSTROM}
+  call {entry}(xyz,value)
+  value=value/{KCAL_PER_HARTREE}"""
+        else:
+            raise AssertionError(plan.entry_name)
     elif plan.strategy == "matrix-cartesian":
         body = f"""\
   type(dual2) :: matrix(3,natoms)
-  matrix=transpose(coords)
-  call {entry}(matrix,value)"""
+  matrix=transpose(coords)*{BOHR_TO_ANGSTROM}
+  call {entry}(matrix,value)
+  value=value/{EV_PER_HARTREE}"""
     elif plan.strategy == "fh2o-nn":
-        body = """\
+        body = f"""\
   type(dual2) :: matrix(3,natoms),states(3)
-  matrix=transpose(coords)
-  call zfh2onn(matrix,value,states(1),states(2),states(3))"""
+  matrix=transpose(coords)*{BOHR_TO_ANGSTROM}
+  call zfh2onn(matrix,value,states(1),states(2),states(3))
+  value=value/{EV_PER_HARTREE}"""
     elif plan.strategy == "fh2o-soc":
-        body = """\
+        body = f"""\
   type(dual2) :: matrix(3,natoms),vg,socg,vgsoc
-  matrix=transpose(coords)
+  matrix=transpose(coords)*{BOHR_TO_ANGSTROM}
   call zfh2o_soc_nn(matrix,vg,socg,vgsoc)
-  value=vg"""
+  value=vg/{KCAL_PER_HARTREE}"""
     elif plan.strategy == "triatomic-function":
         body = f"""\
-  value={entry}(distance3(coords(1,:),coords(2,:)), &
-      distance3(coords(1,:),coords(3,:)),distance3(coords(2,:),coords(3,:)))"""
+  type(dual2) :: r12,r13,r23
+  r12=distance3(coords(1,:),coords(2,:))*{BOHR_TO_ANGSTROM}
+  r13=distance3(coords(1,:),coords(3,:))*{BOHR_TO_ANGSTROM}
+  r23=distance3(coords(2,:),coords(3,:))*{BOHR_TO_ANGSTROM}
+  value={entry}(r12,r13,r23)/{KCAL_PER_HARTREE}"""
     elif plan.strategy == "distance-function":
         body = f"""\
   type(dual2) :: r(6)
   call pair_distances(coords,natoms,r)
-  value={entry}(r)"""
+  r=r*{BOHR_TO_ANGSTROM}
+  value={entry}(r)/{KCAL_PER_HARTREE}"""
     elif plan.strategy == "distance-vector":
         body = f"""\
   type(dual2) :: r(natoms*(natoms-1)/2)
@@ -1392,11 +1407,12 @@ def _energy_bridge(plan: SurfacePlan) -> str:
   call zenergy_gradient(coords,energies,gradient,coupling,transform,natoms,{states})
   value=energies(1)"""
     elif plan.strategy == "no2-nn":
-        body = """\
+        body = f"""\
   type(dual2) :: xcart(3,natoms),vpes(3),dvdxa(3*natoms)
   type(dual2) :: dvdx(3*natoms,3)
-  xcart=transpose(coords)
-  call zevvdvdx(xcart,value,vpes,dvdxa,dvdx,0)"""
+  xcart=transpose(coords)*{BOHR_TO_ANGSTROM}
+  call zevvdvdx(xcart,value,vpes,dvdxa,dvdx,0)
+  value=value/{EV_PER_HARTREE}"""
     elif plan.strategy == "distance-pot11":
         body = """\
   type(dual2) :: r(1,3),energies(1)
@@ -1427,10 +1443,15 @@ def _energy_bridge(plan: SurfacePlan) -> str:
            (norm3(cross3(a,c))*norm3(cross3(b,c))))
   call zpot(r1,r2,r,th1,th2,tau,value)"""
     elif plan.strategy == "multistate-cartesian":
-        body = """\
+        xx_assignment = (
+            f"xx=transpose(coords)*{BOHR_TO_ANGSTROM}"
+            if plan.record["id"] == "ch3nh2"
+            else "xx=transpose(coords)"
+        )
+        body = f"""\
   type(dual2) :: xx(3,natoms),uu(5,5),guu(3,natoms,5,5)
   type(dual2) :: vv(5),gvv(3,natoms,5),dvec(3,natoms,5,5),cc(5,5)
-  xx=transpose(coords)
+  {xx_assignment}
   call zpot(0,xx,uu,guu,vv,gvv,dvec,cc,0)
   value=vv(1)"""
     elif plan.strategy == "nh3-cartesian":

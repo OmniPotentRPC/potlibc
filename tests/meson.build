@@ -93,6 +93,13 @@ test(
   env: test_env,
 )
 
+test(
+  'native unit conversion',
+  python,
+  args: [files('test_native_units.py')],
+  env: test_env,
+)
+
 if cc.has_argument('-fsanitize=thread') and cc.has_link_argument('-fsanitize=thread')
   tsan_test = executable(
     'test-threads-tsan',
