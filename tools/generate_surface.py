@@ -1075,8 +1075,6 @@ def _internal_distance_order(plan: SurfacePlan) -> tuple[tuple[int, int], ...] |
     if atom_count.get("kind") != "fixed" or int(atom_count.get("value", 0)) != 3:
         return None
     symbols = _metadata_symbols(plan)
-    if symbols is None:
-        return None
     source = _source_text(plan.source)
     coordinates = str(plan.record.get("documentation", {}).get("coordinates", ""))
     text = source[:14000] + "\n" + coordinates
@@ -1094,32 +1092,40 @@ def _internal_distance_order(plan: SurfacePlan) -> tuple[tuple[int, int], ...] |
         left, right = (part.strip() for part in descriptor.split("-", 1))
         definitions[index] = (_normalize_label(left), _normalize_label(right))
     if len(definitions) != 3:
-        return ((1, 2), (2, 3), (1, 3))
+        if plan.strategy in {
+            "pair-common",
+            "pot2-common",
+            "distance-batch",
+            "distance-pot11",
+        }:
+            return ((1, 2), (2, 3), (1, 3))
+        return None
 
     by_index = [definitions[1], definitions[2], definitions[3]]
-    labels = {label for pair in by_index for label in pair if label}
-    positions: dict[str, list[int]] = {}
-    for index, symbol in enumerate(symbols, 1):
-        positions.setdefault(symbol, []).append(index)
-    label_groups: dict[str, list[str]] = {}
-    for label in labels:
-        symbol = _label_symbol(label, symbols)
-        if symbol is None:
-            break
-        label_groups.setdefault(symbol, []).append(label)
-    else:
-        if all(
-            len(label_groups.get(symbol, [])) == len(indexes)
-            for symbol, indexes in positions.items()
-        ):
-            order: dict[str, int] = {}
-            for symbol, indexes in positions.items():
-                ordered_labels = sorted(label_groups[symbol], key=_label_rank)
-                order.update(zip(ordered_labels, indexes))
-            return tuple(
-                tuple(sorted((order[left], order[right])))
-                for left, right in by_index
-            )
+    if symbols is not None:
+        labels = {label for pair in by_index for label in pair if label}
+        positions: dict[str, list[int]] = {}
+        for index, symbol in enumerate(symbols, 1):
+            positions.setdefault(symbol, []).append(index)
+        label_groups: dict[str, list[str]] = {}
+        for label in labels:
+            symbol = _label_symbol(label, symbols)
+            if symbol is None:
+                break
+            label_groups.setdefault(symbol, []).append(label)
+        else:
+            if all(
+                len(label_groups.get(symbol, [])) == len(indexes)
+                for symbol, indexes in positions.items()
+            ):
+                order: dict[str, int] = {}
+                for symbol, indexes in positions.items():
+                    ordered_labels = sorted(label_groups[symbol], key=_label_rank)
+                    order.update(zip(ordered_labels, indexes))
+                return tuple(
+                    tuple(sorted((order[left], order[right])))
+                    for left, right in by_index
+                )
 
     sets = [set(pair) for pair in by_index]
     tokens = sorted({label for pair in by_index for label in pair if label})
@@ -1162,7 +1168,7 @@ def _internal_distance_order(plan: SurfacePlan) -> tuple[tuple[int, int], ...] |
         mixed_indexes = [index for index, pair in enumerate(by_index) if pair[0] != pair[1]]
         if len(mixed_indexes) != 2:
             return None
-        if symbols[0] == symbols[2]:
+        if symbols is not None and symbols[0] == symbols[2]:
             repeated_pair = (1, 3)
             mapping_by_position = {
                 mixed_indexes[0]: (1, 2),
