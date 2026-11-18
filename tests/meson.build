@@ -23,7 +23,11 @@ c_api_test = executable(
   link_with: potlibc,
   dependencies: cc.find_library('m', required: false),
 )
-test('C API and CBE exact parity', c_api_test, env: test_env)
+test(
+  'C API, corrected CBE gradient, and raw bit parity',
+  c_api_test,
+  env: test_env,
+)
 
 fortran_api_test = executable(
   'test-fortran-api',
@@ -31,7 +35,7 @@ fortran_api_test = executable(
   include_directories: potlibc_inc,
   link_with: potlibc,
 )
-test('Fortran API and CBE exact parity', fortran_api_test, env: test_env)
+test('Fortran API and CBE energy', fortran_api_test, env: test_env)
 
 thread_test = executable(
   'test-threads',
