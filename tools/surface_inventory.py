@@ -71,6 +71,20 @@ ATOMIC_NUMBERS = {
     "AU": 79, "HG": 80, "TL": 81, "PB": 82, "BI": 83, "PO": 84, "AT": 85,
     "RN": 86,
 }
+ATOM_ORDER_CORRECTIONS = {
+    "LiFH/LiFHJ.f": ["LI", "H", "F"],
+    "LiFH/LiFHJS.f": ["LI", "H", "F"],
+    "LiFH/LiFHd.f": ["LI", "H", "F"],
+    "NaFH/nafh1v.f": ["NA", "H", "F"],
+}
+COORDINATE_CORRECTIONS = {
+    "F2H/hf2jotii.f": (
+        "R(1) = R(H-F) R(2) = R(F-F') R(3) = R(H-F')"
+    ),
+    "I2H/hi2kka.f": (
+        "R(1) = R(I-H) R(2) = R(H-I') R(3) = R(I-I')"
+    ),
+}
 
 
 def digest(path: Path) -> str:
@@ -119,7 +133,17 @@ def header_block(text: str, names: tuple[str, ...]) -> str:
     return " ".join(" ".join(values).split())
 
 
-def surface_documentation(text: str, fields: dict[str, str]) -> dict[str, Any]:
+def _deduplicate_text(value: str) -> str:
+    words = value.split()
+    midpoint = len(words) // 2
+    if len(words) % 2 == 0 and words[:midpoint] == words[midpoint:]:
+        return " ".join(words[:midpoint])
+    return value
+
+
+def surface_documentation(
+    text: str, fields: dict[str, str], source_path: str
+) -> dict[str, Any]:
     """Extract the deposited descriptive metadata without interpreting it."""
     reference_parts = [
         header_block(text, ("reference", "references", "ref")),
@@ -132,9 +156,9 @@ def surface_documentation(text: str, fields: dict[str, str]) -> dict[str, Any]:
             for match in DOI.finditer(text[:16000])
         }
     )
-    return {
-        "formula": fields.get("system", ""),
-        "coordinates": header_block(
+    coordinates = COORDINATE_CORRECTIONS.get(
+        source_path,
+        header_block(
             text,
             (
                 "coordinates",
@@ -144,6 +168,10 @@ def surface_documentation(text: str, fields: dict[str, str]) -> dict[str, Any]:
                 "the coordinates are defined as follows",
             ),
         ),
+    )
+    return {
+        "formula": fields.get("system", ""),
+        "coordinates": _deduplicate_text(coordinates),
         "reference": reference,
         "dois": dois,
     }
@@ -457,7 +485,8 @@ def formula_atom_count(system: str) -> int | None:
 
 
 def formula_symbols(system: str) -> list[str] | None:
-    compact = re.sub(r"[^A-Za-z0-9+]", "", system)
+    neutral_formula = re.sub(r"(?i)(?:plus|minus)$", "", system)
+    compact = re.sub(r"[^A-Za-z0-9+]", "", neutral_formula)
     if not compact or len(compact) > 32:
         return None
     symbols: list[str] = []
@@ -476,16 +505,20 @@ def formula_symbols(system: str) -> list[str] | None:
 
 
 def atomic_metadata(
-    system: str, count: dict[str, Any]
+    system: str, count: dict[str, Any], source_path: str
 ) -> dict[str, Any]:
-    symbols = formula_symbols(system)
+    symbols = ATOM_ORDER_CORRECTIONS.get(source_path, formula_symbols(system))
     if count["kind"] == "fixed":
         expected = int(count["value"])
         if symbols is not None and len(symbols) == expected:
             if all(symbol in ATOMIC_NUMBERS for symbol in symbols):
                 return {
                     "kind": "fixed",
-                    "source": "system_formula",
+                    "source": (
+                        "coordinate_header"
+                        if source_path in ATOM_ORDER_CORRECTIONS
+                        else "system_formula"
+                    ),
                     "symbols": symbols,
                     "numbers": [ATOMIC_NUMBERS[symbol] for symbol in symbols],
                 }
@@ -771,7 +804,9 @@ def inventory(vendor: Path) -> dict[str, Any]:
                     "id": identifier,
                     "system": fields.get("system", ""),
                     "name": fields.get("common name", path.stem),
-                    "documentation": surface_documentation(text, fields),
+                    "documentation": surface_documentation(
+                        text, fields, relative
+                    ),
                     "atom_count": atom_count(fields, entry, family, relative),
                     "interface_family": family,
                     "interface_evidence": family_evidence,
@@ -785,7 +820,7 @@ def inventory(vendor: Path) -> dict[str, Any]:
                 }
             )
             record["atomic_metadata"] = atomic_metadata(
-                record["system"], record["atom_count"]
+                record["system"], record["atom_count"], relative
             )
             if archive_record is not None:
                 record["archive_source"] = archive_record

@@ -4725,7 +4725,7 @@
       "name": "BrH2 DIM-3C",
       "documentation": {
         "formula": "BrH2",
-        "coordinates": "Internal, Definition: R(1) = R(Br-H) R(2) = R(H-H) R(3) = R(Br-H) Internal, Definition: R(1) = R(Br-H) R(2) = R(H-H) R(3) = R(Br-H)",
+        "coordinates": "Internal, Definition: R(1) = R(Br-H) R(2) = R(H-H) R(3) = R(Br-H)",
         "reference": "D. C. Clary Chem. Phys. 71, 117 (1982) I. Last and M. Baer in Potential Energy Surfaces and Dynamics edited by D. G. Truhlar (Plenum, New York, 1981) p. 519",
         "dois": []
       },
@@ -5110,7 +5110,7 @@
       "name": "BrH2SEC",
       "documentation": {
         "formula": "BrH2",
-        "coordinates": "Internal, Definition: R(1) = R(Br-H) R(2) = R(H-H) R(3) = R(Br-H) Internal, Definition: R(1) = R(Br-H) R(2) = R(H-H) R(3) = R(Br-H)",
+        "coordinates": "Internal, Definition: R(1) = R(Br-H) R(2) = R(H-H) R(3) = R(Br-H)",
         "reference": "G. C. Lynch, D. G. Truhlar, F. B. Brown, and J.-g. Zhao J. Phys. Chem. 99, 207 (1995)",
         "dois": []
       },
@@ -21144,7 +21144,7 @@
       "name": "BCMR",
       "documentation": {
         "formula": "ABC",
-        "coordinates": "Internal, Definition: R(1) = R(first Cl-H) R(2) = R(H-second Cl) R(3) = R(first Cl-second Cl) Internal, Definition: R(1) = R(first Cl-H) R(2) = R(H-second Cl) R(3) = R(first Cl-second Cl)",
+        "coordinates": "Internal, Definition: R(1) = R(first Cl-H) R(2) = R(H-second Cl) R(3) = R(first Cl-second Cl)",
         "reference": "D. K. Bondi, J. N. L. Connor, J. Manz, and J. Romelt J. Mol. Phys. 50, 467 (1983) S. Sato J. Chem. Phys. 592, 2465 (1955)",
         "dois": []
       },
@@ -21681,7 +21681,7 @@
       "name": "ClH2 DIM-3C",
       "documentation": {
         "formula": "ClH2",
-        "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-H) R(3) = R(Cl-H) Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-H) R(3) = R(Cl-H)",
+        "coordinates": "Internal, Definition: R(1) = R(Cl-H) R(2) = R(H-H) R(3) = R(Cl-H)",
         "reference": "I. Last and M. Baer Chem. Phys. Lett. 73, 514 (1980) J. Chem. Phys. 75, 288 (1981)",
         "dois": []
       },
@@ -23112,7 +23112,7 @@
       "name": "JOT-II",
       "documentation": {
         "formula": "F2H",
-        "coordinates": "",
+        "coordinates": "R(1) = R(H-F) R(2) = R(F-F') R(3) = R(H-F')",
         "reference": "N. Jonathon, S. Okuda, and D. Timlin, Mol. Phys. 24, 1143 (1972).",
         "dois": []
       },
@@ -23177,7 +23177,7 @@
       "name": "JOT-II",
       "documentation": {
         "formula": "F2H",
-        "coordinates": "R(1) = R(H-F) R(2) = R(F-F') R(3) = R(H-F') R(1) = R(H-F) R(2) = R(F-F') R(3) = R(H-F')",
+        "coordinates": "R(1) = R(H-F) R(2) = R(F-F') R(3) = R(H-F')",
         "reference": "N. Jonathon, S. Okuda, and D. Timlin, Mol. Phys. 24, 1143 (1972).",
         "dois": []
       },
@@ -31988,8 +31988,18 @@
         "active POT/ENTRY POT"
       ],
       "atomic_metadata": {
-        "kind": "unknown",
-        "reason": "system formula does not resolve a unique fixed atom list"
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          1,
+          1,
+          1
+        ]
       }
     },
     {
@@ -32051,8 +32061,18 @@
         "active POT/ENTRY POT"
       ],
       "atomic_metadata": {
-        "kind": "unknown",
-        "reason": "system formula does not resolve a unique fixed atom list"
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          1,
+          1,
+          1
+        ]
       }
     },
     {
@@ -32114,8 +32134,18 @@
         "active POT/ENTRY POT"
       ],
       "atomic_metadata": {
-        "kind": "unknown",
-        "reason": "system formula does not resolve a unique fixed atom list"
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          1,
+          1,
+          1
+        ]
       }
     },
     {
@@ -32177,8 +32207,18 @@
         "active POT/ENTRY POT"
       ],
       "atomic_metadata": {
-        "kind": "unknown",
-        "reason": "system formula does not resolve a unique fixed atom list"
+        "kind": "fixed",
+        "source": "system_formula",
+        "symbols": [
+          "H",
+          "H",
+          "H"
+        ],
+        "numbers": [
+          1,
+          1,
+          1
+        ]
       }
     },
     {
@@ -32192,7 +32232,7 @@
       "name": "KK",
       "documentation": {
         "formula": "HI2",
-        "coordinates": "",
+        "coordinates": "R(1) = R(I-H) R(2) = R(H-I') R(3) = R(I-I')",
         "reference": "J. A. Kaye and A. Kuppermann, Chem. Phys. Lett. 77, 573 (1981).",
         "dois": []
       },
@@ -32257,7 +32297,7 @@
       "name": "KK",
       "documentation": {
         "formula": "HI2",
-        "coordinates": "R(1) = R(I-H) R(2) = R(H-I') R(3) = R(I-I') R(1) = R(I-H) R(2) = R(H-I') R(3) = R(I-I')",
+        "coordinates": "R(1) = R(I-H) R(2) = R(H-I') R(3) = R(I-I')",
         "reference": "J. A. Kaye and A. Kuppermann, Chem. Phys. Lett. 77, 573 (1981).",
         "dois": []
       },
@@ -33381,16 +33421,16 @@
       ],
       "atomic_metadata": {
         "kind": "fixed",
-        "source": "system_formula",
+        "source": "coordinate_header",
         "symbols": [
           "LI",
-          "F",
-          "H"
+          "H",
+          "F"
         ],
         "numbers": [
           3,
-          9,
-          1
+          1,
+          9
         ]
       }
     },
@@ -33509,16 +33549,16 @@
       ],
       "atomic_metadata": {
         "kind": "fixed",
-        "source": "system_formula",
+        "source": "coordinate_header",
         "symbols": [
           "LI",
-          "F",
-          "H"
+          "H",
+          "F"
         ],
         "numbers": [
           3,
-          9,
-          1
+          1,
+          9
         ]
       }
     },
@@ -33653,16 +33693,16 @@
       ],
       "atomic_metadata": {
         "kind": "fixed",
-        "source": "system_formula",
+        "source": "coordinate_header",
         "symbols": [
           "LI",
-          "F",
-          "H"
+          "H",
+          "F"
         ],
         "numbers": [
           3,
-          9,
-          1
+          1,
+          9
         ]
       }
     },
@@ -38970,16 +39010,16 @@
       ],
       "atomic_metadata": {
         "kind": "fixed",
-        "source": "system_formula",
+        "source": "coordinate_header",
         "symbols": [
           "NA",
-          "F",
-          "H"
+          "H",
+          "F"
         ],
         "numbers": [
           11,
-          9,
-          1
+          1,
+          9
         ]
       }
     },
@@ -42659,7 +42699,7 @@
       "name": "JWS",
       "documentation": {
         "formula": "OH2",
-        "coordinates": "Internal, Definition: R(1) = R(O-first H) R(2) = R(first H-second H) R(3) = R(second H-O) Internal, Definition: R(1) = R(O-first H) R(2) = R(first H-second H) R(3) = R(second H-O)",
+        "coordinates": "Internal, Definition: R(1) = R(O-first H) R(2) = R(first H-second H) R(3) = R(second H-O)",
         "reference": "G. C. Schatz J. Chem. Phys. 83, 5677 (1985) B. R. Johnson and N. W. Winter J. Chem. Phys. 66, 4116 (1977).",
         "dois": []
       },
