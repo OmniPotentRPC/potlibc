@@ -83,6 +83,7 @@ test(
   'triatomic internal coordinate ordering',
   python,
   args: [files('test_internal_coordinate_order.py')],
+  env: test_env,
 )
 
 test(
