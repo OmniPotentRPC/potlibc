@@ -214,6 +214,8 @@ def _check_repeated_atom_symmetry(
     cases = {
         "hi2kka": (1, 2),
         "hf2jotii": (0, 1),
+        "hf2jotii2001": (1, 2),
+        "hi2kka2001": (0, 2),
     }
     for surface_id, (left, right) in cases.items():
         original = _evaluate_energy(api, surface_id, geometry)
