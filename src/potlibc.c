@@ -3,6 +3,7 @@
  */
 #define _GNU_SOURCE
 #include "potlibc.h"
+#include "plugin_abi.h"
 
 #include <dlfcn.h>
 #include <fcntl.h>
@@ -22,12 +23,28 @@
 /*
  * Required generated-plugin ABI:
  *   void potlib_plugin_initialize(void);
- *   int potlib_plugin_atom_count(void);  (positive=fixed, zero=variable)
+ *   int potlib_plugin_atom_count(void);  (positive=fixed, zero=variable,
+ *       negative=host ABI rejected)
  *   int potlib_plugin_metadata(int atom_count, int *derivatives,
  *       int atomic_numbers[atom_count], double reference[3 * atom_count]);
  *   void potlib_plugin_evaluate(int count, const double *x, double *energy,
  *       double *force);
+ * Optional generated-plugin ABI:
+ *   int potlib_plugin_abi_version(void);
+ *       Absent on an older plugin, which loads as the legacy ABI. A value
+ *       outside the supported range is rejected. Current plugins export it.
+ *   double potlib_plugin_gradient_scale(void);
+ *       Absent means 1.0, including when an older plugin omits it.
+ *   void potlib_plugin_energy_directional(int count, const double *x,
+ *       const double *direction, double *derivative);
+ *   void potlib_plugin_hvp(int count, const double *x,
+ *       const double *direction, double *product);
+ *   void potlibc_state_release(void);
  * Metadata returns zero on success and nonzero when atom_count is invalid.
+ * Calling potlib_plugin_abi_version records that the host accepts this ABI.
+ * A current plugin returns a negative atom count until that call, so an
+ * older library reports a plugin ABI mismatch instead of evaluating an
+ * uncorrected gradient.
  */
 typedef void (*initialize_fn)(void);
 typedef int (*atom_count_fn)(void);
@@ -36,6 +53,7 @@ typedef void (*evaluate_fn)(int, const double *, double *, double *);
 typedef void (*directional_fn)(int, const double *, const double *, double *);
 typedef void (*hvp_fn)(int, const double *, const double *, double *);
 typedef double (*gradient_scale_fn)(void);
+typedef int (*abi_version_fn)(void);
 typedef void (*release_fn)(void);
 
 struct potlibc_handle {
@@ -163,6 +181,8 @@ static potlibc_status create_handle(const char *surface_id,
     atom_count_fn get_atom_count;
     metadata_fn metadata;
     gradient_scale_fn get_gradient_scale;
+    abi_version_fn abi_version;
+    int plugin_abi;
     int fixed_atom_count;
     int selected_atom_count;
     int derivatives;
@@ -213,6 +233,8 @@ static potlibc_status create_handle(const char *surface_id,
     get_atom_count =
         (atom_count_fn)dlsym(handle->image, "potlib_plugin_atom_count");
     metadata = (metadata_fn)dlsym(handle->image, "potlib_plugin_metadata");
+    abi_version =
+        (abi_version_fn)dlsym(handle->image, POTLIBC_PLUGIN_ABI_SYMBOL);
     get_gradient_scale = (gradient_scale_fn)dlsym(
         handle->image, "potlib_plugin_gradient_scale");
     handle->evaluate =
@@ -224,16 +246,30 @@ static potlibc_status create_handle(const char *surface_id,
     handle->release =
         (release_fn)dlsym(handle->image, "potlibc_state_release");
     if (initialize == NULL || get_atom_count == NULL || metadata == NULL ||
-        get_gradient_scale == NULL || handle->evaluate == NULL) {
+        handle->evaluate == NULL) {
         potlibc_destroy(handle);
         return POTLIBC_ERROR_PLUGIN_ABI;
+    }
+    plugin_abi = POTLIBC_PLUGIN_ABI_LEGACY;
+    if (abi_version != NULL) {
+        plugin_abi = abi_version();
+        if (plugin_abi < POTLIBC_PLUGIN_ABI_LEGACY ||
+            plugin_abi > POTLIBC_PLUGIN_ABI_VERSION) {
+            potlibc_destroy(handle);
+            return POTLIBC_ERROR_PLUGIN_ABI;
+        }
+    }
+    if (get_gradient_scale == NULL) {
+        handle->gradient_scale = POTLIBC_DEFAULT_GRADIENT_SCALE;
+    } else {
+        handle->gradient_scale = get_gradient_scale();
+        if (!isfinite(handle->gradient_scale) ||
+            handle->gradient_scale <= 0.0) {
+            potlibc_destroy(handle);
+            return POTLIBC_ERROR_PLUGIN_ABI;
+        }
     }
     initialize();
-    handle->gradient_scale = get_gradient_scale();
-    if (!isfinite(handle->gradient_scale) || handle->gradient_scale <= 0.0) {
-        potlibc_destroy(handle);
-        return POTLIBC_ERROR_PLUGIN_ABI;
-    }
     handle->gradient_mode = POTLIBC_GRADIENT_CORRECTED;
     fixed_atom_count = get_atom_count();
     if (fixed_atom_count < 0) {

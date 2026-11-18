@@ -26,10 +26,12 @@ except ImportError:
 
 
 REQUIRED_SYMBOLS = {
+    "potlib_plugin_abi_version",
     "potlib_plugin_initialize",
     "potlib_plugin_atom_count",
     "potlib_plugin_metadata",
     "potlib_plugin_evaluate",
+    "potlib_plugin_gradient_scale",
     "potlib_plugin_energy_directional",
     "potlib_plugin_hvp",
     "potlibc_state_checkpoint",

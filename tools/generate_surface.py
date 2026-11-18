@@ -46,6 +46,8 @@ POTLIB_FAMILY = "POTLIB-2001"
 FIXED_SUFFIXES = {".f", ".F"}
 ACTIVE_CALL = r"(?im)^(?![c*!])([ \t]*call\s+{}\s*(?:\([^)]*\))?[^\n]*)$"
 IDENTITY_GRADIENT_SCALE = 1.0
+# Keep in sync with POTLIBC_PLUGIN_ABI_VERSION in src/plugin_abi.h.
+PLUGIN_ABI_VERSION = 2
 
 
 @dataclass(frozen=True)
@@ -1368,6 +1370,22 @@ end subroutine pair_distances
 """
 
 
+def _plugin_abi_version_function() -> str:
+    return f"""\
+integer(c_int) function potlib_plugin_abi_version() bind(c)
+  use iso_c_binding, only: c_int
+  implicit none
+  interface
+    subroutine potlibc_plugin_note_host_abi() bind(c)
+    end subroutine potlibc_plugin_note_host_abi
+  end interface
+  call potlibc_plugin_note_host_abi()
+  potlib_plugin_abi_version={PLUGIN_ABI_VERSION}
+end function potlib_plugin_abi_version
+
+"""
+
+
 def _gradient_scale_function(plan: SurfacePlan) -> str:
     scale = IDENTITY_GRADIENT_SCALE
     if "gradient_scale" in plan.record:
@@ -1389,7 +1407,7 @@ end function potlib_plugin_gradient_scale
 
 
 def _cbe_adapter(plan: SurfacePlan) -> str:
-    return _gradient_scale_function(plan) + """\
+    return _plugin_abi_version_function() + _gradient_scale_function(plan) + """\
 subroutine potlib_plugin_initialize() bind(c)
   implicit none
   call prepot()
@@ -1399,6 +1417,15 @@ end subroutine potlib_plugin_initialize
 integer(c_int) function potlib_plugin_atom_count() bind(c)
   use iso_c_binding, only: c_int
   implicit none
+  interface
+    integer(c_int) function potlibc_plugin_host_abi_ok() bind(c)
+      use iso_c_binding, only: c_int
+    end function potlibc_plugin_host_abi_ok
+  end interface
+  if (potlibc_plugin_host_abi_ok().eq.0) then
+    potlib_plugin_atom_count=-1
+    return
+  end if
   potlib_plugin_atom_count=6
 end function potlib_plugin_atom_count
 
@@ -1608,7 +1635,7 @@ def _adapter(plan: SurfacePlan) -> str:
   do index=1,natoms
     atomic_numbers(index)=0
   end do"""
-    return _gradient_scale_function(plan) + f"""\
+    return _plugin_abi_version_function() + _gradient_scale_function(plan) + f"""\
 module potlibc_generated_state
   use iso_c_binding, only: c_int
   implicit none
@@ -1622,6 +1649,15 @@ subroutine potlib_plugin_initialize() bind(c)
 integer(c_int) function potlib_plugin_atom_count() bind(c)
   use iso_c_binding, only: c_int
   implicit none
+  interface
+    integer(c_int) function potlibc_plugin_host_abi_ok() bind(c)
+      use iso_c_binding, only: c_int
+    end function potlibc_plugin_host_abi_ok
+  end interface
+  if (potlibc_plugin_host_abi_ok().eq.0) then
+    potlib_plugin_atom_count=-1
+    return
+  end if
   potlib_plugin_atom_count={fixed_atoms}
 end function potlib_plugin_atom_count
 

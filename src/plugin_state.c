@@ -124,3 +124,15 @@ void potlibc_state_release(void)
     }
     free(regions);
 }
+
+static int host_abi_accepted;
+
+void potlibc_plugin_note_host_abi(void)
+{
+    host_abi_accepted = 1;
+}
+
+int potlibc_plugin_host_abi_ok(void)
+{
+    return host_abi_accepted;
+}
