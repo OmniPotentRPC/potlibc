@@ -32,7 +32,7 @@ The CBE regression compares one energy, all 18 force components, and all 18
 HVP components bit-for-bit with committed hexadecimal references. Its maximum
 absolute error is exactly zero for each quantity.
 
-The complete Meson run passed 397 of 397 tests. This includes 387 of 387
+The complete Meson run passed 398 of 398 tests. This includes 387 of 387
 per-surface dual consistency cases. For every catalog surface, that test:
 
 #. compares the dual directional energy derivative with
@@ -51,14 +51,16 @@ Concurrency contract
 --------------------
 
 Legacy surfaces retain mutable Fortran ``COMMON`` and ``SAVE`` state.
-``potlibc`` gives each handle a separately loaded plugin image and restores
-that image's initialized writable-data snapshot before each seed evaluation.
+``potlibc`` gives each handle a separately loaded plugin image. Adapters
+other than CBE (``ch52008``) restore that image's initialized writable-data
+snapshot before each seed evaluation. CBE does not restore a snapshot.
 No global evaluation lock is used.
 
 The parallel regression holds 128 handles live across 64 threads for six
 surface families and requires energy and every force bit to match serial
 evaluation. The same case is available under ThreadSanitizer through the
-``test-tsan`` target.
+``test-tsan`` target when the compiler accepts ``-fsanitize=thread`` at
+compile time and at link time.
 
 The supported contract is concurrent calls on distinct handles. Calls on one
 handle must be externally serialized.

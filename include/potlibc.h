@@ -42,7 +42,10 @@ typedef enum potlibc_status {
     POTLIBC_SUCCESS = 0,
     /** A required pointer argument was NULL. */
     POTLIBC_ERROR_NULL_POINTER,
-    /** No catalog entry has the requested surface identifier. */
+    /** The identifier is empty, contains a character other than a
+     *  lowercase letter, digit, or hyphen, or does not fit in the plugin
+     *  path. A well formed identifier with no loadable plugin returns
+     *  POTLIBC_ERROR_SURFACE_UNAVAILABLE. */
     POTLIBC_ERROR_INVALID_SURFACE_ID,
     /** The surface plugin could not be opened. */
     POTLIBC_ERROR_SURFACE_UNAVAILABLE,
@@ -127,7 +130,10 @@ POTLIBC_API potlibc_status potlibc_create(const char *surface_id,
  * @param handle Receives the new handle on success and NULL on failure.
  * @return POTLIBC_SUCCESS or a diagnostic status.
  *
+ * A zero atom count returns POTLIBC_ERROR_INVALID_ATOM_COUNT.
  * Fixed-size surfaces return POTLIBC_ERROR_ATOM_COUNT_UNEXPECTED.
+ * A variable-size surface whose metadata rejects the count returns
+ * POTLIBC_ERROR_INVALID_ATOM_COUNT.
  */
 POTLIBC_API potlibc_status potlibc_create_sized(const char *surface_id,
                                                 size_t atom_count,

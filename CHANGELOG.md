@@ -5,6 +5,18 @@
 All notable changes to potlibc are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Fixed
+
+- Mixed scalar and dual `min` and `max` keep a constant bound, and a zero
+  derivative, when the primal values tie. This includes a dual argument
+  followed by a real or integer bound.
+- Generated adapters whose deposited routines take Angstrom coordinates
+  and kcal/mol or eV energies now convert those values to the public Bohr
+  and Hartree contract. `ch3nh2` and `pes-shell` scale coordinates only,
+  because those routines already return Hartree.
+
 ## [0.1.0] - 2026-11-18
 
 ### Added

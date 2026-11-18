@@ -26,12 +26,15 @@ overloads preserve a constant bound at a clipping tie. Comparisons otherwise
 select branches from the primal value; consistency probes avoid
 nondifferentiable switching surfaces.
 
-The build applies zero initialization only to the small set of deposited
-routines that leave transformed work values unset. It also compiles the
-optimization-sensitive APRP and CH4T8 routines at `-O0`; higher optimization
-causes those legacy implementations to fault even though the generated
-adapter is unchanged. These are per-surface compiler rules, not edits to the
-vendor sources.
+`ch52008` is compiled at `-O3`. `phsch3-ia`, `phsch3-s-1-8`,
+`phsch3-s-2-0`, `phsch3-ii`, `phsch3-s-2-5`, `phsch3-iii`,
+`phsch3-s-2-2`, `phsch3-aprp`, and `ch4t8` are compiled at `-O0`, because
+higher optimization faults those legacy implementations even though the
+generated adapter is unchanged. `-finit-derived` and `-finit-real=zero`
+are applied to `h3dmbe`, `sioh`, and `oh2m3a2001`; to that `phsch3` set
+plus `ch3nh2`, `phsh-aprp`, and `ch4t8`; and to every surface id that
+starts with `c2h6`. These are per-surface compiler rules, not edits to
+the vendor sources.
 
 POTLIB surfaces retain mutable process state in COMMON blocks and variables
 with SAVE storage. Every generated plugin is linked with symbolic references
@@ -41,17 +44,21 @@ creates a distinct data image for every handle, while shared dependencies such
 as libgfortran and libc remain in the base namespace. Closing a handle unloads
 only its private plugin image.
 
-After initialization and metadata selection, the plugin snapshots its writable
-ELF data segments. Each coordinate or direction seed restores that snapshot
-before entering the transformed surface. This preserves initialized parameter
-tables while preventing work arrays, COMMON blocks, and SAVE variables mutated
-by one seed from contaminating another seed. Formatted parameter records are
-read into the real lane of dual values and their derivative lanes are
-initialized explicitly.
+After initialization and metadata selection, every generated adapter other
+than CBE (`ch52008`) snapshots its writable ELF data segments. Each
+coordinate or direction seed restores that snapshot before entering the
+transformed surface. CBE keeps the deposited analytic `pot` path and does
+not restore a snapshot. Its isolation is still the private plugin image.
+The snapshot preserves initialized parameter tables while preventing work
+arrays, COMMON blocks, and SAVE variables mutated by one seed from
+contaminating another seed. Formatted parameter records are read into the
+real lane of dual values and their derivative lanes are initialized
+explicitly.
 
 This design uses no global lock and does not consume glibc ELF namespaces.
 glibc's thread-safe `dlopen` and `dlclose` implementation handles concurrent
 image creation and removal; evaluations touch only their handle's private
-image and snapshot. The parallel test keeps 128 handles live across 64 threads
-and compares six surfaces bit-for-bit with serial evaluation. The same test is
-also built and run with ThreadSanitizer.
+image and, except for CBE, its snapshot. The parallel test keeps 128 handles
+live across 64 threads and compares six surfaces bit-for-bit with serial
+evaluation. That test is also built and run with ThreadSanitizer when the
+compiler accepts `-fsanitize=thread` at compile time and at link time.

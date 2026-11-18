@@ -48,7 +48,8 @@ output arrays may not overlap, and coordinates and directions must be finite.
 Ownership and concurrency
 -------------------------
 
-A handle owns one private plugin image and its restored writable-state
-snapshot. Different handles may be evaluated concurrently. Do not overlap two
+A handle owns one private plugin image. Adapters other than CBE restore a
+writable-data snapshot before each seed. Different handles may be evaluated
+concurrently. Do not overlap two
 calls on the same handle, and do not destroy a handle while a call is active.
 Create one handle per worker when a surface is shared by a thread pool.

@@ -19,6 +19,9 @@ meson test -C build
 meson compile -C build test-tsan
 ```
 
+`test-tsan` is defined only when the C compiler accepts `-fsanitize=thread`
+at compile time and at link time.
+
 The runnable C examples are in [`examples/`](examples/); Meson builds and
 executes them as part of the test suite.
 
@@ -27,9 +30,13 @@ variable-body surfaces with an id from [SURFACES.md](SURFACES.md), inspect
 capabilities with `potlibc_get_metadata()`, and then call `potlibc_evaluate()`
 or `potlibc_hessian_vector_product()`. HVP is generated with forward-dual
 directional propagation, never a materialized Hessian, for every surface.
-The metadata's reference geometry and
-`potlibc_energy_directional_derivative()` provide the independent dual oracle
-used by the all-surface consistency test.
+The all-surface consistency test uses
+`potlibc_energy_directional_derivative()` as the dual oracle for each
+analytic force, and a Richardson-extrapolated centered difference of that
+derivative as the check on the projected Hessian-vector product. A nonzero
+metadata reference geometry is only the probe center. CBE deposits one.
+Every other surface reports a zero reference geometry, and the test
+synthesizes a probe geometry.
 
 The vendor tree remains byte-for-byte unchanged. `tools/surface_inventory.py`
 classifies the deposit and `tools/generate_surface.py` derives family adapters

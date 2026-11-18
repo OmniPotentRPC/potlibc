@@ -29,9 +29,12 @@ State isolation
 ---------------
 
 On handle creation, ``libpotlibc`` copies the selected plugin into an
-anonymous file and loads that unique image. Initialization runs once, after
-which writable ELF segments are snapshotted. Each coordinate or direction
-seed restores the snapshot before invoking transformed surface code.
+anonymous file and loads that unique image. Initialization runs once.
+Generated adapters other than CBE (``ch52008``) then snapshot writable ELF
+segments, and each coordinate or direction seed restores that snapshot
+before invoking transformed surface code. CBE keeps the deposited analytic
+``pot`` path and does not restore a snapshot. Its isolation is still the
+private plugin image.
 
 Symbolic references are bound within each plugin. Distinct handles therefore
 do not share the surface's Fortran ``COMMON`` blocks or ``SAVE`` variables,
