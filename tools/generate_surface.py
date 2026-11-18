@@ -289,7 +289,12 @@ def _standalone_program_module(text: str, entry_name: str) -> str:
 def _save_entry_locals(text: str) -> str:
     """Ensure program units with ENTRY statements retain initialized locals."""
     unit_pattern = re.compile(
-        r"(?ims)(^\s*(?:(?:double\s+precision|real\*8|integer|logical|"
+        r"(?ims)(^\s*(?:(?:recursive|pure|elemental|impure|module)\s+)*"
+        r"(?:(?:double\s+precision|real(?:\s*\*\s*\d+|\s*\([^)\n]*\))?|"
+        r"integer(?:\s*\*\s*\d+|\s*\([^)\n]*\))?|"
+        r"logical(?:\s*\*\s*\d+|\s*\([^)\n]*\))?|"
+        r"character(?:\s*\*\s*(?:\d+|\([^)\n]*\))|\s*\([^)\n]*\))?|"
+        r"complex(?:\s*\*\s*\d+|\s*\([^)\n]*\))?|"
         r"type\s*\(\s*dual2\s*\))\s+)?(?:subroutine|function)\b.*?"
         r"^\s*end(?:\s+(?:subroutine|function)(?:\s+\w+)?)?\s*$)"
     )
@@ -304,10 +309,17 @@ def _save_entry_locals(text: str) -> str:
         cleaned = [
             line for line in lines if not re.match(r"(?i)^\s*save\b", line)
         ]
-        insert_at = 1
-        for index, line in enumerate(cleaned):
+        header = next(
+            index
+            for index, line in enumerate(cleaned)
+            if re.search(r"(?i)\b(?:subroutine|function)\b", line)
+        )
+        insert_at = header + 1
+        for index, line in enumerate(cleaned[insert_at:], insert_at):
             if re.match(r"(?i)^\s*(?:use\s+\w+|implicit\b)", line):
                 insert_at = index + 1
+            elif line.strip() and not line.lstrip().startswith("!"):
+                break
         cleaned.insert(insert_at, "save")
         return "\n".join(cleaned)
 
@@ -947,11 +959,11 @@ def _transform(plan: SurfacePlan, vendor: Path) -> tuple[str, str]:
 
 def _distance_call(plan: SurfacePlan) -> str:
     arguments = plan.entry_arguments
-    triatomic_order = _internal_distance_order(plan) or (
-        (1, 2),
-        (2, 3),
-        (1, 3),
-    )
+    triatomic_order = _internal_distance_order(plan)
+    if triatomic_order is None:
+        raise ValueError(
+            f"{plan.record['id']}: cannot derive triatomic coordinate order"
+        )
     pair_value = {
         (1, 2): "distance3(coords(1,:),coords(2,:))",
         (2, 3): "distance3(coords(2,:),coords(3,:))",
@@ -1024,16 +1036,54 @@ def _normalize_label(raw: str) -> str:
     return label
 
 
+def _metadata_symbols(plan: SurfacePlan) -> list[str] | None:
+    metadata = plan.record.get("atomic_metadata", {})
+    if metadata.get("kind") != "fixed":
+        return None
+    symbols = metadata.get("symbols")
+    if isinstance(symbols, list) and len(symbols) == 3:
+        return [str(symbol).lower() for symbol in symbols]
+    numbers = metadata.get("numbers")
+    if isinstance(numbers, list) and len(numbers) == 3:
+        return [f"z{int(number)}" for number in numbers]
+    return None
+
+
+def _label_symbol(label: str, symbols: list[str]) -> str | None:
+    unqualified = re.sub(r"^[123]", "", label)
+    unqualified = re.sub(r"p$", "", unqualified)
+    matches = [
+        symbol for symbol in set(symbols)
+        if unqualified == symbol
+    ]
+    return matches[0] if len(matches) == 1 else None
+
+
+def _label_rank(label: str) -> tuple[int, str]:
+    if label.startswith(("1",)):
+        return (0, label)
+    if label.startswith(("2",)) or label.endswith("p"):
+        return (1, label)
+    if label.startswith(("3",)):
+        return (2, label)
+    return (0, label)
+
+
 def _internal_distance_order(plan: SurfacePlan) -> tuple[tuple[int, int], ...] | None:
     """Parse header R(1..3) definitions for triatomic internal coordinates."""
     atom_count = plan.record.get("atom_count", {})
     if atom_count.get("kind") != "fixed" or int(atom_count.get("value", 0)) != 3:
         return None
-    text = _source_text(plan.source)
+    symbols = _metadata_symbols(plan)
+    if symbols is None:
+        return None
+    source = _source_text(plan.source)
+    coordinates = str(plan.record.get("documentation", {}).get("coordinates", ""))
+    text = source[:14000] + "\n" + coordinates
     definitions: dict[int, tuple[str, str]] = {}
     for match in re.finditer(
-        r"(?im)^[c*!]\s*.*?r\s*\(\s*([123])\s*\)\s*=\s*r\s*\(\s*([^)]+)\s*\)",
-        text[:14000],
+        r"(?i)\br\s*\(\s*([123])\s*\)\s*=\s*r\s*\(\s*([^)]+)\s*\)",
+        text,
     ):
         index = int(match.group(1))
         if index in definitions:
@@ -1044,16 +1094,33 @@ def _internal_distance_order(plan: SurfacePlan) -> tuple[tuple[int, int], ...] |
         left, right = (part.strip() for part in descriptor.split("-", 1))
         definitions[index] = (_normalize_label(left), _normalize_label(right))
     if len(definitions) != 3:
-        if plan.strategy in {
-            "pair-common",
-            "pot2-common",
-            "distance-batch",
-            "distance-pot11",
-        }:
-            return ((1, 2), (2, 3), (1, 3))
-        return None
+        return ((1, 2), (2, 3), (1, 3))
 
     by_index = [definitions[1], definitions[2], definitions[3]]
+    labels = {label for pair in by_index for label in pair if label}
+    positions: dict[str, list[int]] = {}
+    for index, symbol in enumerate(symbols, 1):
+        positions.setdefault(symbol, []).append(index)
+    label_groups: dict[str, list[str]] = {}
+    for label in labels:
+        symbol = _label_symbol(label, symbols)
+        if symbol is None:
+            break
+        label_groups.setdefault(symbol, []).append(label)
+    else:
+        if all(
+            len(label_groups.get(symbol, [])) == len(indexes)
+            for symbol, indexes in positions.items()
+        ):
+            order: dict[str, int] = {}
+            for symbol, indexes in positions.items():
+                ordered_labels = sorted(label_groups[symbol], key=_label_rank)
+                order.update(zip(ordered_labels, indexes))
+            return tuple(
+                tuple(sorted((order[left], order[right])))
+                for left, right in by_index
+            )
+
     sets = [set(pair) for pair in by_index]
     tokens = sorted({label for pair in by_index for label in pair if label})
     if len(tokens) == 3 and all(len(item) == 2 for item in sets):
@@ -1095,17 +1162,7 @@ def _internal_distance_order(plan: SurfacePlan) -> tuple[tuple[int, int], ...] |
         mixed_indexes = [index for index, pair in enumerate(by_index) if pair[0] != pair[1]]
         if len(mixed_indexes) != 2:
             return None
-        metadata = plan.record.get("atomic_metadata", {})
-        symbols = (
-            metadata.get("symbols")
-            if metadata.get("kind") == "fixed"
-            else None
-        )
-        if (
-            isinstance(symbols, list)
-            and len(symbols) == 3
-            and symbols[0] == symbols[2]
-        ):
+        if symbols[0] == symbols[2]:
             repeated_pair = (1, 3)
             mapping_by_position = {
                 mixed_indexes[0]: (1, 2),
