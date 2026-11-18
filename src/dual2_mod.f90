@@ -727,12 +727,26 @@ contains
   end function
 
   elemental function min_dr(x, y) result(z)
-    type(dual2), intent(in) :: x; real(c_double), intent(in) :: y; type(dual2) :: z
-    z=min_dd(x,constant_d(y))
+    type(dual2), intent(in) :: x
+    real(c_double), intent(in) :: y
+    type(dual2) :: z
+    if (x%re < y) then
+      z=x
+    else if (x%re == y .or. y < x%re) then
+      z=constant_d(y)
+    else
+      z=x
+    end if
   end function
   elemental function min_rd(x, y) result(z)
-    real(c_double), intent(in) :: x; type(dual2), intent(in) :: y; type(dual2) :: z
-    z=min_dd(constant_d(x),y)
+    real(c_double), intent(in) :: x
+    type(dual2), intent(in) :: y
+    type(dual2) :: z
+    if (y%re < x) then
+      z=y
+    else
+      z=constant_d(x)
+    end if
   end function
   elemental function min_ds(x, y) result(z)
     type(dual2), intent(in) :: x; real, intent(in) :: y; type(dual2) :: z
@@ -764,12 +778,26 @@ contains
   end function
 
   elemental function max_dr(x, y) result(z)
-    type(dual2), intent(in) :: x; real(c_double), intent(in) :: y; type(dual2) :: z
-    z=max_dd(x,constant_d(y))
+    type(dual2), intent(in) :: x
+    real(c_double), intent(in) :: y
+    type(dual2) :: z
+    if (x%re > y) then
+      z=x
+    else if (x%re == y .or. y > x%re) then
+      z=constant_d(y)
+    else
+      z=x
+    end if
   end function
   elemental function max_rd(x, y) result(z)
-    real(c_double), intent(in) :: x; type(dual2), intent(in) :: y; type(dual2) :: z
-    z=max_dd(constant_d(x),y)
+    real(c_double), intent(in) :: x
+    type(dual2), intent(in) :: y
+    type(dual2) :: z
+    if (y%re > x) then
+      z=y
+    else
+      z=constant_d(x)
+    end if
   end function
   elemental function max_ds(x, y) result(z)
     type(dual2), intent(in) :: x; real, intent(in) :: y; type(dual2) :: z
