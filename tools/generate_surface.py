@@ -24,6 +24,7 @@ try:
         join_free_continuations,
         normalize,
         to_dual2,
+        to_jet3,
     )
     from .surface_inventory import inventory
 except ImportError:
@@ -34,6 +35,7 @@ except ImportError:
         join_free_continuations,
         normalize,
         to_dual2,
+        to_jet3,
     )
     from surface_inventory import inventory  # type: ignore[no-redef]
 
@@ -952,8 +954,14 @@ def _transform(plan: SurfacePlan, vendor: Path) -> tuple[str, str]:
     )
     transformed_utility = _read_real_components(transformed_utility)
     if cbe:
-        transformed_source = real_source + "\n" + transformed_source
-        transformed_utility = real_utility + "\n" + transformed_utility
+        jet_source = to_jet3(transformed_source, identifiers, commons)
+        jet_utility = to_jet3(transformed_utility, identifiers, commons)
+        transformed_source = (
+            real_source + "\n" + transformed_source + "\n" + jet_source
+        )
+        transformed_utility = (
+            real_utility + "\n" + transformed_utility + "\n" + jet_utility
+        )
     return transformed_source, transformed_utility
 
 
@@ -1552,6 +1560,7 @@ subroutine potlib_plugin_initialize() bind(c)
   implicit none
   call prepot()
   call zprepot()
+  call jprepot()
 end subroutine potlib_plugin_initialize
 
 integer(c_int) function potlib_plugin_atom_count() bind(c)
@@ -1677,6 +1686,54 @@ subroutine potlib_plugin_hvp(n,x,direction,product) bind(c)
     end do
   end do
 end subroutine potlib_plugin_hvp
+
+subroutine potlib_plugin_gradient_jet(n,order,x,direction,jet,operations,scale) bind(c)
+  use jet3_mod
+  use iso_c_binding, only: c_double,c_int,c_int64_t
+  implicit none
+  integer(c_int), value :: n,order
+  real(c_double), intent(in) :: x(*),direction(*)
+  real(c_double), intent(out) :: jet(*)
+  integer(c_int64_t), intent(out) :: operations
+  real(c_double), intent(out) :: scale
+  integer, parameter :: maxatom=25,isurf=5,jsurf=15,natoms=6
+  type(jet3) :: pengygs,pengyes(isurf),pengyij(jsurf)
+  type(jet3) :: dgscart(maxatom,3),descart(maxatom,3,isurf)
+  type(jet3) :: dijcart(maxatom,3,jsurf),cart(maxatom,3),anuzero
+  integer :: nullbl(maxatom),nflag(20),nasurf(isurf+1,isurf+1),nder
+  integer :: sample,atom,axis,k,level
+  common /jusrocm/ pengygs,pengyes,pengyij,dgscart,descart,dijcart
+  common /jusricm/ cart,anuzero,nullbl,nflag,nasurf,nder
+  call jet3_reset()
+  scale=0.0d0
+  do sample=1,n
+    do atom=1,natoms
+      do axis=1,3
+        k=(sample-1)*3*natoms+3*(atom-1)+axis
+        cart(atom,axis)=jet3(x(k),direction(k),0.0d0,0.0d0)
+      end do
+    end do
+    call jpot()
+    do atom=1,natoms
+      do axis=1,3
+        scale=max(scale,abs(dgscart(atom,axis)%re))
+        do level=1,order
+          k=((level-1)*n+(sample-1))*3*natoms+3*(atom-1)+axis
+          select case (level)
+          case (1)
+            jet(k)=dgscart(atom,axis)%d1
+          case (2)
+            jet(k)=dgscart(atom,axis)%d2
+          case default
+            jet(k)=dgscart(atom,axis)%d3
+          end select
+          scale=max(scale,abs(jet(k)))
+        end do
+      end do
+    end do
+  end do
+  operations=jet3_operations()
+end subroutine potlib_plugin_gradient_jet
 """
 
 

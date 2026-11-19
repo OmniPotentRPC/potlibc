@@ -1106,6 +1106,61 @@ def to_dual2(text: str, identifiers: set[str], commons: set[str]) -> str:
     )
 
 
+_JET_LITERAL = re.compile(
+    r"(?<!jet3\()(?<!jet3\(-)(?<!jet3\(\+)(?<![\w.'])"
+    r"([+-]?)((?:\d+\.\d*|\.\d+)[dD][+-]?\d+)(?![\w.'])"
+)
+
+
+def _wrap_real_literals(text: str) -> str:
+    """Make every double-precision literal a jet constant.
+
+    The operation count of a jet is the count of jet operations, and a
+    constant operand is one of them, as in the reference CBE kernel that this
+    transform reproduces.
+    """
+    out = []
+    for line in text.splitlines():
+        stripped = line.lstrip()
+        if stripped[:1] in ("!", "c", "C", "*") and not stripped[:2].lower() in (
+            "co", "ca", "ch",
+        ):
+            out.append(line)
+            continue
+        if re.match(r"(?i)parameter\b", stripped):
+            out.append(line)
+            continue
+        code, bang, comment = line.partition("!")
+        code = _JET_LITERAL.sub(
+            lambda m: f"{m.group(1)}jet3({m.group(2)},0d0,0d0,0d0)", code
+        )
+        out.append(code + bang + comment)
+    return "\n".join(out) + ("\n" if text.endswith("\n") else "")
+
+
+def to_jet3(text: str, identifiers: set[str], commons: set[str]) -> str:
+    """Retype a to_dual2 source on third-order jets under j-prefixed names."""
+    for name in sorted(identifiers, key=len, reverse=True):
+        text = re.sub(
+            rf"\bz{re.escape(name.lower())}\b",
+            "j" + name.lower(),
+            text,
+            flags=re.I,
+        )
+    for name in sorted(commons, key=len, reverse=True):
+        text = re.sub(
+            rf"/\s*z{re.escape(name.lower())}\s*/",
+            f"/j{name.lower()}/",
+            text,
+            flags=re.I,
+        )
+    text = re.sub(r"(?i)\bBLOCK\s+DATA\s+zptpacm\b", "BLOCK DATA jptpacm", text)
+    text = text.replace("use dual2_mod", "use jet3_mod")
+    text = text.replace("type(dual2)", "type(jet3)")
+    text = re.sub(r"\bdual2\(", "jet3(", text)
+    return _wrap_real_literals(text)
+
+
 def emit(args: argparse.Namespace) -> None:
     vendor = Path(args.vendor)
     entries = inventory(vendor)
