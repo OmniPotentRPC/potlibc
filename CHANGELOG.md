@@ -12,10 +12,16 @@ All notable changes to potlibc are documented here. The format follows
 - Mixed scalar and dual `min` and `max` keep a constant bound, and a zero
   derivative, when the primal values tie. This includes a dual argument
   followed by a real or integer bound.
-- Generated adapters whose deposited routines take Angstrom coordinates
-  and kcal/mol or eV energies now convert those values to the public Bohr
-  and Hartree contract. `ch3nh2` and `pes-shell` scale coordinates only,
-  because those routines already return Hartree.
+- The following adapters now return native Bohr and Hartree values instead
+  of the v0.1.0 behavior: `n3pes`, `o3pes`, `o4pes`, `c2h7`,
+  `c2h7pot5`, `no2-2ap-pip-nn`, `no2-4ap-pip-nn`, `no2-6ap-pip-nn`,
+  `fh2o-pipnn`, `soc-fh2o-nn`, `ho3-pes`, `h3o2-pipnn`, `pes-h3cl`,
+  `ch3nh2`, and `pes-shell`.
+- Conversion uses shared constants from `tools/generate_surface.py`:
+  Bohr coordinates are multiplied by `BOHR_TO_ANGSTROM` before the
+  deposited routine runs, kcal/mol energies are divided by
+  `KCAL_PER_HARTREE`, and eV energies are divided by `EV_PER_HARTREE`. `ch3nh2` and `pes-shell` apply only the coordinate
+  conversion because their deposited routines already return Hartree.
 
 ## [0.1.0] - 2026-11-18
 
