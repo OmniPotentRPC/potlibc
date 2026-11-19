@@ -142,7 +142,7 @@ C
       IF(EXNS.EQ.0.D0) GO TO 20
       WNT=(X(1)-X(2))*(X(2)-X(3))*(X(3)-X(1))
       WN=ABS(WNT)
-      WN2=WN*WN
+      WN2=WNT*WNT
       WN3=WN2*WN
       WN4=WN3*WN
       WN5=WN4*WN

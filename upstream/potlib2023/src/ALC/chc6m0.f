@@ -158,7 +158,7 @@ C   Va = a{[(R1-R2)*(R2-R3)*(R3-R1)]^2}*exp[-alpha*{(R1+R2+R3)^3}]
       ENS = 0.D0
       WNT=(RR(1)-RR(2))*(RR(2)-RR(3))*(RR(3)-RR(1))
       WN=ABS(WNT)
-      WN2=WN*WN
+      WN2=WNT*WNT
       ENS=(AN1*WN2)*EXNS
 C    Add the energy terms together
       E=E+ENS
