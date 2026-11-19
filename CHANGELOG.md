@@ -7,6 +7,20 @@ All notable changes to potlibc are documented here. The format follows
 
 ## [0.1.1] - 2026-11-20
 
+### Added
+
+- `potlibc_gradient_jet()` and `POTLIBC_CAP_GRADIENT_JET`: the first three
+  directional derivatives of the CBE (`ch52008`) analytic gradient, laid out
+  as `[order][count][3 * atom_count]`, with a `potlibc_jet_report` of the jet
+  operation count and the scale for an operation-count roundoff estimate.
+  Other surfaces return `POTLIBC_ERROR_UNSUPPORTED`. The new status
+  `POTLIBC_ERROR_JET_ORDER` is appended to the enum.
+- `jet3_mod`, a third-order forward-mode jet, and a generated `jet3` variant of
+  the CH5 surface. Tests pin its bits, operation count and scale against the
+  standalone CBE kernel, check each order against a Richardson-extrapolated
+  finite difference of the lower orders, require that a 1e-5 relative error in
+  an order-3 component is detected, and pin integer powers at zero.
+
 ### Fixed
 
 - Preserved the LSTH and ALC auxiliary-barrier Hessian on their symmetric

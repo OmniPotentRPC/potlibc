@@ -19,6 +19,17 @@ Hessian is generated or stored. CBE retains the deposited analytic force path
 for bit parity and differentiates that analytic gradient in the direction
 seed for its HVP.
 
+The CBE surface adds a third generated variant on third-order jets
+(`src/jet3_mod.f90`): a value and its first three derivatives along one
+direction, with exact product rules. `tools/catalog.py::to_jet3` retypes the
+`dual2` variant under `j`-prefixed names, and wraps every double-precision
+literal outside a `PARAMETER` as a jet constant so that a constant operand is
+counted like any other jet operation. The adapter exports the optional symbol
+`potlib_plugin_gradient_jet`, which `potlibc_gradient_jet()` looks up to set
+`POTLIBC_CAP_GRADIENT_JET`. Only `ch52008` carries it, so no other plugin links
+the jet module. The jet is compiled with the surface at `-O3` and reproduces
+the standalone CBE kernel bit for bit, including its operation count.
+
 The dual intrinsics use explicit boundary conventions. `abs(0)` and `sqrt(0)`
 select a zero subgradient, constant `exp` tangents remain zero even when the
 primal overflows, and integral-valued real powers use the integer rule so
