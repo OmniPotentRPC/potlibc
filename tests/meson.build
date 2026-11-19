@@ -43,6 +43,12 @@ jet_differences_test = executable(
 )
 test('ch52008 gradient jet finite-difference oracle', jet_differences_test, env: test_env)
 
+jet3_powers_test = executable(
+  'test-jet3-powers',
+  ['test_jet3_powers.f90', '../src/jet3_mod.f90'],
+)
+test('jet3 integer powers at zero', jet3_powers_test)
+
 fortran_api_test = executable(
   'test-fortran-api',
   'test_fortran_api.f90',
