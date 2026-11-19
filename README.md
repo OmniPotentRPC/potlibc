@@ -30,6 +30,16 @@ variable-body surfaces with an id from [SURFACES.md](SURFACES.md), inspect
 capabilities with `potlibc_get_metadata()`, and then call `potlibc_evaluate()`
 or `potlibc_hessian_vector_product()`. HVP is generated with forward-dual
 directional propagation, never a materialized Hessian, for every surface.
+CBE (`ch52008`) also reports `POTLIBC_CAP_GRADIENT_JET`, and
+`potlibc_gradient_jet()` returns the first three directional derivatives of
+its analytic gradient with an operation-count roundoff report. The jet orders
+are `H v`, `D^3 V(v, v)` and `D^4 V(v, v, v)`, laid out as
+`[order][count][3 * atom_count]`. They come from the deposited analytic
+gradient differentiated in forward mode, with no differencing step, and the
+report holds the jet operation count and the largest magnitude among the
+gradient and the returned orders. Their product with `DBL_EPSILON` is an
+operation-count estimate of the roundoff, not a rigorous bound. Other surfaces
+return `POTLIBC_ERROR_UNSUPPORTED` for it.
 The all-surface consistency test uses
 `potlibc_energy_directional_derivative()` as the dual oracle for each
 analytic force, and a Richardson-extrapolated centered difference of that
