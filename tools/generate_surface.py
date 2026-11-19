@@ -1344,9 +1344,9 @@ def _energy_bridge(plan: SurfacePlan) -> str:
   call {entry}(x,y,z,value,natoms,natoms)"""
     elif plan.strategy == "flat-cartesian":
         if plan.entry_name == "f":
-            body = f"""\
+            body = """\
   type(dual2) :: matrix(3,natoms)
-  matrix=transpose(coords)*{BOHR_TO_ANGSTROM}
+  matrix=transpose(coords)
   value=zf(matrix)"""
         elif plan.entry_name == "c2h7pot":
             body = f"""\

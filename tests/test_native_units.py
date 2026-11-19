@@ -20,6 +20,7 @@ import generate_surface as generator  # noqa: E402
 
 BOHR_TO_ANGSTROM = 0.529177210903
 KCAL_PER_HARTREE = 627.5094740631
+PES_SHELL_GEOM_OUT_TOLERANCE = 5.0e-8
 BOHR_TOKEN = "0.529177210903d0"
 KCAL_TOKEN = "627.5094740631d0"
 EV_TOKEN = "27.211386245988d0"
@@ -117,8 +118,9 @@ def _check_bridges(bridges: dict[str, str]) -> None:
     _forbid(text, KCAL_TOKEN, "ch3nh2", failures)
     _forbid(text, EV_TOKEN, "ch3nh2", failures)
     text = bridges["pes-shell"]
-    _require(text, f"matrix=transpose(coords)*{BOHR_TOKEN}", "pes-shell", failures)
+    _require(text, "matrix=transpose(coords)", "pes-shell", failures)
     _require(text, "value=zf(matrix)", "pes-shell", failures)
+    _forbid(text, BOHR_TOKEN, "pes-shell", failures)
     _forbid(text, KCAL_TOKEN, "pes-shell", failures)
     _forbid(text, EV_TOKEN, "pes-shell", failures)
     text = bridges["phsch3-ia"]
@@ -222,12 +224,92 @@ def _check_n3_energy(vendor: Path, build_root: Path) -> None:
         api.potlibc_destroy(handle)
 
 
+def _pes_shell_reference(vendor: Path) -> tuple[list[float], float, list[float]]:
+    geom_dir = vendor / "src" / "C3H7NO" / "Full-PES"
+    geom_lines = (geom_dir / "geom.xyz").read_text(encoding="utf-8").splitlines()
+    natoms = int(geom_lines[0].strip())
+    coords_bohr: list[float] = []
+    for line in geom_lines[2 : 2 + natoms]:
+        parts = line.split()
+        coords_bohr.extend(
+            float(parts[axis]) / BOHR_TO_ANGSTROM for axis in (1, 2, 3)
+        )
+    out_lines = (geom_dir / "geom.out").read_text(encoding="utf-8").splitlines()
+    energy_fit = float(out_lines[1].split()[1])
+    grad_fit = [
+        float(line.split()[1]) for line in out_lines[3 : 3 + 3 * natoms]
+    ]
+    return coords_bohr, energy_fit, grad_fit
+
+
+def _check_pes_shell_reference(vendor: Path, build_root: Path) -> None:
+    candidates = sorted(build_root.glob("libpotlibc.so*"))
+    if not candidates:
+        raise SystemExit(f"cannot locate libpotlibc.so in {build_root}")
+    api = ctypes.CDLL(str(candidates[0]))
+    api.potlibc_create.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_void_p)]
+    api.potlibc_create.restype = ctypes.c_int
+    api.potlibc_destroy.argtypes = [ctypes.c_void_p]
+    api.potlibc_destroy.restype = None
+    api.potlibc_get_metadata.argtypes = [
+        ctypes.c_void_p,
+        ctypes.POINTER(PotlibcMetadata),
+    ]
+    api.potlibc_get_metadata.restype = ctypes.c_int
+    api.potlibc_evaluate.argtypes = [
+        ctypes.c_void_p,
+        ctypes.c_size_t,
+        ctypes.POINTER(ctypes.c_double),
+        ctypes.POINTER(ctypes.c_double),
+        ctypes.POINTER(ctypes.c_double),
+    ]
+    api.potlibc_evaluate.restype = ctypes.c_int
+    handle = ctypes.c_void_p()
+    if api.potlibc_create(b"pes-shell", ctypes.byref(handle)) != 0:
+        raise SystemExit("potlibc_create failed for pes-shell")
+    try:
+        metadata = PotlibcMetadata()
+        if api.potlibc_get_metadata(handle, ctypes.byref(metadata)) != 0:
+            raise SystemExit("potlibc_get_metadata failed for pes-shell")
+        if (
+            metadata.length_unit != b"bohr"
+            or metadata.energy_unit != b"hartree"
+            or metadata.force_unit != b"hartree/bohr"
+        ):
+            raise SystemExit(
+                "pes-shell metadata units are "
+                f"{metadata.length_unit!r}, {metadata.energy_unit!r}, "
+                f"and {metadata.force_unit!r}"
+            )
+        coords, expected_energy, expected_grad = _pes_shell_reference(vendor)
+        xyz = (ctypes.c_double * len(coords))(*coords)
+        energy = (ctypes.c_double * 1)()
+        force = (ctypes.c_double * len(coords))()
+        if api.potlibc_evaluate(handle, 1, xyz, energy, force) != 0:
+            raise SystemExit("potlibc_evaluate failed for pes-shell")
+        if abs(energy[0] - expected_energy) > PES_SHELL_GEOM_OUT_TOLERANCE:
+            raise SystemExit(
+                f"pes-shell energy {energy[0]:.8f} != "
+                f"reference {expected_energy:.8f}"
+            )
+        for index, ref_grad in enumerate(expected_grad):
+            grad = -force[index]
+            if abs(grad - ref_grad) > PES_SHELL_GEOM_OUT_TOLERANCE:
+                raise SystemExit(
+                    f"pes-shell gradient[{index}] {grad:.8f} != "
+                    f"reference {ref_grad:.8f}"
+                )
+    finally:
+        api.potlibc_destroy(handle)
+
+
 def main() -> int:
     vendor = ROOT / "upstream" / "potlib2023"
     _check_bridges(_bridges(vendor))
     build_root = Path(os.environ.get("POTLIBC_PLUGIN_DIR", str(ROOT / "build"))).resolve()
     os.environ.setdefault("POTLIBC_PLUGIN_DIR", str(build_root))
     _check_n3_energy(vendor, build_root)
+    _check_pes_shell_reference(vendor, build_root)
     return 0
 
 
