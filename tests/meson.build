@@ -34,6 +34,15 @@ jet_test = executable(
 )
 test('ch52008 gradient jet bit goldens', jet_test, env: test_env)
 
+jet_differences_test = executable(
+  'test-jet-differences',
+  'test_jet_differences.c',
+  include_directories: potlibc_inc,
+  link_with: potlibc,
+  dependencies: cc.find_library('m', required: false),
+)
+test('ch52008 gradient jet finite-difference oracle', jet_differences_test, env: test_env)
+
 fortran_api_test = executable(
   'test-fortran-api',
   'test_fortran_api.f90',
