@@ -69,7 +69,9 @@ foreach row : surface_rows
   )
   module = shared_module(
     'potlibc-' + surface_id,
-    files('src/dual2_mod.f90', 'src/plugin_state.c') + [
+    files('src/dual2_mod.f90', 'src/plugin_state.c') + (
+      surface_id == 'ch52008' ? files('src/jet3_mod.f90') : []
+    ) + [
       generated[0],
       generated[1],
       generated[2],
