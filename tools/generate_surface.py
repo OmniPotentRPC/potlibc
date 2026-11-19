@@ -1228,7 +1228,7 @@ def _energy_bridge(plan: SurfacePlan) -> str:
   do atom=1,natoms
     do axis=1,3
       k=3*(atom-1)+axis
-      q(k)=coords(atom,axis)*0.529177210903d0
+      q(k)=coords(atom,axis)*{BOHR_TO_ANGSTROM}
     end do
   end do
   nder=0
