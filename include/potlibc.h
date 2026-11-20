@@ -95,17 +95,14 @@ typedef enum potlibc_capability {
 /** Highest derivative order of potlibc_gradient_jet. */
 #define POTLIBC_JET_MAX_ORDER 3
 
-/**
- * Roundoff report of a gradient jet.
- *
- * @c operations counts the forward-mode operations of the whole batch and
- * @c scale is the largest magnitude among the gradient and the returned
- * derivative orders. Their product with DBL_EPSILON is a first-order estimate
- * of the roundoff of the derivatives from an operation count; it is not a
- * rigorous bound.
- */
+/** Roundoff report returned by potlibc_gradient_jet. */
 typedef struct potlibc_jet_report {
+    /** Total impure jet arithmetic operations across the batch, as reported by
+     *  the generated plugin (each elementary jet multiply, divide, or
+     *  transcendental increments this counter). */
     int64_t operations;
+    /** Largest magnitude among the analytic gradient components and every
+     *  returned directional derivative order in the batch. */
     double scale;
 } potlibc_jet_report;
 
