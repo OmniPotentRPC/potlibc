@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 PROJECT_NAME           = "potlibc"
-PROJECT_NUMBER         = "0.1.0"
+PROJECT_NUMBER         = "0.1.1"
 PROJECT_BRIEF          = "C ABI for all PotLib 2023 potential-energy surfaces"
 OUTPUT_DIRECTORY       = docs/source/_doxygen
 INPUT                  = include/potlibc.h
