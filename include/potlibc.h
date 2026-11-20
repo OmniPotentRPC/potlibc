@@ -21,6 +21,12 @@
 extern "C" {
 #endif
 
+/**
+ * \def POTLIBC_API
+ * Marks a function as part of the exported potlibc API: dllexport while
+ * building the library and dllimport for its users on Windows, default
+ * symbol visibility with GCC-compatible compilers, and empty elsewhere.
+ */
 #if defined(_WIN32)
 # if defined(POTLIBC_BUILDING_LIBRARY)
 #  define POTLIBC_API __declspec(dllexport)

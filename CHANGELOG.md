@@ -5,7 +5,7 @@
 All notable changes to potlibc are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.1.1] - 2026-11-20
+## [Unreleased]
 
 ### Added
 
@@ -20,6 +20,8 @@ All notable changes to potlibc are documented here. The format follows
   standalone CBE kernel, check each order against a Richardson-extrapolated
   finite difference of the lower orders, require that a 1e-5 relative error in
   an order-3 component is detected, and pin integer powers at zero.
+
+## [0.1.1] - 2026-11-20
 
 ### Fixed
 
