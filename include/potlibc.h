@@ -105,7 +105,9 @@ typedef enum potlibc_capability {
  * rigorous bound.
  */
 typedef struct potlibc_jet_report {
+    /** Forward-mode operations counted for the whole batch. */
     int64_t operations;
+    /** Largest magnitude among the gradient and the returned derivative orders. */
     double scale;
 } potlibc_jet_report;
 
