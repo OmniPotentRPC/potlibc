@@ -9,6 +9,9 @@ All notable changes to potlibc are documented here. The format follows
 
 ### Fixed
 
+- Preserved the LSTH and ALC auxiliary-barrier Hessian on their symmetric
+  coordinate planes by squaring the signed permutation factor before applying
+  its absolute-value convention to odd powers.
 - Mixed scalar and dual `min` and `max` keep a constant bound, and a zero
   derivative, when the primal values tie. This includes a dual argument
   followed by a real or integer bound.

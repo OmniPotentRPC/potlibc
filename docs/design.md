@@ -2,8 +2,9 @@
 <!-- SPDX-License-Identifier: BSD-3-Clause -->
 # Generated sources and state isolation
 
-`upstream/potlib2023/` is an immutable copy of the PotLib 2023 deposit. The
-build never compiles modified files in that directory. Instead,
+`upstream/potlib2023/` retains the PotLib 2023 deposit apart from documented
+local numerical corrections. The build compiles the corrected sources through
+derived files written into the Meson build directory.
 `tools/surface_inventory.py` classifies all 403 deposited Fortran files.
 `tools/generate_surface.py` writes a generated surface, utility unit, and C ABI
 adapter into the Meson build directory for each of the 387 surface roots.

@@ -33,6 +33,24 @@ fortran_api_test = executable(
 )
 test('Fortran API and CBE exact parity', fortran_api_test, env: test_env)
 
+symmetric_dual2_hessian_test = executable(
+  'test-symmetric-dual2-hessian',
+  'test_symmetric_dual2_hessian.c',
+  include_directories: potlibc_inc,
+  link_with: potlibc,
+)
+test(
+  'LSTH symmetric dual2 Hessians',
+  symmetric_dual2_hessian_test,
+  env: test_env,
+)
+test(
+  'CHC symmetric dual2 Hessian',
+  symmetric_dual2_hessian_test,
+  args: ['chc'],
+  env: test_env,
+)
+
 thread_test = executable(
   'test-threads',
   'test_threads.c',

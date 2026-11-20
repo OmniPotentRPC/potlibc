@@ -7,23 +7,23 @@ Provenance and licensing
 Vendor source
 -------------
 
-``upstream/potlib2023`` is a byte-for-byte copy of:
+``upstream/potlib2023`` retains the PotLib 2023 deposit:
 
   Y. Shu, Z. Varga, A. Jasper, J. Espinosa-García, J. C. Corchado, and
   D. G. Truhlar, "PotLib 2023: New version of a potential energy surface
   library for chemical systems," Mendeley Data, version 1 (2023),
   `doi:10.17632/chxxhnnt4p.1 <https://doi.org/10.17632/chxxhnnt4p.1>`_.
 
-The repository does not patch files under that directory. ``PROVENANCE.md``
-records a SHA-256 digest for every vendored file, and ``data/surfaces.json``
-maps all 403 deposited Fortran files to 387 callable surface roots and 16
-owned support files.
+The repository documents local numerical corrections to vendored files in
+``PROVENANCE.md``, which records a SHA-256 digest for every vendored file.
+``data/surfaces.json`` maps all 403 deposited Fortran files to 387 callable
+surface roots and 16 owned support files.
 
 Build-time transforms
 ---------------------
 
-The build reads the immutable vendor tree and writes derived files only into
-the Meson build directory. For each surface,
+The build reads the vendor tree and writes derived files only into the Meson
+build directory. For each surface,
 ``tools/generate_surface.py`` emits:
 
 * a normalized generated Fortran surface and utility unit;

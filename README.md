@@ -38,11 +38,12 @@ metadata reference geometry is only the probe center. CBE deposits one.
 Every other surface reports a zero reference geometry, and the test
 synthesizes a probe geometry.
 
-The vendor tree remains byte-for-byte unchanged. `tools/surface_inventory.py`
-classifies the deposit and `tools/generate_surface.py` derives family adapters
-from POTLIB headers and interface metadata at build time. [SURFACES.md](SURFACES.md)
-explicitly accounts for every Fortran source entry. [PROVENANCE.md](PROVENANCE.md)
-records every vendor-file hash.
+The vendor tree retains the PotLib 2023 deposit apart from documented local
+numerical corrections. `tools/surface_inventory.py` classifies the deposit and
+`tools/generate_surface.py` derives family adapters from POTLIB headers and
+interface metadata at build time. [SURFACES.md](SURFACES.md) explicitly accounts
+for every Fortran source entry. [PROVENANCE.md](PROVENANCE.md) records every
+vendor-file hash and correction.
 The generated-source transforms and state-isolation design are documented in
 [docs/design.md](docs/design.md).
 

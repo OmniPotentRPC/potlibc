@@ -2,12 +2,21 @@
 <!-- SPDX-License-Identifier: BSD-3-Clause -->
 # Provenance
 
-The vendor tree is a byte-for-byte copy of the PotLib 2023 archive:
+The vendor tree is a copy of the PotLib 2023 archive, except for the
+documented local corrections below:
 
 > Y. Shu, Z. Varga, A. Jasper, J. Espinosa-García, J. C. Corchado,
 > D. G. Truhlar, “PotLib 2023: New version of a potential energy
 > surface library for chemical systems,” Mendeley Data, version 1
 > (2023), <https://doi.org/10.17632/chxxhnnt4p.1>.
+
+## Local corrections
+
+`h3lsth.f` and the twelve `ALC/chc*.f` surfaces calculate the squared
+permutation factor directly from its signed value. This preserves the
+second derivative at a zero of that factor while retaining the deposited
+absolute value for odd powers. The checked-in hashes below record these
+local corrections.
 
 | Repository path | SHA-256 |
 | --- | --- |
@@ -24,18 +33,18 @@ The vendor tree is a byte-for-byte copy of the PotLib 2023 archive:
 | `upstream/potlib2023/interface/HO-MM-1.html` | `ba723b9d6cf5b1819815c06cf422a0c8b4dcb10e905d88ece590141890f48749` |
 | `upstream/potlib2023/interface/index.html` | `97014d5e042d10b1871ed3d060de0b2b41656317c7ad285aca4ce093495be5e9` |
 | `upstream/potlib2023/interface/potlib2001.html` | `40eab0ffa5f98becc8ef9046038a16325edbd895726282b02a992bcfca762510` |
-| `upstream/potlib2023/src/ALC/chc.f` | `c494796081f8fef711fb017c7088d2d15fd3b59cf0efa2eb772d94e7c44872b6` |
-| `upstream/potlib2023/src/ALC/chc5m0.f` | `1cf42ef31edf458ac36201793510b533ff4c5017a451072a7d79055058ade73f` |
-| `upstream/potlib2023/src/ALC/chc6m0.f` | `1c9e76cd07f15d5cca7551331ea366a9512b3806de6abb7679b3f2c5e1bfac62` |
-| `upstream/potlib2023/src/ALC/chc7m0.f` | `c010271ea97216de1f92afc3a1d9ff8d638e1ce3c8ade12c26355edbd74cf73a` |
-| `upstream/potlib2023/src/ALC/chc7m1.f` | `c2857fb2c91a602f640433a2dd9796a24073b4aabe0e0bbda32849cc9648fe7b` |
-| `upstream/potlib2023/src/ALC/chc7m10.f` | `794cad21ea0a5f416f8595b0bc57d3e82ef01774dcbcb53eea9d403bf086a19a` |
-| `upstream/potlib2023/src/ALC/chc7m4.f` | `af2b86dbe15ac792cf6b63418dc54880a83da4714b00f0a78171dc385d6bb147` |
-| `upstream/potlib2023/src/ALC/chc7m5.f` | `786186b3bfef1610b99a78bb6c17cd37e3e2c66f0f7ef84da268975e5c0022ea` |
-| `upstream/potlib2023/src/ALC/chc7m7.f` | `0a1ea985f7013ef6082042a39cc16b9c25e6c57b448a447fbcbb12691b3f170a` |
-| `upstream/potlib2023/src/ALC/chc7p2.f` | `1b665c6625351b2115e8753659be1f12603000dbac612f422f73ad12008da6e3` |
-| `upstream/potlib2023/src/ALC/chc7p3.f` | `a09fb58f7e1bfe081b97cef17081001c4a790f7cfe847c54f555a83ee3862627` |
-| `upstream/potlib2023/src/ALC/chc7p5.f` | `5279cb522454101e6ebfe09bc0a0d3abd70667241a1d55fab37c1161a02e99dd` |
+| `upstream/potlib2023/src/ALC/chc.f` | `e23ac625a94626963e18f9136b35cb7a8382df220ff244db4a007d61e88e7f5c` |
+| `upstream/potlib2023/src/ALC/chc5m0.f` | `367794ff2509840ca682bbb137fa65636771c66a0c959d79100331bf01f3af9b` |
+| `upstream/potlib2023/src/ALC/chc6m0.f` | `82f82f309378b43edc20e6bf2fb069c2f16c525e689cc4fe3e54b5b68662cc4d` |
+| `upstream/potlib2023/src/ALC/chc7m0.f` | `1209753dc5d7dba139e2c19583d88a9c03de6118d3764da44697db840ed4c1fb` |
+| `upstream/potlib2023/src/ALC/chc7m1.f` | `4d552d3b1d62d3373c66c5c70a780ab17918cfb544cf6791775879338148463a` |
+| `upstream/potlib2023/src/ALC/chc7m10.f` | `edcd4dfb61cf3654dbe9f147d0b081acf209eb26b9d479ca5b988d587834e670` |
+| `upstream/potlib2023/src/ALC/chc7m4.f` | `3765e3a010e06dc08c0bc3f9f6ed44bc58e1a4c0d751586ef0d2ba84bbb45b47` |
+| `upstream/potlib2023/src/ALC/chc7m5.f` | `4d64a53e9766fd031047be21cf3f21e439d6e492deb4194861b096c5ad97ade9` |
+| `upstream/potlib2023/src/ALC/chc7m7.f` | `17661cd7f028717f66d7264dcc37449787d6a61acc7fe22fdaaa482118f98956` |
+| `upstream/potlib2023/src/ALC/chc7p2.f` | `49622a97ad5779060314f74b42989ad4c02d9cac5d38f18a320b5becf0d7de1e` |
+| `upstream/potlib2023/src/ALC/chc7p3.f` | `00237272a80968739a829aef0f1d8c15674177671999e4a24900dbc68c353093` |
+| `upstream/potlib2023/src/ALC/chc7p5.f` | `a5f777452e4b38bde3420707971b35ed2395de3a4955e29cebf1766e398e34df` |
 | `upstream/potlib2023/src/AlmHn/vbo-beta1.f` | `00296b548f04653d95531bc32d49590dedaabc6cc830f07db38de3a6c569c5a6` |
 | `upstream/potlib2023/src/AlmHn/vbo-beta1.old` | `92a0809d0cdf7ab3201ce6a8fe55c88de5124f2f36c86a31182b1c844e53d9f6` |
 | `upstream/potlib2023/src/AlmHn/vbo2-beta1.f` | `cc408a7b955a6d947fdc9445f8fd66d62ab4b627e31565c24c8bbcfaaf539bee` |
@@ -332,7 +341,7 @@ The vendor tree is a byte-for-byte copy of the PotLib 2023 archive:
 | `upstream/potlib2023/src/H3/h3dmbe.f` | `82ba6f38557e8a6b30d9ea7fd291a76d48a1e69a8069d2692fbaa85ae2a7f017` |
 | `upstream/potlib2023/src/H3/h3dmbe2001.f` | `33d53191b07fabaee7b0b45a398d6147e508c0e547e8fcf02ee569a88a710821` |
 | `upstream/potlib2023/src/H3/h3dmbev.f` | `48802a8b2b7cecba8085cd6948422ed81a93e0167b5772d90402724afcac624d` |
-| `upstream/potlib2023/src/H3/h3lsth.f` | `1b00dc54edeba4793b46e90d26633833088ae8363683cefb6f01687db48f0127` |
+| `upstream/potlib2023/src/H3/h3lsth.f` | `b3978a92056bb635c2bc503478e58e70d9ca915fe594d16708f170effd7ae858` |
 | `upstream/potlib2023/src/H3/h3pk2-2001.f` | `94e3fdf0a9528254bf15a711c3db34cba00fbe14a422e3bec9658002e9cbf529` |
 | `upstream/potlib2023/src/H3/h3pk2.f` | `de43790374ffdb52c22c260221e5d573267afa58affe0eec7ba7ae34444b3d28` |
 | `upstream/potlib2023/src/H3/h3tk.f` | `6c12fe458e7e087e362d6ee59a2d41e98d7aeed3e06c1fe8e5b95a24174adfff` |
