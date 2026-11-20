@@ -19,6 +19,13 @@ Types
 .. doxygenenum:: potlibc_capability
    :project: potlibc
 
+.. doxygendefine:: POTLIBC_JET_MAX_ORDER
+   :project: potlibc
+
+.. doxygenstruct:: potlibc_jet_report
+   :project: potlibc
+   :members:
+
 .. doxygenstruct:: potlibc_metadata
    :project: potlibc
    :members:
@@ -45,6 +52,9 @@ Functions
    :project: potlibc
 
 .. doxygenfunction:: potlibc_hessian_vector_product
+   :project: potlibc
+
+.. doxygenfunction:: potlibc_gradient_jet
    :project: potlibc
 
 .. doxygenfunction:: potlibc_status_string

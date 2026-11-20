@@ -21,6 +21,12 @@
 extern "C" {
 #endif
 
+/**
+ * \def POTLIBC_API
+ * Marks a function as part of the exported potlibc API: dllexport while
+ * building the library and dllimport for its users on Windows, default
+ * symbol visibility with GCC-compatible compilers, and empty elsewhere.
+ */
 #if defined(_WIN32)
 # if defined(POTLIBC_BUILDING_LIBRARY)
 #  define POTLIBC_API __declspec(dllexport)
@@ -68,7 +74,9 @@ typedef enum potlibc_status {
     /** A fixed-size surface was created with an atom count. */
     POTLIBC_ERROR_ATOM_COUNT_UNEXPECTED,
     /** The requested atom count is not valid for the surface. */
-    POTLIBC_ERROR_INVALID_ATOM_COUNT
+    POTLIBC_ERROR_INVALID_ATOM_COUNT,
+    /** The requested jet order is outside 1..POTLIBC_JET_MAX_ORDER. */
+    POTLIBC_ERROR_JET_ORDER
 } potlibc_status;
 
 /** Surface capability bits reported by potlibc_metadata.capabilities. */
@@ -78,8 +86,30 @@ typedef enum potlibc_capability {
     /** Analytic forces are available. */
     POTLIBC_CAP_FORCES = UINT32_C(1) << 1,
     /** Analytic Hessian-vector products are available. */
-    POTLIBC_CAP_HVP = UINT32_C(1) << 2
+    POTLIBC_CAP_HVP = UINT32_C(1) << 2,
+    /** Directional derivatives of the gradient through third order with a
+     *  roundoff report are available (potlibc_gradient_jet). */
+    POTLIBC_CAP_GRADIENT_JET = UINT32_C(1) << 3
 } potlibc_capability;
+
+/** Highest derivative order of potlibc_gradient_jet. */
+#define POTLIBC_JET_MAX_ORDER 3
+
+/**
+ * Roundoff report of a gradient jet.
+ *
+ * @c operations counts the forward-mode operations of the whole batch and
+ * @c scale is the largest magnitude among the gradient and the returned
+ * derivative orders. Their product with DBL_EPSILON is a first-order estimate
+ * of the roundoff of the derivatives from an operation count; it is not a
+ * rigorous bound.
+ */
+typedef struct potlibc_jet_report {
+    /** Forward-mode operations counted for the whole batch. */
+    int64_t operations;
+    /** Largest magnitude among the gradient and the returned derivative orders. */
+    double scale;
+} potlibc_jet_report;
 
 /**
  * Immutable metadata owned by a potlibc_handle.
@@ -208,6 +238,33 @@ POTLIBC_API potlibc_status potlibc_energy_directional_derivative(
 POTLIBC_API potlibc_status potlibc_hessian_vector_product(
     potlibc_handle *handle, size_t count, const double *x,
     const double *direction, double *product);
+
+/**
+ * Evaluate directional derivatives of the analytic gradient through a given
+ * order.
+ *
+ * @param handle Live surface handle.
+ * @param count Number of geometries.
+ * @param order Highest derivative order, in 1..POTLIBC_JET_MAX_ORDER.
+ * @param x Row-major coordinates with shape [count][3 * atom_count], in Bohr.
+ * @param direction Row-major direction vectors with the same shape as @p x.
+ * @param jet Row-major output with shape [order][count][3 * atom_count].
+ * @param report Optional roundoff report, written only on success.
+ * @return POTLIBC_SUCCESS, POTLIBC_ERROR_UNSUPPORTED,
+ * POTLIBC_ERROR_JET_ORDER, or another diagnostic status.
+ *
+ * jet[k - 1] is the k-th derivative with respect to t of the gradient of
+ * E(x + t direction) at t = 0, in Hartree/Bohr^(k + 1) times the direction
+ * to the power k. Order 1 is the Hessian-vector product, order 2 contracts the
+ * third derivative tensor with the direction twice and order 3 contracts the
+ * fourth derivative tensor with it three times. They are exact forward-mode
+ * values, not Taylor coefficients, and no differencing step is used.
+ *
+ * The operation is available when POTLIBC_CAP_GRADIENT_JET is set.
+ */
+POTLIBC_API potlibc_status potlibc_gradient_jet(
+    potlibc_handle *handle, size_t count, size_t order, const double *x,
+    const double *direction, double *jet, potlibc_jet_report *report);
 
 /**
  * Return a static English description of a status value.

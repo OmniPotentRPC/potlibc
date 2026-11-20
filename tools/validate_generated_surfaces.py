@@ -10,6 +10,7 @@ import concurrent.futures
 import hashlib
 import json
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -44,6 +45,13 @@ FORTRAN_FLAGS = (
     "-fallow-argument-mismatch",
     "-fno-align-commons",
 )
+FORTRAN_MODULES = {
+    "dual2_mod": "dual2_mod.f90",
+    "jet3_mod": "jet3_mod.f90",
+}
+_USE_MODULE = re.compile(
+    r"(?im)^[ \t]*use[ \t]+([A-Za-z_][A-Za-z0-9_]*)\b"
+)
 
 
 def _tree_digest(root: Path) -> str:
@@ -55,7 +63,15 @@ def _tree_digest(root: Path) -> str:
     return digest.hexdigest()
 
 
-def _compile(item: dict[str, str]) -> dict[str, Any]:
+def _modules_used(directory: Path) -> list[str]:
+    names: set[str] = set()
+    for filename in ("source.f90", "utility.f90", "adapter.f90"):
+        text = (directory / filename).read_text()
+        names.update(match.group(1).lower() for match in _USE_MODULE.finditer(text))
+    return [name for name in FORTRAN_MODULES if name in names]
+
+
+def _compile(item: dict[str, Any]) -> dict[str, Any]:
     directory = Path(item["directory"])
     command = [
         "gfortran",
@@ -65,7 +81,7 @@ def _compile(item: dict[str, str]) -> dict[str, Any]:
         "source.f90",
         "utility.f90",
         "adapter.f90",
-        item["dual_object"],
+        *item["module_objects"],
         item["state_object"],
         item["data_stub_object"],
         "-ldl",
@@ -114,16 +130,22 @@ def main() -> int:
     vendor = args.vendor.resolve()
     build = args.build_directory.resolve()
     build.mkdir(parents=True, exist_ok=True)
-    module_directory = build / "dual2"
+    module_directory = build / "modules"
     module_directory.mkdir(exist_ok=True)
     before = _tree_digest(vendor)
-    dual_object = build / "dual2.o"
-    dual_command = [
-        "gfortran", "-c", "-fPIC", f"-J{module_directory}",
-        str(Path(__file__).resolve().parents[1] / "src" / "dual2_mod.f90"),
-        "-o", str(dual_object),
-    ]
-    subprocess.run(dual_command, check=True)
+    source_root = Path(__file__).resolve().parents[1] / "src"
+    module_objects = {}
+    module_commands = []
+    for name, filename in FORTRAN_MODULES.items():
+        object_path = build / f"{name}.o"
+        command = [
+            "gfortran", "-c", "-fPIC", f"-J{module_directory}",
+            str(source_root / filename),
+            "-o", str(object_path),
+        ]
+        subprocess.run(command, check=True)
+        module_objects[name] = object_path
+        module_commands.append(command)
     state_object = build / "plugin_state.o"
     state_command = [
         "cc", "-c", "-fPIC",
@@ -143,7 +165,7 @@ def main() -> int:
     subprocess.run(data_stub_command, check=True)
 
     catalog = inventory(vendor)
-    generated: list[dict[str, str]] = []
+    generated: list[dict[str, Any]] = []
     failures: list[dict[str, Any]] = []
     for index, record in enumerate(catalog["surfaces"], 1):
         directory = build / f"{index:03d}-{record['id']}"
@@ -154,6 +176,7 @@ def main() -> int:
             (directory / "source.f90").write_text(source)
             (directory / "utility.f90").write_text(utility)
             (directory / "adapter.f90").write_text(_adapter(plan))
+            used = _modules_used(directory)
         except Exception as error:
             failures.append(
                 {
@@ -170,7 +193,7 @@ def main() -> int:
                 "path": record["path"],
                 "directory": str(directory),
                 "module_directory": str(module_directory),
-                "dual_object": str(dual_object),
+                "module_objects": [str(module_objects[name]) for name in used],
                 "state_object": str(state_object),
                 "data_stub_object": str(data_stub_object),
             }
@@ -188,7 +211,7 @@ def main() -> int:
         "abi_complete": sum(bool(item.get("symbols")) for item in results),
         "vendor_unchanged": before == after,
         "vendor_sha256": after,
-        "dual_command": dual_command,
+        "module_commands": module_commands,
         "state_command": state_command,
         "data_stub_command": data_stub_command,
         "fortran_flags": list(FORTRAN_FLAGS),
