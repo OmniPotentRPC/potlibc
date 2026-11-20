@@ -5,7 +5,7 @@
 All notable changes to potlibc are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [Unreleased]
+## [0.1.1] - 2026-11-20
 
 ### Fixed
 
@@ -31,6 +31,16 @@ All notable changes to potlibc are documented here. The format follows
   `a0 = 2.d0` Bohr (`test.f90` divides input Angstrom coordinates by
   `auang` before calling `f`) and already returns Hartree energies and
   Hartree/Bohr gradients.
+- The public header, README, and user guide now match the implementation.
+  `POTLIBC_ERROR_INVALID_SURFACE_ID` is a syntax and path check. A well
+  formed identifier with no loadable plugin returns
+  `POTLIBC_ERROR_SURFACE_UNAVAILABLE`. `potlibc_create_sized` rejects a
+  zero atom count with `POTLIBC_ERROR_INVALID_ATOM_COUNT`. The consistency
+  test uses `potlibc_energy_directional_derivative()` as the force oracle.
+  CBE (`ch52008`) does not restore a writable data snapshot. Documented
+  compiler flags match `meson.build`, and `test-tsan` exists only when the
+  compiler accepts `-fsanitize=thread` at compile time and at link time.
+  The regression suite count is 400.
 
 ## [0.1.0] - 2026-11-18
 

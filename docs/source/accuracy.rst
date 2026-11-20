@@ -32,7 +32,7 @@ The CBE regression compares one energy, all 18 force components, and all 18
 HVP components bit-for-bit with committed hexadecimal references. Its maximum
 absolute error is exactly zero for each quantity.
 
-The complete Meson run passed 398 of 398 tests. This includes 387 of 387
+The complete Meson run passed 400 of 400 tests. This includes 387 of 387
 per-surface dual consistency cases. For every catalog surface, that test:
 
 #. compares the dual directional energy derivative with
