@@ -1231,8 +1231,10 @@ def main() -> None:
             vendor_path = Path(args.vendor)
             files = sorted(path for path in vendor_path.rglob("*") if path.is_file())
             lines = [
-                "<!-- SPDX-FileCopyrightText: 2026 Rohit Goswami -->",
-                "<!-- SPDX-License-Identifier: BSD-3-Clause -->",
+                *"""\
+<!-- SPDX-FileCopyrightText: 2026 Rohit Goswami -->
+<!-- SPDX-License-Identifier: BSD-3-Clause -->
+""".splitlines(),
                 "# Provenance",
                 "",
                 "The vendor tree is a byte-for-byte copy of the PotLib 2023 archive:",
@@ -1257,8 +1259,10 @@ def main() -> None:
             if output.suffix == ".md":
                 wrapped = sum(bool(item["wrapped"]) for item in data)
                 lines = [
-                    "<!-- SPDX-FileCopyrightText: 2026 Rohit Goswami -->",
-                    "<!-- SPDX-License-Identifier: BSD-3-Clause -->",
+                    *"""\
+<!-- SPDX-FileCopyrightText: 2026 Rohit Goswami -->
+<!-- SPDX-License-Identifier: BSD-3-Clause -->
+""".splitlines(),
                     "# Surface inventory",
                     "",
                     f"Generated from POTLIB headers: {wrapped} wrapped, "

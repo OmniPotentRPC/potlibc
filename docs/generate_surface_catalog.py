@@ -36,8 +36,10 @@ def missing(label: str) -> str:
 
 def render(catalog: dict[str, Any]) -> str:
     lines = [
-        ".. SPDX-FileCopyrightText: 2026 Rohit Goswami",
-        ".. SPDX-License-Identifier: BSD-3-Clause",
+        *"""\
+.. SPDX-FileCopyrightText: 2026 Rohit Goswami
+.. SPDX-License-Identifier: BSD-3-Clause
+""".splitlines(),
         "",
         "Surface catalog",
         "===============",
