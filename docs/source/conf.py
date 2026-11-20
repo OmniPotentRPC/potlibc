@@ -77,6 +77,7 @@ nitpicky = True
 nitpick_ignore = [
     ("c:identifier", "size_t"),
     ("c:identifier", "uint32_t"),
+    ("c:identifier", "int64_t"),
 ]
 exclude_patterns = ["_doxygen"]
 

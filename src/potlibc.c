@@ -27,6 +27,10 @@
  *       int atomic_numbers[atom_count], double reference[3 * atom_count]);
  *   void potlib_plugin_evaluate(int count, const double *x, double *energy,
  *       double *force);
+ * Optional: potlib_plugin_energy_directional, potlib_plugin_hvp, and
+ *   void potlib_plugin_gradient_jet(int count, int order, const double *x,
+ *       const double *direction, double *jet[order][count][3 * atom_count],
+ *       int64_t *operations, double *scale);
  * Metadata returns zero on success and nonzero when atom_count is invalid.
  */
 typedef void (*initialize_fn)(void);
@@ -35,6 +39,8 @@ typedef int (*metadata_fn)(int, int *, int *, double *);
 typedef void (*evaluate_fn)(int, const double *, double *, double *);
 typedef void (*directional_fn)(int, const double *, const double *, double *);
 typedef void (*hvp_fn)(int, const double *, const double *, double *);
+typedef void (*gradient_jet_fn)(int, int, const double *, const double *,
+                                double *, int64_t *, double *);
 typedef void (*release_fn)(void);
 
 struct potlibc_handle {
@@ -48,6 +54,7 @@ struct potlibc_handle {
     evaluate_fn evaluate;
     directional_fn directional;
     hvp_fn hvp;
+    gradient_jet_fn gradient_jet;
     release_fn release;
 };
 
@@ -215,6 +222,8 @@ static potlibc_status create_handle(const char *surface_id,
         (directional_fn)dlsym(handle->image,
                               "potlib_plugin_energy_directional");
     handle->hvp = (hvp_fn)dlsym(handle->image, "potlib_plugin_hvp");
+    handle->gradient_jet = (gradient_jet_fn)dlsym(
+        handle->image, "potlib_plugin_gradient_jet");
     handle->release =
         (release_fn)dlsym(handle->image, "potlibc_state_release");
     if (initialize == NULL || get_atom_count == NULL || metadata == NULL ||
@@ -278,6 +287,9 @@ static potlibc_status create_handle(const char *surface_id,
     }
     if (handle->hvp != NULL) {
         handle->capabilities |= POTLIBC_CAP_HVP;
+    }
+    if (handle->gradient_jet != NULL) {
+        handle->capabilities |= POTLIBC_CAP_GRADIENT_JET;
     }
     *result = handle;
     return POTLIBC_SUCCESS;
@@ -422,6 +434,44 @@ potlibc_status potlibc_hessian_vector_product(
                : POTLIBC_ERROR_NONFINITE_RESULT;
 }
 
+potlibc_status potlibc_gradient_jet(
+    potlibc_handle *handle, size_t count, size_t order, const double *x,
+    const double *direction, double *jet, potlibc_jet_report *report)
+{
+    size_t coordinates;
+    potlibc_status status;
+    potlibc_jet_report result;
+    if (handle == NULL || x == NULL || direction == NULL || jet == NULL) {
+        return POTLIBC_ERROR_NULL_POINTER;
+    }
+    if (handle->gradient_jet == NULL) {
+        return POTLIBC_ERROR_UNSUPPORTED;
+    }
+    if (order < 1 || order > POTLIBC_JET_MAX_ORDER) {
+        return POTLIBC_ERROR_JET_ORDER;
+    }
+    status = checked_size(handle, count, &coordinates);
+    if (status != POTLIBC_SUCCESS) {
+        return status;
+    }
+    if (coordinates > SIZE_MAX / (order * sizeof(double))) {
+        return POTLIBC_ERROR_COUNT_RANGE;
+    }
+    if (!finite_values(coordinates, x) ||
+        !finite_values(coordinates, direction)) {
+        return POTLIBC_ERROR_NONFINITE_INPUT;
+    }
+    handle->gradient_jet((int)count, (int)order, x, direction, jet,
+                         &result.operations, &result.scale);
+    if (!finite_values(order * coordinates, jet) || !isfinite(result.scale)) {
+        return POTLIBC_ERROR_NONFINITE_RESULT;
+    }
+    if (report != NULL) {
+        *report = result;
+    }
+    return POTLIBC_SUCCESS;
+}
+
 const char *potlibc_status_string(potlibc_status status)
 {
     static const char *const messages[] = {
@@ -431,7 +481,7 @@ const char *potlibc_status_string(potlibc_status status)
         "non-finite result", "operation unsupported by surface",
         "atom count required for variable-size surface",
         "atom count is only valid for variable-size surfaces",
-        "invalid atom count"
+        "invalid atom count", "jet order outside 1..3"
     };
     size_t index = (size_t)status;
     return index < sizeof(messages) / sizeof(messages[0])
