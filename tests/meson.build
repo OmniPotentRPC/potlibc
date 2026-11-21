@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 threads = dependency('threads')
+libm = cc.find_library('m', required: false)
 test_env = environment()
 test_env.set('POTLIBC_PLUGIN_DIR', meson.current_build_dir() / '..')
 test_env.set(
@@ -21,7 +22,7 @@ c_api_test = executable(
   'test_c_api.c',
   include_directories: potlibc_inc,
   link_with: potlibc,
-  dependencies: cc.find_library('m', required: false),
+  dependencies: libm,
 )
 test('C API and CBE exact parity', c_api_test, env: test_env)
 
@@ -30,7 +31,7 @@ jet_test = executable(
   'test_jet.c',
   include_directories: potlibc_inc,
   link_with: potlibc,
-  dependencies: cc.find_library('m', required: false),
+  dependencies: libm,
 )
 test('ch52008 gradient jet bit goldens', jet_test, env: test_env)
 
@@ -39,7 +40,7 @@ jet_differences_test = executable(
   'test_jet_differences.c',
   include_directories: potlibc_inc,
   link_with: potlibc,
-  dependencies: cc.find_library('m', required: false),
+  dependencies: libm,
 )
 test('ch52008 gradient jet finite-difference oracle', jet_differences_test, env: test_env)
 
@@ -62,6 +63,7 @@ symmetric_dual2_hessian_test = executable(
   'test_symmetric_dual2_hessian.c',
   include_directories: potlibc_inc,
   link_with: potlibc,
+  dependencies: libm,
 )
 test(
   'LSTH symmetric dual2 Hessians',
@@ -98,7 +100,7 @@ consistency_test = executable(
   'test_consistency.c',
   include_directories: potlibc_inc,
   link_with: potlibc,
-  dependencies: cc.find_library('m'),
+  dependencies: libm,
 )
 foreach surface_case : surface_test_cases
   test(

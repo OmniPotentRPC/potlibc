@@ -88,4 +88,7 @@ exclude_patterns = ["_doxygen"]
 linkcheck_ignore = [
     r"^https://pubs\.aip\.org/",
     r"^https://aip\.scitation\.org/",
+    r"^https://iopscience\.iop\.org/",
 ]
+linkcheck_timeout = 20
+linkcheck_retries = 2
