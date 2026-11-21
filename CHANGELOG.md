@@ -5,6 +5,26 @@
 All notable changes to potlibc are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Fixed
+
+- Every math-using C test now links `libm`, which `tests/meson.build` looks up
+  once and keeps optional. The symmetric `dual2` Hessian test did not link it
+  at all, so it could fail to link on toolchains where `libm` is a separate
+  library.
+- The docs linkcheck ignores `iopscience.iop.org` and sets
+  `linkcheck_timeout = 20` and `linkcheck_retries = 2`, so a slow host or a
+  transient network error no longer fails the build.
+- The documented total in `docs/source/accuracy.rst` is 403 of 403 Meson tests
+  (previously 400), with 387 of 387 per-surface dual consistency cases.
+- `tools/validate_generated_surfaces.py` compiles `dual2_mod` and `jet3_mod`
+  and links each generated surface plugin to the modules that its `use`
+  statements name, instead of always linking `dual2_mod`. `ch52008` uses
+  `jet3_mod` in its generated source, utility, and adapter, so it did not
+  compile before. This change shipped in 0.2.0 but was missing from the 0.2.0
+  notes.
+
 ## [0.2.0] - 2026-11-21
 
 ### Added
