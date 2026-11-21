@@ -6,7 +6,7 @@ from pathlib import Path
 project = "potlibc"
 author = "Rohit Goswami"
 copyright = "2026, Rohit Goswami"
-version = "0.1.1"
+version = "0.2.0"
 release = version
 
 extensions = [
@@ -88,4 +88,7 @@ exclude_patterns = ["_doxygen"]
 linkcheck_ignore = [
     r"^https://pubs\.aip\.org/",
     r"^https://aip\.scitation\.org/",
+    r"^https://iopscience\.iop\.org/",
 ]
+linkcheck_timeout = 20
+linkcheck_retries = 2
