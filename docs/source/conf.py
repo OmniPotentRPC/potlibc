@@ -89,6 +89,9 @@ linkcheck_ignore = [
     r"^https://pubs\.aip\.org/",
     r"^https://aip\.scitation\.org/",
     r"^https://iopscience\.iop\.org/",
+    # These links point at vendored files under upstream/potlib2023/ in this
+    # repository. tests/test_catalog.py checks the catalog against those files.
+    r"^https://github\.com/OmniPotentRPC/potlibc/blob/main/upstream/potlib2023/",
 ]
 linkcheck_timeout = 20
 linkcheck_retries = 2
