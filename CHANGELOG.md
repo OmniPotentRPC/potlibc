@@ -5,7 +5,7 @@
 All notable changes to potlibc are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [Unreleased]
+## [0.2.0] - 2026-11-21
 
 ### Added
 
@@ -20,6 +20,13 @@ All notable changes to potlibc are documented here. The format follows
   standalone CBE kernel, check each order against a Richardson-extrapolated
   finite difference of the lower orders, require that a 1e-5 relative error in
   an order-3 component is detected, and pin integer powers at zero.
+
+### Fixed
+
+- The files that `docs/generate_surface_catalog.py` and `tools/catalog.py`
+  generate carry valid SPDX headers. The copyright text and the license
+  expression each sit on their own line, so the license reads
+  `BSD-3-Clause` instead of including Python string quotes.
 
 ## [0.1.1] - 2026-11-20
 
