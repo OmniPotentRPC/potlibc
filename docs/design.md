@@ -27,8 +27,11 @@ literal outside a `PARAMETER` as a jet constant so that a constant operand is
 counted like any other jet operation. The adapter exports the optional symbol
 `potlib_plugin_gradient_jet`, which `potlibc_gradient_jet()` looks up to set
 `POTLIBC_CAP_GRADIENT_JET`. Only `ch52008` carries it, so no other plugin links
-the jet module. The jet is compiled with the surface at `-O3` and reproduces
-the standalone CBE kernel bit for bit, including its operation count.
+the jet module. The jet is compiled with the surface at `-O3` and
+`-ffp-contract=off`, and reproduces the standalone CBE kernel bit for bit,
+including its operation count. Contraction is off because the compiler default
+`-ffp-contract=fast` forms fused multiply-adds on an FMA target, and those
+operations do not match the reference rounding.
 
 The dual intrinsics use explicit boundary conventions. `abs(0)` and `sqrt(0)`
 select a zero subgradient, constant `exp` tangents remain zero even when the
@@ -38,7 +41,9 @@ overloads preserve a constant bound at a clipping tie. Comparisons otherwise
 select branches from the primal value; consistency probes avoid
 nondifferentiable switching surfaces.
 
-`ch52008` is compiled at `-O3`. `phsch3-ia`, `phsch3-s-1-8`,
+`ch52008` is compiled at `-O3` with `-ffp-contract=off`, so the exact-parity
+contract does not depend on whether the toolchain's default `-march` includes
+FMA. `phsch3-ia`, `phsch3-s-1-8`,
 `phsch3-s-2-0`, `phsch3-ii`, `phsch3-s-2-5`, `phsch3-iii`,
 `phsch3-s-2-2`, `phsch3-aprp`, and `ch4t8` are compiled at `-O0`, because
 higher optimization faults those legacy implementations even though the
