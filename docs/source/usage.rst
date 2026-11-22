@@ -37,9 +37,11 @@ Gradient jets
 -------------
 
 :c:func:`potlibc_gradient_jet` evaluates directional derivatives of the
-analytic gradient through a chosen order. For a unit direction :math:`v`, order
-``k`` is the :math:`k`-th derivative with respect to :math:`t` of
-:math:`\nabla E(x + t v)` at :math:`t = 0`. Order 1 matches
+analytic gradient through a chosen order. Any finite direction vector
+:math:`v` is accepted; it need not be normalized. Order ``k`` is the
+:math:`k`-th derivative with respect to :math:`t` of
+:math:`\nabla E(x + t v)` at :math:`t = 0`, so scaling :math:`v` by a scalar
+:math:`a` scales that order by :math:`a^k`. Order 1 matches
 :c:func:`potlibc_hessian_vector_product`; higher orders contract the energy
 tensor along :math:`v` without finite differencing.
 
