@@ -78,7 +78,7 @@ foreach row : surface_rows
       generated[3],
     ],
     fortran_args: (
-      surface_id == 'ch52008' ? ['-O3'] : []
+      surface_id == 'ch52008' ? ['-O3', '-ffp-contract=off'] : []
     ) + (
       surface_id in [
         'phsch3-ia', 'phsch3-s-1-8', 'phsch3-s-2-0', 'phsch3-ii',

@@ -9,6 +9,11 @@ All notable changes to potlibc are documented here. The format follows
 
 ### Fixed
 
+- `ch52008` is compiled with `-ffp-contract=off` as well as `-O3`. CBE energy,
+  force, HVP and gradient-jet values are an IEEE bit contract with the
+  reference kernel. The default `-ffp-contract=fast` forms fused multiply-adds
+  when the compiler targets an FMA ISA, such as x86-64-v3, and those fused
+  operations disagree with the reference bits.
 - Every math-using C test now links `libm`, which `tests/meson.build` looks up
   once and keeps optional. The symmetric `dual2` Hessian test did not link it
   at all, so it could fail to link on toolchains where `libm` is a separate
