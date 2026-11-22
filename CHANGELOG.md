@@ -5,7 +5,7 @@
 All notable changes to potlibc are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.2.1] - 2026-11-21
+## [Unreleased]
 
 ### Fixed
 
@@ -14,6 +14,11 @@ All notable changes to potlibc are documented here. The format follows
   reference kernel. The default `-ffp-contract=fast` forms fused multiply-adds
   when the compiler targets an FMA ISA, such as x86-64-v3, and those fused
   operations disagree with the reference bits.
+
+## [0.2.1] - 2026-11-21
+
+### Fixed
+
 - Every math-using C test now links `libm`, which `tests/meson.build` looks up
   once and keeps optional. The symmetric `dual2` Hessian test did not link it
   at all, so it could fail to link on toolchains where `libm` is a separate
