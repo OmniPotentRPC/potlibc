@@ -37,11 +37,13 @@ the same zero-subgradient conventions as the dual path.
 ``tools/catalog.py::to_jet3`` retypes the ``dual2`` transform under
 ``j``-prefixed names and lifts literals to jet constants so constants participate
 in the same arithmetic tally as dynamic values. The CBE adapter exports
-``potlib_plugin_gradient_jet``, which ``potlibc_gradient_jet`` resolves at load
-time to set :c:macro:`POTLIBC_CAP_GRADIENT_JET`. No other catalog surface links
-``jet3_mod``. The jet kernel is compiled at ``-O3`` with the standalone CBE
-surface and is checked bit-for-bit against committed references, including the
-reported operation count and scale.
+``potlib_plugin_gradient_jet``. During handle creation, ``create_handle()``
+resolves that symbol into the stored function pointer and, when it is present,
+sets :c:macro:`POTLIBC_CAP_GRADIENT_JET`; :c:func:`potlibc_gradient_jet` calls
+the stored pointer. No other catalog surface links ``jet3_mod``. The jet kernel
+is compiled at ``-O3`` with the standalone CBE surface and is checked
+bit-for-bit against committed references, including the reported operation
+count and scale.
 
 State isolation
 ---------------
