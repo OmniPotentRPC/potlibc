@@ -41,9 +41,11 @@ in the same arithmetic tally as dynamic values. The CBE adapter exports
 resolves that symbol into the stored function pointer and, when it is present,
 sets :c:macro:`POTLIBC_CAP_GRADIENT_JET`; :c:func:`potlibc_gradient_jet` calls
 the stored pointer. No other catalog surface links ``jet3_mod``. The jet kernel
-is compiled at ``-O3`` with the standalone CBE surface and is checked
-bit-for-bit against committed references, including the reported operation
-count and scale.
+and the standalone CBE surface are compiled at ``-O3`` with
+``-ffp-contract=off`` and checked bit-for-bit against committed references,
+including the reported operation count and scale. Contraction is disabled so
+the compiler does not form fused multiply-add instructions on FMA targets,
+preserving bitwise reproducibility against the reference rounding.
 
 State isolation
 ---------------
