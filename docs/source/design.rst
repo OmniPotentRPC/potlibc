@@ -25,6 +25,24 @@ lanes. The coordinate lane supplies analytic gradients, while the mixed lane
 supplies the directional derivative of that gradient. This computes
 :math:`H(x)v` with storage linear in the coordinate count.
 
+Third-order jets on CBE
+-----------------------
+
+The CH5 surface keeps a third generated variant built on ``jet3_mod``: a
+forward-mode jet carrying a primal value and three exact derivative lanes
+(``d1``..``d3``) along one direction. Elementary operations use the product
+rule and increment a module-wide operation counter; integer real powers follow
+the same zero-subgradient conventions as the dual path.
+
+``tools/catalog.py::to_jet3`` retypes the ``dual2`` transform under
+``j``-prefixed names and lifts literals to jet constants so constants participate
+in the same arithmetic tally as dynamic values. The CBE adapter exports
+``potlib_plugin_gradient_jet``, which ``potlibc_gradient_jet`` resolves at load
+time to set :c:macro:`POTLIBC_CAP_GRADIENT_JET`. No other catalog surface links
+``jet3_mod``. The jet kernel is compiled at ``-O3`` with the standalone CBE
+surface and is checked bit-for-bit against committed references, including the
+reported operation count and scale.
+
 State isolation
 ---------------
 
