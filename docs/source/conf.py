@@ -6,7 +6,7 @@ from pathlib import Path
 project = "potlibc"
 author = "Rohit Goswami"
 copyright = "2026, Rohit Goswami"
-version = "0.2.1"
+version = "0.2.2"
 release = version
 
 extensions = [
