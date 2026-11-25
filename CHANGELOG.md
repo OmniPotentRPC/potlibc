@@ -5,6 +5,16 @@
 All notable changes to potlibc are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Added
+
+- Citation metadata in `CITATION.cff` (CFF 1.2.0), `codemeta.json`
+  (CodeMeta 2.0) and `.zenodo.json`. Each records the potlibc version,
+  author, license and repository, and cites the PotLib 2023 deposit.
+  `RELEASING.md` lists their version strings and release dates with the
+  other release versions.
+
 ## [0.2.2] - 2026-11-22
 
 ### Fixed

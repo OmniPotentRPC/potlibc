@@ -59,4 +59,6 @@ The generated-source transforms and state-isolation design are documented in
 
 The per-handle loader uses Linux `memfd_create` and `/proc/self/fd`.
 
-See [`CHANGELOG.md`](CHANGELOG.md) for notable changes.
+See [`CHANGELOG.md`](CHANGELOG.md) for notable changes. To cite potlibc, use
+the metadata in [`CITATION.cff`](CITATION.cff), and also cite the PotLib 2023
+deposit that it lists under `references`.

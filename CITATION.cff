@@ -1,0 +1,58 @@
+# SPDX-FileCopyrightText: 2026 Rohit Goswami
+# SPDX-License-Identifier: BSD-3-Clause
+
+cff-version: 1.2.0
+message: If you use this software, please cite it using these metadata.
+type: software
+title: potlibc
+abstract: >-
+  potlibc provides a stable C ABI for all 387 surface versions in the PotLib
+  2023 deposit. Each handle loads a private in-memory copy of its generated
+  surface plugin, isolating Fortran COMMON and SAVE state without a global
+  lock or an ELF namespace per handle. Every surface provides energy, analytic
+  forces, and a forward-dual Hessian-vector product without materializing the
+  Hessian.
+authors:
+  - family-names: Goswami
+    given-names: Rohit
+    email: rgoswami@ieee.org
+    affiliation: TurtleTech ehf
+    orcid: https://orcid.org/0000-0002-2393-8056
+version: 0.2.2
+date-released: 2026-11-22
+license: BSD-3-Clause
+repository-code: https://github.com/OmniPotentRPC/potlibc
+url: https://omnipotentrpc.github.io/potlibc/
+keywords:
+  - potential energy surfaces
+  - POTLIB
+  - PotLib 2023
+  - C ABI
+  - Fortran
+  - Hessian-vector product
+  - forward-mode differentiation
+references:
+  - type: software
+    title: >-
+      PotLib 2023: New version of a potential energy surface library for
+      chemical systems
+    authors:
+      - family-names: Shu
+        given-names: Y.
+      - family-names: Varga
+        given-names: Z.
+      - family-names: Jasper
+        given-names: A. W.
+      - family-names: Espinosa-García
+        given-names: J.
+      - family-names: Corchado
+        given-names: J. C.
+      - family-names: Truhlar
+        given-names: D. G.
+    publisher:
+      name: Mendeley Data
+    version: "1"
+    year: 2023
+    doi: 10.17632/chxxhnnt4p.1
+    url: https://comp.chem.umn.edu/potlib
+    license: Apache-2.0
