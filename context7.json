@@ -1,0 +1,22 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "potlibc",
+  "description": "Thread-safe C ABI over the PotLib 2023 surfaces.",
+  "folders": [
+    "docs",
+    "examples",
+    "include"
+  ],
+  "excludeFolders": [
+    "tests",
+    ".github",
+    "upstream",
+    "data"
+  ],
+  "excludeFiles": [
+    "CHANGELOG.md",
+    "CODE_OF_CONDUCT.md",
+    "LICENSE"
+  ],
+  "rules": []
+}
