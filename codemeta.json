@@ -12,7 +12,22 @@
   "readme": "https://github.com/OmniPotentRPC/potlibc/blob/main/README.md",
   "programmingLanguage": ["C", "Fortran", "Python"],
   "operatingSystem": "Linux",
-  "softwareRequirements": ["LAPACK", "Meson >= 1.1.0", "Python 3"],
+  "softwareRequirements": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "LAPACK"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Meson",
+      "version": ">= 1.1.0"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Python",
+      "version": "3"
+    }
+  ],
   "keywords": [
     "potential energy surfaces",
     "POTLIB",
@@ -52,7 +67,7 @@
       "version": "1",
       "datePublished": "2023",
       "identifier": "https://doi.org/10.17632/chxxhnnt4p.1",
-      "url": "https://comp.chem.umn.edu/potlib",
+      "url": "https://data.mendeley.com/datasets/chxxhnnt4p/1",
       "license": "https://spdx.org/licenses/Apache-2.0"
     }
   ]
