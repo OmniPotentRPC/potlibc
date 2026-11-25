@@ -1,0 +1,59 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "potlibc",
+  "description": "potlibc provides a stable C ABI for all 387 surface versions in the PotLib 2023 deposit. Each handle loads a private in-memory copy of its generated surface plugin, isolating Fortran COMMON and SAVE state without a global lock or an ELF namespace per handle. Every surface provides energy, analytic forces, and a forward-dual Hessian-vector product without materializing the Hessian.",
+  "version": "0.2.2",
+  "datePublished": "2026-11-18",
+  "dateModified": "2026-11-22",
+  "license": "https://spdx.org/licenses/BSD-3-Clause",
+  "codeRepository": "https://github.com/OmniPotentRPC/potlibc",
+  "url": "https://omnipotentrpc.github.io/potlibc/",
+  "readme": "https://github.com/OmniPotentRPC/potlibc/blob/main/README.md",
+  "programmingLanguage": ["C", "Fortran", "Python"],
+  "operatingSystem": "Linux",
+  "softwareRequirements": ["LAPACK", "Meson >= 1.1.0", "Python 3"],
+  "keywords": [
+    "potential energy surfaces",
+    "POTLIB",
+    "PotLib 2023",
+    "C ABI",
+    "Fortran",
+    "Hessian-vector product",
+    "forward-mode differentiation"
+  ],
+  "author": [
+    {
+      "@type": "Person",
+      "@id": "https://orcid.org/0000-0002-2393-8056",
+      "givenName": "Rohit",
+      "familyName": "Goswami",
+      "email": "rgoswami@ieee.org",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "TurtleTech ehf"
+      }
+    }
+  ],
+  "citation": [
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://doi.org/10.17632/chxxhnnt4p.1",
+      "name": "PotLib 2023: New version of a potential energy surface library for chemical systems",
+      "author": [
+        {"@type": "Person", "givenName": "Y.", "familyName": "Shu"},
+        {"@type": "Person", "givenName": "Z.", "familyName": "Varga"},
+        {"@type": "Person", "givenName": "A. W.", "familyName": "Jasper"},
+        {"@type": "Person", "givenName": "J.", "familyName": "Espinosa-García"},
+        {"@type": "Person", "givenName": "J. C.", "familyName": "Corchado"},
+        {"@type": "Person", "givenName": "D. G.", "familyName": "Truhlar"}
+      ],
+      "publisher": {"@type": "Organization", "name": "Mendeley Data"},
+      "version": "1",
+      "datePublished": "2023",
+      "identifier": "https://doi.org/10.17632/chxxhnnt4p.1",
+      "url": "https://comp.chem.umn.edu/potlib",
+      "license": "https://spdx.org/licenses/Apache-2.0"
+    }
+  ]
+}

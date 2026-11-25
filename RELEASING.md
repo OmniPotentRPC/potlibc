@@ -10,12 +10,19 @@ requests merged in that range.
 
 ## Version strings
 
-These three strings are the release version and must match:
+These six strings are the release version and must match:
 
 - `meson.build`: the `version` keyword of `project()`. Meson writes that
   value into the installed library and `potlibc.pc`.
 - `docs/source/conf.py`: `version`. `release` is assigned from it.
 - `docs/Doxyfile`: `PROJECT_NUMBER`.
+- `CITATION.cff`: `version`.
+- `codemeta.json`: `version`.
+- `.zenodo.json`: `version`.
+
+Two dates follow the release date in the new changelog heading:
+`date-released` in `CITATION.cff` and `dateModified` in `codemeta.json`.
+`datePublished` in `codemeta.json` stays at the first release, 0.1.0.
 
 Leave `meson_version` unchanged. It is the minimum Meson required to
 configure the build, not the potlibc version. Leave historical changelog
@@ -31,7 +38,14 @@ headings unchanged.
    using the date of the release commit. Do not leave an empty
    `## [Unreleased]` heading. The next change adds that heading back.
 
-3. Set the three version strings above to `X.Y.Z`.
+3. Set the six version strings above to `X.Y.Z` and the two release dates
+   to `YYYY-MM-DD`. `CITATION.cff` must validate against the CFF 1.2.0
+   schema, and both JSON files must parse:
+
+   ```sh
+   python -m json.tool codemeta.json > /dev/null
+   python -m json.tool .zenodo.json > /dev/null
+   ```
 
 4. Search the work tree for the previous version. Remaining hits belong
    only in the historical changelog section or in prose that names that

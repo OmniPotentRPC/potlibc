@@ -1,0 +1,39 @@
+{
+  "title": "potlibc",
+  "upload_type": "software",
+  "description": "potlibc provides a stable C ABI for all 387 surface versions in the PotLib 2023 deposit. Each handle loads a private in-memory copy of its generated surface plugin, isolating Fortran COMMON and SAVE state without a global lock or an ELF namespace per handle. Every surface provides energy, analytic forces, and a forward-dual Hessian-vector product without materializing the Hessian.",
+  "version": "0.2.2",
+  "creators": [
+    {
+      "name": "Goswami, Rohit",
+      "affiliation": "TurtleTech ehf",
+      "orcid": "0000-0002-2393-8056"
+    }
+  ],
+  "license": "BSD-3-Clause",
+  "access_right": "open",
+  "keywords": [
+    "potential energy surfaces",
+    "POTLIB",
+    "PotLib 2023",
+    "C ABI",
+    "Fortran",
+    "Hessian-vector product",
+    "forward-mode differentiation"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/OmniPotentRPC/potlibc",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.17632/chxxhnnt4p.1",
+      "relation": "requires",
+      "scheme": "doi"
+    }
+  ],
+  "references": [
+    "Y. Shu, Z. Varga, A. W. Jasper, J. Espinosa-García, J. C. Corchado, and D. G. Truhlar, \"PotLib 2023: New version of a potential energy surface library for chemical systems,\" Mendeley Data, version 1 (2023). https://doi.org/10.17632/chxxhnnt4p.1"
+  ]
+}
